@@ -1,0 +1,56 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /exchange/v1
+
+spring:
+  application:
+    name: CurrencyExchangeService
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: root
+    password: root
+    hikari:
+      connection-timeout: 10000
+      idle-timeout: 180000
+      max-lifetime: 600000
+      connection-init-sql: SELECT 1;
+      connection-test-query: SELECT 2;
+      minimum-idle: 5
+      maximum-pool-size: 200
+      validation-timeout: 5000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: mysql
+    properties:
+      hibernate:
+        search:
+          default:
+            directory_provider: filesystem
+            indexBase: indexes/
+        jdbc:
+          batch_size: 50
+          batch_versioned_data: true
+        order_inserts: true
+        order_update: true
+      show_sql: true
+      format_sql: true
+    open-in-view: false
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+    mapper:
+      default_view_inclusion: true
+    default-property-inclusion: 'non_null'
+  flyway:
+    baseline-on-migrate: true
+    validate-on-migrate: false
+    table: schema_version
+    enabled: false
+
+exchanger:
+  refresh-rate: 10
