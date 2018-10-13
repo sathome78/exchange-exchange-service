@@ -4,53 +4,72 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.collect.Maps;
 import me.exrates.exchange.exceptions.ExchangerException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Arrays;
+import javax.validation.Valid;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.util.Objects.nonNull;
-import static java.util.stream.Collectors.toSet;
+import static me.exrates.exchange.utils.CollectionUtil.isNotEmpty;
 
 public class ttt {
 
     public static void main(String[] args) throws ExchangerException {
-        Set<CoinMarketCup> data = getDataFromMarket();
+        Set<WorldCoinIndexMarket> usd = getDataFromMarket("USD");
+        Set<WorldCoinIndexMarket> btc = getDataFromMarket("BTC");
     }
 
-    private static Set<CoinMarketCup> getDataFromMarket() throws ExchangerException {
+    private static Set<WorldCoinIndexMarket> getDataFromMarket(String fiat) throws ExchangerException {
+        final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
+        requestParameters.add("key", "GGJokOdeHrwab8hR8AdVDSn6k3kg4P");
+        requestParameters.add("fiat", fiat);
+        UriComponents builder = UriComponentsBuilder
+                .fromHttpUrl("https://www.worldcoinindex.com/apiservice/v2getmarkets")
+                .queryParams(requestParameters)
+                .build();
+
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<CoinMarketCup[]> responseEntity = restTemplate.getForEntity("https://api.coinmarketcap.com/v1/ticker/", CoinMarketCup[].class);
+        ResponseEntity<WorldCoinIndexResponse> responseEntity = restTemplate.getForEntity(builder.toUriString(), WorldCoinIndexResponse.class);
         if (responseEntity.getStatusCodeValue() != 200) {
-            throw new ExchangerException("CoinMarketCup server is not available");
+            throw new ExchangerException("WorldCoinIndex server is not available");
         }
-        CoinMarketCup[] body = responseEntity.getBody();
+        WorldCoinIndexResponse body = responseEntity.getBody();
 
-        return nonNull(body) ? Stream.of(body).collect(toSet()) : Collections.emptySet();
+        return nonNull(body) && isNotEmpty(body.markets) && isNotEmpty(body.markets.get(0))
+                ? new HashSet<>(body.markets.get(0))
+                : Collections.emptySet();
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class CoinMarketCupResponse {
+    private static class WorldCoinIndexResponse {
 
-        CoinMarketCup[] response;
+        @JsonProperty("Markets")
+        @Valid
+        List<List<WorldCoinIndexMarket>> markets;
+
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class CoinMarketCup {
+    private static class WorldCoinIndexMarket {
 
-        String symbol;
-        @JsonProperty("price_usd")
-        String priceUSD;
-        @JsonProperty("price_btc")
-        String priceBTC;
+        @JsonProperty("Label")
+        String label;
+        @JsonProperty("Price")
+        double price;
     }
 }

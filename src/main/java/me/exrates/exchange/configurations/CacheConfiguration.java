@@ -13,11 +13,20 @@ import java.util.concurrent.TimeUnit;
 public class CacheConfiguration {
 
     public static final String CACHE_COIN_MARKET_CUP_EXCHANGER = "cache.coinmarketcup.exchanger";
+    public static final String CACHE_WORLD_COIN_INDEX_EXCHANGER = "cache.worldcoinindex.exchanger";
 
     @Bean
     @Qualifier(CACHE_COIN_MARKET_CUP_EXCHANGER)
-    public Cache cacheCoinmarket() {
+    public Cache cacheCoinMarketCup() {
         return new CaffeineCache(CACHE_COIN_MARKET_CUP_EXCHANGER, Caffeine.newBuilder()
+                .expireAfterWrite(5, TimeUnit.MINUTES)
+                .build());
+    }
+
+    @Bean
+    @Qualifier(CACHE_WORLD_COIN_INDEX_EXCHANGER)
+    public Cache cacheWorldCoinIndex() {
+        return new CaffeineCache(CACHE_WORLD_COIN_INDEX_EXCHANGER, Caffeine.newBuilder()
                 .expireAfterWrite(5, TimeUnit.MINUTES)
                 .build());
     }

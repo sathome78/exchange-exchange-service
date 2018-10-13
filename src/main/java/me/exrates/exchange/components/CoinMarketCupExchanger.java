@@ -28,7 +28,7 @@ import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 @Component("coinMarketCupExchanger")
 public class CoinMarketCupExchanger implements Exchanger {
 
-    private static final String COIN_MARKET_CUP_API_URL = "https://api.coinmarketcap.com/v1/ticker";
+    private static final String COIN_MARKET_CUP_API_URL = "https://api.coinmarketcap.com/v1";
 
     private static final String ALL = "All";
 
@@ -61,22 +61,22 @@ public class CoinMarketCupExchanger implements Exchanger {
             log.info("Data from Coinmarketcup not available");
             return BigDecimal.ZERO;
         }
-        CoinMarketCup coinMarketCup = data.stream()
+        CoinMarketCup response = data.stream()
                 .filter(ticker -> ticker.symbol.equals(currencyName))
                 .findFirst()
                 .orElse(null);
         switch (currency) {
             case USD:
-                return nonNull(coinMarketCup) ? new BigDecimal(coinMarketCup.priceUSD) : BigDecimal.ZERO;
+                return nonNull(response) ? new BigDecimal(response.priceUSD) : BigDecimal.ZERO;
             case BTC:
-                return nonNull(coinMarketCup) ? new BigDecimal(coinMarketCup.priceBTC) : BigDecimal.ZERO;
+                return nonNull(response) ? new BigDecimal(response.priceBTC) : BigDecimal.ZERO;
             default:
                 return BigDecimal.ZERO;
         }
     }
 
     private Set<CoinMarketCup> getDataFromMarket() throws ExchangerException {
-        ResponseEntity<CoinMarketCup[]> responseEntity = restTemplate.getForEntity(COIN_MARKET_CUP_API_URL, CoinMarketCup[].class);
+        ResponseEntity<CoinMarketCup[]> responseEntity = restTemplate.getForEntity(COIN_MARKET_CUP_API_URL + "/ticker", CoinMarketCup[].class);
         if (responseEntity.getStatusCodeValue() != 200) {
             throw new ExchangerException("CoinMarketCup server is not available");
         }
