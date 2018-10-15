@@ -61,7 +61,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
     }
 
     private BigDecimal getRate(String currencyName, BaseCurrency currency) {
-        Set<WorldCoinIndexMarket> data = cache.get(currency, () -> getDataFromMarket(currency));
+        Set<WorldCoinIndexMarket> data = cache.get(currency.name(), () -> getDataFromMarket(currency));
         if (isEmpty(data)) {
             log.info("Data from WorldCoinIndex not available");
             return BigDecimal.ZERO;

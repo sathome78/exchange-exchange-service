@@ -14,12 +14,13 @@ public class CacheConfiguration {
 
     public static final String CACHE_COIN_MARKET_CUP_EXCHANGER = "cache.coinmarketcup.exchanger";
     public static final String CACHE_WORLD_COIN_INDEX_EXCHANGER = "cache.worldcoinindex.exchanger";
+    public static final String CACHE_CURRENCY_LAYER_EXCHANGER = "cache.currencylayer.exchanger";
 
     @Bean
     @Qualifier(CACHE_COIN_MARKET_CUP_EXCHANGER)
     public Cache cacheCoinMarketCup() {
         return new CaffeineCache(CACHE_COIN_MARKET_CUP_EXCHANGER, Caffeine.newBuilder()
-                .expireAfterWrite(5, TimeUnit.MINUTES)
+                .expireAfterWrite(1, TimeUnit.HOURS)
                 .build());
     }
 
@@ -27,7 +28,15 @@ public class CacheConfiguration {
     @Qualifier(CACHE_WORLD_COIN_INDEX_EXCHANGER)
     public Cache cacheWorldCoinIndex() {
         return new CaffeineCache(CACHE_WORLD_COIN_INDEX_EXCHANGER, Caffeine.newBuilder()
-                .expireAfterWrite(5, TimeUnit.MINUTES)
+                .expireAfterWrite(1, TimeUnit.HOURS)
+                .build());
+    }
+
+    @Bean
+    @Qualifier(CACHE_CURRENCY_LAYER_EXCHANGER)
+    public Cache cacheFreeCurrency() {
+        return new CaffeineCache(CACHE_CURRENCY_LAYER_EXCHANGER, Caffeine.newBuilder()
+                .expireAfterWrite(1, TimeUnit.HOURS)
                 .build());
     }
 }

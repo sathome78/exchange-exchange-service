@@ -1,4 +1,4 @@
-package me.exrates.exchange;
+package me.exrates.exchange.components;
 
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -8,8 +8,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.exceptions.ExchangerException;
+import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.Cache;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -23,18 +27,44 @@ import java.util.Map;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_CURRENCY_LAYER_EXCHANGER;
 
 @Slf4j
-public class ttt {
+@Component("currencyLayerExchanger")
+public class CurrencyLayerExchanger implements Exchanger {
 
-    public static void main(String[] args) throws ExchangerException {
-        BigDecimal eth = getRate("RUB");
-        BigDecimal eur = getRate("EUR");
-        BigDecimal uah = getRate("UAH");
+    private static final String CURRENCY_LAYER_API_URL = "http://www.apilayer.net/api";
+    private static final String CURRENCY_LAYER_API_KEY = "59705b87d908ba5a93492fb14521d612";
+
+    private static final String ALL = "ALL";
+
+    private final Cache cache;
+    private final RestTemplate restTemplate;
+
+    public CurrencyLayerExchanger(@Qualifier(CACHE_CURRENCY_LAYER_EXCHANGER) Cache cache) {
+        this.cache = cache;
+        this.restTemplate = new RestTemplate();
     }
 
-    private static BigDecimal getRate(String currencyName) throws ExchangerException {
-        Map<String, String> data = getDataFromMarket();
+    @Override
+    public ExchangerType getExchangerType() {
+        return ExchangerType.FREE_CURRENCY;
+    }
+
+    @Override
+    public BigDecimal getBTCRate(String currencyName) {
+        log.warn("CurrencyLayer not supported BTC");
+        return BigDecimal.ZERO;
+    }
+
+    @Override
+    public BigDecimal getUSDRate(String currencyName) {
+        return getRate(currencyName);
+    }
+
+
+    private BigDecimal getRate(String currencyName) {
+        Map<String, String> data = cache.get(ALL, this::getDataFromMarket);
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from CurrencyLayer not available");
             return BigDecimal.ZERO;
@@ -48,18 +78,18 @@ public class ttt {
         return nonNull(pair) ? pair.getValue() : BigDecimal.ZERO;
     }
 
-    private static Map<String, String> getDataFromMarket() throws ExchangerException {
+    private Map<String, String> getDataFromMarket() throws ExchangerException {
         final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
-        requestParameters.add("access_key", "59705b87d908ba5a93492fb14521d612");
+        requestParameters.add("access_key", CURRENCY_LAYER_API_KEY);
+
         UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl("http://www.apilayer.net/api/live")
+                .fromHttpUrl(CURRENCY_LAYER_API_URL + "/live")
                 .queryParams(requestParameters)
                 .build();
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<FreeCurrencyResponse> responseEntity = restTemplate.getForEntity(builder.toUriString(), FreeCurrencyResponse.class);
         if (responseEntity.getStatusCodeValue() != 200) {
-            throw new ExchangerException("FreeCurrency server is not available");
+            throw new ExchangerException("CurrencyLayer server is not available");
         }
         FreeCurrencyResponse body = responseEntity.getBody();
 
