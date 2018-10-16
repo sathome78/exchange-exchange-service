@@ -20,7 +20,7 @@ public class CacheConfiguration {
     @Qualifier(CACHE_COIN_MARKET_CUP_EXCHANGER)
     public Cache cacheCoinMarketCup() {
         return new CaffeineCache(CACHE_COIN_MARKET_CUP_EXCHANGER, Caffeine.newBuilder()
-                .expireAfterWrite(1, TimeUnit.HOURS)
+                .expireAfterWrite(15, TimeUnit.MINUTES)
                 .build());
     }
 
@@ -28,7 +28,7 @@ public class CacheConfiguration {
     @Qualifier(CACHE_WORLD_COIN_INDEX_EXCHANGER)
     public Cache cacheWorldCoinIndex() {
         return new CaffeineCache(CACHE_WORLD_COIN_INDEX_EXCHANGER, Caffeine.newBuilder()
-                .expireAfterWrite(1, TimeUnit.HOURS)
+                .expireAfterWrite(15, TimeUnit.MINUTES)
                 .build());
     }
 
@@ -36,7 +36,7 @@ public class CacheConfiguration {
     @Qualifier(CACHE_CURRENCY_LAYER_EXCHANGER)
     public Cache cacheFreeCurrency() {
         return new CaffeineCache(CACHE_CURRENCY_LAYER_EXCHANGER, Caffeine.newBuilder()
-                .expireAfterWrite(1, TimeUnit.HOURS)
+                .expireAfterWrite(15, TimeUnit.MINUTES)
                 .build());
     }
 }

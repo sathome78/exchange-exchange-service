@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.exceptions.ExchangerException;
+import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -52,18 +53,7 @@ public class CurrencyLayerExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getBTCRate(String currencyName) {
-        log.warn("CurrencyLayer not supported BTC");
-        return BigDecimal.ZERO;
-    }
-
-    @Override
-    public BigDecimal getUSDRate(String currencyName) {
-        return getRate(currencyName);
-    }
-
-
-    private BigDecimal getRate(String currencyName) {
+    public BigDecimal getRate(String currencyName, BaseCurrency currency) {
         Map<String, String> data = cache.get(ALL, this::getDataFromMarket);
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from CurrencyLayer not available");

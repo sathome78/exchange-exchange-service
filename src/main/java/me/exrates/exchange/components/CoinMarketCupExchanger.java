@@ -26,11 +26,10 @@ import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 
 @Slf4j
 @Component("coinMarketCupExchanger")
+
 public class CoinMarketCupExchanger implements Exchanger {
 
     private static final String COIN_MARKET_CUP_API_URL = "https://api.coinmarketcap.com/v1";
-
-    private static final String ALL = "All";
 
     private final Cache cache;
     private final RestTemplate restTemplate;
@@ -46,16 +45,7 @@ public class CoinMarketCupExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getBTCRate(String currencyName) {
-        return getRate(currencyName, BaseCurrency.BTC);
-    }
-
-    @Override
-    public BigDecimal getUSDRate(String currencyName) {
-        return getRate(currencyName, BaseCurrency.USD);
-    }
-
-    private BigDecimal getRate(String currencyName, BaseCurrency currency) {
+    public BigDecimal getRate(String currencyName, BaseCurrency currency) {
         Set<CoinMarketCup> data = cache.get(ALL, this::getDataFromMarket);
         if (isEmpty(data)) {
             log.info("Data from Coinmarketcup not available");

@@ -51,16 +51,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getBTCRate(String currencyName) {
-        return getRate(currencyName, BaseCurrency.BTC);
-    }
-
-    @Override
-    public BigDecimal getUSDRate(String currencyName) {
-        return getRate(currencyName, BaseCurrency.USD);
-    }
-
-    private BigDecimal getRate(String currencyName, BaseCurrency currency) {
+    public BigDecimal getRate(String currencyName, BaseCurrency currency) {
         Set<WorldCoinIndexMarket> data = cache.get(currency.name(), () -> getDataFromMarket(currency));
         if (isEmpty(data)) {
             log.info("Data from WorldCoinIndex not available");

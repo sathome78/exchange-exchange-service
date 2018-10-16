@@ -1,6 +1,7 @@
 package me.exrates.exchange.components;
 
 import lombok.extern.slf4j.Slf4j;
+import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.springframework.stereotype.Component;
 
@@ -16,12 +17,7 @@ public class ExratesExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getBTCRate(String currencyName) {
-        return null;
-    }
-
-    @Override
-    public BigDecimal getUSDRate(String currencyName) {
+    public BigDecimal getRate(String currencyName, BaseCurrency currency) {
         return null;
     }
 }
