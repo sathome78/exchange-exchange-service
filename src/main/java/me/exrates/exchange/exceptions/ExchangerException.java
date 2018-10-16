@@ -1,6 +1,6 @@
 package me.exrates.exchange.exceptions;
 
-public class ExchangerException extends Exception {
+public class ExchangerException extends RuntimeException {
 
     public ExchangerException() {
         super();

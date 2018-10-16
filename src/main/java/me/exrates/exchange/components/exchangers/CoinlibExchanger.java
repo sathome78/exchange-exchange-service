@@ -1,16 +1,21 @@
-package me.exrates.exchange;
+package me.exrates.exchange.components.exchangers;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
-import me.exrates.exchange.exceptions.ExchangerException;
+import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.models.enums.BaseCurrency;
+import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.utils.CollectionUtil;
 import me.exrates.exchange.utils.ExecutorUtil;
 import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.Cache;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -32,28 +37,34 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
-import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
-import static me.exrates.exchange.utils.CollectionUtil.isNotEmpty;
+import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_COINLIB_EXCHANGER;
 
 @Slf4j
-public class ttt {
+@Lazy
+@Component("coinlibExchanger")
+public class CoinlibExchanger implements Exchanger {
 
     private static final String COINLIB_API_URL = "https://coinlib.io/api/v1";
     private static final String COINLIB_API_KEY = "a5c162aa66e69ee6";
 
-    private static Map<String, String> codes;
+    private static final int perPage = 100;
 
-    public static void main(String[] args) {
-        codes = getCodes();
-//        BigDecimal eth = getRate("ETH", BaseCurrency.BTC);
-        BigDecimal rub = getRate("SIM", BaseCurrency.BTC);
+    private final Map<String, String> codes;
+
+    private final Cache cache;
+    private final RestTemplate restTemplate;
+
+    public CoinlibExchanger(@Qualifier(CACHE_COINLIB_EXCHANGER) Cache cache) {
+        this.cache = cache;
+        this.restTemplate = new RestTemplate();
+        this.codes = getCodes();
     }
 
-    private static Map<String, String> getCodes() {
-        final int pages = getNumberOfCoins() / 200;
+    private Map<String, String> getCodes() {
+        final int pages = getNumberOfCoins() / perPage;
 
         return IntStream.range(0, pages)
-                .mapToObj(ttt::getCoins)
+                .mapToObj(this::getCoins)
                 .filter(CollectionUtil::isNotEmpty)
                 .flatMap(List::stream)
                 .collect(toMap(
@@ -63,8 +74,14 @@ public class ttt {
                 ));
     }
 
-     public static BigDecimal getRate(String currencyName, BaseCurrency currency) {
-        Map<BaseCurrency, Coin> data = getDataFromMarket(currencyName);
+    @Override
+    public ExchangerType getExchangerType() {
+        return ExchangerType.COINLIB;
+    }
+
+    @Override
+    public BigDecimal getRate(String currencyName, BaseCurrency currency) {
+        Map<BaseCurrency, Coin> data = cache.get(currencyName, () -> getDataFromMarket(currencyName));
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from Coinlib server is not available");
             return BigDecimal.ZERO;
@@ -74,7 +91,7 @@ public class ttt {
         return nonNull(response) ? BigDecimal.valueOf(response.price) : BigDecimal.ZERO;
     }
 
-    private static Map<BaseCurrency, Coin> getDataFromMarket(String currencyName) {
+    private Map<BaseCurrency, Coin> getDataFromMarket(String currencyName) {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
         List<CompletableFuture<Pair<BaseCurrency, Coin>>> future = Stream.of(BaseCurrency.values())
@@ -96,7 +113,7 @@ public class ttt {
         return collect;
     }
 
-    private static Coin getDataFromMarketByBaseCurrency(String currencyName, BaseCurrency currency) {
+    private Coin getDataFromMarketByBaseCurrency(String currencyName, BaseCurrency currency) {
         final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("key", COINLIB_API_KEY);
         requestParameters.add("symbol", codes.get(currencyName));
@@ -107,7 +124,6 @@ public class ttt {
                 .queryParams(requestParameters)
                 .build();
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Coin> responseEntity = restTemplate.getForEntity(builder.toUriString(), Coin.class);
         if (responseEntity.getStatusCodeValue() != 200) {
             log.warn("Coinlib server is not available");
@@ -116,7 +132,7 @@ public class ttt {
         return responseEntity.getBody();
     }
 
-    private static List<Coin> getCoins(int page) {
+    private List<Coin> getCoins(int page) {
         final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("key", COINLIB_API_KEY);
         requestParameters.add("page", String.valueOf(page));
@@ -126,7 +142,6 @@ public class ttt {
                 .queryParams(requestParameters)
                 .build();
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<CoinlibResponse> responseEntity = restTemplate.getForEntity(builder.toUriString(), CoinlibResponse.class);
         if (responseEntity.getStatusCodeValue() != 200) {
             log.warn("Coinlib server is not available");
@@ -137,7 +152,7 @@ public class ttt {
         return nonNull(body) ? body.coins : Collections.emptyList();
     }
 
-    private static int getNumberOfCoins() {
+    private int getNumberOfCoins() {
         final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("key", COINLIB_API_KEY);
 
@@ -146,7 +161,6 @@ public class ttt {
                 .queryParams(requestParameters)
                 .build();
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<StatisticData> responseEntity = restTemplate.getForEntity(builder.toUriString(), StatisticData.class);
         if (responseEntity.getStatusCodeValue() != 200) {
             log.warn("Coinlib server is not available");
