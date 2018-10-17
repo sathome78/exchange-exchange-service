@@ -28,7 +28,7 @@ import java.time.LocalDateTime;
 public class Currency {
 
     @Id
-    @Column(name = "name", unique = true, nullable = false, length = 5)
+    @Column(name = "name", unique = true, nullable = false, length = 16)
     private String name;
 
     @Enumerated(EnumType.STRING)

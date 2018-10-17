@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
-import me.exrates.exchange.utils.ExecutorUtil;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,9 +24,6 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
@@ -77,25 +73,10 @@ public class ExratesExchanger implements Exchanger {
     }
 
     private Map<BaseCurrency, List<ExratesData>> getDataFromMarket(String currencySymbol) {
-        ExecutorService executor = Executors.newFixedThreadPool(2);
-
-        List<CompletableFuture<Pair<BaseCurrency, List<ExratesData>>>> future = Stream.of(BaseCurrency.values())
-                .map(value ->
-                        CompletableFuture.supplyAsync(() -> Pair.of(value, getDataFromMarketByBaseCurrency(currencySymbol, value)), executor)
-                                .exceptionally(ex -> {
-                                    log.error("Get data from market failed", ex);
-                                    return Pair.of(value, Collections.emptyList());
-                                }))
-                .collect(toList());
-
-        Map<BaseCurrency, List<ExratesData>> collect = future.stream()
-                .map(CompletableFuture::join)
+        return Stream.of(BaseCurrency.values())
+                .map(value -> Pair.of(value, getDataFromMarketByBaseCurrency(currencySymbol, value)))
                 .filter(pair -> isNotEmpty(pair.getValue()))
                 .collect(toMap(Pair::getKey, Pair::getValue));
-
-        ExecutorUtil.shutdownExecutor(executor);
-
-        return collect;
     }
 
     private List<ExratesData> getDataFromMarketByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {

@@ -73,3 +73,6 @@ exchangers:
       ticker: https://www.worldcoinindex.com/apiservice/ticker
     api-key: 'GGJokOdeHrwab8hR8AdVDSn6k3kg4P'
 
+exchange-api:
+  url: http://localhost:8083
+  path: /exchange/v1/currency

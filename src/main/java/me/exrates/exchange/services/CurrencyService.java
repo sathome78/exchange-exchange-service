@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import static java.util.Objects.nonNull;
 
 @Slf4j
 @Service
@@ -34,7 +37,7 @@ public class CurrencyService {
 
         Exchanger exchanger = factory.getExchanger(type);
         BigDecimal btcRate = exchanger.getRate(currencySymbol, BaseCurrency.BTC);
-        if (BigDecimal.ZERO.compareTo(btcRate) > 0) {
+        if (btcRate.compareTo(BigDecimal.ZERO) > 0) {
             log.info("The exchange rate is taken from {} server: BTC {}", type, btcRate);
             currencyRepository.updateBtcRate(currencySymbol, btcRate);
 
@@ -43,7 +46,7 @@ public class CurrencyService {
         btcRate = currencyRepository.getBtcRate(currencySymbol);
 
         log.info("The exchange rate is taken from database: BTC {}", btcRate);
-        return btcRate;
+        return nonNull(btcRate) ? btcRate : BigDecimal.ZERO;
     }
 
     @Transactional
@@ -52,7 +55,7 @@ public class CurrencyService {
 
         Exchanger exchanger = factory.getExchanger(type);
         BigDecimal usdRate = exchanger.getRate(currencySymbol, BaseCurrency.USD);
-        if (BigDecimal.ZERO.compareTo(usdRate) > 0) {
+        if (usdRate.compareTo(BigDecimal.ZERO) > 0) {
             log.info("The exchange rate is taken from {} server: USD {}", type, usdRate);
             currencyRepository.updateUsdRate(currencySymbol, usdRate);
 
@@ -61,21 +64,30 @@ public class CurrencyService {
         usdRate = currencyRepository.getUsdRate(currencySymbol);
 
         log.info("The exchange rate is taken from database: USD {}", usdRate);
-        return usdRate;
+        return nonNull(usdRate) ? usdRate : BigDecimal.ZERO;
     }
 
     @Transactional
-    public void create(CurrencyForm form) {
+    public Currency create(CurrencyForm form) {
+        final LocalDateTime now = LocalDateTime.now();
+
         Currency entity = Currency.builder()
-                .name(form.getSymbol())
+                .name(form.getName())
                 .type(form.getType())
                 .btcRate(form.getBtcRate())
-                .btcRateUpdatedAt(form.getBtcRateUpdatedAt())
+                .btcRateUpdatedAt(now)
                 .usdRate(form.getUsdRate())
-                .usdRateUpdatedAt(form.getUsdRateUpdatedAt())
+                .usdRateUpdatedAt(now)
                 .build();
-        currencyRepository.save(entity);
-        log.info("Currency {} has been created", form.getSymbol());
+        Currency newCurrency = currencyRepository.save(entity);
+        log.info("Currency {} has been created", form.getName());
+        return newCurrency;
+    }
+
+    @Transactional
+    public void delete(String currencySymbol) {
+        currencyRepository.deleteById(currencySymbol);
+        log.info("Currency {} has been removed", currencySymbol);
     }
 
     @Transactional

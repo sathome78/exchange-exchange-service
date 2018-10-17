@@ -17,11 +17,8 @@ import java.time.LocalDateTime;
 public class CurrencyForm {
 
     @NotEmpty
-    private String symbol;
-    @NotEmpty
+    private String name;
     private ExchangerType type;
     private BigDecimal usdRate;
-    private LocalDateTime usdRateUpdatedAt;
     private BigDecimal btcRate;
-    private LocalDateTime btcRateUpdatedAt;
 }
