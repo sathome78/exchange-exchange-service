@@ -12,6 +12,7 @@ import me.exrates.exchange.utils.CollectionUtil;
 import me.exrates.exchange.utils.ExecutorUtil;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -44,17 +45,28 @@ import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_COINLI
 @Component("coinlibExchanger")
 public class CoinlibExchanger implements Exchanger {
 
-    private static final String COINLIB_API_URL = "https://coinlib.io/api/v1";
-    private static final String COINLIB_API_KEY = "a5c162aa66e69ee6";
-
-    private static final int perPage = 100;
-
     private final Map<String, String> codes;
+
+    private String apiUrlCoinlist;
+    private String apiUrlCoin;
+    private String apiUrlGlobal;
+    private String apiKey;
+    private int perPage;
 
     private final Cache cache;
     private final RestTemplate restTemplate;
 
-    public CoinlibExchanger(@Qualifier(CACHE_COINLIB_EXCHANGER) Cache cache) {
+    public CoinlibExchanger(@Value("${exchangers.coinlib.api-url.coinlist}") String apiUrlCoinlist,
+                            @Value("${exchangers.coinlib.api-url.coin}") String apiUrlCoin,
+                            @Value("${exchangers.coinlib.api-url.global}") String apiUrlGlobal,
+                            @Value("${exchangers.coinlib.api-key}") String apiKey,
+                            @Value("${exchangers.coinlib.per-page}") int perPage,
+                            @Qualifier(CACHE_COINLIB_EXCHANGER) Cache cache) {
+        this.apiUrlCoinlist = apiUrlCoinlist;
+        this.apiUrlCoin = apiUrlCoin;
+        this.apiUrlGlobal = apiUrlGlobal;
+        this.apiKey = apiKey;
+        this.perPage = perPage;
         this.cache = cache;
         this.restTemplate = new RestTemplate();
         this.codes = getCodes();
@@ -70,7 +82,10 @@ public class CoinlibExchanger implements Exchanger {
                 .collect(toMap(
                         d -> d.showSymbol,
                         d -> d.symbol,
-                        (d1, d2) -> d1
+                        (k1, k2) -> {
+                            log.debug("Duplicate key found!");
+                            return k2;
+                        }
                 ));
     }
 
@@ -114,56 +129,56 @@ public class CoinlibExchanger implements Exchanger {
     }
 
     private Coin getDataFromMarketByBaseCurrency(String currencyName, BaseCurrency currency) {
-        final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
-        requestParameters.add("key", COINLIB_API_KEY);
+        MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
+        requestParameters.add("key", apiKey);
         requestParameters.add("symbol", codes.get(currencyName));
         requestParameters.add("pref", currency.name());
 
         UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl(COINLIB_API_URL + "/coin")
+                .fromHttpUrl(apiUrlCoin)
                 .queryParams(requestParameters)
                 .build();
 
         ResponseEntity<Coin> responseEntity = restTemplate.getForEntity(builder.toUriString(), Coin.class);
         if (responseEntity.getStatusCodeValue() != 200) {
-            log.warn("Coinlib server is not available");
+            log.error("Coinlib server is not available");
             return null;
         }
         return responseEntity.getBody();
     }
 
     private List<Coin> getCoins(int page) {
-        final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
-        requestParameters.add("key", COINLIB_API_KEY);
-        requestParameters.add("page", String.valueOf(page));
+        MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
+        requestParameters.add("key", apiKey);
+        requestParameters.add("page", String.valueOf(page + 1));
 
         UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl(COINLIB_API_URL + "/coinlist")
+                .fromHttpUrl(apiUrlCoinlist)
                 .queryParams(requestParameters)
                 .build();
 
-        ResponseEntity<CoinlibResponse> responseEntity = restTemplate.getForEntity(builder.toUriString(), CoinlibResponse.class);
+        ResponseEntity<CoinlibData> responseEntity = restTemplate.getForEntity(builder.toUriString(), CoinlibData.class);
         if (responseEntity.getStatusCodeValue() != 200) {
-            log.warn("Coinlib server is not available");
+            log.error("Coinlib server is not available");
             return Collections.emptyList();
         }
-        CoinlibResponse body = responseEntity.getBody();
+        CoinlibData body = responseEntity.getBody();
 
         return nonNull(body) ? body.coins : Collections.emptyList();
     }
 
     private int getNumberOfCoins() {
-        final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
-        requestParameters.add("key", COINLIB_API_KEY);
+        MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
+        requestParameters.add("key", apiKey);
 
         UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl(COINLIB_API_URL + "/global")
+                .fromHttpUrl(apiUrlGlobal)
                 .queryParams(requestParameters)
                 .build();
 
         ResponseEntity<StatisticData> responseEntity = restTemplate.getForEntity(builder.toUriString(), StatisticData.class);
         if (responseEntity.getStatusCodeValue() != 200) {
-            log.warn("Coinlib server is not available");
+            log.error("Coinlib server is not available");
             return 0;
         }
         StatisticData body = responseEntity.getBody();
@@ -174,7 +189,7 @@ public class CoinlibExchanger implements Exchanger {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class CoinlibResponse {
+    private static class CoinlibData {
 
         @JsonProperty("coins")
         @Valid

@@ -11,18 +11,18 @@ import java.math.BigDecimal;
 @Repository
 public interface CurrencyRepository extends JpaRepository<Currency, String> {
 
-    @Query("SELECT ce.type FROM CurrencyExchange ce WHERE ce.name = :currencyName")
+    @Query("SELECT c.type FROM Currency c WHERE c.name = :currencyName")
     ExchangerType getType(String currencyName);
 
-    @Query("SELECT ce.btcRate FROM CurrencyExchange ce WHERE ce.name = :currencyName")
+    @Query("SELECT c.btcRate FROM Currency c WHERE c.name = :currencyName")
     BigDecimal getBtcRate(String currencyName);
 
-    @Query("SELECT ce.usdRate FROM CurrencyExchange ce WHERE ce.name = :currencyName")
+    @Query("SELECT c.usdRate FROM Currency c WHERE c.name = :currencyName")
     BigDecimal getUsdRate(String currencyName);
 
-    @Query("UPDATE CurrencyExchange ce SET ce.btcRate = :btcRate, ce.btcRateUpdatedAt = CURRENT_TIMESTAMP WHERE ce.name = :currencyName")
+    @Query("UPDATE Currency c SET c.btcRate = :btcRate, c.btcRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.name = :currencyName")
     void updateBtcRate(String currencyName, BigDecimal btcRate);
 
-    @Query("UPDATE CurrencyExchange ce SET ce.usdRate = :usdRate, ce.usdRateUpdatedAt = CURRENT_TIMESTAMP WHERE ce.name = :currencyName")
+    @Query("UPDATE Currency c SET c.usdRate = :usdRate, c.usdRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.name = :currencyName")
     void updateUsdRate(String currencyName, BigDecimal usdRate);
 }

@@ -1,4 +1,4 @@
-package me.exrates.exchange.models.dto;
+package me.exrates.exchange.models.form;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Builder(builderClassName = "Builder")
 @AllArgsConstructor
 @NoArgsConstructor
-public class CurrencyDto {
+public class CurrencyForm {
 
     @NotEmpty
     private String name;

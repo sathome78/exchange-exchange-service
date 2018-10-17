@@ -3,15 +3,14 @@ package me.exrates.exchange.components.exchangers;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
-import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.utils.ExecutorUtil;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -44,12 +43,14 @@ import static me.exrates.exchange.utils.CollectionUtil.isNotEmpty;
 @Component("exratesExchanger")
 public class ExratesExchanger implements Exchanger {
 
-    private static final String EXRATES_API_URL = "https://exrates.me/openapi/v1/public";
+    private String apiUrlTicker;
 
     private final Cache cache;
     private final RestTemplate restTemplate;
 
-    public ExratesExchanger(@Qualifier(CACHE_EXRATES_EXCHANGER) Cache cache) {
+    public ExratesExchanger(@Value("${exchangers.exrates.api-url.ticker}") String apiUrlTicker,
+                            @Qualifier(CACHE_EXRATES_EXCHANGER) Cache cache) {
+        this.apiUrlTicker = apiUrlTicker;
         this.cache = cache;
         this.restTemplate = new RestTemplate();
     }
@@ -61,24 +62,24 @@ public class ExratesExchanger implements Exchanger {
 
     @Override
     public BigDecimal getRate(String currencyName, BaseCurrency currency) {
-        Map<BaseCurrency, List<ExratesResponse>> data = cache.get(currencyName, () -> getDataFromMarket(currencyName));
+        Map<BaseCurrency, List<ExratesData>> data = cache.get(currencyName, () -> getDataFromMarket(currencyName));
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from Exrates server is not available");
             return BigDecimal.ZERO;
         }
-        List<ExratesResponse> markets = data.get(currency);
+        List<ExratesData> markets = data.get(currency);
         if (isEmpty(markets)) {
             return BigDecimal.ZERO;
         }
-        ExratesResponse response = markets.get(0);
+        ExratesData response = markets.get(0);
 
-        return nonNull(response) ? BigDecimal.valueOf(response.price) : BigDecimal.ZERO;
+        return nonNull(response) ? BigDecimal.valueOf(response.last) : BigDecimal.ZERO;
     }
 
-    private Map<BaseCurrency, List<ExratesResponse>> getDataFromMarket(String currencyName) {
+    private Map<BaseCurrency, List<ExratesData>> getDataFromMarket(String currencyName) {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
-        List<CompletableFuture<Pair<BaseCurrency, List<ExratesResponse>>>> future = Stream.of(BaseCurrency.values())
+        List<CompletableFuture<Pair<BaseCurrency, List<ExratesData>>>> future = Stream.of(BaseCurrency.values())
                 .map(value ->
                         CompletableFuture.supplyAsync(() -> Pair.of(value, getDataFromMarketByBaseCurrency(currencyName, value)), executor)
                                 .exceptionally(ex -> {
@@ -87,7 +88,7 @@ public class ExratesExchanger implements Exchanger {
                                 }))
                 .collect(toList());
 
-        Map<BaseCurrency, List<ExratesResponse>> collect = future.stream()
+        Map<BaseCurrency, List<ExratesData>> collect = future.stream()
                 .map(CompletableFuture::join)
                 .filter(pair -> isNotEmpty(pair.getValue()))
                 .collect(toMap(Pair::getKey, Pair::getValue));
@@ -97,21 +98,21 @@ public class ExratesExchanger implements Exchanger {
         return collect;
     }
 
-    private List<ExratesResponse> getDataFromMarketByBaseCurrency(String currencyName, BaseCurrency currency) {
-        final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
+    private List<ExratesData> getDataFromMarketByBaseCurrency(String currencyName, BaseCurrency currency) {
+        MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("currency_pair", String.format("%s_%s", currencyName.toLowerCase(), currency.name().toLowerCase()));
 
         UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl(EXRATES_API_URL + "/ticker")
+                .fromHttpUrl(apiUrlTicker)
                 .queryParams(requestParameters)
                 .build();
 
-
-        ResponseEntity<ExratesResponse[]> responseEntity = restTemplate.getForEntity(builder.toUriString(), ExratesResponse[].class);
+        ResponseEntity<ExratesData[]> responseEntity = restTemplate.getForEntity(builder.toUriString(), ExratesData[].class);
         if (responseEntity.getStatusCodeValue() != 200) {
-            throw new ExchangerException("Exrates server is not available");
+            log.error("Exrates server is not available");
+            return Collections.emptyList();
         }
-        ExratesResponse[] body = responseEntity.getBody();
+        ExratesData[] body = responseEntity.getBody();
 
         return nonNull(body) ? Stream.of(body).collect(toList()) : Collections.emptyList();
     }
@@ -119,9 +120,8 @@ public class ExratesExchanger implements Exchanger {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class ExratesResponse {
+    private static class ExratesData {
 
-        @JsonProperty("last")
-        double price;
+        double last;
     }
 }

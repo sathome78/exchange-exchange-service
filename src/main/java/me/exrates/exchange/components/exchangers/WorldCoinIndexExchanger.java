@@ -6,12 +6,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
-import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.utils.ExecutorUtil;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -45,13 +45,17 @@ import static me.exrates.exchange.utils.CollectionUtil.isNotEmpty;
 @Component("worldCoinIndexExchanger")
 public class WorldCoinIndexExchanger implements Exchanger {
 
-    private static final String WORLD_COIN_INDEX_API_URL = "https://www.worldcoinindex.com/apiservice";
-    private static final String WORLD_COIN_INDEX_API_KEY = "GGJokOdeHrwab8hR8AdVDSn6k3kg4P";
+    private String apiUrlTicker;
+    private String apiKey;
 
     private final Cache cache;
     private final RestTemplate restTemplate;
 
-    public WorldCoinIndexExchanger(@Qualifier(CACHE_WORLD_COIN_INDEX_EXCHANGER) Cache cache) {
+    public WorldCoinIndexExchanger(@Value("${exchangers.worldcoinindex.api-url.ticker}") String apiUrlTicker,
+                                   @Value("${exchangers.worldcoinindex.api-key}") String apiKey,
+                                   @Qualifier(CACHE_WORLD_COIN_INDEX_EXCHANGER) Cache cache) {
+        this.apiUrlTicker = apiUrlTicker;
+        this.apiKey = apiKey;
         this.cache = cache;
         this.restTemplate = new RestTemplate();
     }
@@ -63,24 +67,24 @@ public class WorldCoinIndexExchanger implements Exchanger {
 
     @Override
     public BigDecimal getRate(String currencyName, BaseCurrency currency) {
-        Map<BaseCurrency, List<WorldCoinIndexMarket>> data = cache.get(currencyName, () -> getDataFromMarket(currencyName));
+        Map<BaseCurrency, List<Market>> data = cache.get(currencyName, () -> getDataFromMarket(currencyName));
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from WorldCoinIndex server is not available");
             return BigDecimal.ZERO;
         }
-        List<WorldCoinIndexMarket> markets = data.get(currency);
+        List<Market> markets = data.get(currency);
         if (isEmpty(markets)) {
             return BigDecimal.ZERO;
         }
-        WorldCoinIndexMarket response = markets.get(0);
+        Market response = markets.get(0);
 
         return nonNull(response) ? BigDecimal.valueOf(response.price) : BigDecimal.ZERO;
     }
 
-    private Map<BaseCurrency, List<WorldCoinIndexMarket>> getDataFromMarket(String currencyName) {
+    private Map<BaseCurrency, List<Market>> getDataFromMarket(String currencyName) {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
-        List<CompletableFuture<Pair<BaseCurrency, List<WorldCoinIndexMarket>>>> future = Stream.of(BaseCurrency.values())
+        List<CompletableFuture<Pair<BaseCurrency, List<Market>>>> future = Stream.of(BaseCurrency.values())
                 .map(value ->
                         CompletableFuture.supplyAsync(() -> Pair.of(value, getDataFromMarketByBaseCurrency(currencyName, value)), executor)
                                 .exceptionally(ex -> {
@@ -89,7 +93,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
                                 }))
                 .collect(toList());
 
-        Map<BaseCurrency, List<WorldCoinIndexMarket>> collect = future.stream()
+        Map<BaseCurrency, List<Market>> collect = future.stream()
                 .map(CompletableFuture::join)
                 .filter(pair -> isNotEmpty(pair.getValue()))
                 .collect(toMap(Pair::getKey, Pair::getValue));
@@ -99,43 +103,42 @@ public class WorldCoinIndexExchanger implements Exchanger {
         return collect;
     }
 
-    private List<WorldCoinIndexMarket> getDataFromMarketByBaseCurrency(String currencyName, BaseCurrency currency) {
+    private List<Market> getDataFromMarketByBaseCurrency(String currencyName, BaseCurrency currency) {
         final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
-        requestParameters.add("key", WORLD_COIN_INDEX_API_KEY);
+        requestParameters.add("key", apiKey);
         requestParameters.add("label", currencyName + BaseCurrency.BTC.name());
         requestParameters.add("fiat", currency.name());
 
         UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl(WORLD_COIN_INDEX_API_URL + "/ticker")
+                .fromHttpUrl(apiUrlTicker)
                 .queryParams(requestParameters)
                 .build();
 
-        ResponseEntity<WorldCoinIndexResponse> responseEntity = restTemplate.getForEntity(builder.toUriString(), WorldCoinIndexResponse.class);
+        ResponseEntity<WorldCoinIndexData> responseEntity = restTemplate.getForEntity(builder.toUriString(), WorldCoinIndexData.class);
         if (responseEntity.getStatusCodeValue() != 200) {
-            throw new ExchangerException("WorldCoinIndex server is not available");
+            log.error("WorldCoinIndex server is not available");
+            return Collections.emptyList();
         }
-        WorldCoinIndexResponse body = responseEntity.getBody();
+        WorldCoinIndexData body = responseEntity.getBody();
 
-        return nonNull(body) && isNotEmpty(body.markets)
-                ? body.markets
-                : Collections.emptyList();
+        return nonNull(body) && isNotEmpty(body.markets) ? body.markets : Collections.emptyList();
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class WorldCoinIndexResponse {
+    private static class WorldCoinIndexData {
 
         @JsonProperty("Markets")
         @Valid
-        List<WorldCoinIndexMarket> markets;
+        List<Market> markets;
 
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class WorldCoinIndexMarket {
+    private static class Market {
 
         @JsonProperty("Price")
         double price;

@@ -6,11 +6,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
-import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -34,27 +34,25 @@ import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 @Component("coinMarketCupExchanger")
 public class CoinMarketCupExchanger implements Exchanger {
 
-    private static final String COIN_MARKET_CUP_API_URL = "https://api.coinmarketcap.com/v1";
+    private static final String DELIMITER = "/";
 
     private final Map<String, String> codes;
+
+    private String apiUrlTicker;
 
     private final Cache cache;
     private final RestTemplate restTemplate;
 
-    public CoinMarketCupExchanger(@Qualifier(CACHE_COIN_MARKET_CUP_EXCHANGER) Cache cache) {
+    public CoinMarketCupExchanger(@Value("${exchangers.coinmarketcup.api-url.ticker}") String apiUrlTicker,
+                                  @Qualifier(CACHE_COIN_MARKET_CUP_EXCHANGER) Cache cache) {
+        this.apiUrlTicker = apiUrlTicker;
         this.cache = cache;
         this.restTemplate = new RestTemplate();
         this.codes = getCodes();
     }
 
     private Map<String, String> getCodes() {
-        List<CoinMarketCup> data;
-        try {
-            data = getDataFromMarket(null);
-        } catch (ExchangerException ex) {
-            log.warn("Data from Coinmarketcup server is not available");
-            return Collections.emptyMap();
-        }
+        List<CoinMarketCupData> data = getDataFromMarket(null);
         if (isEmpty(data)) {
             log.info("Data from Coinmarketcup server is not available");
             return Collections.emptyMap();
@@ -63,7 +61,10 @@ public class CoinMarketCupExchanger implements Exchanger {
                 .collect(toMap(
                         d -> d.symbol,
                         d -> d.id,
-                        (d1, d2) -> d1
+                        (k1, k2) -> {
+                            log.debug("Duplicate key found!");
+                            return k2;
+                        }
                 ));
     }
 
@@ -74,12 +75,12 @@ public class CoinMarketCupExchanger implements Exchanger {
 
     @Override
     public BigDecimal getRate(String currencyName, BaseCurrency currency) {
-        List<CoinMarketCup> data = cache.get(currencyName, () -> getDataFromMarket(currencyName));
+        List<CoinMarketCupData> data = cache.get(currencyName, () -> getDataFromMarket(currencyName));
         if (isEmpty(data)) {
             log.info("Data from Coinmarketcup server is not available");
             return BigDecimal.ZERO;
         }
-        CoinMarketCup response = data.get(0);
+        CoinMarketCupData response = data.get(0);
 
         switch (currency) {
             case USD:
@@ -91,15 +92,15 @@ public class CoinMarketCupExchanger implements Exchanger {
         }
     }
 
-    private List<CoinMarketCup> getDataFromMarket(String currencyName) {
-        final String url = COIN_MARKET_CUP_API_URL
-                + (nonNull(currencyName) ? "/ticker/" + codes.get(currencyName) : "/ticker");
+    private List<CoinMarketCupData> getDataFromMarket(String currencyName) {
+        final String url = apiUrlTicker + (nonNull(currencyName) ? DELIMITER + codes.get(currencyName) : StringUtils.EMPTY);
 
-        ResponseEntity<CoinMarketCup[]> responseEntity = restTemplate.getForEntity(url, CoinMarketCup[].class);
+        ResponseEntity<CoinMarketCupData[]> responseEntity = restTemplate.getForEntity(url, CoinMarketCupData[].class);
         if (responseEntity.getStatusCodeValue() != 200) {
-            throw new ExchangerException("CoinMarketCup server is not available");
+            log.error("CoinMarketCup server is not available");
+            return Collections.emptyList();
         }
-        CoinMarketCup[] body = responseEntity.getBody();
+        CoinMarketCupData[] body = responseEntity.getBody();
 
         return nonNull(body) ? Stream.of(body).collect(toList()) : Collections.emptyList();
     }
@@ -107,7 +108,7 @@ public class CoinMarketCupExchanger implements Exchanger {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class CoinMarketCup {
+    private static class CoinMarketCupData {
 
         String id;
         String symbol;

@@ -4,9 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.components.ExchangerFactory;
 import me.exrates.exchange.entities.Currency;
-import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
+import me.exrates.exchange.models.form.CurrencyForm;
 import me.exrates.exchange.repositories.CurrencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,14 +35,14 @@ public class CurrencyService {
         Exchanger exchanger = factory.getExchanger(type);
         BigDecimal btcRate = exchanger.getRate(currencyName, BaseCurrency.BTC);
         if (BigDecimal.ZERO.compareTo(btcRate) > 0) {
-            log.info("The exchange rate is taken from {}: {}", type, btcRate);
+            log.info("The exchange rate is taken from {} server: BTC {}", type, btcRate);
             currencyRepository.updateBtcRate(currencyName, btcRate);
 
             return btcRate;
         }
         btcRate = currencyRepository.getBtcRate(currencyName);
 
-        log.info("The exchange rate is taken from database: {}", btcRate);
+        log.info("The exchange rate is taken from database: BTC {}", btcRate);
         return btcRate;
     }
 
@@ -53,27 +53,28 @@ public class CurrencyService {
         Exchanger exchanger = factory.getExchanger(type);
         BigDecimal usdRate = exchanger.getRate(currencyName, BaseCurrency.USD);
         if (BigDecimal.ZERO.compareTo(usdRate) > 0) {
-            log.info("The exchange rate is taken from {}: {}", type, usdRate);
+            log.info("The exchange rate is taken from {} server: USD {}", type, usdRate);
             currencyRepository.updateUsdRate(currencyName, usdRate);
 
             return usdRate;
         }
         usdRate = currencyRepository.getUsdRate(currencyName);
 
-        log.info("The exchange rate is taken from database: {}", usdRate);
+        log.info("The exchange rate is taken from database: USD {}", usdRate);
         return usdRate;
     }
 
     @Transactional
-    public void saveNewCurrency(CurrencyDto currency) {
+    public void create(CurrencyForm form) {
         Currency entity = Currency.builder()
-                .name(currency.getName())
-                .type(currency.getType())
-                .btcRate(currency.getBtcRate())
-                .btcRateUpdatedAt(currency.getBtcRateUpdatedAt())
-                .usdRate(currency.getUsdRate())
-                .usdRateUpdatedAt(currency.getUsdRateUpdatedAt())
+                .name(form.getName())
+                .type(form.getType())
+                .btcRate(form.getBtcRate())
+                .btcRateUpdatedAt(form.getBtcRateUpdatedAt())
+                .usdRate(form.getUsdRate())
+                .usdRateUpdatedAt(form.getUsdRateUpdatedAt())
                 .build();
         currencyRepository.save(entity);
+        log.info("Currency {} has been created", form.getName());
     }
 }

@@ -7,10 +7,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
-import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -34,12 +34,14 @@ import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_FREE_C
 @Component("currencyLayerExchanger")
 public class FreeCurrencyExchanger implements Exchanger {
 
-    private static final String FREE_CURRENCY_API_URL = "https://free.currencyconverterapi.com/api/v6";
+    private String apiUrlConvert;
 
     private final Cache cache;
     private final RestTemplate restTemplate;
 
-    public FreeCurrencyExchanger(@Qualifier(CACHE_FREE_CURRENCY_EXCHANGER) Cache cache) {
+    public FreeCurrencyExchanger(@Value("${exchangers.freecurrency.api-url.convert}") String apiUrlConvert,
+                                 @Qualifier(CACHE_FREE_CURRENCY_EXCHANGER) Cache cache) {
+        this.apiUrlConvert = apiUrlConvert;
         this.cache = cache;
         this.restTemplate = new RestTemplate();
     }
@@ -64,30 +66,29 @@ public class FreeCurrencyExchanger implements Exchanger {
     }
 
     private Map<String, Rate> getDataFromMarket(String currencyName) {
-        final MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
+        MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("compact", "y");
         requestParameters.add("q", String.format("%s_BTC,%s_USD", currencyName, currencyName));
 
         UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl(FREE_CURRENCY_API_URL + "/convert")
+                .fromHttpUrl(apiUrlConvert)
                 .queryParams(requestParameters)
                 .build();
 
-        ResponseEntity<FreeCurrencyResponse> responseEntity = restTemplate.getForEntity(builder.toUriString(), FreeCurrencyResponse.class);
+        ResponseEntity<FreeCurrencyData> responseEntity = restTemplate.getForEntity(builder.toUriString(), FreeCurrencyData.class);
         if (responseEntity.getStatusCodeValue() != 200) {
-            throw new ExchangerException("FreeCurrency server is not available");
+            log.error("FreeCurrency server is not available");
+            return Collections.emptyMap();
         }
-        FreeCurrencyResponse body = responseEntity.getBody();
+        FreeCurrencyData body = responseEntity.getBody();
 
-        return nonNull(body) && !body.rates.isEmpty()
-                ? body.rates
-                : Collections.emptyMap();
+        return nonNull(body) && !body.rates.isEmpty() ? body.rates : Collections.emptyMap();
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class FreeCurrencyResponse {
+    private static class FreeCurrencyData {
 
         Map<String, Rate> rates = Maps.newTreeMap();
 
