@@ -52,23 +52,23 @@ public class FreeCurrencyExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getRate(String currencyName, BaseCurrency currency) {
-        Map<String, Rate> data = cache.get(currencyName, () -> getDataFromMarket(currencyName));
+    public BigDecimal getRate(String currencySymbol, BaseCurrency baseCurrency) {
+        Map<String, Rate> data = cache.get(currencySymbol, () -> getDataFromMarket(currencySymbol));
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from FreeCurrency server is not available");
             return BigDecimal.ZERO;
         }
         return data.entrySet().stream()
-                .filter(entry -> currency.name().equals(entry.getKey().split("_")[1]))
+                .filter(entry -> baseCurrency.name().equals(entry.getKey().split("_")[1]))
                 .map(entry -> new BigDecimal(entry.getValue().val))
                 .findFirst()
                 .orElse(BigDecimal.ZERO);
     }
 
-    private Map<String, Rate> getDataFromMarket(String currencyName) {
+    private Map<String, Rate> getDataFromMarket(String currencySymbol) {
         MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("compact", "y");
-        requestParameters.add("q", String.format("%s_BTC,%s_USD", currencyName, currencyName));
+        requestParameters.add("q", String.format("%s_BTC,%s_USD", currencySymbol, currencySymbol));
 
         UriComponents builder = UriComponentsBuilder
                 .fromHttpUrl(apiUrlConvert)

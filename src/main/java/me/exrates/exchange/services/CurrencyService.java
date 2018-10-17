@@ -29,36 +29,36 @@ public class CurrencyService {
     }
 
     @Transactional
-    public BigDecimal getBTCRateForCurrency(String currencyName) {
-        final ExchangerType type = currencyRepository.getType(currencyName);
+    public BigDecimal getBTCRateForCurrency(String currencySymbol) {
+        final ExchangerType type = currencyRepository.getType(currencySymbol);
 
         Exchanger exchanger = factory.getExchanger(type);
-        BigDecimal btcRate = exchanger.getRate(currencyName, BaseCurrency.BTC);
+        BigDecimal btcRate = exchanger.getRate(currencySymbol, BaseCurrency.BTC);
         if (BigDecimal.ZERO.compareTo(btcRate) > 0) {
             log.info("The exchange rate is taken from {} server: BTC {}", type, btcRate);
-            currencyRepository.updateBtcRate(currencyName, btcRate);
+            currencyRepository.updateBtcRate(currencySymbol, btcRate);
 
             return btcRate;
         }
-        btcRate = currencyRepository.getBtcRate(currencyName);
+        btcRate = currencyRepository.getBtcRate(currencySymbol);
 
         log.info("The exchange rate is taken from database: BTC {}", btcRate);
         return btcRate;
     }
 
     @Transactional
-    public BigDecimal getUSDRateForCurrency(String currencyName) {
-        final ExchangerType type = currencyRepository.getType(currencyName);
+    public BigDecimal getUSDRateForCurrency(String currencySymbol) {
+        final ExchangerType type = currencyRepository.getType(currencySymbol);
 
         Exchanger exchanger = factory.getExchanger(type);
-        BigDecimal usdRate = exchanger.getRate(currencyName, BaseCurrency.USD);
+        BigDecimal usdRate = exchanger.getRate(currencySymbol, BaseCurrency.USD);
         if (BigDecimal.ZERO.compareTo(usdRate) > 0) {
             log.info("The exchange rate is taken from {} server: USD {}", type, usdRate);
-            currencyRepository.updateUsdRate(currencyName, usdRate);
+            currencyRepository.updateUsdRate(currencySymbol, usdRate);
 
             return usdRate;
         }
-        usdRate = currencyRepository.getUsdRate(currencyName);
+        usdRate = currencyRepository.getUsdRate(currencySymbol);
 
         log.info("The exchange rate is taken from database: USD {}", usdRate);
         return usdRate;
@@ -67,7 +67,7 @@ public class CurrencyService {
     @Transactional
     public void create(CurrencyForm form) {
         Currency entity = Currency.builder()
-                .name(form.getName())
+                .name(form.getSymbol())
                 .type(form.getType())
                 .btcRate(form.getBtcRate())
                 .btcRateUpdatedAt(form.getBtcRateUpdatedAt())
@@ -75,6 +75,12 @@ public class CurrencyService {
                 .usdRateUpdatedAt(form.getUsdRateUpdatedAt())
                 .build();
         currencyRepository.save(entity);
-        log.info("Currency {} has been created", form.getName());
+        log.info("Currency {} has been created", form.getSymbol());
+    }
+
+    @Transactional
+    public void updateExchangerType(String currencySymbol, ExchangerType newType) {
+        currencyRepository.updateExchangerType(currencySymbol, newType);
+        log.info("Currency {} exchanger type has been updated: {}", currencySymbol, newType);
     }
 }

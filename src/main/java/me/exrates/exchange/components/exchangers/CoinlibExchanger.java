@@ -3,12 +3,11 @@ package me.exrates.exchange.components.exchangers;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
-import me.exrates.exchange.utils.CollectionUtil;
+import me.exrates.exchange.support.SupportedCoinlibService;
 import me.exrates.exchange.utils.ExecutorUtil;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,15 +22,12 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.validation.Valid;
 import java.math.BigDecimal;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
@@ -45,48 +41,22 @@ import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_COINLI
 @Component("coinlibExchanger")
 public class CoinlibExchanger implements Exchanger {
 
-    private final Map<String, String> codes;
-
-    private String apiUrlCoinlist;
     private String apiUrlCoin;
-    private String apiUrlGlobal;
     private String apiKey;
-    private int perPage;
 
+    private final SupportedCoinlibService supportedService;
     private final Cache cache;
     private final RestTemplate restTemplate;
 
-    public CoinlibExchanger(@Value("${exchangers.coinlib.api-url.coinlist}") String apiUrlCoinlist,
-                            @Value("${exchangers.coinlib.api-url.coin}") String apiUrlCoin,
-                            @Value("${exchangers.coinlib.api-url.global}") String apiUrlGlobal,
+    public CoinlibExchanger(@Value("${exchangers.coinlib.api-url.coin}") String apiUrlCoin,
                             @Value("${exchangers.coinlib.api-key}") String apiKey,
-                            @Value("${exchangers.coinlib.per-page}") int perPage,
+                            SupportedCoinlibService supportedService,
                             @Qualifier(CACHE_COINLIB_EXCHANGER) Cache cache) {
-        this.apiUrlCoinlist = apiUrlCoinlist;
+        this.supportedService = supportedService;
         this.apiUrlCoin = apiUrlCoin;
-        this.apiUrlGlobal = apiUrlGlobal;
         this.apiKey = apiKey;
-        this.perPage = perPage;
         this.cache = cache;
         this.restTemplate = new RestTemplate();
-        this.codes = getCodes();
-    }
-
-    private Map<String, String> getCodes() {
-        final int pages = getNumberOfCoins() / perPage;
-
-        return IntStream.range(0, pages)
-                .mapToObj(this::getCoins)
-                .filter(CollectionUtil::isNotEmpty)
-                .flatMap(List::stream)
-                .collect(toMap(
-                        d -> d.showSymbol,
-                        d -> d.symbol,
-                        (k1, k2) -> {
-                            log.debug("Duplicate key found!");
-                            return k2;
-                        }
-                ));
     }
 
     @Override
@@ -95,23 +65,23 @@ public class CoinlibExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getRate(String currencyName, BaseCurrency currency) {
-        Map<BaseCurrency, Coin> data = cache.get(currencyName, () -> getDataFromMarket(currencyName));
+    public BigDecimal getRate(String currencySymbol, BaseCurrency baseCurrency) {
+        Map<BaseCurrency, Coin> data = cache.get(currencySymbol, () -> getDataFromMarket(currencySymbol));
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from Coinlib server is not available");
             return BigDecimal.ZERO;
         }
-        Coin response = data.get(currency);
+        Coin response = data.get(baseCurrency);
 
         return nonNull(response) ? BigDecimal.valueOf(response.price) : BigDecimal.ZERO;
     }
 
-    private Map<BaseCurrency, Coin> getDataFromMarket(String currencyName) {
+    private Map<BaseCurrency, Coin> getDataFromMarket(String currencySymbol) {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
         List<CompletableFuture<Pair<BaseCurrency, Coin>>> future = Stream.of(BaseCurrency.values())
                 .map(value ->
-                        CompletableFuture.supplyAsync(() -> Pair.of(value, getDataFromMarketByBaseCurrency(currencyName, value)), executor)
+                        CompletableFuture.supplyAsync(() -> Pair.of(value, getDataFromMarketByBaseCurrency(currencySymbol, value)), executor)
                                 .exceptionally(ex -> {
                                     log.error("Get data from market failed", ex);
                                     return Pair.of(value, null);
@@ -128,11 +98,11 @@ public class CoinlibExchanger implements Exchanger {
         return collect;
     }
 
-    private Coin getDataFromMarketByBaseCurrency(String currencyName, BaseCurrency currency) {
+    private Coin getDataFromMarketByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {
         MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("key", apiKey);
-        requestParameters.add("symbol", codes.get(currencyName));
-        requestParameters.add("pref", currency.name());
+        requestParameters.add("symbol", supportedService.getSearchId(currencySymbol));
+        requestParameters.add("pref", baseCurrency.name());
 
         UriComponents builder = UriComponentsBuilder
                 .fromHttpUrl(apiUrlCoin)
@@ -147,71 +117,11 @@ public class CoinlibExchanger implements Exchanger {
         return responseEntity.getBody();
     }
 
-    private List<Coin> getCoins(int page) {
-        MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
-        requestParameters.add("key", apiKey);
-        requestParameters.add("page", String.valueOf(page + 1));
-
-        UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl(apiUrlCoinlist)
-                .queryParams(requestParameters)
-                .build();
-
-        ResponseEntity<CoinlibData> responseEntity = restTemplate.getForEntity(builder.toUriString(), CoinlibData.class);
-        if (responseEntity.getStatusCodeValue() != 200) {
-            log.error("Coinlib server is not available");
-            return Collections.emptyList();
-        }
-        CoinlibData body = responseEntity.getBody();
-
-        return nonNull(body) ? body.coins : Collections.emptyList();
-    }
-
-    private int getNumberOfCoins() {
-        MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
-        requestParameters.add("key", apiKey);
-
-        UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl(apiUrlGlobal)
-                .queryParams(requestParameters)
-                .build();
-
-        ResponseEntity<StatisticData> responseEntity = restTemplate.getForEntity(builder.toUriString(), StatisticData.class);
-        if (responseEntity.getStatusCodeValue() != 200) {
-            log.error("Coinlib server is not available");
-            return 0;
-        }
-        StatisticData body = responseEntity.getBody();
-
-        return nonNull(body) ? body.coins : 0;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class CoinlibData {
-
-        @JsonProperty("coins")
-        @Valid
-        List<Coin> coins;
-    }
-
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
     private static class Coin {
 
-        String symbol;
-        @JsonProperty("show_symbol")
-        String showSymbol;
         double price;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class StatisticData {
-
-        int coins;
     }
 }

@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class CurrencyForm {
 
     @NotEmpty
-    private String name;
+    private String symbol;
     @NotEmpty
     private ExchangerType type;
     private BigDecimal usdRate;

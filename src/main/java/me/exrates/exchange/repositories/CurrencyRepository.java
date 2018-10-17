@@ -25,4 +25,7 @@ public interface CurrencyRepository extends JpaRepository<Currency, String> {
 
     @Query("UPDATE Currency c SET c.usdRate = :usdRate, c.usdRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.name = :currencyName")
     void updateUsdRate(String currencyName, BigDecimal usdRate);
+
+    @Query("UPDATE Currency c SET c.type = :newType, c.usdRate = null, c.usdRateUpdatedAt = null, c.btcRate = null, c.btcRateUpdatedAt = null WHERE c.name = :currencyName")
+    void updateExchangerType(String currencyName, ExchangerType newType);
 }

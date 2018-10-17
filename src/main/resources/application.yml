@@ -56,14 +56,11 @@ spring:
 exchangers:
   coinlib:
     api-url:
-      coinlist: https://coinlib.io/api/v1/coinlist
       coin: https://coinlib.io/api/v1/coin
-      global: https://coinlib.io/api/v1/global
     api-key: 'a5c162aa66e69ee6'
-    per-page: 100
   coinmarketcup:
     api-url:
-      ticker: https://api.coinmarketcap.com/v1/ticker
+      ticker: https://api.coinmarketcap.com/v1/ticker/
   exrates:
     api-url:
       ticker: https://exrates.me/openapi/v1/public/ticker

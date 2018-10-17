@@ -61,13 +61,13 @@ public class ExratesExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getRate(String currencyName, BaseCurrency currency) {
-        Map<BaseCurrency, List<ExratesData>> data = cache.get(currencyName, () -> getDataFromMarket(currencyName));
+    public BigDecimal getRate(String currencySymbol, BaseCurrency baseCurrency) {
+        Map<BaseCurrency, List<ExratesData>> data = cache.get(currencySymbol, () -> getDataFromMarket(currencySymbol));
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from Exrates server is not available");
             return BigDecimal.ZERO;
         }
-        List<ExratesData> markets = data.get(currency);
+        List<ExratesData> markets = data.get(baseCurrency);
         if (isEmpty(markets)) {
             return BigDecimal.ZERO;
         }
@@ -76,12 +76,12 @@ public class ExratesExchanger implements Exchanger {
         return nonNull(response) ? BigDecimal.valueOf(response.last) : BigDecimal.ZERO;
     }
 
-    private Map<BaseCurrency, List<ExratesData>> getDataFromMarket(String currencyName) {
+    private Map<BaseCurrency, List<ExratesData>> getDataFromMarket(String currencySymbol) {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
         List<CompletableFuture<Pair<BaseCurrency, List<ExratesData>>>> future = Stream.of(BaseCurrency.values())
                 .map(value ->
-                        CompletableFuture.supplyAsync(() -> Pair.of(value, getDataFromMarketByBaseCurrency(currencyName, value)), executor)
+                        CompletableFuture.supplyAsync(() -> Pair.of(value, getDataFromMarketByBaseCurrency(currencySymbol, value)), executor)
                                 .exceptionally(ex -> {
                                     log.error("Get data from market failed", ex);
                                     return Pair.of(value, Collections.emptyList());
@@ -98,9 +98,9 @@ public class ExratesExchanger implements Exchanger {
         return collect;
     }
 
-    private List<ExratesData> getDataFromMarketByBaseCurrency(String currencyName, BaseCurrency currency) {
+    private List<ExratesData> getDataFromMarketByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {
         MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
-        requestParameters.add("currency_pair", String.format("%s_%s", currencyName.toLowerCase(), currency.name().toLowerCase()));
+        requestParameters.add("currency_pair", String.format("%s_%s", currencySymbol.toLowerCase(), baseCurrency.name().toLowerCase()));
 
         UriComponents builder = UriComponentsBuilder
                 .fromHttpUrl(apiUrlTicker)
