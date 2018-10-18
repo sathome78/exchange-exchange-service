@@ -5,7 +5,6 @@ import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.models.form.CurrencyForm;
 import me.exrates.exchange.services.CurrencyService;
-import org.apache.commons.lang3.tuple.Pair;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/currency")
@@ -37,13 +37,13 @@ public class CurrencyController {
     }
 
     @PostMapping(value = "/btc-rate", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Pair<String, BigDecimal>> getBTCRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
-        return ResponseEntity.ok(Pair.of(symbol, currencyService.getBTCRateForCurrency(symbol)));
+    public ResponseEntity<Map<String, BigDecimal>> getBTCRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
+        return ResponseEntity.ok(Map.of(symbol, currencyService.getBTCRateForCurrency(symbol)));
     }
 
     @PostMapping(value = "/usd-rate", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Pair<String, BigDecimal>> getUSDRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
-        return ResponseEntity.ok(Pair.of(symbol, currencyService.getUSDRateForCurrency(symbol)));
+    public ResponseEntity<Map<String, BigDecimal>> getUSDRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
+        return ResponseEntity.ok(Map.of(symbol, currencyService.getUSDRateForCurrency(symbol)));
     }
 
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
