@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
+import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.support.SupportedCoinlibService;
@@ -88,9 +89,13 @@ public class CoinlibExchanger implements Exchanger {
                 .queryParams(requestParameters)
                 .build();
 
-        ResponseEntity<Coin> responseEntity = restTemplate.getForEntity(builder.toUriString(), Coin.class);
-        if (responseEntity.getStatusCodeValue() != 200) {
-            log.error("Coinlib server is not available");
+        ResponseEntity<Coin> responseEntity;
+        try {
+            responseEntity = restTemplate.getForEntity(builder.toUriString(), Coin.class);
+            if (responseEntity.getStatusCodeValue() != 200) {
+                throw new ExchangerException("Coinlib server is not available");
+            }
+        } catch (Exception ex) {
             return null;
         }
         return responseEntity.getBody();

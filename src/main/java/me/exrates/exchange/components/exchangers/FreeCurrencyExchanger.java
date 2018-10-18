@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
+import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -75,9 +76,13 @@ public class FreeCurrencyExchanger implements Exchanger {
                 .queryParams(requestParameters)
                 .build();
 
-        ResponseEntity<FreeCurrencyData> responseEntity = restTemplate.getForEntity(builder.toUriString(), FreeCurrencyData.class);
-        if (responseEntity.getStatusCodeValue() != 200) {
-            log.error("FreeCurrency server is not available");
+        ResponseEntity<FreeCurrencyData> responseEntity;
+        try {
+            responseEntity = restTemplate.getForEntity(builder.toUriString(), FreeCurrencyData.class);
+            if (responseEntity.getStatusCodeValue() != 200) {
+                throw new ExchangerException("FreeCurrency server is not available");
+            }
+        } catch (Exception ex) {
             return Collections.emptyMap();
         }
         FreeCurrencyData body = responseEntity.getBody();

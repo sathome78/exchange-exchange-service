@@ -7,29 +7,36 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
 @Repository
 public interface CurrencyRepository extends JpaRepository<Currency, String> {
 
+    @Transactional
     @Query("SELECT c.type FROM Currency c WHERE c.name = :symbol")
     ExchangerType getType(@Param("symbol") String currencySymbol);
 
+    @Transactional
     @Query("SELECT c.btcRate FROM Currency c WHERE c.name = :symbol")
     BigDecimal getBtcRate(@Param("symbol") String currencySymbol);
 
+    @Transactional
     @Query("SELECT c.usdRate FROM Currency c WHERE c.name = :symbol")
     BigDecimal getUsdRate(@Param("symbol") String currencySymbol);
 
+    @Transactional
     @Modifying
     @Query("UPDATE Currency c SET c.btcRate = :rate, c.btcRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.name = :symbol")
     void updateBtcRate(@Param("symbol") String currencySymbol, @Param("rate") BigDecimal btcRate);
 
+    @Transactional
     @Modifying
     @Query("UPDATE Currency c SET c.usdRate = :rate, c.usdRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.name = :symbol")
     void updateUsdRate(@Param("symbol") String currencySymbol, @Param("rate") BigDecimal usdRate);
 
+    @Transactional
     @Modifying
     @Query("UPDATE Currency c SET c.type = :type, c.usdRate = 0, c.usdRateUpdatedAt = CURRENT_TIMESTAMP, c.btcRate = 0, c.btcRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.name = :symbol")
     void updateExchangerType(@Param("symbol") String currencySymbol, @Param("type") ExchangerType newType);

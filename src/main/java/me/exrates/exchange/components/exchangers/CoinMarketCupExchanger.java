@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
+import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.support.SupportedCoinMarketCupService;
@@ -76,9 +77,13 @@ public class CoinMarketCupExchanger implements Exchanger {
         final String url = apiUrlTicker
                 + (nonNull(currencySymbol) ? supportedService.getSearchId(currencySymbol) : StringUtils.EMPTY);
 
-        ResponseEntity<CoinMarketCupData[]> responseEntity = restTemplate.getForEntity(url, CoinMarketCupData[].class);
-        if (responseEntity.getStatusCodeValue() != 200) {
-            log.error("CoinMarketCup server is not available");
+        ResponseEntity<CoinMarketCupData[]> responseEntity;
+        try {
+            responseEntity = restTemplate.getForEntity(url, CoinMarketCupData[].class);
+            if (responseEntity.getStatusCodeValue() != 200) {
+                throw new ExchangerException("CoinMarketCup server is not available");
+            }
+        } catch (Exception ex) {
             return Collections.emptyList();
         }
         CoinMarketCupData[] body = responseEntity.getBody();

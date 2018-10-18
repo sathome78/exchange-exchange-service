@@ -2,6 +2,7 @@ package me.exrates.exchange.controllers;
 
 import me.exrates.exchange.exceptions.ValidationException;
 import me.exrates.exchange.models.dto.CurrencyDto;
+import me.exrates.exchange.models.dto.RateDto;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.models.form.CurrencyForm;
 import me.exrates.exchange.services.CurrencyService;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -37,13 +39,25 @@ public class CurrencyController {
     }
 
     @PostMapping(value = "/btc-rate", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<String, BigDecimal>> getBTCRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
-        return ResponseEntity.ok(Map.of(symbol, currencyService.getBTCRateForCurrency(symbol)));
+    public ResponseEntity<RateDto> getBTCRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
+        final BigDecimal rate = currencyService.getBTCRateForCurrency(symbol);
+        return ResponseEntity.ok(new RateDto(symbol, rate));
+    }
+
+    @PostMapping(value = "/btc-rate/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<ExchangerType, List<RateDto>>> getBTCRates() {
+        return ResponseEntity.ok(currencyService.getBTCRateForAll());
     }
 
     @PostMapping(value = "/usd-rate", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<String, BigDecimal>> getUSDRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
-        return ResponseEntity.ok(Map.of(symbol, currencyService.getUSDRateForCurrency(symbol)));
+    public ResponseEntity<RateDto> getUSDRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
+        final BigDecimal rate = currencyService.getUSDRateForCurrency(symbol);
+        return ResponseEntity.ok(new RateDto(symbol, rate));
+    }
+
+    @PostMapping(value = "/usd-rate/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<ExchangerType, List<RateDto>>> getUSDRates() {
+        return ResponseEntity.ok(currencyService.getUSDRateForAll());
     }
 
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

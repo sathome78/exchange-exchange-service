@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
+import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
@@ -94,9 +95,13 @@ public class WorldCoinIndexExchanger implements Exchanger {
                 .queryParams(requestParameters)
                 .build();
 
-        ResponseEntity<WorldCoinIndexData> responseEntity = restTemplate.getForEntity(builder.toUriString(), WorldCoinIndexData.class);
-        if (responseEntity.getStatusCodeValue() != 200) {
-            log.error("WorldCoinIndex server is not available");
+        ResponseEntity<WorldCoinIndexData> responseEntity;
+        try {
+            responseEntity = restTemplate.getForEntity(builder.toUriString(), WorldCoinIndexData.class);
+            if (responseEntity.getStatusCodeValue() != 200) {
+                throw new ExchangerException("WorldCoinIndex server is not available");
+            }
+        } catch (Exception ex) {
             return Collections.emptyList();
         }
         WorldCoinIndexData body = responseEntity.getBody();

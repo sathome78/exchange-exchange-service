@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
+import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
@@ -88,9 +89,13 @@ public class ExratesExchanger implements Exchanger {
                 .queryParams(requestParameters)
                 .build();
 
-        ResponseEntity<ExratesData[]> responseEntity = restTemplate.getForEntity(builder.toUriString(), ExratesData[].class);
-        if (responseEntity.getStatusCodeValue() != 200) {
-            log.error("Exrates server is not available");
+        ResponseEntity<ExratesData[]> responseEntity;
+        try {
+            responseEntity = restTemplate.getForEntity(builder.toUriString(), ExratesData[].class);
+            if (responseEntity.getStatusCodeValue() != 200) {
+                throw new ExchangerException("Exrates server is not available");
+            }
+        } catch (Exception ex) {
             return Collections.emptyList();
         }
         ExratesData[] body = responseEntity.getBody();

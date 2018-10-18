@@ -1,6 +1,7 @@
 package me.exrates.exchange.api;
 
 import me.exrates.exchange.models.dto.CurrencyDto;
+import me.exrates.exchange.models.dto.RateDto;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.models.form.CurrencyForm;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 
 @FeignClient(
@@ -20,10 +21,16 @@ import java.util.Map;
 public interface ExchangeApi {
 
     @PostMapping("/btc-rate")
-    Map<String, BigDecimal> getBTCRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol);
+    RateDto getBTCRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol);
+
+    @PostMapping("/btc-rate/all")
+    Map<ExchangerType, List<RateDto>> getBTCRates();
 
     @PostMapping("/usd-rate")
-    Map<String, BigDecimal> getUSDRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol);
+    RateDto getUSDRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol);
+
+    @PostMapping("/usd-rate/all")
+    Map<ExchangerType, List<RateDto>> getUSDRates();
 
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
     CurrencyDto createCurrency(@Validated @RequestBody CurrencyForm form);
