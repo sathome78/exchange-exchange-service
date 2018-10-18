@@ -41,18 +41,47 @@ spring:
       show_sql: true
       format_sql: true
     open-in-view: false
+  redis:
+    host: 172.10.10.236
+    port: 6379
   jackson:
     serialization:
       write_dates_as_timestamps: false
     mapper:
       default_view_inclusion: true
     default-property-inclusion: 'non_null'
+  cloud:
+    consul:
+      port: 8500
+      host: 172.50.10.5
+      enabled: true
+      discovery:
+        enabled: true
+        lifecycle:
+          enabled: true
+        heartbeat:
+          enabled: true
+          interval-ratio: 0.1
+        health-check-timeout: 3s
+        health-check-interval: 3ss
+        tags: exchange-service
+        service-name: exchange-service
+        port: 8083
   flyway:
     baseline-on-migrate: true
     validate-on-migrate: true
     clean-on-validation-error: true
     table: schema_version
     enabled: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: debug
+
+swagger:
+  enabled: true
 
 exchangers:
   coinlib:

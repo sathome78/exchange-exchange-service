@@ -103,7 +103,8 @@ public class CurrencyService {
                     } catch (InterruptedException ex) {
                         log.debug("Delay interrupted!");
                     }
-                    return new RateDto(currencySymbol, getBTCRateForCurrency(currencySymbol));
+                    final BigDecimal btcRate = getBTCRateForCurrency(currencySymbol);
+                    return new RateDto(currencySymbol, btcRate);
                 })
                 .collect(toList());
     }
@@ -165,7 +166,8 @@ public class CurrencyService {
                     } catch (InterruptedException ex) {
                         log.debug("Delay interrupted!");
                     }
-                    return new RateDto(currencySymbol, getUSDRateForCurrency(currencySymbol));
+                    final BigDecimal usdRate = getUSDRateForCurrency(currencySymbol);
+                    return new RateDto(currencySymbol, usdRate);
                 })
                 .collect(toList());
     }

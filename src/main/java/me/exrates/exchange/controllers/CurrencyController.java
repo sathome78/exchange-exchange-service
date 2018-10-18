@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
@@ -60,6 +61,7 @@ public class CurrencyController {
         return ResponseEntity.ok(currencyService.getUSDRateForAll());
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CurrencyDto> createCurrency(@Validated @RequestBody CurrencyForm form,
                                                       Errors result) {

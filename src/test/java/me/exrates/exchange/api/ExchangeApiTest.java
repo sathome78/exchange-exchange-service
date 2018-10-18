@@ -20,6 +20,8 @@ import org.springframework.cloud.openfeign.support.SpringMvcContract;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -96,6 +98,7 @@ public class ExchangeApiTest {
 
     @Test
     public void getRatesTest() {
+        Map<ExchangerType, List<RateDto>> btcRates = exchangeApi.getBTCRates();
         //Coinlib coin
         RateDto btcRate = exchangeApi.getBTCRate(BCS);
         RateDto usdRate = exchangeApi.getUSDRate(BCS);
