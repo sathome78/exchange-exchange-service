@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
 import java.util.Map;
 
 @FeignClient(
@@ -26,7 +25,7 @@ public interface ExchangeApi {
     CurrencyDto getRatesByCurrency(@PathVariable(value = "currency_symbol") String symbol);
 
     @GetMapping("/rates/all")
-    Map<ExchangerType, List<CurrencyDto>> getAllRates();
+    Map<String, CurrencyDto> getAllRates();
 
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
     CurrencyDto createCurrency(@Validated @RequestBody CurrencyForm form);

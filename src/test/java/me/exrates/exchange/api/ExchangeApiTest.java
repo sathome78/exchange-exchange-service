@@ -19,7 +19,6 @@ import org.springframework.cloud.openfeign.support.SpringMvcContract;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -136,10 +135,9 @@ public class ExchangeApiTest {
 
     @Test
     public void getAllRatesTest() {
-        Map<ExchangerType, List<CurrencyDto>> all = exchangeApi.getAllRates();
+        Map<String, CurrencyDto> all = exchangeApi.getAllRates();
 
         assertNotNull(all);
         assertFalse(all.isEmpty());
-        assertEquals(ExchangerType.values().length, all.size());
     }
 }

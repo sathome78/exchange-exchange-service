@@ -7,7 +7,9 @@ import lombok.NonNull;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.utils.CsvReaderUtil;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
 import java.util.Map;
@@ -18,15 +20,14 @@ import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toMap;
 
 @Slf4j
-@Service
+@Component
 public class SupportedCoinMarketCupService {
-
-    private static final String CSV_FILE = "coinmarketcup.csv";
 
     private final Map<String, String> codes;
 
-    public SupportedCoinMarketCupService() {
-        InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(CSV_FILE);
+    @Autowired
+    public SupportedCoinMarketCupService(@Value("${exchangers.coinmarketcup.csv}") String csv) {
+        InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(csv);
 
         log.debug("Reading Coinmarketcup info CSV");
         Set<CoinInfo> info = CsvReaderUtil.readAndMap(

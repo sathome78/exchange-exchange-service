@@ -10,10 +10,9 @@ spring:
     active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
-#    url: jdbc:mysql://localhost:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
-    username: root
-    password: root
+    url: jdbc:mysql://exdbdev.cedlveyttji9.us-east-2.rds.amazonaws.com:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: exdevdb
+    password: KQmK82dd
     hikari:
       connection-timeout: 10000
       idle-timeout: 180000
@@ -68,6 +67,8 @@ spring:
         tags: exchange-service
         service-name: exchange-service
         port: 8083
+  flyway:
+    check-location: false
 
 logging:
   level:
@@ -87,9 +88,11 @@ exchangers:
     api-url:
       coin: https://coinlib.io/api/v1/coin
     api-key: 'a5c162aa66e69ee6'
+    csv: coinlib.csv
   coinmarketcup:
     api-url:
       ticker: https://api.coinmarketcap.com/v1/ticker/
+    csv: coinmarketcup.csv
   exrates:
     api-url:
       ticker: https://exrates.me/openapi/v1/public/ticker

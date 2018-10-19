@@ -27,7 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.function.Function;
+
+import static java.util.stream.Collectors.toMap;
 
 @RestController
 @RequestMapping("/currency")
@@ -50,11 +52,11 @@ public class CurrencyController {
     }
 
     @GetMapping(value = "/rates/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<ExchangerType, List<CurrencyDto>>> getAllRates() {
+    public ResponseEntity<Map<String, CurrencyDto>> getAllRates() {
         List<Currency> all = currencyService.getRatesForAll();
         List<CurrencyDto> result = modelMapper.map(all, new TypeToken<List<CurrencyDto>>() {
         }.getType());
-        return ResponseEntity.ok(result.stream().collect(Collectors.groupingBy(CurrencyDto::getType)));
+        return ResponseEntity.ok(result.stream().collect(toMap(CurrencyDto::getName, Function.identity())));
     }
 
     @ResponseStatus(HttpStatus.CREATED)

@@ -1,0 +1,5192 @@
+BTC;BTC;Bitcoin;false
+ETH;ETH;Ethereum;false
+XRP;XRP;XRP;false
+BCH;BCH;Bitcoin Cash;false
+EOS;EOS;EOS;false
+XLM;XLM;Stellar;false
+LTC;LTC;Litecoin;false
+USDT;USDT;Tether;false
+ADA;ADA;Cardano;false
+XMR;XMR;Monero;false
+TRX;TRX;TRON;false
+IOT;IOT;IOTA;false
+DASH;DASH;Dash;false
+BNB;BNB;Binance Coin;false
+NEO;NEO;NEO;false
+ETC;ETC;Ethereum Classic;false
+XEM;XEM;NEM;false
+XTZ;XTZ;Tezos;false
+VET;VET;VeChain;false
+ZEC;ZEC;ZCash;false
+DOGE;DOGE;Dogecoin;false
+ZRX;ZRX;0x;false
+MKR;MKR;Maker;false
+BTG;BTG;Bitcoin Gold;false
+OMG;OMG;OmiseGo;false
+ONT;ONT;Ontology;false
+DCR;DCR;Decred;false
+LSK;LSK;Lisk;false
+QTUM;QTUM;QTUM;false
+AE;AE;Aeternity;false
+BTS;BTS;Bitshares;false
+ZIL;ZIL;Zilliqa;false
+ICX;ICX;ICON Project;false
+NANO;NANO;Nano;false
+BCD;BCD;Bitcoin Diamond;false
+BCN;BCN;ByteCoin;false
+DGB;DGB;DigiByte;false
+SC;SC;Siacoin;false
+STEEM;STEEM;Steem;false
+XVG;XVG;Verge;false
+BAT;BAT;Basic Attention Token;false
+WAVES;WAVES;Waves;false
+NPXS;NPXS;Pundi X;false
+BTM;BTM2;Bytom;false
+ETN;ETN;Electroneum;false
+ETP;ETP;Metaverse;false
+TUSD;TUSD;TrueUSD;false
+HOT;HOT;HoloToken;false
+GNT;GNT;Golem Network Token;false
+STRAT;STRAT;Stratis;false
+REP;REP;Augur;false
+KMD;KMD;Komodo;false
+SNT;SNT;Status Network Token;false
+PPT;PPT;Populous;false
+LINK;LINK;ChainLink;false
+WTC;WTC;Waltonchain;false
+ARDR;ARDR;Ardor;false
+WAN;WAN;Wanchain;false
+AION;AION;Aion;false
+KCS;KCS;KuCoin Shares;false
+IOST;IOST;IOStoken;false
+DCN;DCN;Dentacoin;false
+MITH;MITH;Mithril;false
+BTCX;BCX2;BitcoinX;false
+RDD;RDD;ReddCoin;false
+CMT;CMT2;CyberMiles;false
+XET;XET;Eternal Token;false
+LRC;LRC;Loopring;false
+GXS;GXS;GXShares;false
+DGD;DGD;Digix DAO;false
+MAID;MAID;MaidSafe Coin;false
+INO;INO;Ino Coin;false
+ELF;ELF;aelf;false
+HT;HT;Huobi Token;false
+HSR;HSR;Hshare;true
+DGTX;DGTX;Digitex Futures;false
+ARK;ARK;ARK;false
+QASH;QASH;QASH;false
+MOAC;MOAC;MOAC;false
+LOOM;LOOM;Loom Network;false
+MONA;MONA;MonaCoin;false
+NAS;NAS;Nebulas Token;false
+FUN;FUN;FunFair;false
+BNT;BNT;Bancor Network Token;false
+ELA;ELA;Elastos;false
+MANA;MANA;Decentraland;false
+ZEN;ZEN;ZenCash;false
+PIVX;PIVX;PIVX Coin;false
+POWR;POWR;Power Ledger;false
+MCO;MCO;Monaco;false
+DAI;DAI;Dai;false
+THETA;THETA;Theta Token;false
+RHOC;RHOC;RChain;false
+PAY;PAY;TenX;false
+NXT;NXT;Nxt;false
+WAX;WAX;Worldwide Asset eXchange;false
+MGO;MGO;MobileGo;false
+POLY;POLY2;Polymath Network;false
+XZC;XZC;ZCoin;false
+QKC;QKC;QuarkChain;false
+KNC;KNC;KyberNetwork Crystal;false
+PAX;PAX;Paxos Standard Token;false
+OCN;OCN;Odyssey;false
+BTCP;BTCP3;Bitcoin Private;false
+SYS;SYS;SysCoin;false
+NEXO;NEXO;Nexo;false
+GAS;GAS;Gas;false
+GVT;GVT;Genesis Vision;false
+RVN;RVN;Ravencoin;false
+IQ;IQ;Everipedia;false
+SALT;SALT;Salt Lending;false
+STORJ;STORJ;Storj;false
+CTXC;CTXC;Cortex;false
+NOAH;NOAH;Noahcoin;false
+NULS;NULS;Nuls;false
+ENG;ENG;Enigma;false
+DRGN;DRGN;Dragonchain;false
+REQ;REQ;Request Network;false
+CVC;CVC;Civic;false
+KIN;KIN;Kin;false
+SUB;SUB;Substratum Network;false
+EMC;EMC;Emercoin;false
+VERI;VERI;Veritaseum;false
+NXS;NXS;Nexus;false
+GRS;GRS;Groestlcoin;false
+GTO;GTO;Gifto;false
+R;R;Revain;false
+DENT;DENT;Dent;false
+TEL;TEL;Telcoin;false
+WIC;WICEXT;WaykiChain;false
+BCO;BCO;BridgeCoin;false
+SKY;SKY;Skycoin;false
+ENJ;ENJ;Enjin Coin;false
+FCT;FCT;Factom;false
+BIX;BIX;Bibox Token;false
+STORM;STORM;Storm;false
+WGR;WGR;Wagerr;false
+BRD;BRD;Bread token;false
+RLC;RLC;iEx.ec;false
+ICN;ICN;Iconomi;false
+VTC;VTC;VertCoin;false
+CENNZ;CENNZ;Centrality;false
+BHPC;BHPC;BHPcash Token;false
+CND;CND;Cindicator;false
+ETHOS;ETHOS;Ethos;false
+IGNIS;IGNIS;Ignis;false
+MDA;MDA;Moeda;false
+TEN;TEN;Tokenomy;false
+VITAE;VITAE;Vitae;false
+EDO;EDO;Eidoo;false
+SAN;SAN;Santiment;false
+DDD;DDD;Scry.info;false
+RDN;RDN2;Raiden Network;false
+XMC;XMC;Monero Classic;false
+AGRS;AGRS;Agoras Token;false
+GBYTE;GBYTE;Byteball;false
+ODE;ODE;Odem;false
+NCASH;NCASH;Nucleus Vision;false
+TKY;TKY;THEKEY;false
+TOMO;TOMO;TomoCoin;false
+QSP;QSP;Quantstamp;false
+HPB;HPB;High Performance Blockchain;false
+NEBL;NEBL;Neblio;false
+PLR;PLR;Pillar;false
+AGI;AGI;SingularityNET;false
+EDR2;EDR2;Endor Protocol Token;false
+BLZ;BLZ2;Bluzelle;false
+GO;GO;GoCoin;false
+ZIP;ZIP;Zipper;false
+SMT;SMT2;SmartMesh;false
+USDC;USDC;USCoin;false
+AMB;AMB;Ambrosus;false
+TNB;TNB;Time New Bank;false
+MFT;MFT;Mainframe;false
+C20;C20;Crypto20;false
+FSN;FSN;Fusion;false
+DATA;DATA;Streamr DATAcoin;false
+CRPT;CRPT;Crypterium;false
+POE;POE;Po.et;false
+PPC;PPC;PeerCoin;false
+POA;POA;POA Network;false
+SMART;SMART;SmartCash;false
+NAV;NAV;NavCoin;false
+DIG;DIG;Dignity;false
+IOTX;IOTX;IoTeX;false
+CPT;CPT;Cryptaur;false
+STQ;STQ;Storiqa Token;false
+TCH;TCH3;Tiger Cash;false
+BOS;BOS;BOScoin;false
+MTL;MTL;Metal;false
+PRO;PRO;Propy;false
+GNO;GNO;Gnosis;false
+CS;CS3;Credits;false
+MEDX;MEDX;MEDX;false
+UBQ;UBQ;Ubiq;false
+RUFF;RUFF;Ruff;false
+JNT;JNT;Jibrel Network Token;false
+RNT;RNT;OneRoot Network;false
+APL;APL;Apollo Currency;false
+MOD;MOD;Modum;false
+DTA;DTA;Data;false
+TRUE;TRUE;TrueChain;false
+ANT;ANT;Aragon;false
+TRUE;TRUEEXT;True Chain;false
+BLOCK;BLOCK;BlockNet;false
+XWC;XWC;WhiteCoin;false
+EMC2;EMC2;Einsteinium;false
+SNM;SNM;SONM;false
+ACT;ACT;Achain;false
+SLS;SLS;SaluS;false
+BTO;BTO;Bottos;false
+ABT;ABT;Arcblock;false
+XDN;XDN;DigitalNote;false
+SPANK;SPANK;SpankChain;false
+TPAY;TPAY2;TokenPay;false
+MDS;MDS;MediShares;false
+BAY;BAY;BitBay;false
+PART;PART;Particl;false
+PAI;PAI;PChain;false
+AUTO;AUTO;Cube;false
+TIO;TIO;Trade.io;false
+VEE;VEE;BLOCKv;false
+BURST;BURST;BurstCoin;false
+SRN;SRN;SirinLabs;false
+GCR;GCR;Global Currency Reserve;false
+SNGLS;SNGLS;SingularDTV;false
+REN;REN;Republic Protocol;false
+GNX;GNX;Genaro Network;false
+ZCL;ZCL;ZClassic;false
+LEND;LEND;EthLend;false
+CNN;CNN;Content Neutrality Network;false
+UTK;UTK;Utrust;false
+XAS;XAS;Asch;false
+ADX;ADX;AdEx;false
+SBD;SBD;Steem Backed Dollars;false
+DMT;DMT;DMarket;false
+VIA;VIA;ViaCoin;false
+LCC;LCC;LitecoinCash;false
+EDG;EDG;Edgeless;false
+APIS;APIS;APIS;false
+NGC;NGC;NagaCoin;false
+DNT;DNT;district0x;false
+ITC;ITC;IoT Chain;false
+OST;OST;SimpleToken;false
+VIBE;VIBE;VIBE (VIBEHub);false
+WPR;WPR;WePower;false
+LYM;LYM;Lympo;false
+NTY;NTY;Nexty;false
+EOSDAC;EOSDAC;eosDAC;false
+SPHTX;SPHTX;SophiaTX;false
+RCN;RCN;Ripio;false
+KEY;KEY2;SelfKey;false
+IHT;IHT;IHT Real Estate Protocol;false
+RTH;RTH3;Rotharium;false
+TNT;TNT;Tierion;false
+WINGS;WINGS;Wings DAO;false
+INS;INS;INS Ecosystem;false
+ANON;ANON;ANON;false
+TCT;TCT;TokenClub;false
+WABI;WABI;WaBi;false
+KICK;KICK;KickCoin;false
+BTX;BTX;Bitcore;false
+AST;AST;AirSwap;false
+FXT;FXT;FuzeX;false
+UCASH;UCASH;U.CASH;false
+VITE;VITE;VITE;false
+BAX;BAX;BABB;false
+DAPS;DAPS;DAPS Token;false
+CLOAK;CLOAK;CloakCoin;false
+XPM;XPM;PrimeCoin;false
+KAN;KAN;BitKan Token;false
+RFR;RFR;Refereum;false
+TTU;TTU;TaTaTu;false
+PST;PST;Primas;false
+BBR;BBR;Boolberry;false
+ECA;ECA;Electra;false
+TKN;TKN;TokenCard;false
+QLC;QLC;QLC Chain;false
+MET2;MET2;Metronome;false
+QNT;QNT;Quant;false
+QRL;QRL;Quantum Resistant Ledger;false
+LGO;LGO;Legolas Exchange;false
+DPY;DPY;Delphy;false
+LOKI;LOKI;LOKI;false
+HYDRO;HYDRO;Hydro;false
+MED;MED2;MediBloc;false
+SLT;SLT;Smartlands;false
+NIX;NIX;NIX Platform;false
+ION;ION;Ionomy;false
+ZPT;ZPT;Zeepin;false
+CDT;CDT;CoinDash;false
+CPC;CPC2;CPChain;false
+BITG;BITG;Bitcoin Green;false
+ARN;ARN;Aeron;false
+CPX;CPX;APEX;false
+APPC;APPC;AppCoins;false
+SEELE;SEELE;Seele;false
+USC;USC;Ultimate Secure Cash;false
+BZNT;BZNT;Bezant;false
+FUEL;FUEL;Etherparty;false
+XSN;XSN;Stakenet;false
+EDR;EDR;E-Dinar Coin;false
+MOBI;MOBI;Mobius;false
+NKN;NKN;NKN;false
+BCZERO;BCZERO;Buggyra Coin Zero;false
+MER;MER;Mercury;false
+SCRL;SCRL;Scroll;false
+LINDA;LINDA;Linda;false
+COB;COB;Cobinhood;false
+ATN;ATN;ATN;false
+NLG;NLG;Gulden;false
+DBC;DBC;DeepBrain Chain;false
+SWM;SWM;Swarm Fund;false
+MNX;MNX;MinexCoin;false
+DERO;DERO;DERO;false
+AEON;AEON;AeonCoin;false
+LFT;LFT;Linfinity;false
+MSP;MSP;Mothership;false
+YOYOW;YOYOW;Yoyow;false
+TRAC;TRAC;OriginTrail;false
+EVX;EVX;Everex;false
+GRFT;GRFT;Graft;false
+LUN;LUN;Lunyr;false
+BWX;BWX;Blue Whale Token;false
+EDN;EDN;Eden Coin;false
+BWK;BWK;Bulwark;false
+FOTA;FOTA;Fortuna;false
+BCPT;BCPT;BlockMason Credit Protocol;false
+INT;INT;Internet Node Token;false
+IMT;IMT;MoneyToken;false
+PRL;PRL;Oyster Pearl;false
+DCC;DCC3;Distributed Credit Chain;false
+COV;COV;Covesting;false
+LINA;lina;Lina;false
+NANJ;NANJ;NANJCOIN;false
+CHAT;CHAT;ChatCoin;false
+DOCK;DOCK;Dock;false
+ADT;ADT;AdToken;false
+XRL;XRL;Rialto.AI;false
+SWFTC;SWFTC;SwftCoin;false
+CLO;CLO;Callisto Network;false
+ZCN;ZCN;0Chain;false
+NMC;NMC;NameCoin;false
+TIX;TIX;Blocktix;false
+XUC;XUC;Exchange Union;false
+FTC;FTC;FeatherCoin;false
+UTNP;UTNP;Universa Token;false
+TERN;TERN;Ternio;false
+TUBE;TUBE;BitTube;false
+LBC;LBC;LBRY Credits;false
+INK;INK;Ink;false
+DLT;DLT;Agrello Delta;false
+MTH;MTH;Monetha;false
+VIB;VIB;Viberate;false
+GIN;GIN;GINcoin;false
+B2B;B2B;B2BX;false
+BITB;BITB;Bean Cash;false
+COSS;COSS;COSS;false
+DAX;DAX;DAEX;false
+CRW;CRW;Crown Coin;false
+ZPR;ZPR;ZPER token;false
+DCT;DCT;Decent;false
+SIX;SIX;SixAxis;false
+HTML;HTML;HTMLCOIN;false
+DBET;DBET;Decent.bet;false
+RVR;RVR;RevolutionVR;false
+ZCO;ZCO;Zebi Coin;false
+LA;LA;LAToken;false
+PMA;PMA;PumaPay;false
+NSD;NSD;Nasdacoin;false
+NPX;NPX;Napoleon X;false
+PLC;PLC;PlusCoin;false
+UPP;UPP;Sentinel Protocol;false
+BLT;BLT;Bloom Token;false
+1ST;1ST;FirstBlood;false
+OPTI;OPTI;OptiToken;false
+MOT;MOT;Olympus Labs Token;false
+YEE;YEE;Yee;false
+HMC;HMC2;Hi Mutual Society;false
+NER;NER;Nerves;false
+DADI;DADI;DADI;false
+OAX;OAX;OpenANX;false
+LET;LET;LinkEye;false
+ZMN;ZMN;ZMINE Token;false
+BKX;BKX;BANKEX;false
+JWL;JWL;Jewels;false
+MLN;MLN;Melon;false
+SKM;SKM;Skrumble Network;false
+WWB;WWB;Wowbit;false
+DATX;DATX;DATx;false
+MLM;MLM;MktCoin;false
+XHV;XHV;Haven Protocol;false
+QUN;QUN;QunQun;false
+BOX;BOX;ContentBox;false
+CHSB;CHSB;SwissBorg;false
+LOC;LOC2;LockTrip;false
+VIN;VIN;VinChain;false
+XEL;XEL;Elastic;false
+CAS;CAS;Cashaa;false
+BPT;BPT;Blockport;false
+BMC;BMC;Blackmoon Crypto;false
+HMQ;HMQ;Humaniq;false
+TFD;TFD;TE-FOOD;false
+SOUL;SOUL2;Phantasma;false
+ABL;ABL;Airbloc;false
+NMR;NMR;Numerai;false
+DIM;DIM;DIMCOIN;false
+BLK;BLK;BlackCoin;false
+TTT;TTT;TrustNote;false
+UP;UP;UpToken;false
+ECOREAL;ECOREAL;Ecoreal Estate;false
+XDCE;XDCE;XinFin Coin;false
+GAME;GAME;Gamecredits;false
+ZSC;ZSC;Zeusshield;false
+LUX;LUX;LUXCoin;false
+SINS;SINS;SafeInsure;false
+CARD;CARD;Cardstack;false
+LCS;LCS;LocalCoinSwap;false
+MUE;MUE;MonetaryUnit;false
+MGD;MGD;Mass Grid;false
+DAT;DAT;Datum;false
+WTL;WTL;Welltrado Token;false
+MUSIC;MUSIC;Musicoin;false
+MAS;MAS;MidasProtocol;false
+XP;XP;XP;false
+STX;STX;Stox;false
+MTN;MTN2;Medicalchain;false
+TOA;TOA;ToaCoin;false
+SWTH;SWTH;Switcheo;false
+REM;REM;REMME;false
+EGT;EGT;Egretia;false
+DAG;DAG;Constellation;false
+AMP;AMP;Synereo;false
+IVY;IVY;Ivy;false
+ELEC;ELEC;Electrify.Asia;false
+DACS;DACS;DACSEE;false
+BANCA;BANCA;BANCA;false
+SNC;SNC;SunContract;false
+RADS;RADS;Radium;false
+STK;STK;STK token;false
+BOXX;BOXX;BOXX Token [Blockparty];false
+BOT;BOT;Bodhi;false
+CAPP;CAPP;Cappasity;false
+UGC;UGC;ugChain;false
+KRM;KRM;Karma;false
+GEN;GEN4;DAOstack Token;false
+LGS;LGS;LogisCoin;false
+TRIG;TRIG;Trigger;false
+DBIX;DBIX;DubaiCoin;false
+UBEX;UBEX;Ubex;false
+HST;HST;Decision Token;false
+ATMI;ATMI;Atonomi;false
+XTL;XTL;Stellite;false
+GSC;GSC;Global Social Chain;false
+QBT;QBTEXT;Qbao;false
+BBN;BBN;BBNToken;false
+DXT;DXT;Datawallet;false
+BRM;BRM;BrahmaOS;false
+UT;UT;Ulord;false
+GEM;GEM;Gems;false
+VRC;VRC;VeriCoin;false
+NLC;NLC2;NoLimitCoin;false
+TOL;TOL;Tolar;false
+TNC;TNC;Trinity Network Credit;false
+CCL;CCL;CYCLEAN;false
+DRT;DRT;DomRaider;false
+MVP;MVP;Merculet;false
+ATCC;ATCC;ATC Coin;false
+GUP;GUP;Guppy;false
+DICE;DICE;Etheroll;false
+VEX;VEX;Vexanium;false
+DX;DX;DxChain Token;false
+BSD;BSD;BitSend;false
+EXY;EXY;Experty;false
+ORME;ORME;Ormeus Coin;false
+FDZ;FDZ;Friendz;false
+ZEL;ZEL;Zelcash;false
+TIME;TIME;Chronobank;false
+MRK;MRK;MARK.SPACE;false
+BZ;BZ;Bit-Z Token;false
+ARO;ARO;Arionum;false
+ROBET;ROBET;RoBET;false
+OLT;OLT;OneLedger;false
+SENT;SENT;Sentinel;false
+CHP;CHP3;CoinPoker;false
+EKO;EKO;EchoLink;false
+TSL;TSL;Energo;false
+SRCOIN;SRCOIN;SRCOIN;false
+EAC;EAC;EarthCoin;false
+SSC;SSC;SelfSell;false
+NTK;NTK;Neurotoken;false
+RSTR;RSTR;Ondori;false
+CCCX;CCCX;Clipper Coin;false
+CZR;CZR;CanonChain;false
+EXRN;EXRN;EXRNchain;false
+PAT;PAT;PATRON;false
+GARD;GARD;Hashgard;false
+PRJ;PRJ;Project Coin;false
+CXO;CXO;CargoX;false
+RET;RET;RealTract;false
+MSR;MSR;Masari;false
+TRST;TRST;TrustCoin;false
+FLIXX;FLIXX;Flixxo;false
+AIR;AIR;AirToken;false
+LPC;LPC;LightPayCoin;false
+IDH;IDH;IndaHash;false
+RED;RED3;RED;false
+PCH;PCH;POPCHAIN;false
+DEB;DEB;Debitum Token;false
+NIM;NIM;Nimiq;false
+IPL;IPL;InsurePal;false
+COFI;COFI;CoinFi;false
+NYC;NYC;NewYorkCoin;false
+NOTE;NOTE;DNotes;false
+RTE;RTE;Rate3;false
+TIPS;TIPS;FedoraCoin;false
+HB;HB;HeartBout;false
+PRG;PRG;Paragon;false
+GBX;GBX;GoByte;false
+EXP;EXP;Expanse;false
+CPC;CPC;CapriCoin;false
+LEDU;LEDU;Education;false
+OK;OK;OKCash;false
+NIO;NIOEXT;Autonio;false
+APH;APH;Aphelion;false
+PTOY;PTOY;Patientory;false
+LEV;LEV;Leverj;false
+SNTR;SNTR;Silent Notary;false
+CHX;CHX;Chainium;false
+SIB;SIB;Sibcoin;false
+TFL;TFL;True Flip Lottery;false
+CAN;CAN;CanYaCoin;false
+1WO;1WO;1World;false
+DAV;DAV3;DAV Token;false
+AID;AID;AidCoin;false
+SWT;SWT;Swarm City Token;false
+SXUT;SXUT;Spectre.ai Utility Token;false
+SS;SS;Sharder;false
+AAC;AAC;Acute Angle Cloud;false
+ABYSS;ABYSS;Abyss;false
+ACAT;ACAT;Alphacat;false
+BEZ;BEZ;Bezop;false
+ADB;ADB;Adbank;false
+UBT;UBT;Unibright;false
+DIVX;DIVX;Divi;false
+PAL;PAL3;PolicyPal Network;false
+CLN;CLN;Colu Local Network;false
+NPER;NPER;NPER;false
+SENC;SENC;Sentinel Chain;false
+OLE;OLE;Olive;false
+FLP;FLP;Gameflip;false
+DTH;DTH;Dether;false
+С2С;C2C;C2C System;false
+PARETO;PARETO;Pareto Network;false
+BTM;BTM;BitMark;false
+PKT;PKT;Playkey;false
+RNTB;RNTB;BitRent;false
+J8T;J8T;JET8;false
+HOLD;HOLD;Interstellar Holdings;false
+HBZ;HBZ;Helbiz;false
+KWATT;KWATT;4NEW;false
+GTM;GTM;Gentarium;false
+POLL;POLL;ClearPoll;false
+SYNX;SYNX;Syndicate;false
+GPKR;GPKR;Gold Poker;false
+SNOV;SNOV;Snovio;false
+PLAY;PLAY;HEROcoin;false
+SPHR;SPHR;Sphere Coin;false
+PCL;PCL;Peculium;false
+FTX;FTX;FintruX Network;false
+ALI;ALI;AiLink Token;false
+MTX;MTX;Matryx;false
+DAN;DAN;Daneel;false
+FTT;FTT;FarmaTrust;false
+ADH;ADH;AdHive Token;false
+BTCZ;BTCZ;BitcoinZ;false
+UQC;UQC;Uquid Coin;false
+LATX;LATX;LatiumX;false
+INSTAR;INSTAR;Insights Network;false
+MIB;MIB;MIB Coin;false
+LIKE;LIKE;LikeCoin;false
+ATL;ATL;ATLANT;false
+TGC;TGC;TigerCoin;false
+RATING;RATING;DPRating;false
+PLU;PLU;Pluton;false
+ETT;ETT;EncryptoTel;false
+CMCT;CMCT;Crowd Machine;false
+CANN;CANN;CannabisCoin;false
+ABX;ABX;Arbidex Token;false
+EVE;EVE;Devery;false
+S;S;Sharpay;false
+IPSX;IPSX;IP Exchange;false
+IND;IND;Indorse;false
+FREC;FREC;Freyrchain;false
+ARY;ARY;Block Array;false
+IOP;IOP;Internet of People;false
+NBT;NBT;NuBits;false
+OWN;OWN;OWNDATA;false
+NET;NET2;Nimiq Exchange Token;false
+BETR;BETR;BetterBetting;false
+NOBS;NOBS;No BS Crypto;false
+UNIT;UNIT;Universal Currency;false
+CYFM;CYFM;CyberFM;false
+WISH;WISH2;MyWish;false
+EVN;EVN2;EvenCoin;false
+EXCL;EXCL;Exclusive Coin;false
+NUSD;NUSD;nUSD;false
+RCT;RCT;RealChain;false
+LALA;LALA;LaLa World;false
+SPF;SPF;SportyCo;false
+RYO;RYO;Ryo;false
+ADC;ADC;AudioCoin;false
+MIC;MIC;Mindexcoin;false
+SUMO;SUMO;Sumokoin;false
+KRL;KRL;Kryll;false
+TAC;TAC;Traceability Chain;false
+HUR;HUR;Hurify Token;false
+0XBTC;0xBTC;0xBitcoin;false
+LOCI;LOCI;LociCoin;false
+CDM;CDM;Condominium;false
+HWC;HWC;HollyWoodCoin;false
+BIR;BIR;Birake;false
+TGAME;TGAME;Truegame;false
+PAYX;PAYX;Paypex;false
+ATB;ATB;ATB coin;false
+KRB;KRB;Karbo;false
+THRT;THRT;Thrive;false
+PTT;PTT;Proton Token;false
+WEB;WEB;Webcoin;false
+METM;METM;MetaMorph Pro;false
+ENGT;ENGT;Engagement Token;false
+NAVI;NAVI;NaviAddress;false
+ETA;ETA;Etheera;false
+XMCT;XMCT;XMCT;false
+HQX;HQX;HOQU;false
+PUT;PUTEXT;Profile Utility Token;false
+BON;BON;Bonpay;false
+NRVE;NRVE;Narrative;false
+FTXT;FTXT;FUTURAX;false
+FOX;FOX;SmartFox;false
+ZXC;ZXC;0xcert;false
+ACE;ACE;TokenStars;false
+QNO;QNO;Qyno;false
+SCT;SCT2;Soma;false
+BOUTS;BOUTS;BoutsPro;false
+AUC;AUC;Auctus;false
+AIX;AIX;Aigang;false
+XSG;XSG;SnowGem;false
+FSBT;FSBT;Forty Seven Bank;false
+BBO;BBO;Bigbom;false
+PYLNT;PYLNT;Pylon Network;false
+BUNNY;BUNNY;BunnyToken;false
+HAND;HAND;ShowHand;false
+IG;IG;IGToken;false
+ADI;ADI;Aditus;false
+BIT;BIT;BitRewards;false
+QBO;QBO;Qabio;false
+ING;ING;Iungo;false
+TKA;TKA;Tokia;false
+NDX;NDX;nDEX;false
+ENTS;ENTS;EUNOMIA;false
+MFG;MFG;SyncFab;false
+LDC;LDC;LeadCoin;false
+BTW;BTW;BitWhite;false
+AMM;AMM;MicroMoney;false
+SPR;SPR;Spreadcoin;false
+ZET;ZET;ZetaCoin;false
+STU;STU;BitJob;false
+TNS;TNS;Transcodium;false
+BTXC;BTXC;Bettex Coin;false
+FOXT;FOXT;Fox Trading;false
+DOR;DOR;Dorado;false
+ZCC;ZCC;ZCC Coin;false
+LCT;LCT;LendConnect;false
+CEN;CEN;Coinsuper Ecosystem Network;false
+JET;JET;Jetcoin;false
+ELY;ELY;Elysian;false
+OCC;OCC;Octoin;false
+CCC;CCC4;Concierge Coin;false
+TOTO;TOTO;Tourist Token;false
+WIT;WIT;WITChain;false
+NRC;NRC;Neurocoin;false
+PPO;PPO;PICPOTO;false
+WHL;WHL;WhaleCoin;false
+EARTH;EARTH;Earth Token;false
+DTRC;DTRC;Datarius;false
+MVT;MVT;The Movement;false
+CMT;CMT;CometCoin;false
+OUR;OUR;Ourcoin;false
+TDS;TDS;TokenDesk;false
+BTR;BTR;Bitether;false
+PXC;PXC;PhoenixCoin;false
+GZR;GZR;Gizer Gaming Token;false
+C2P;C2P;Coin2Play;false
+META;META;Metacash;false
+BXC;BXC;Bitcedi;false
+PRE;PRE;Premium;false
+GOT;GOT;Giotto Coin;false
+INC;INC;Incrementum;false
+MT;MT;Mycelium Token;false
+MDT;MDT;Midnight;false
+TPAY;TPAY;TrollPlay;false
+TAT;TAT;Tatiana Coin;false
+RDN;RDN;RadonPay;false
+DOV;DOV;DonationCoin;false
+MET;MET;Memessenger;false
+POLY;POLY;PolyBit;false
+TIC;TIC;TrueInvestmentCoin;false
+TEAM;TEAM;TeamUP;false
+AMT;AMT;Acumen;false
+FIL;FIL;FileCoin;false
+NKC;NKC;Nukecoinz;false
+BBT;BBT;BrickBlock;false
+MIN;MIN;Minerals Coin;false
+BCX;BCX;BattleCoin;false
+SEN;SEN;Sentaro;false
+NEU;NEU;NeuCoin;false
+CLUB;CLUB;ClubCoin;false
+ILC;ILC;ILCoin;false
+CRE;CRE;Credits;false
+XID;XID;Sphre AIR;false
+KEY;KEY;KeyCoin;false
+SPN;SPN;Spoon;false
+PHR;PHR;Phreak;false
+IPC;IPC;ImperialCoin;false
+DCC;DCC;DarkCrave;false
+SILK;SILK;SilkCoin;false
+CTC;CTC;CarterCoin;false
+CAM;CAM;Camcoin;false
+LKY;LKY;LuckyCoin;false
+RBLX;RBLX;Rublix;false
+HDAC;HDAC;Hdac;false
+ABBC;ABBC;Alibabacoin;false
+CMA;CMA3;CryptomoverActive;false
+LKC;LKC;LinkedCoin;false
+MIDAS;MIDAS;Midas;false
+HYC;HYC;HYCON;false
+MLC;MLC;Mallcoin;false
+CARAT;CARAT;CARAT;false
+USE;USE;Usechain Token;false
+ROX;ROX;Robotina;false
+GUSD;GUSD;Gemini Dollar;false
+BTCET;BTCET;BitCoin WEX Token;false
+YOU;YOU;YOUChain;false
+EXMR;EXMR;eXMR Monero;false
+EJOY;EJOY;Ether Joy;false
+GENE;GENE4;Gene;false
+PNT;PNT;Penta Network Token;false
+BCDN;BCDN;BlockCDN;false
+UBTC;UBTC;UnitedBitcoin;false
+ANS;ANS;Antshares;false
+CNET;CNET;Currency Network;false
+SEER;SEER;SEER;false
+LIGHT;LIGHT;LightChain;false
+UCT;UCT;Ubique Chain of Things;false
+ZAIF;ZAIF;Zaif;false
+AIC;AIC;Artificial Intelligence Coin;false
+SBTC;SBTC;Super Bitcoin;false
+LBA;LBA;Libra Token;false
+EVT;EVT;Ethfinex Voting Token;false
+ABTC;ABTC;AML BitCoin;false
+INSUR;INSUR;InsurChain;false
+EDU;EDU;EduCoin;false
+GOC;GOC;GoChain;false
+HAV;HAV3;Havven;false
+ECH;ECH;Etherecash;false
+RPL;RPL;RocketPool;false
+CAN;CAN2;Content and Ad Network;false
+TCOIN;TCOIN;T-coin;false
+MCT;MCT;1717 Masonic Commemorative Token;false
+RIO;RIO;RioCoin;false
+GOOC;GOOC;GooChain;false
+FC;FC3;FuturesCoin;false
+CKUSD;CKUSD;CK USD;false
+NPXSXEM;NPXSXEM;Pundi X NEM;false
+ACDC;ACDC;Volt;false
+BTH;BTH2;Bitcoin Hot;false
+TV;TV;Ti-Value;false
+CMS;CMS;COMSA;false
+IHF;IHF;Invictus Hyperion Fund;false
+CDC;CDC;CDCToken;false
+WIKI;WIKI;Wiki Token;false
+SAC;SAC;Smart Application Chain;false
+ASA;ASA3;AsaCoin;false
+TMT;TMT;ToTheMoon;false
+ICNQ;ICNQ;Iconiq Lab Token;false
+MRYC;MRYC;MermaidCoin;false
+VNT;VNT2;Ventory;false
+INCX;INCX;Intermational Crypto X;false
+ZB;ZB;ZB Token;false
+BTCU;BTCU;BitcoinUltra;false
+MT2;MT2;MyToken;false
+BNK;BNK;Bankera;false
+EXCC;EXCC;ExchangeCoin;false
+TTC3;TTC3;TTCProtocol;false
+EXT;EXT4;Experience Token;false
+ST;ST;SimpleToken;false
+CWV;CWV;CryptoWave;false
+MAN;MAN;People;false
+FOIN;FOIN;FOIN;false
+ULT;ULT4;Ultiledger;false
+BOX;BOX4;BOX Token;false
+BFT;BFT;BF Token;false
+HC;HC3;HyperCash;false
+UST;UST3;UniverseShield;false
+DOC;DOC;Doc Coin;false
+MOF;MOF;Molecular Future;false
+MRPH;MRPH;Morpheus Network;false
+TOPC;TOPC;TopChain;false
+LBTC;LBTC2;Lightning Bitcoin;false
+CBC4;CBC4;Cashbery Coin;false
+DTX;DTX;DataBroker DAO;false
+SCC;SCC4;SiaCashCoin;false
+HOT;HOT3;Holochain;false
+XPAC;XPAC;Dollar PAC;false
+GTC;GTC;Game;false
+GOT3;GOT3;GoNetwork;false
+GBC;GBC3;GoldBitsCoin;false
+SW;SW3;58Wallet;false
+PSM;PSM;PRASM;false
+KTC;KTC;Kyvalion Token Coin;false
+XCEL;XCEL3;XcelToken;false
+MBC;MBC5;MicroBitcoin;true
+UKG;UKG;UnikoinGold;false
+SLT;SLT3;Social Lending Token;false
+EDS;EDS;Endorstit;false
+BU;BU;BUMO;false
+BEC;BEC4;Beauty Chain;false
+CTE;CTE;Career Trust Ecosystem;false
+PDX;PDX3;PDX BlockChain;false
+ATMC;ATMC;ATMCoin;false
+NAM3;NAM3;Nam Coin;false
+BITS;BITS3;Bitcoinus;false
+TCT;TCT4;Tadpole Chain;false
+TIC;TIC3;Thingschain;false
+KCASH;KCASHEXT;Kcash;false
+GOT;GOT4;ParkinGo;false
+MXM;MXM;Maximine Coin;false
+PLC;PLC3;PlatinCoin;false
+OF;OFEXT;OFCOIN;false
+ESS;ESS;Essentia;false
+TMTG;TMTG;The Midas Touch Gold;false
+MCC;MCC;Moving Cloud Coin;false
+SDS;SDS;Alchemint Standards;false
+IXE;IXE;IXTUS;true
+CBT;CBT3;Crebit;false
+AXPR;AXPR;aXpire;false
+BMX;BMX;BitMart BMX;false
+SPND;SPND;Spendcoin;false
+DWS;DWS;DWS;false
+SNO;SNO;SaveNode;false
+CAR;CAR3;CarBlock;false
+BBC;B2B3;TraDove;false
+AT;AT;ABCC Token;false
+SHE;SHE;ShineChain;false
+DACC;DACC;DACC;false
+FUNDZ;FUNDZ;FundToken;false
+FAT;FAT;FAT (Fatbtc Token);false
+BCA;BCA;Bitcoin Atom;false
+DDN;DDN;Data Delivery Network;false
+WOC;WOC3;WOCHAIN;false
+UIP;UIP;UnlimitedIP;false
+KEY;KEY4;BihuKey;false
+CIC;CIC;Cloud-Insurance Chain;false
+QNTU;QNTU;Quanta Utility Token;false
+KK;KK;KKCoin Token;false
+MITX;MITX;Morpheus Infrastructure Token;false
+BSB;BSB;Bitwin;false
+FZ;FZ;Frozen;false
+XMO;XMO;Monero Original;false
+EXT;EXT;Life Extension;false
+QAC;QAC;Quasarcoin;false
+TRIO;TRIO;Tripio;false
+MIR;MIR;MIR COIN;false
+SOC;SOC;All Sports Coin;false
+B2X;B2X;SegWit2x [Futures];false
+ARBIT;ARBIT;ARBITRAGE;false
+TIP;tip;Top Intellectual Point;false
+BOB;BOB3;BOB Token;false
+COBRA;COBRA;Cobrabytes;false
+DROP;DROP3;Dropil;false
+BTP;BTP;BitcoinPay;false
+IMOS;imos;Intelligent Manufacturing OS;false
+ADK;ADK;Aidos Kuneen;false
+OPEN;OPEN;Open Platform;false
+UST;UST;Uservice;false
+BOX;BOX3;BOX Vault;false
+SHOW;SHOW;Show;false
+ELI;ELI;Eligma;false
+SCC;SCC;StockChain;false
+OKB;OKB;OKB Token;false
+YCC;YCC;Yuan Chain;false
+VCT;VCT;ValueCyber;false
+KBC;KBC;KaratGold Coin;false
+FAIR;FAIR2;FairGame;false
+RBM;RBM;Robomed;false
+ETF;ETF;EthereumFog;false
+EXPO;EXPO;ExpoCash;false
+MOC;MOC3;Mossland;false
+XIN;XIN;Infinity Economics;false
+WBL;WBL;WIZBL;false
+BRC;BRC;BrightCoin;false
+ETHB;ETHB;EtherBTC;false
+UTN;UTN;Universa;false
+COU;COU;Couchain;false
+LABH;LABH;Labh Coin;false
+TFC;TFC;The Freedom Coin;false
+HER;HER3;Hero Node Token;false
+LTCU;LTCU;LiteCoin Ultra;false
+AVH;AVH;Animation Vision Cash;false
+ECOM;ECOM3;Omnitude;false
+STC;STC;StarterCoin;false
+EST;EST;ESports Token;false
+CIT;CIT;CariNet;false
+CDY;CDY;Bitcoin Candy;false
+WT;WT;WeToken;false
+BIFI;BIFI;BitcoinFile;false
+DDM;DDM;DDM Token;false
+IDHUB;IDHUB;IDHUB;false
+LGC3;LGC3;Language Coin;false
+DATP;DATP;Decentralized Asset Trading Platform;false
+TMT22;TMT22;Traxia Membership Token;false
+YBCT;YBCT;YBCoin;false
+OTB;OTB;OTCBTC Token;false
+WKC;WKC;OnethingCoin;false
+PLY;PLY;PlayCoin;false
+HLB;HLB;HLBCoin;false
+XMX;XMX3;Xmax;false
+GST;GST;Gostcoin;false
+SKB;SKB3;Sakura Bloom;false
+PHX;PHX;PhoenixCoin;false
+IBT;IBT;IcoBay;false
+RRC;RRC;RRCoin;false
+TCT;TCT3;TCT Coin;false
+UCN;UCN4;UChain;false
+BAAS;BAAS;BaaSid;false
+MTC;MTC4;Medical Token Currency;false
+SKYFT;SKYFT;SKYFchain;false
+FTO;FTO;FuturoCoin;false
+MTC;MTC5;Mesh Network;false
+AOA;AOA3;Aurora Chain;false
+PAI;PAI3;Project PAI;false
+ONG;ONG3;Ontology Gas;false
+BQT;BQT;BQT Token;false
+AFC;AFC;AntifraudChain;false
+HIT;HIT;HitChain;false
+XCEL;XCEL;XcelTrip;false
+SOP;SOP;SoPay;false
+LEMO;LEMO;LemoChain;false
+EPLUS;EPLUS;Eplus;false
+GSE;GSE;GSENetwork;false
+RPM;RPM;Render Payment;false
+ABLX;ABLX;ABLE;false
+BCV;BCV;BitCapitalVendor;false
+DPN;DPN;DIPNET;false
+IOV;IOV;Carlive Chain;false
+POK;POK;Poker.io;false
+CET;CET;CoinEx token;false
+ECHT;ECHT;e-Chat;false
+TCN;TCN;TCoin;false
+MTC;MTC;ManateeCoin;false
+AAA;AAA;AAA Coin;false
+ALIS;ALIS;ALISmedia;false
+8BIT;8BIT;8BIT Coin;false
+WINE;WINE;WineCoin;false
+DKC;DKC;DarkKnightCoin;false
+VIP;VIP;VIP Tokens;false
+XNX;XNX;XanaxCoin;false
+XCN;XCN;Cryptonite;false
+ALN;ALN;AlienCoin;false
+TKS;TKS;Tokes;false
+ENE;ENE;EneCoin;false
+JIF;JIF;JiffyCoin;false
+TELL;TELL;Tellurion;false
+ATOM;ATOM;Atomic Coin;false
+ZOOM;ZOOM;ZoomCoin;false
+XBS;XBS;Bitstake;false
+MUU;MUU;MilkCoin;false
+WBB;WBB;Wild Beast Coin;false
+NLC;NLC;NoLimitCoin;false
+NANAS;NANAS;BananaBits;false
+SH;SH;Shilling;false
+SPX;SPX;Specie;false
+XHI;XHI;HiCoin;false
+MNC;MNC;MinCoin;false
+CYT;CYT;Cryptokenz;false
+IXT;IXT;iXledger;false
+BSTY;BSTY;GlobalBoost;false
+XAI;XAI;SapienceCoin;false
+ZRC;ZRC;ZrCoin;false
+CLINT;CLINT;Clinton;false
+ERY;ERY;Eryllium;false
+PNC;PNC;PlatiniumCoin;false
+ZOI;ZOI;Zoin;false
+MNM;MNM;Mineum;false
+ZEIT;ZEIT;ZeitCoin;false
+MILO;MILO;MiloCoin;false
+XCASH;XCASH;Xcash;false
+ENRG;ENRG;EnergyCoin;false
+7;7;007 coin;false
+SFE;SFE;SFE;false
+HDG;HDG;Hedge Token;false
+ECOB;ECOB;EcoBit;false
+ARCO;ARCO;AquariusCoin;false
+SWING;SWING;SwingCoin;false
+MTLM3;MTLM3;Metal Music v3;false
+RIYA;RIYA;Etheriya;false
+GIZ;GIZ;GIZMOcoin;false
+GMC;GMC;Gridmaster;false
+OSC;OSC;OpenSourceCoin;false
+BNC;BNC;Benjacoin;true
+WARP;WARP;WarpCoin;false
+NUM;NUM;NumbersCoin;false
+BAM;BAM;BAM;false
+PXL;PXL;Phalanx;false
+BIGUP;BIGUP;BigUp;false
+PIO;PIO;Pioneershares;false
+WCT;WCT;Waves Community Token;false
+N7;N7;Number7;false
+CWXT;CWXT;CryptoWorldXToken;false
+IFC;IFC;Infinite Coin;false
+BITZ;BITZ;Bitz Coin;false
+BIOB;BIOB;BioBar;false
+ORO;ORO;OroCoin;false
+CRAFT;CRAFT;Craftcoin;false
+XFC;XFC;Forever Coin;false
+CORAL;CORAL;CoralPay;false
+XPO;XPO;Opair;false
+KRAK;KRAK;Kraken;false
+MOIN;MOIN;MoinCoin;false
+DNR;DNR;Denarius;false
+BERN;BERN;BERNcash;false
+INPAY;INPAY;InPay;false
+PCM;PCM;Procom;false
+PING;PING;CryptoPing;false
+QRK;QRK;QuarkCoin;false
+XUP;XUP;UPcoin;false
+XVP;XVP;VirtacoinPlus;false
+UET;UET;Useless Ethereum Token;false
+GCC;GCC;GuccioneCoin;false
+NIMFA;NIMFA;Nimfamoney;false
+XLR;XLR;Solaris;false
+SHORTY;SHORTY;ShortyCoin;false
+MAPC;MAPC;MapCoin;false
+PROC;PROC;ProCurrency;false
+BIOS;BIOS;BiosCrypto;false
+CC;CC;CyberCoin;false
+VISIO;VISIO;Visio;false
+DYN;DYN;Dynamic;false
+MBRS;MBRS;Embers;false
+BENJI;BENJI;BenjiRolls;false
+NET;NET;NetCoin;false
+WORM;WORM;HealthyWorm;false
+HUGE;HUGE;BigCoin;false
+CSNO;CSNO;BitDice;false
+SMC;SMC;SmartCoin;false
+U;U;Ucoin;false
+GIFT;GIFT;GiftNet;false
+FRWC;FRWC;Frankywillcoin;false
+CACH;CACH;Cachecoin;false
+FUCK;FUCK;Fuck Token;false
+RC;RC;Russiacoin;false
+BYC;BYC;ByteCent;false
+SCORE;SCORE;Scorecoin;false
+NTC;NTC;NineElevenTruthCoin;false
+OLYMP;OLYMP;OlympCoin;false
+DOGETH;DOGETH;EtherDoge;false
+X2;X2;X2;false
+KORE;KORE;Kore;false
+808;808;808;false
+MM;MM;MasterMint;false
+FIND;FIND;FindCoin;false
+LBTC;LBTC;LiteBitcoin;false
+CTIC;CTIC;Coinmatic;false
+BM;BM;BitMoon;false
+HUSH;HUSH;Hush;false
+LOOK;LOOK;LookCoin;false
+PAYP;PAYP;PayPeer;false
+ACN;ACN;AvonCoin;false
+TAAS;TAAS;Token as a Service;false
+POT;POT;PotCoin;false
+NEVA;NEVA;NevaCoin;false
+ORB;ORB;Orbitcoin;false
+ASN;ASN;Ascension Coin;false
+HPC;HPC;HappyCoin;false
+FUNC;FUNC;FunCoin;false
+GGS;GGS;Gilgam;false
+COVAL;COVAL;Circuits of Value;false
+VUC;VUC;Virta Unique Coin;false
+RNC;RNC;ReturnCoin;false
+TIT;TIT;TitCoin;false
+DDF;DDF;Digital Developers Fund;false
+START;START;StartCoin;false
+YOVI;YOVI;YobitVirtualCoin;false
+TAB;TAB;MollyCoin;false
+SP;SP;Sex Pistols;false
+SKB;SKB;SkullBuzz;false
+TRUST;TRUST;TrustPlus;false
+QWARK;QWARK;Qwark;false
+NEBU;NEBU;Nebuchadnezzar;false
+TENNET;TENNET;Tennet;false
+XBY;XBY;XtraBYtes;false
+CYP;CYP;CypherPunkCoin;false
+EDRC;EDRC;EDRCoin;false
+VTY;VTY;Victoriouscoin;false
+CQST;CQST;ConquestCoin;false
+TMC;TMC;TimesCoin;false
+UIS;UIS;Unitus;false
+HMP;HMP;HempCoin;false
+MINEX;MINEX;Minex;false
+REE;REE;ReeCoin;false
+RBT;RBT;Rimbit;false
+HEDG;HEDG;Hedgecoin;false
+BITOK;BITOK;BitOKX;false
+ATX;ATX;ArtexCoin;false
+MC;MC;Mass Coin;false
+ZENI;ZENI;Zennies;false
+DOT;DOT;Dotcoin;false
+DELTA;DELTA;Agrello Delta;false
+SIGU;SIGU;Singular;false
+XCP;XCP;CounterParty;false
+RKC;RKC;Royal Kingdom Coin;false
+EGO;EGO;EGOcoin;false
+AXIOM;AXIOM;Axiom Coin;false
+FRN;FRN;Francs;false
+CREA;CREA;CreativeChain;false
+BXT;BXT;BitTokens;false
+SKC;SKC;Skeincoin;false
+MNE;MNE;Minereum;false
+CRNK;CRNK;CrankCoin;false
+MRP;MRP;MorpheusCoin;false
+MAVRO;MAVRO;Mavro;false
+$PAC;$PAC;PacCoin;false
+BAN;BAN;Babes and Nerds;false
+BOSS;BOSS;BitBoss;false
+XCO;XCO;XCoin;false
+CASH;CASH2;Cash Poker Pro;false
+SPACE;SPACE;SpaceCoin;false
+B3;B3;B3 Coin;false
+TAGR;TAGR;Think And Get Rich Coin;false
+SDC;SDC;ShadowCash;false
+BOAT;BOAT;Doubloon;false
+ADST;ADST;Adshares;false
+RBY;RBY;RubyCoin;false
+YMC;YMC;YamahaCoin;false
+PEN;PEN;PenCoin;false
+PSB;PSB;PesoBit;false
+UNO;UNO;Unobtanium;false
+BCF;BCF;BitcoinFast;false
+DLC;DLC;DollarCoin;false
+XLC;XLC;Leviar;false
+VRM;VRM;Verium;false
+RADI;RADI;RadicalCoin;false
+TWIST;TWIST3;TwisterCoin;false
+KURT;KURT;Kurrent;false
+MARV;MARV;Marvelous;false
+GRWI;GRWI;Growers International;false
+EQM;EQM;Equilibrium Coin;false
+XAU;XAU;XauCoin;false
+HZT;HZT;HazMatCoin;false
+UFO;UFO;UFO Coin;false
+FLVR;FLVR;FlavorCoin;false
+FAIR;FAIR;FairCoin;false
+BET;BET;BetaCoin;false
+TRUMP;TRUMP;TrumpCoin;false
+PSY;PSY;Psilocybin;false
+GSX;GSX;GlowShares;false
+SLING;SLING;Sling Coin;false
+PEC;PEC;PeaceCoin;false
+ELC;ELC;Elacoin;false
+APT;APT;Aptcoin;false
+2015;2015;2015 coin;false
+OPAL;OPAL;OpalCoin;false
+CS;CS;CryptoSpots;false
+GSM;GSM;GSM Coin;false
+RISE;RISE;Rise;false
+XSP;XSP;PoolStamp;false
+CDX;CDX;Cryptodex;false
+JOBS;JOBS;JobsCoin;false
+CNC;CNC;ChinaCoin;false
+TPG;TPG;Troll Payment;false
+UNITS;UNITS;GameUnits;false
+KAYI;KAYI;Kayı;false
+HAL;HAL;Halcyon;false
+ATMS;ATMS;Atmos;false
+BTCRY;BTCRY;BitCrystal;false
+DRA;DRA;DraculaCoin;false
+CIRC;CIRC;CryptoCircuits;false
+CRAB;CRAB;CrabCoin;false
+SCRT;SCRT;SecretCoin;false
+SONG;SONG;Song Coin;false
+SPKTR;SPKTR;Ghost Coin;false
+ADZ;ADZ;Adzcoin;false
+QBT;QBT;Cubits;false
+BLAZR;BLAZR;BlazerCoin;false
+ALEX;ALEX;Alexandrite;false
+CLR;CLR;CopperLark;false
+DARK;DARK;Dark;false
+CHESS;CHESS;ChessCoin;false
+DOPE;DOPE;DopeCoin;false
+LANA;LANA;LanaCoin;false
+PSI;PSI;PSIcoin;false
+MPRO;MPRO;MediumProject;false
+YAC;YAC;YAcCoin;false
+DNA;DNA;Encrypgen;false
+ERC;ERC;EuropeCoin;false
+DROP;DROP;FaucetCoin;false
+PLBT;PLBT;Polybius;false
+ONX;ONX;Onix;false
+MYST;MYST;Mysterium;false
+DGORE;DGORE;DogeGoreCoin;false
+IFT;IFT;InvestFeed;false
+EMPC;EMPC;EmporiumCoin;false
+BRO;BRO;Bitradio;false
+SEEDS;SEEDS;SeedShares;false
+FCN;FCN;FantomCoin;false
+RBIES;RBIES;Rubies;false
+GREXIT;GREXIT;GrexitCoin;false
+DSH;DSH;Dashcoin;false
+AMBER;AMBER;AmberCoin;false
+ACC;ACC;AdCoin;false
+BITS;BITS;BitstarCoin;false
+CHOOF;CHOOF;ChoofCoin;false
+GOAT;GOAT;Goat;false
+PX;PX;PXcoin;false
+NLX;NLX;NulleX;false
+RATIO;RATIO;Ratio;false
+KUBO;KUBO;KubosCoin;false
+CNT;CNT;Centurion;false
+VOOT;VOOT;VootCoin;false
+MAR;MAR;MarijuanaCoin;false
+EQT;EQT;EquiTrader;false
+XRE;XRE;RevolverCoin;false
+CIN;CIN;CinderCoin;false
+SKIN;SKIN;Skincoin;false
+NUKE;NUKE;NukeCoin;false
+ANTI;ANTI;Anti Bitcoin;false
+GOOD;GOOD;GoodCoin;false
+NKA;NKA;IncaKoin;false
+COX;COX;CobraCoin;false
+PRX;PRX;Printerium;false
+BOMB;BOMB;BombCoin;false
+NYAN;NYAN;NyanCoin;false
+SOON;SOON;SoonCoin;false
+SAND;SAND;BeachCoin;false
+DBIC;DBIC;DubaiCoin;false
+GRID;GRID;Grid+;false
+CLUD;CLUD;CludCoin;false
+OTX;OTX;Octanox;false
+FLDC;FLDC;Folding Coin;false
+HBT;HBT;Hubiit;false
+RNS;RNS;RenosCoin;false
+DAR;DAR;Darcrus;false
+NDC;NDC;NeverDie;false
+HYPER;HYPER;HyperCoin;false
+GCN;GCN;GCoin;false
+KED;KED;Klingon Empire Darsek;false
+PLANET;PLANET;PlanetCoin;false
+FLO;FLO;FlorinCoin;false
+GOON;GOON;Goonies;false
+DEM;DEM;eMark;false
+EBS;EBS;EbolaShare;false
+MOJO;MOJO;Mojocoin;false
+QVT;QVT;Qvolta;false
+MOTO;MOTO;Motocoin;false
+BOOM;BOOM;BOOM Coin;false
+BTA;BTA;Bata;false
+ZBC;ZBC;Zilbercoin;false
+NOO;NOO;Noocoin;false
+LMC;LMC;LomoCoin;false
+CBX;CBX;Bullion;false
+PBT;PBT;Primalbase;false
+LEPEN;LEPEN;LePenCoin;false
+ENTER;ENTER;EnterCoin (ENTER);false
+ZER;ZER;Zero;false
+ARPA;ARPA;ArpaCoin;false
+MAT;MAT;MiniApps;false
+WMC;WMC;WMCoin;false
+INFX;INFX;Influxcoin;false
+BNB;BNB2;Boats and Bitches;false
+KC;KC;Kernalcoin;false
+CRPS;CRPS;CryptoPennies;false
+DRP;DRP;DCORP;false
+MOOND;MOOND;Dark Moon;false
+SLM;SLM;SlimCoin;false
+HYP;HYP;Hyperstake;false
+MXT;MXT;MartexCoin;false
+APX;APX;Apx;false
+WISC;WISC;WisdomCoin;false
+AMC;AMC;AmericanCoin;false
+NTRN;NTRN;Neutron;false
+GDC;GDC;GrandCoin;false
+COR;COR;Corion;false
+TIE;TIE;Ties Network;false
+GAKH;GAKH;GAKHcoin;false
+ICON;ICON;Iconic;false
+CRM;CRM;Cream;false
+SCT;SCT;ScryptToken;false
+RAIN;RAIN;Condensate;false
+UNITY;UNITY;SuperNET;false
+RCX;RCX;RedCrowCoin;false
+LAT;LAT;Latium;false
+LSD;LSD;LightSpeedCoin;false
+SCASH;SCASH;SpaceCash;false
+FIRE;FIRE;FireCoin;false
+NIC;NIC;NewInvestCoin;false
+BRIT;BRIT;BritCoin;false
+ALF;ALF;AlphaCoin;false
+IN;IN;InCoin;false
+EOC;EOC;EveryonesCoin;false
+TAM;TAM;TamaGucci;false
+UNI;UNI;Universe;false
+VLT;VLT;Veltor;false
+WINK;WINK;Wink;false
+TAP;TAP;TappingCoin;false
+MIS;MIS;MIScoin;false
+MNT;MNT;GoldMint;false
+DCRE;DCRE;DeltaCredits;false
+HODL;HODL;HOdlcoin;false
+QTZ;QTZ;Quartz;false
+DETH;DETH;DarkEther;false
+VOLT;VOLT;BitVolt;false
+DISK;DISK;Dark Lisk;false
+XPD;XPD;PetroDollar;false
+TAK;TAK;TakCoin;false
+GML;GML;GameLeagueCoin;false
+XBC;XBC;BitcoinPlus;false
+PUPA;PUPA;PupaCoin;false
+DGDC;DGDC;DarkGold;false
+GB;GB;GoldBlocks;false
+SAK;SAK;SharkCoin;false
+KUSH;KUSH;KushCoin;false
+LEA;LEA;LeaCoin;false
+LKK;LKK;Lykke;false
+FGZ;FGZ;Free Game Zone;false
+TECH;TECH;TechCoin;false
+VLTC;VLTC;VaultCoin;false
+SJCX;SJCX;StorjCoin;false
+PTC;PTC;PesetaCoin;false
+611;611;SixEleven;false
+XMCC;XMCC;Monoeci;false
+GBT;GBT;GameBetCoin;false
+YBC;YBC;YbCoin;false
+PKB;PKB;ParkByte;false
+PASC;PASC;Pascal Coin;false
+SXC;SXC;SexCoin;false
+MMXVI;MMXVI;MMXVI;false
+EUC;EUC;Eurocoin;false
+UNIFY;UNIFY;Unify;false
+VPRC;VPRC;VapersCoin;false
+ECC;ECC;E-CurrencyCoin;false
+CLICK;CLICK;Clickcoin;false
+HEAT;HEAT;Heat Ledger;false
+ZNE;ZNE;ZoneCoin;false
+BCY;BCY;BitCrystals;false
+NKT;NKT;NakomotoDark;false
+BOST;BOST;BoostCoin;false
+INSANE;INSANE;InsaneCoin;false
+VRS;VRS;Veros;false
+SWEET;SWEET;SweetStake;false
+BX;BX;BankCoin;false
+EGG;EGG;EggCoin;false
+XMY;XMY;MyriadCoin;false
+GAP;GAP;Gapcoin;false
+NZC;NZC;NewZealandCoin;false
+BOLI;BOLI;BolivarCoin;false
+HXX;HXX;HexxCoin;false
+MAC;MAC;MachineCoin;false
+FJC;FJC;FujiCoin;false
+PASL;PASL;Pascal Lite;false
+CVCOIN;CVCOIN;Crypviser;false
+CJ;CJ;CryptoJacks;false
+MBIT;MBIT;Mbitbooks;false
+XCT;XCT;C-Bits;false
+DP;DP;DigitalPrice;false
+SSTC;SSTC;SunShotCoin;false
+BEST;BEST;BestChain;false
+EAGS;EAGS;EagsCoin;false
+LAZ;LAZ;Lazarus;false
+NXC;NXC;Nexium;false
+UBIQ;UBIQ;Ubiqoin;false
+ALTC;ALTC;AltoCar;false
+DGT;DGT;DigiPulse;false
+WGO;WGO;WavesGO;false
+SPA;SPA;SpainCoin;false
+FST;FST;FastCoin;false
+JPC;JPC;JackPotCoin;false
+FX;FX;FCoin;false
+PINK;PINK;PinkCoin;false
+BLRY;BLRY;BillaryCoin;false
+RUBIT;RUBIT;Rublebit;false
+CF;CF;Californium;false
+PWR;PWR;PWR Coin;false
+GP;GP;GoldPieces;false
+PINKX;PINKX;PantherCoin;false
+VTX;VTX;Vertex;false
+XMS;XMS;Megastake;false
+CURE;CURE;Curecoin;false
+CCC;CCC;CCCoin;false
+NDOGE;NDOGE;NinjaDoge;false
+IWT;IWT;IwToken;false
+HGT;HGT;Hello Gold;false
+CSMIC;CSMIC;Cosmic;false
+ADCN;ADCN;Asiadigicoin;false
+POST;POST;PostCoin;false
+RVT;RVT;Rivetz;false
+RUST;RUST;RustCoin;false
+STO;STO;Save The Ocean;false
+CBD;CBD;CBD Crystals;false
+EDC;EDC;EducoinV;false
+IEC;IEC;IvugeoEvolutionCoin;false
+UNC;UNC;UnCoin;false
+HSP;HSP;Horse Power;false
+GRC;GRC;GridCoin;false
+AHT;AHT2;Bowhead Health;false
+EGC;EGC;EverGreenCoin;false
+OC;OC;OrangeCoin;false
+FRE;FRE;FreeCoin;false
+TAJ;TAJ;TajCoin;false
+SLR;SLR;SolarCoin;false
+ACP;ACP;Anarchists Prime;false
+ZNY;ZNY;BitZeny;false
+BIT16;BIT16;16BitCoin;false
+2GIVE;2GIVE;2GiveCoin;false
+QAU;QAU;Quantum;false
+MEME;MEME;Pepe Memetic;false
+XDE2;XDE2;XDE II;false
+EQUAL;EQUAL;EqualCoin;false
+ZNT;ZNT;OpenZen;false
+EMD;EMD;Emerald;false
+CMPCO;CMPCO;CampusCoin;false
+HVN;HVN;Hive;false
+DFT;DFT;Draftcoin;false
+NUBIS;NUBIS;NubisCoin;false
+HVCO;HVCO;High Voltage Coin;false
+FLT;FLT;FlutterCoin;false
+KRONE;KRONE;Kronecoin;false
+C2;C2;Coin.2;false
+KAT;KAT;KATZcoin;false
+CJC;CJC;CryptoJournal;false
+DBTC;DBTC;DebitCoin;false
+MBI;MBI;Monster Byte Inc;false
+UAEC;UAEC;United Arab Emirates Coin;false
+PTA;PTA;PentaCoin;false
+UMC;UMC;Unity Matrix Commons;false
+M1;M1;SupplyShock;false
+HALLO;HALLO;Halloween Coin;false
+RPC;RPC;RonPaulCoin;false
+ROUND;ROUND;RoundCoin;false
+CYC;CYC;ConSpiracy Coin;false
+HAMS;HAMS;HamsterCoin;false
+VEC2;VEC2;VectorCoin 2.0;false
+GRE;GRE;GreenCoin;false
+XXX;XXX;XXXCoin;false
+FONZ;FONZ;FonzieCoin;false
+AV;AV;Avatar Coin;false
+STCN;STCN;Stakecoin;false
+ROS;ROS;ROS Coin;false
+BTCS;BTCS;Bitcoin Scrypt;false
+DBG;DBG;Digital Bullion Gold;false
+STS;STS;STRESScoin;false
+WBTC;WBTC;wBTC;false
+JANE;JANE;JaneCoin;false
+GOTX;GOTX;GothicCoin;false
+DUX;DUX;DuxCoin;false
+POSW;POSW;PoSWallet;false
+GMX;GMX;Goldmaxcoin;false
+OXY;OXY;Oxycoin;false
+INSN;INSN;Insane Coin;false
+DCK;DCK;DickCoin;false
+NOBL;NOBL;NobleCoin;false
+YOC;YOC;YoCoin;false
+FIST;FIST;FistBump;false
+SYNC;SYNC;SyncCoin;false
+TUR;TUR;Turron;false
+CXT;CXT;Coinonat;false
+TESLA;TESLA;TeslaCoilCoin;false
+EXIT;EXIT;ExitCoin;false
+CTR;CTR;Centra;false
+SOIL;SOIL;SoilCoin;false
+LENIN;LENIN;LeninCoin;false
+PTS;PTS;Protoshares;false
+PIGGY;PIGGY;Piggy Coin;false
+LTB;LTB;Litebar;false
+BTCR;BTCR;BitCurrency;false
+MOON;MOON;MoonCoin;false
+ACID;ACID;AcidCoin;false
+SOCC;SOCC;SocialCoin;false
+THC;THC;The Hempcoin;false
+XST;XST;StealthCoin;false
+DTB;DTB;Databits;false
+ZET2;ZET2;Zeta2Coin;false
+LTCR;LTCR;LiteCreed;false
+QBC;QBC;Quebecoin;false
+ERR;ERR;ErrorCoin;false
+1337;1337;Elite;false
+DUO;DUO;ParallelCoin;false
+CRX;CRX;ChronosCoin;false
+INCP;INCP;InceptionCoin;false
+TEC;TEC;TeCoin;false
+CFC;CFC;CoffeeCoin;false
+QTL;QTL;Quatloo;false
+XMG;XMG;Coin Magi;false
+XVE;XVE;The Vegan Initiative;false
+LDOGE;LDOGE;LiteDoge;false
+MCAP;MCAP;MCAP;false
+KR;KR;Krypton;false
+KING;KING;King93;false
+BBCC;BBCC;BaseballCardCoin;false
+ICOB;ICOB;Icobid;false
+MAX;MAX;MaxCoin;false
+HIRE;HIRE;HireMatch;false
+CCX;CCX;CoolDarkCoin;false
+BRK;BRK;BreakoutCoin;false
+AMS;AMS;Amsterdam Coin;false
+SUPER;SUPER;SuperCoin;false
+PND;PND;PandaCoin;false
+BIC;BIC;Bikercoins;false
+ICASH;ICASH;ICASH;false
+KGC;KGC;KrugerCoin;false
+SIGT;SIGT;Signatum;false
+BRONZ;BRONZ;BitBronze;false
+SPC;SPC;SpinCoin;false
+LTS;LTS;Litestar Coin;false
+AM;AM;AeroMe;false
+INV;INV;Invictus;false
+QCN;QCN;Quazar Coin;false
+ELE;ELE;Elementrem;false
+BUCKS;BUCKS;SwagBucks;false
+XCE;XCE;Cerium;false
+ANAL;ANAL;AnalCoin;false
+ARG;ARG;Argentum;false
+IMX;IMX;Impact;false
+CREDO;CREDO;CREDO;false
+SRC;SRC;SecureCoin;false
+ALC;ALC;Arab League Coin;false
+ACES;ACES;AcesCoin;false
+BAC;BAC;BitalphaCoin;false
+ITT;ITT;Intelligent Trading Foundation;false
+SDP;SDP;SydPakCoin;false
+UNB;UNB;UnbreakableCoin;false
+THS;THS;TechShares;false
+FIT;FIT;Fitcoin;false
+OMC;OMC;OmniCron;false
+PARA;PARA;ParanoiaCoin;false
+SCRPT;SCRPT;ScryptCoin;false
+RIDE;RIDE;Ride My Car;false
+CFI;CFI;Cofound.it;false
+ORLY;ORLY;OrlyCoin;false
+EMT;EMT;EasyMine;false
+NXE;NXE;NXEcoin;false
+SOUL;SOUL;SoulCoin;false
+NVC;NVC;NovaCoin;false
+GRAV;GRAV;Graviton;false
+XCXT;XCXT;CoinonatX;false
+SIFT;SIFT;Smart Investment Fund Token;false
+DGMS;DGMS;Digigems;false
+COIN;COIN;Coin;false
+REAL;REAL;REAL;false
+DB;DB;DarkBit;false
+KTK;KTK;KryptCoin;false
+FFC;FFC;FireflyCoin;false
+HCC;HCC;HappyCreatorCoin;false
+TDFB;TDFB;TDFB;false
+32BIT;32BIT;32Bitcoin;false
+DEA;DEA;Degas Coin;false
+ARNA;ARNA;ARNA Panacea;false
+I0C;I0C;I0coin;false
+GEN;GEN;Genstake;false
+ICE;ICE;iDice;false
+DRKT;DRKT;DarkTron;false
+BRAIN;BRAIN;BrainCoin;false
+HONEY;HONEY;Honey;false
+CHAN;4CHN;ChanCoin;false
+ELS;ELS;Elysium;false
+PZM;PZM;Prizm;false
+SPRTS;SPRTS;Sprouts;false
+SFC;SFC;Solarflarecoin;false
+OS76;OS76;OsmiumCoin;false
+MARX;MARX;MarxCoin;false
+HNC;HNC;Hellenic Coin;false
+GIM;GIM;Gimli;false
+FLX;FLX;Flash;false
+BTCL;BTCL;BTC Lite;false
+FOREX;FOREX;ForexCoin;false
+MINT;MINT;MintCoin;false
+BEN;BEN;Benjamins;false
+MANNA;MANNA;Manna;false
+J;J;JoinCoin;false
+NBIT;NBIT;NetBit;false
+SNRG;SNRG;Synergy;false
+CHC;CHC;ChainCoin;false
+VSL;VSL;vSlice;false
+WASH;WASH;WashingtonCoin;false
+ACOIN;ACOIN;ACoin;false
+VTA;VTA;VirtaCoin;false
+BSTAR;BSTAR;Blackstar;false
+TOR;TOR;TorCoin;false
+ADL;ADL;Adelphoi;false
+GHS;GHS;Giga Hash;false
+DRS;DRS;Digital Rupees;false
+OMA;OMA;OmegaCoin;false
+GOLOS;GOLOS;Golos;false
+TCR;TCR;Thecreed;false
+MCAR;MCAR;MasterCar;false
+USDE;USDE;UnitaryStatus Dollar;false
+FRK;FRK;Franko;false
+ARM;ARM;Armory Coin;false
+UTC;UTC;UltraCoin;false
+SEL;SEL;SelenCoin;false
+WAY;WAY;WayCoin;false
+PGL;PGL;Prospectors;false
+IW;IW;iWallet;false
+STEPS;STEPS;Steps;false
+NSR;NSR;NuShares;false
+JOK;JOK;JokerCoin;false
+BTZ;BTZ;BitzCoin;false
+PRES;PRES;President Trump;false
+LVG;LVG;Leverage Coin;false
+PNK;PNK;SteamPunk;false
+PIE;PIE;Persistent Information Exchange;false
+PRIX;PRIX;Privatix;false
+CSC;CSC;CasinoCoin;false
+TRON;TRON;Positron;false
+OMNI;OMNI;Omni;false
+BSC;BSC;BowsCoin;false
+CHIP;CHIP;Chip;false
+ANC;ANC;Anoncoin;false
+ARGUS;ARGUS;ArgusCoin;false
+MCRN;MCRN;MacronCoin;false
+XSPEC;XSPEC;Spectre;false
+CHA;CHA;Charity Coin;false
+ISL;ISL;IslaCoin;false
+SQL;SQL;Squall Coin;false
+OBITS;OBITS;Obits Coin;false
+MND;MND;MindCoin;false
+IBANK;IBANK;iBankCoin;false
+SPORT;SPORT;SportsCoin;false
+IXC;IXC;IXcoin;false
+EA;EA;EagleCoin;false
+SAFEX;SAFEX;SafeExchangeCoin;false
+XG;XG;XG Sports;false
+EPY;EPY;Empyrean;false
+XAUR;XAUR;Xaurum;false
+CAT;CAT2;BitClave;false
+LEO;LEO;LEOcoin;false
+XQN;XQN;Quotient;false
+STA;STA;Starta;false
+ZYD;ZYD;ZayedCoin;false
+RRT;RRT;Recovery Right Tokens;false
+SANDG;SANDG;Save and Gain;false
+GAY;GAY;GayCoin;false
+ARB;ARB;Arbit Coin;false
+GEO;GEO;GeoCoin;false
+VOYA;VOYA;Voyacoin;false
+GLD;GLD;GoldCoin;false
+EFYT;EFYT;Ergo;false
+STAR;STAR;Starbase;false
+BCR;BCR;BitCredit;false
+LTD;LTD;Limited Coin;false
+ESP;ESP;Espers;false
+TODAY;TODAY;TodayCoin;false
+MONETA;MONETA;Moneta;false
+XNG;XNG;Enigma;false
+LIMX;LIMX;LimeCoinX;false
+NPC;NPC;NPCcoin;false
+PAK;PAK;Pakcoin;false
+ASAFE;ASAFE;Allsafe;false
+STHR;STHR;Stakerush;false
+RCC;RCC;Reality Clash;false
+ZLQ;ZLQ;ZLiteQubit;false
+SEQ;SEQ;Sequence;false
+BTPL;BTPL;Bitcoin Planet;false
+TIA;TIA;Tianhe;false
+IMS;IMS;Independent Money System;false
+CASH;CASH;CashCoin;false
+LNK;LNK;Ethereum.Link;false
+CMC;CMC;CosmosCoin;false
+PIX;PIX;Lampix;false
+TEK;TEK;TekCoin;false
+HUC;HUC;HunterCoin;false
+MED;MED;MediterraneanCoin;false
+STALIN;STALIN;StalinCoin;false
+DES;DES;Destiny;false
+DTCT;DTCT;DetectorToken;false
+ZECD;ZECD;ZCashDarkCoin;false
+LINX;LINX;Linx;false
+CORE;CORE;Core Group Asset;false
+PLNC;PLNC;PLNCoin;false
+ATM;ATM;Autumncoin;false
+GBIT;GBIT;GravityBit;false
+ETHS;ETHS;EthereumScrypt;false
+MYB;MYB;MyBit;false
+RBIT;RBIT;ReturnBit;false
+LOC;LOC;Loco;false
+SMSR;SMSR;Samsara Coin;false
+BELA;BELA;BelaCoin;false
+BSTK;BSTK;BattleStake;false
+XT;XT;ExtremeCoin;false
+BTB;BTB;BitBar;false
+DTC;DTC;DayTrader Coin;false
+KLC;KLC;KiloCoin;false
+RING;RING;RingCoin;false
+MST;MST;MustangCoin;false
+GRW;GRW;GrowthCoin;false
+MEC;MEC;MegaCoin;false
+SPEC;SPEC;SpecCoin;false
+DPAY;DPAY;DelightPay;false
+DCY;DCY;Dinastycoin;false
+INCNT;INCNT;Incent;false
+IFLT;IFLT;InflationCoin;false
+CRTM;CRTM;Cryptum;false
+GSY;GSY;GenesysCoin;false
+LIR;LIR;Let it Ride;false
+LIV;LIV;LiviaCoin;false
+ADN;ADN;Aiden;false
+HAZE;HAZE;HazeCoin;false
+2BACCO;2BACCO;2BACCO Coin;false
+PEPECASH;PEPECASH;Pepe Cash;false
+CRAVE;CRAVE;CraveCoin;false
+ZUR;ZUR;Zurcoin;false
+ENT;ENT;Eternity;false
+CAP;CAP;BottleCaps;false
+MRT;MRT;MinersReward;false
+ABY;ABY;ArtByte;false
+RBX;RBX;RiptoBuX;false
+FND;FND;FundRequest;false
+SMF;SMF;SmurfCoin;false
+BS;BS;BlackShadowCoin;false
+SCL;SCL;Social Nexus;false
+TRICK;TRICK;TrickyCoin;false
+XPRO;XPRO;ProCoin;false
+EC;EC;Eclipse;false
+SUB;SUB2;Subscriptio;false
+SHIFT;SHIFT;Shift;false
+XDB;XDB;DragonSphere;false
+NETC;NETC;NetworkCoin;false
+PRM;PRM;PrismChain;false
+NEOS;NEOS;NeosCoin;false
+TES;TES;TeslaCoin;false
+RED;RED;Redcoin;false
+VAPOR;VAPOR;Vaporcoin;false
+WTT;WTT;Giga Watt;false
+EXB;EXB;ExaByte (EXB);false
+SDAO;SDAO;Solar DAO;false
+TOT;TOT;TotCoin;false
+TRA;TRA;Tetra;false
+SPM;SPM;Supreme;false
+LTH;LTH;Lathaan;false
+PCS;PCS;Pabyosi Coin;false
+BVC;BVC;BeaverCoin;false
+TRC;TRC;TerraCoin;false
+VOX;VOX;Voxels;false
+PEX;PEX;PosEx;false
+IOC;IOC;IOCoin;false
+TBCX;TBCX;TrashBurn;false
+GRAM;GRAM;Gram Coin;false
+BLC;BLC;BlakeCoin;false
+WNET;WNET;Wavesnode.net;false
+XPS;XPS;PoisonIvyCoin;false
+DGC;DGC;DigiCoin;false
+SMLY;SMLY;SmileyCoin;false
+CARBON;CARBON;Carboncoin;false
+GIG;GIG;GigCoin;false
+DXC;DXC3;DixiCoin;false
+XJO;XJO;JouleCoin;false
+BNX;BNX;BnrtxCoin;false
+ONION;ONION;DeepOnion;false
+MAD;MAD;SatoshiMadness;false
+GAM;GAM;Gambit coin;false
+OPES;OPES;Opes;false
+EFL;EFL;E-Gulden;false
+VIDZ;VIDZ;PureVidz;false
+HEEL;HEEL;HeelCoin;false
+OCL;OCL;Oceanlab;false
+LC;LC;Lutetium Coin;false
+FYN;FYN;FundYourselfNow;false
+NETKO;NETKO;Netko;false
+HTC;HTC;Hitcoin;false
+KOBO;KOBO;KoboCoin;false
+BRDD;BRDD;BeardDollars;false
+NEF;NEF;NefariousCoin;false
+GROW;GROW;GrownCoin;false
+EMB;EMB;EmberCoin;false
+XBTS;XBTS;Beats;false
+PXI;PXI;Prime-X1;false
+ICOS;ICOS;ICOBox;false
+IMPS;IMPS;Impulse Coin;false
+PPY;PPY;Peerplays;false
+URO;URO;UroCoin;false
+BOSON;BOSON;BosonCoin;false
+YAY;YAY;YAYcoin;false
+MLITE;MLITE;MeLite;false
+FUZZ;FUZZ;Fuzzballs;false
+DLR;DLR;DollarOnline;false
+365;365;365Coin;false
+SUP;SUP;SuperiorCoin;false
+XMN;XMN;Motion;false
+BTD;BTD;Bitcloud;false
+FAZZ;FAZZ;FazzCoin;false
+MAG;MAG;Magos;false
+CNO;CNO;Coino;false
+ARI;ARI;AriCoin;false
+LYC;LYC;LycanCoin;false
+ODNT;ODNT;Old Dogs New Tricks;false
+GLC;GLC;GlobalCoin;false
+BTTF;BTTF;Coin to the Future;false
+AMY;AMY;Amygws;false
+VEG;VEG;BitVegan;false
+TSE;TSE;TattooCoin;false
+WDC;WDC;WorldCoin;false
+EVIL;EVIL;EvilCoin;false
+OPTION;OPTION;OptionCoin;false
+AUR;AUR;Aurora Coin;false
+RICE;RICE;RiceCoin;false
+CAB;CAB;CabbageUnit;false
+404;404;404Coin;false
+BUZZ;BUZZ;BuzzCoin;false
+LGBTQ;LGBTQ;LGBTQoin;false
+DUB;DUB;DubCoin;false
+XCRE;XCRE;Creatio;false
+WRC;WRC;Worldcore;false
+MONEY;MONEY;MoneyCoin;false
+RMS;RMS;Resumeo Shares;false
+CLAM;CLAM;CLAMS;false
+42;42;42 Coin;false
+WEALTH;WEALTH;WealthCoin;false
+WSX;WSX;WeAreSatoshi;false
+OBS;OBS;Obscurebay;false
+AMMO;AMMO;Ammo Rewards;false
+TRI;TRI;Triangles Coin;false
+BHC;BHC;BighanCoin;false
+ECO;ECO;ECOcoin;false
+AIB;AIB;AdvancedInternetBlock;false
+NICE;NICE;NiceCoin;false
+TAG;TAG;TagCoin;false
+YES;YES;YesCoin;false
+TTC;TTC;TittieCoin;false
+BLU;BLU;BlueCoin;false
+BOB;BOB;Bob Coin;false
+MMC;MMC;MemoryCoin;false
+DRZ;DRZ;Droidz;false
+IVZ;IVZ;InvisibleCoin;false
+CREVA;CREVA;Creva Coin;false
+STV;STV;Sativa Coin;false
+DLISK;DLISK;Dlisk;false
+DIME;DIME;DimeCoin;false
+OPT;OPT;Opus;false
+TRK;TRK;TruckCoin;false
+SUR;SUR;Suretly;false
+UNF;UNF;Unfed Coin;false
+PULSE;PULSE;Pulse;false
+FLY;FLY;FlyCoin;false
+BASH;BASH;LuckChain;false
+CRBIT;CRBIT;Creditbit;false
+BST;BST;BitStone;false
+F16;F16;F16Coin;false
+TX;TX;Transfer;false
+CCRB;CCRB;CryptoCarbon;false
+XRA;XRA;Ratecoin;false
+CESC;CESC;Crypto Escudo;false
+XVS;XVS;Vsync;false
+DMD;DMD;Diamond;false
+BLX;BLX;Blockchain Index;false
+METAL;METAL;MetalCoin;false
+BCAP;BCAP;Blockchain Capital;false
+CYG;CYG;Cygnus;false
+AC;AC;Asia Coin;false
+PUT;PUT;PutinCoin;false
+ANI;ANI;Animecoin;false
+X8X;X8X;X8Currency;false
+SDRN;SDRN;Senderon;false
+FID;FID;BITFID;false
+BRX;BRX;Breakout Stake;false
+EBST;EBST;eBoost;false
+GBG;GBG;Golos Gold;false
+OLXA;OLXA;OLXA;false
+ROI;ROI;ROIcoin;false
+VEGA;VEGA2;VEGA;false
+HTRC;HTRC;High Temperature Coin;false
+UNRC;UNRC;UniversalRoyalCoin;false
+INTU;INTU;intuCoin;false
+XMX;XMX;Xuma;false
+MMO;MMO;MMOCoin;false
+MSD;MSD;MSD;false
+DART;DART;DarexTravel;false
+TOPAZ;TOPAZ;Topaz Coin;false
+EKT;EKT;EDUCare;false
+RICHX;RICHX;RichCoin;false
+GBC;GBC;GBCGoldCoin;false
+ANTX;ANTX;Antimatter;false
+TMC;TMC4;Timicoin;false
+TURBO;TURBO;TurboCoin;false
+IBTC;IBTC;i-Bitcoin;false
+APR;APR;APR Coin;false
+KASHH;KASHH;KashhCoin;false
+HLC;HLC;HalalChain;false
+SEM;SEM;Semux;false
+VVI;VVI;VV Coin;false
+GOLF;GOLF;Golfcoin;false
+NEXT;NEXT;Next.exchange Token;false
+GYC;GYC;GongYiCoin;false
+PYX;PYX;PyrexCoin;false
+YTN;YTN;YENTEN;false
+SHELL;SHELL;ShellCoin;false
+CCT;CCT;Crystal Clear Token;false
+ETBS;ETBS;EthBits;false
+CME;CME;Cashme;false
+QBIC;QBIC;Qbic;false
+DASHS;DASHS;Dashs;false
+BSR;BSR;BitSoar;false
+CTIC3;CTIC3;Coimatic 3.0;false
+BTE;BTE;ByteCoin;false
+WOW;WOW;Wowcoin;false
+FTW;FTW;FutureWorks;false
+SHA;SHA;SHACoin;false
+SURE;SURE;SURETY;false
+BDL;BDL;Bitdeal;false
+DEUS;DEUS;DeusCoin;false
+SLEVIN;SLEVIN;Slevin;false
+BGR;BGR;Bongger;false
+CSC;CSC3;Squarecoin;false
+DIVI;DIVI;Divi;false
+AEC;AEC;AcesCoin;false
+ZENGOLD;ZENGOLD;ZenGold;false
+WIRE;WIRE;AirWire;false
+QUBE;QUBE;Qube;false
+EDT;EDT;EtherDelta Token;false
+POKE;POKE;PokeCoin;false
+CHEAP;CHEAP;Cheapcoin;false
+EVI;EVI;Evimeria;false
+REL;REL;Reliance;false
+GAIN;GAIN;UGAIN;false
+FYP;FYP;FlypMe;false
+CTS;CTS;Crypto Trading Solutions;false
+SPD;SPD;Stipend;false
+VIEW;VIEW;Viewly;false
+RPT;RPT;Real Property Token;false
+VESTX;VESTX;VestxCoin;false
+DMC;DMC;DynamicCoin;false
+LUMO;LUMO;LumoCash;false
+GENE;GENE2;Genesiscoin;false
+ATM;ATMEXT;ATMChain;false
+EUSD;EUSD;eUSD;false
+AIRIN;AIRIN;AIRIN;false
+KNG;KNG;BetKings;false
+TP1;TP1;KolschCoin;false
+NCP;NCP;Newton Coin;false
+FAB;FAB;FABcoin;false
+GCC;GCCEXT;TheGCCcoin;false
+BRG;BRG3;Bring;false
+XNN;XNN;Xenon;false
+SHDW;SHDWEXT;Shadow Token;false
+UC;UC;YouLive Coin;false
+VSTR;VSTR;Vestoria;false
+KETAN;KETAN;Ketan;false
+SBT;SBT;Spandau Ballet;false
+DEX;DEX;BarterDEX;false
+XSH;XSH;SHIELD;false
+MSCN;MSCNEXT;Master Swiscoin;false
+MAG;MAGEXT2;Magnet;false
+CV2;CV2EXT;Colossuscoin V2;false
+IETH;IETH;iEthereum;false
+RLX;RLX;Relex;false
+NRO;NRO;Neuro;false
+ICN;ICNEXT;iCoin;false
+DOX;DOX;DoxCoin;false
+EBONUS;EBONUS;eBonus;false
+SIGMA;SIGMA;SIGMAcoin;false
+PROFIT;PROFIT;Bernie Madoff;true
+AUN;AUN;Authoreon;false
+BEET;BEET;BeetleCoin;false
+CREP;CREP;Crepcoin;false
+FUNK;FUNK;Cypherfunks Coin;false
+EL;ELEXT;Elcoin;false
+AIT;AIT;AICHAIN;false
+PUSHI;PUSHI;Pushi Coin;false
+ENY;ENY;EmergencyCoin;false
+CON;CONEXT;PayCon;false
+$$$;XXXEXT;Money;false
+JIN;JINEXT;Jin Coin;false
+UBC;UBC;Ubcoin;false
+OMEGA;OMEGA;Omega Coin;false
+XBTC21;XBTC21EXT;Bitcoin 21;false
+SPA;SPA3;Spacoin;false
+BTCM;BTCM;BTCMoon;false
+XBP;XBP2;BlitzPredict;false
+NTK;NTK3;NetKoin;false
+JOY;JOY3;JOYREUM;false
+VLU;VLU;Valuto;false
+SAT;SAT;Social Activity Token;false
+EXD;EXD;EXINDEX;false
+PREX;PREX;PRO-EXPERT;false
+DGCS;DGCSEXT;Digital Credits;false
+VTL;VTL;Vertical;false
+COPPER;COPPER;Coppercoin;false
+FLN;FLN;Floripacoin;false
+ILM;ILM;ILLUMINATI;false
+ROOFS;ROOFS;Roofs;false
+SCS;SCS;Speedcash;false
+DMB;DMBEXT;Digital Money Bits;false
+YRX;YRX;Yoritex;false
+LTCET;LTCET;Litecoin WEX Token;false
+LCASH;LCASH;LitecoinCash;false
+XMINE;XMINE;MineCoin;false
+TDX;TDX;Tidex Token;false
+VULC;VULC;Vulcano;false
+BCHET;BCHET;BitCoin Cash WEX Token;false
+CRU;CRU;Curium;false
+ORGT;ORGT;Organic Token;false
+VOT;VOT;VoteCoin;false
+MGC;MGCEXT;MyGulfCoin;false
+TB;TB;TeleBET;false
+BTCS;BTCSEXT;Bitcoin Silver;false
+CNX;CNX;Cryptonex;false
+CWX;CWX;Crypto-X;false
+VCOIN;VCOIN;Vcoin;false
+SKULL;SKULL;Pirate Blocks;false
+RMC;RMCEXT;Russian Mining Coin;false
+CRC2;CRC22;CryCash;false
+BRE;BRE;BreakCoin;false
+MCR;MCREXT;Macro;false
+CEDEX;CEDEX;CEDEX Coin;false
+EREAL;EREAL;eREAL;false
+REDV;REDV;Redvolution;false
+LOBS;LOBS;LOBSTEX Coin;false
+UETL;UETL;Useless Eth Token Lite;false
+VRT;VRT3;Virtus Coin;false
+RUNNERS;RUNNERS;Runners;false
+OKOIN;OKOIN;OKOIN;false
+HBF;HBF;Hotelcoin;false
+SERA;SERA;Seraph;false
+TRTT;TRTT;TRITTIUM;false
+ETHO;ETHO;Ether-1;false
+DTR;DTR;Dynamic Trading Rights;false
+DAY;DAY;ChronoLogic;false
+XOC;XOC;Xonecoin;false
+FC;FC;Facecoin;false
+ASAFE;ASAFE2;Allsafe;false
+STAKE;STAKE3;Stake;false
+SPC;SPCEXT;SpaceChain;false
+FAP;FAP;FAPcoin;false
+READ;READEXT;Read;false
+TLE;TLEEXT;Tattoocoin (Limited Edition);false
+HOT;HOTEXT;Hydro Protocol;false
+GOD;GOD;Bitcoin God;false
+ENU;ENU;Enumivo;false
+IQT;IQT;iQuant;false
+BLN;BLN3;Bulleon;false
+DTEM;DTEM;Dystem;false
+XUR;XUR;Baxurcoin;false
+BANK;BANK;Bank Coin;false
+ETKN;ETKN;EasyToken;false
+RBBT;RBBT;RabbitCoin;false
+TRF;TRF;Travelflex;false
+XPY;XPY;PayCoin;false
+DGM;DGM;DigiMoney;false
+BTCE;BTCE;EthereumBitcoin;false
+DUTCH;DUTCH;Dutch Coin;false
+VRT;VRT4;VR Token;false
+DSC;DSC;DiscountCoin;false
+DSC;DSC3;DSChain;false
+K2X;K2X;Katana;false
+FLAPX;FLAPX;FlapXCoin;false
+GLTC;GLTC;GlobalTradeCoin;false
+NBAI;NBAI;Nebula AI Token;false
+PLAN;PLAN;Plancoin;false
+KIC;KIC;KibiCoin;false
+KREDS;KREDS;KREDS;false
+PCN;PCN;PeepCoin;false
+MGM;MGM;Magnum;false
+BSHN;BSHN;BitNewCoin;false
+IDG;IDG;Indigen;false
+SUNC;SUNC;SunChain;false
+PHI;PHI;PHI Token;false
+TKLN;TKLN;Taklimakan;false
+OMX;OMX;Project Shivom;false
+SCOOBY;SCOOBY;Scooby coin;false
+SWP;SWP;Swapcoin;false
+NBR;NBR;Niobio Cash;false
+VME;VME;VeriME;false
+MAGE;MAGE;MagicCoin;false
+JIYO;JIYO;Jiyo;false
+CSTL;CSTL;Castle;false
+OPC;OPC;OP Coin;false
+PHO;PHO;Photon;false
+FBTC;FBTC;Fast Bitcoin;false
+ANY;ANY;Anycoin;true
+LOYAL;LOYAL;Loyalty;false
+BZL;BZL;BZLcoin;false
+ADV;ADV;Advance Protocol;false
+BIZ;BIZ;BizCoin;false
+GNB;GNB;GiantBirdCoin;false
+BUY;BUY;BuyCoin;false
+SKRP;SKRP;Skraps;false
+LTCP;LTCP;Litecoin Private;false
+LTCP;LTCP3;LitecoinPro;false
+REF;REF;RefToken;false
+FRM;FRM;Ferrum Coin;false
+NEET;NEET;Neetcoin;false
+PAL;PAL;PALcoin;false
+LIF;LIF;Lif;false
+LION;LION;LionCoin;false
+CZECO;CZECO;CzeCoin;false
+NXX;NXX;Nexxus;false
+GENIUS;GENIUS;Genius Coin;false
+WFEE;WFEE;WFee;false
+NOKU;NOKU;Noku;false
+ROYAL;ROYAL;RoyalCoin;false
+HPY;HPY;HyperPay;false
+GVE;GVE;GVE;false
+BVT;BVT;VTChain;false
+NEOG;NEOG;NEO Gold;false
+ETBT;ETBT;Ethereum Black;false
+TWC;TWC;TheWallCoin;false
+STARS;STARS;StarCash Network;false
+ROC;ROC;Rasputin Online Coin;false
+INDIA;INDIA;India Coin;false
+CRC;CRCEXT;CrowdCoin;false
+TOKC;TOKC;TOKYO;false
+BSTN;BSTN;BitStation;false
+NBC;NBC;Niobium Coin;false
+SUB1X;SUB1X;SUB1X;false
+ANK;ANK;Ankorus Token;false
+GLA;GLA;Gladius;false
+SKCH;SKCH;Skychain Global Token;false
+FUNK;FUNK3;FunkCoin;false
+SHRM;SHRM;Shrooms;false
+SHREK;SHREK;ShrekCoin;false
+MGX;MGX;MegaX;false
+WW;WW;WayaWolfCoin;false
+MATRX;MATRX;MatrixCoin;false
+BEEZ;BEEZ;BeezerCoin;false
+CCB;CCB;CryptoClub;false
+HLD;HLD;HyperLending;false
+POSQ;POSQ;Poseidon Quark;false
+CNMC;CNMC;CNMC Token;false
+BSN;BSN;Bastonet;false
+XPR;XPR;Public Reputation Network;false
+ZINC;ZINC;ZINC;false
+TLM;TLM;Talium;false
+EVN;EVN;Envion;false
+GLT;GLT;GlobalToken;false
+KLKS;KLKS;Kalkulus;false
+NUKO;NUKO;Nekonium;false
+STEX;STEX;STEX;false
+BTRL;BTRL;Bitcoin Regular;false
+DEEP;DEEP;Deep Gold;false
+AIR;AIR2;Aircoin;false
+DC;DC3;DucatCoin;false
+CRY;CRY;CryCoin;false
+CNB;CNB;Canabio;false
+LIZUN;LIZUN;Liza Fork;false
+ML;ML;MindLink;false
+TRIA;TRIA;Triaconta;false
+BCARD;BCARD;CardBuyers;false
+ETHF;ETHF;EthereumFuture;false
+CRZ;CRZ;CoreZ;false
+MARCO;MARCO;MarbleCoin;false
+AGN;AGN;Agena Project;false
+BUBO;BUBO;Bubo;false
+BUBO;BUBO3;Budbo;false
+ONEX;ONEX3;ONEX Coin;false
+AMLT;AMLT;AMLT Token;false
+NMS;NMS;Numus;false
+BKB;BKB;BetKing Bankroll;false
+GSAVE;GSAVE;GSave;false
+VEGI;VEGI;Veggie;false
+IFX;IFX;Infinex;false
+PPI;PPI;Pied Piper Coin;false
+DIT;DIT;DitCoin;false
+XAU3;XAU3;Gold (Lykke);false
+POLIS;POLIS;PolisPay;false
+HAV;HAV;Havecoin;false
+SCAN;SCAN;ScanCoin;false
+BLUS;BLUS;BlueSteel;false
+TRAP;TRAP;TrapCoin;false
+NEC;NEC2;Ethfinex Nectar Token;false
+CHIPS;CHIPS;CHIPS;false
+VERS;VERS;VersionCoin;false
+DEC;DEC;DecipherCoin;false
+DTCN;DTCN;DatoCoin;false
+CB;CB;Cryptobyte;false
+ECLI;ECLI;eClipse-Coin;false
+DUR;DUR;Durer Coin;false
+WEEK;WEEK;WeekendCoin;false
+ENAU;ENAU;NAU Token;false
+PARTY;PARTY;PartyCoin;false
+TGS;TGS;TGS Token;false
+BUB;BUB;Bubble;false
+MAZE;MAZE;MAZECoin;false
+NOC;NOC;NOC;false
+SOLO;SOLO;SoloCoin;false
+NODES;NODES;NODEScoin;false
+NODX;NODX;NODEX;false
+XSSX;XSSX;XSSXcoin;false
+YOB2X;YOB2X;YoB2X;false
+RBL;RBL;RoyalBritishLegion;false
+HOPE;HOPE;HopeCoin;false
+MGT;MGT;Magnatum;false
+BPOK;BPOK;MentalHealthCoin;false
+SCITW;SCITW;SCITW;false
+RUC;RUC;RUCoin;false
+XGTC;XGTC;GirlsTokenCoin;false
+ARGO;ARGO;Argo;false
+CLT;CLT;CryptoLottoToken;false
+USA;USA;USACoin;false
+ERA;ERA;ERA;false
+AGRI;AGRI;Agri Novus;false
+TPC;TPC;TrumPenceCoin;false
+BCM;BCM;BitcoinMetal;false
+DVRS;DVRS;Diverse;false
+ZONTO;ZONTO;ZONTO;false
+W3C;W3C;W3Coin;false
+CDN;CDN;Canada eCoin;false
+SHND;SHND;StrongHands;false
+TSS;TSS;TSSToken;false
+MIRO;MIRO;Mirocana;false
+STB;STB;Stable Token;false
+SIG;SIG;Signals;false
+ALX;ALX;ALAX;false
+TARI;TARI;CryptoTari;false
+EQD;EQD;eQuid;false
+NAC;NAC;Nami ICO Token;true
+FTCC;FTCC;FeatherCoinClassic;false
+UMO;UMO;UniversalMolecule;false
+BVB;BVB;BVBCoin;false
+LYNX;LYNX;Lynx;false
+LIT;LIT;LithiumCoin;false
+VADE;VADE;Vade;false
+PCC;PCC;PolishCoin;false
+XPONZ;XPONZ;Xponz;false
+LTCB;LTCB;Litecoin Black;false
+DHT;DHT;DeHedge Token;false
+XMRG;XMRG;Monero Gold;false
+LTK;LTK;Litkoin;false
+BZK;BZK;BrazukCoin;false
+XBU;XBU;UberCoin;false
+SOLACE;SOLACE;SolaceCoin;false
+RUNE;RUNE;RuneStoneCoin;false
+HALAL;HALAL;Halal;false
+GOAT;GOAT3;Goat Cash;false
+NRP;NRP;Neural Protocol;false
+MEDIC;MEDIC;MEDIC;false
+IRL;IRL;IrishCoin;false
+MDEX;MDEX;Medexcoin;false
+BETX;BETX;Betexcoin;false
+MWAT;MWAT;RED MegaWatt;false
+XLQ;ALQO;ALQO;false
+LCC;LCC3;LiteConnect;false
+CHP;CHP;Poker Chips;false
+DIN;DIN;Dinero;false
+EXUS;EXUS;Exus;false
+SOL;SOL;Sola Token;false
+FUND;FUND;Fund Platform;false
+GFL;GFL;Golden Fleece;false
+MOUSE;MOUSE;Mouse;false
+CTF;CTF;Coin2Fly;false
+RACE;RACE;RACEcoin;false
+DIW;DIW;DIWtoken;false
+LDM;LDM;Ludum token;false
+FIDGT;FIDGT;FidgetCoin;false
+FLIP;FLIP;BitFlip;false
+BENGO;BENGO;BENGOSHICOIN;false
+SCL;SCL3;Sociall;false
+CARE;CARE;Care Token;false
+OP;OP;Operand;false
+FRES;FRES;Fresco;false
+ATC;ATC;Arbitracoin;false
+OPC;OPC3;Overpowered Coin;false
+TTY;TTY;Trinity;false
+NZDT;NZDT;NZed;false
+OOO;OOO;Om;false
+DOW;DOW;DowCoin;false
+COSM;COSM;Cosmo Coin;false
+TOLL;TOLL;Bridge Protocol;false
+REDFISH;REDFISH;Redfishcoin;false
+LRN;LRN;Loopring [NEO];false
+MERO;MERO;Mero;false
+OLMP;OLMP;Olympic;false
+LCK;LCK;Luckbox;false
+BTE;BTE5;Bitcoin Essence;false
+EBIT;EBIT;eBit;false
+TN;TN;TurtleNode;false
+WYS;WYS;wys Token;false
+CPY;CPY;CopyTrack;false
+PRDC;PRDC;Premium Digi Coin;false
+SLFI;SLFI;Selfiecoin;false
+GXE;GXE;Geneviève;false
+BBN;BBN3;BBNcoin;false
+HBC;HBC;HomeBlockCoin;false
+DRG;DRG;Dragon Coin;false
+ETL;ETL;EtherLite;false
+MONK;MONK;Monkey Project;false
+BMT;BMT;BMChain;false
+REDN;REDN;Reden;false
+PLC;PLC4;Polcoin;false
+SVD;SVD;Savedroid;false
+HOTC;HOTC;HOTChain;false
+FAU;FAU;Faust;false
+HELP;HELP;HELP;false
+RONIN;RONIN;SamuraiCoin;false
+COUPE;COUPE;Coupecoin;false
+KNT;KNT;Kora Network Token;false
+XOV;XOV;XOVBank;false
+WRT;WRT;WRTcoin;false
+GAI;GAI;GraphGrail AI Token;false
+MOLK;MOLK;MobilinkToken;false
+WIC;WIC;Wi Coin;false
+BPC;BPC;Bitpark Coin;false
+BBRC;BBRC;Blood Donation Coin;false
+PRN;PRN;Protean;false
+ATH;ATH;Athenian Warrior Token;false
+PENG;PENG;PenguinCoin;false
+EC;EC3;EU Coin;false
+COMBI;COMBI;CombiCoin;false
+VIPS;VIPS;VIPSTARCOIN;false
+XES;XES;Proxeus Token;false
+R7;R7;Regalseven;false
+CARS;CARS;Car Sharing;false
+STAX;STAX;Staxcoin;false
+PRIMU;PRIMU;Primulon;false
+TELOS;TELOS;TELOS Coin;false
+RFG;RFG;RefugeCoin;false
+TRBO;TRBO;TurboStake;false
+RICKS;RICKS;PickleRicks;false
+CAR;CAR;CareerCoin;false
+PNDM;PNDM;Pandemia;false
+AGLT;AGLT;Agrolot;false
+INCO;INCO;Incodium;false
+JIYOX;JIYOX;JIYO;false
+P7C;P7C;P7Coin;false
+SWL;SWL;Swiftlance;false
+VVL;VVL;Vivaldi;false
+COC;COC;Community Coin;false
+CBT;CBT4;Carebit;false
+SEN;SEN3;Consensus;false
+BLUE;BLUE3;BLUE;false
+AFT;AFT;AssetFun;false
+ULT;ULT;Ultimat;false
+ULT;ULT3;Ultima;false
+YUP;YUP;YUP;false
+ANT;ANT2;Ants Coin;false
+ETHM;ETHM;Ethereum Meta;false
+ALTOCAR;ALTOCAR;AltoCar;false
+HADE;HADE;HADE Platform;false
+TRTL;TRTL;TurtleCoin;false
+CYDER;CYDER;Cyder;false
+ROE;ROE;RoverCoin;false
+CJT;CJT;ConnectJob Token;false
+SSS;SSS;Sharechain;false
+CGC;CGC;CGCoin;false
+MLD;MLD;Moldcoin;false
+HON;HON;Holbein Coin;false
+TNG;TNG;TURING;false
+NAT;NAT;NatureCoin;false
+MINH;MINH;HoChiMinh;false
+NIXON;NIXON;NixonCoin;false
+TOOL;TOOL;ToolCoin;false
+VNTX;VNTX;Ventrix;false
+RAC;RAC;RAC Token;true
+UTLE;UTLE;UTLE;false
+CLD;CLD;Cloud;false
+XDE;XDE;XDECoin;false
+XLTCG;XLTCG;LTCGearCoin;false
+WOK;WOK;WorkerCoin;false
+CBC;CBC;CashBagCoin;false
+XTR;XTR;NitroCoin;false
+TWERK;TWERK;TWERK;false
+TWO;TWO;TWO Coin;false
+PNX;PNX;Phantomx;false
+VEC;VEC;Vector;false
+VENE;VENE;VeneficumCoin;false
+ZIRK;ZIRK;ZirkCoin;false
+RAD;RAD;Radon;false
+TRANSF;TRANSF;Transformers;false
+CHEMX;CHEMX;ChemCoin;false
+ONEK;ONEK;Onek Coin;false
+XAV;XAV;XavierCoin;false
+TCX;TCX;TorrentCoin;false
+ECCHI;ECCHI;ECCHI;false
+HAWK;HAWK;HawkCoin;false
+SRND;SRND;SuperRandom;false
+INGT;INGT;Ingot Coin;false
+SHRP;SHRP;SharpCoin;false
+SMBR;SMBR;SembroToken;false
+ARH;ARH;ArhCoin;false
+FIDEL;FIDEL;FidelCastro;false
+TRNC;TRNC;Tronic;false
+SMS;SMS;Speed Mining Service;false
+RR;RR;Revizor Coin;false
+TKT;TKT;Crypto Tickets;false
+KST;KST;StarCoin;false
+BLT;BLTEXT;Bitcoin Lightning;false
+XFE;XFE;Feirm;false
+GET;GET4;Green Energy Token;false
+BELA;BELA3;BellaCoin;false
+BOON;BOON;Boon Tech;false
+PMT;PMT;PlayMarket;false
+DIT;DIT3;Inmediate;false
+UNC;UNC3;UniGame;false
+GOLD;GOLD;GoldenCoin;false
+XM;XM;CryptoMoney;false
+ELLI;ELLI;Elliot Coin;false
+ALPS;ALPS;Alpenschilling;false
+SAFE2;SAFE2;SAFE2;false
+DC;DC;DemonCoin;false
+256;256;256Coin;false
+BATL;BATL;Battlestars Coin;false
+CHRG;CHRG;Charged;false
+DBLK;DBLK;DigitalBlock;false
+B2;B2;B2Coin;false
+BGF;BGF;BigGoldFishCoin;false
+700;700;700Coin;false
+AGT;AGT;Agro Token;false
+ARE;ARE;AureusCoin;false
+AUM;AUM;Alexium Coin;false
+ACLR;ACLR;Accelerate;false
+AL;AL;Artificial Intelligence;false
+BTRN;BTRN;Biotron;false
+ATM;ATM2;ATMChain;false
+EUROPE;EUROPE;Europe United;false
+REX;REX;REX;false
+AEC;AEC3;EmaratCoin;false
+XRC;XRC;Rawcoin;false
+BEAUTY;BEAUTY;BeautyBloc;false
+KNT;KNT3;Knekted;false
+ELITE;ELITE;EthereumLite;false
+JOY;JOY2;Joystick;false
+ZCC;ZCC2;ZcCoin;false
+OC;OC2;OneCoin;false
+MARS;MARS2;MarsBux;false
+GDC;GDC2;GoldenCryptoCoin;false
+STN;STN2;Steneum;false
+MGN;MGN;MagnaCoin;false
+SET;SET;Setcoin;false
+POS;POS2;POS Coin;false
+SCX;SCX;Swachhcoin;false
+DEW;DEW;DEW;false
+FLOT;FLOT;FireLotto;false
+WEB;WEB3;Webchain;false
+NBTK;NBTK;Nebeus Token;true
+BUM;BUM;Bitcoin Uranium;false
+FOOD;FOOD;FoodCoin;false
+WFR;wfr;Wildfire;false
+SZC;SZC;ShopZcoin;false
+ZEUS;ZEUS;ZeusCrowdfunding;false
+GENX;GENX;Genesis;false
+BID;BID;BidCoin;false
+GCASH;GCASH;GO Cash;false
+NANOX;NANOX;Project-X;false
+BLAST;BLAST;Blast;false
+POPPY;POPPY;PapaverSomniferum;false
+L7S;L7S;LuckySevens;false
+GRLC;GRLC;Garlicoin;false
+ORI;ORI;Origami;false
+TAKE;TAKE;TakenCoin;false
+MYFI;MYFI;MyFIchain;false
+IMGC;IMGC;ImageCash;false
+STS;STS3;StationCoin;false
+GELD;GELD;SGelderGER;false
+PLUS1;PLUS1;PlusOneCoin;false
+ETHD;ETHD;Ethereum Dark;false
+FTI;FTI;FansTime;false
+EVO;EVO2;Evolution;false
+DFS;DFS3;Digital Fantasy Sports;false
+FUEL;FUEL2;FuelCoin;false
+AVT;AVT2;Aventus;false
+INS;INS2;INS Token;false
+GLS;GLS;GlassCoin;false
+FRST;FRST;FirstCoin;false
+ATMOS;ATMOS;Atmos;false
+ACRE;ACRE;ACRE COIN;false
+CPLO;CPLO;Cpollo;false
+MVL;MVL;Mass Vehicle Ledger;false
+GRPH;GRPH;GraphCoin;false
+XRA;XRA3;Xriba;false
+GAT;GAT3;Global AEX Token;false
+WXC;WXC;WXCOINS;false
+HLDC;HLDC;HeldCoin;false
+BNBX;BNBX;BnBX Coin;false
+CURVES;CURVES;CURVES;false
+SHIP;SHIP;ShipChain;false
+LITE;LITE;BitcoinLite;false
+STP;STP;StashPay;false
+NODC;NODC;NodeCoin;false
+ICR;ICR;InterCrone;false
+JBC;JBC;Japan Brand Coin;false
+BOPO;BOPO;Bopocoin;false
+SMK;SMK;Sharing Market Coin;false
+THX;THX;ThoreNext;false
+ZEST;ZEST;Zest Coin;false
+IQ;IQ3;IQ Cash;false
+TDP;TDP;TrueDeck;false
+PHR;PHR2;Phore;false
+BCL;BCL;BitcoinClean;false
+GOS;GOS;Gossamer Token;true
+CTIC2;CTIC2;Coimatic 2.0;false
+BEVERAGE;BEVERAGE;BEVERAGE;false
+V;V;Version;false
+SFU;SFU;Saifu;false
+ARE;ARE3;Arenon;false
+ONL;ONL;On.Live;false
+GNR;GNR;Gainer;false
+PNY;PNY;Peony coin;false
+HASH;HASH;b-hash;false
+TPC;TPC4;TPCash;false
+DIC;DIC;DAIKICOIN;false
+AEG;AEG;Aegeus;false
+LNS;LNS;Lines;false
+BRZX;BRZX;Braziliex Token;false
+XRH;XRH;Rhenium;false
+WELL;WELL;Well;false
+TDC;TDC;Trendercoin;false
+EBTCS;EBTCS;eBitcoinSilver;false
+CHAT;CHAT3;BeeChat;false
+BCI;BCI;Bitcoin Interest;false
+AEVO;AEVO;Aevo;false
+BFF;BFF;BFFDoom;false
+PYN;PYN;Paycentos;false
+BENZ;BENZ;BENZ;false
+PRO;PROEXT;ProChain;false
+ASTRO;ASTRO;Astro;false
+SISA;SISA;SISA;false
+FDX;FDX;FidentiaX;false
+AVINOC;AVINOC;AVINOC;false
+TCH;TCH;ThoreCash;false
+GOLD;GOLD3;Gold Coin;false
+SETH;SETH3;Smart Ethereum;false
+TV;TV3;Tokenville;false
+TTC;TTC4;Tabs Tracking Chain;false
+NZL;NZL;Zealium Coin;false
+HOT2;HOT2;Hydro Protocol;false
+BRC;BRC3;BRILIANTcoin;false
+GRX;GRX;Gold Reward Token;false
+AUX;AUX;Auxilium;false
+BGL;BGL;Buglab;false
+DIP;DIP;Etherisc;false
+VNX;VNX;Venox;false
+SPLB;SPLB;SimpleBank;false
+OBTC;OBTC;ObitanChain;false
+UFR;UFR;Upfiring;false
+HWI;HWI;Hawaii;false
+MOG;MOG;Mogwai;false
+ESS;ESS3;Essence Coin;false
+INN;INN;Innova;false
+BLZ;BLZ;BlazeCoin;false
+ZAP;ZAP;Zap;false
+AREPA;AREPA;ArepaCoin;false
+BBC;BBC;BigBoobsCoin;false
+OMB;OMB;Ombre;false
+HELP;HELP4;Helpico Coin;false
+CMIT;CMIT;CMITCOIN;false
+CYR;CYR;Cypher;false
+ENTRP;ENTRP;Hut34 Entropy;false
+VIO;VIO;Vio;false
+CAJ;CAJ;Cajutel;false
+EUNO;EUNO;EUNO;false
+ANR;ANR;Arnesta;false
+TNJ;TNJ;TNJ;false
+KXC;KXC;KingXChain;false
+RBMC;RBMC;Rubex Money;false
+IMG;IMG;ImageCoin;false
+BPL;BPL;Blockpool;false
+SJW;SJW;SJWCoin;false
+B2N;B2N;bitcoin2network;false
+PCOIN;PCOIN;Pioneer Coin;false
+TRADE;TRADE;Tradecoin;false
+EZT;EZT;EZToken;false
+HIVE;HIVE;Blockhive;true
+ESZ;ESZ;EtherSportz;false
+TRAID;TRAID;Traid;false
+CBC;CBC3;CashBetCoin;false
+OCEAN;OCEAN;BurstOcean;false
+LCP;LCP;Litecoin Plus;false
+DKD;DKD;DekadoCoin;false
+ZLA;ZLA;Zilla;false
+SMT;SMT;Social Media Market;false
+CFL;CFL;CryptoFlow;false
+DSC;DSC4;DataSaverCoin;false
+TBT2;TBT2;TimeChain;false
+FTEC;FTEC;FTEC;false
+PYZ;PYZ;Payiza;false
+XPAT;XPAT;Bitnation Pangea;false
+ABJ;ABJ;Abjcoin;false
+XRT;XRT;XRT Token;false
+RESQ;RESQ;RESQ Chain;false
+BOS;BOS3;Bostoken;false
+MAY;MAY;Theresa May Coin;false
+JOT;JOT;Jury.Online Token;false
+REEX;REEX;Reecore;false
+XRN;XRN;Saronite;false
+MORPH;MORPH;Morpheus Network;false
+EXRT;EXRT;EXRT Token;false
+AU;AU;AurumCoin;false
+VARIUS;VARIUS;VARIUS;false
+BIXC;BIXC;BIXC;false
+KZC;KZC;Kzcash;false
+SEND;SEND;Social Send;false
+JOY;JOY;JoyToken;false
+B24;B24;B24coin;false
+DFS;DFS4;DEFENSE;false
+PLCN;PLCN;Plus Coin New;false
+GLB;GLB;Globycoin;false
+ETNX;ETNX;Electronero;false
+ACM;ACM;Actinium;false
+ZDC;ZDC;ZenDao;false
+HIT;HIT3;HODL INCENTIVE TOKEN;false
+ISR;ISR;Insureum;false
+ECO;ECO3;EcoCrypto;false
+POP;POP;PopularCoin;false
+BITX;BITX;BitScreener;false
+CVT;CVT;Credo Verification Token;false
+LNS;LNS2;Lunes;false
+REX;REX3;Imbrex;false
+SHOP;SHOP;Shopin;false
+ECHO;ECHO;Reciprocation;false
+JOINT;JOINT;Joint Ventures;false
+TLC;TLC;TLCoin;false
+WETH;WETH;WETH;false
+XN;XN;Nodium;false
+CATO;CATO;CatoCoin;false
+888;888;Octocoin;false
+EEE;EEE;Elementh Token;false
+RDCT;RDCT;RDCToken;false
+APT;APT3;APPOStoken;false
+EURS;EURS;STASIS EURS;false
+CEN;CEN3;Centaure;false
+BNTY;BNTY;Bounty0x;false
+EPC;EPC;Electronic PK Chain;false
+CANDY;CANDY;Candy;false
+HSC;HSC;Hashcoin;false
+DRIP;DRIP;DRIP Coin;false
+FIC;FIC;Florafic;false
+ZBA;ZBA;Zoomba;false
+MTRIP;MTRIP;MakeTrip;false
+CL;CL;Coinlancer;false
+JAGAR;JAGAR;JagariCoin;false
+CEFS;CEFS;CryptopiaFeeShares;false
+FUPOOF;FUPOOF;Fupoof Coin;false
+XPST;XPST;PokerSports Token;false
+FACE;FACE;Faceter Token;false
+VRT;VRT;Veritium;false
+IPR;ipr;iPRONTO;true
+GER;GER;GermanCoin;false
+STAK;STAK;Straks;false
+NTWK;NTWK;Network Token;false
+ONG;ONG;onG.social;false
+CCO;CCO;Ccore;false
+PROTON;PROTON;Proton Coin;false
+EVC;EVC;Eventchain;false
+OMG;OMG2;OMGame;false
+REP;REP2;RepubliCoin;false
+MC;MC3;MasterCoin;false
+BNN;BNN;BrokerNekoNetwork;false
+EQL;EQL3;Equaliser;false
+BTG;BTG2;BitGem;false
+LEAF;LEAF;LeafCoin;false
+CIV;CIV;Civitas;false
+OCOW;OCOW;OCOW;false
+EGOLD;EGOLD;eGold;false
+GSR;GSR;GeyserCoin;false
+DPP;DPP;Digital Assets Power Play;false
+RSGP;RSGP;RSGPcoin;false
+ABC;ABC;AB-Chain;false
+BRIA;BRIA;BriaCoin;false
+RTO;RTO;Arto;false
+RDC;RDC3;Ordocoin;false
+BFX;BFX3;BFX COIN;false
+CET;CET3;Dicet;false
+SWTC;SWTC;Jingtum Tech;false
+SXDT;SXDT;Spectre.ai Dividend Token;false
+ARLIZE;ARLIZE;ARLIZE;false
+BTK;BTK;BitcoinToken;false
+WLK;WLK;Wolk;false
+NCC;NCC;NeuroChain;false
+IDOL;IDOL;IDOL COIN;false
+VIVID;VIVID;Vivid Coin;false
+HRC;HRC;Haracoin;false
+RMESH;RMESH;RightMesh;false
+WEALTH;WEALTH3;Wealthsilo;false
+CAC;CAC;Catalyst;false
+SFI;SFI;SFI Coin;false
+EOSRAM;EOSRAM;EOS RAM;false
+XSD;XSD;Seedcoin;false
+STR;STR;Seather;false
+AUA;AUA;ArubaCoin;false
+SABR;SABR;SABR Coin;true
+SND;SND;Sandcoin;false
+UEC;UEC;United Emirate Coin;false
+PDX;PDX;Paradox Coin;false
+XAO;XAO;Alloy;false
+BTH;BTH;Bytether;false
+FBL;FBL;Faceblock;false
+STR;STR3;Staker;false
+SOPH;SOPH;Sophos;false
+ABJC;ABJC;AbjcoinCommerce;false
+NSOK;NSOK;NEWSOKUCOIN;false
+TSC;TSC;Thunderstake;false
+LYS;LYS;Lightyears;false
+ACED;ACED;AceD;false
+AEX;AEX;AeriumX;false
+SPEX;SPEX;SproutsExtreme;false
+DEEX;DEEX;DEEX;false
+GUESS;GUESS;Peerguess;false
+TCT;TCT5;Twecrypto;false
+STM;STM3;Streamity;false
+CMCT;CMCT3;CyberMovieChain;false
+BRG;BRG;BorgCoin;false
+EQC;EQC;Qchain;false
+LUNA;LUNA3;LunarCoin;false
+EPC;EPC3;ExperienceCoin;false
+DCT;DCT3;Discount Coin;false
+BTS;BTS3;Bitshares2;false
+AC3;AC3;AC3;false
+TZC;TZC;TrezarCoin;false
+HKN;HKN;Hacken;false
+LTG;LTG;LiteCoin Gold;false
+STG;STG;SecureTag;false
+MRI;MRI;Mirai;false
+BULL;BULL;BuySell;false
+GENE;GENE;PARKGENE;false
+XDNA;XDNA;XDNA;false
+XFT;XFT;Footy Cash;false
+ROCK;ROCK;Ice Rock Mining;false
+POSS;POSS;Posscoin;false
+DLX;DLX;Diplexcoin;false
+ORS;ORS;ORS SA;false
+GT;GT;GTcoin;false
+FDR;FDR;FD Reserve;false
+DACH;DACH;DACHCoin;false
+COXST;COXST;CoExistCoin;false
+NTO;NTO;Fujinto;false
+REA;REA;Realisto;false
+PDX;PDX4;PayDayCoin;false
+10MT;10MT;10M Token;false
+VRP;VRP;Prosense.tv;false
+LOT;LOT;LottoCoin;false
+RTL;RTL;Rentledger;false
+BWT;BWT;Bittwatt;false
+BIS;BIS;Bismuth;false
+SPT;SPT;Spots;false
+COG;COG;Cognitio;false
+CONX;CONX;Concoin;false
+WIX;WIX;Wixlar;false
+ART;ART;ARToken;false
+HLD;HLD3;Highland Coin;false
+DSC;DSC2;Dreamscape Token;false
+QURO;QURO;Qurito;false
+CFUN;CFUN;CFun;false
+WIZ;WIZ;Crowdwiz;false
+DEV;DEV;DeviantCoin;false
+CNET;CNET3;Contractnet;false
+SGR;SGR;Sugar Exchange;false
+CBT;CBT;CommerceBlock Token;false
+CV;cV;carVertical;false
+OWD;OWD;Owlstand;false
+TIG;TIG;Tigereum;false
+TIMEC;TIMEC;TimeCoin;false
+BIO;BIO;Biocoin;false
+NUG;NUG;Nuggets;false
+BCO;BCO2;BananaCoin;false
+RCN;RCN2;RCoin;false
+HORSE;HORSE;Ethorse;false
+HC;HC;Harvest Masternode Coin;false
+STRP;STRP;StripeCoin;false
+GRV;GRV;Gravium;false
+FLIK;FLIK;FLiK;false
+CIF;CIF;Crypto Improvement Fund;false
+BBS;BBS;BBSCoin;false
+YLC;YLC;YoloCash;false
+CRDNC;CRDNC;Credence Coin;false
+CYMT;CYMT;Cyber Music;false
+DSR;DSR;Desire;false
+VTHO;VTHO;VeThor Token;false
+SAFE;SAFE;SafeCoin;false
+WORX;WORX;Worx;false
+SKR;SKR;Skrilla Token;false
+PEPS;PEPS;PepeGold;false
+SIRX;SIRX;Sirius;false
+PRTX;PRTX;Printex;false
+WBC;WBC;WalletBuildersCoin;false
+MBC;MBC3;MobozCoin;false
+XGOX;XGOX;GO! Coin;false
+LUCKY;LUCKY3;LuckyBit;false
+RMT;RMT;SureRemit;false
+LEVO;LEVO;Levocoin;false
+PAY;PAY3;Epay;false
+VSC;VSC;vSportCoin;false
+C8;C8;Carboneum (C8) Token;false
+KKC;KKC;Koala Kash;false
+VIU;VIU;Viuly;false
+KKC;KKC3;KnackChain;false
+WDSC;WDSC;WindorsCoin;true
+ALTCOM;ALTCOM;AltCommunity Coin;false
+CROC;CROC;CrocodileCash;false
+EGAME;EGAME;eGame;false
+JNT;JNT2;JointCoin;false
+ESC;ESC2;EdwardSnowden;false
+HTH;HTH;Help The Homeless Coin;false
+LATINO;LATINO;Latino Token;false
+SNBL;SNBL;SnowballCoin;false
+XFC;XFC3;FootballCoin;true
+STH;STH;SmartHoldem;false
+WC;WCEXT;WinCoin;false
+EAG;EAGEXT;EA Coin;false
+PURA;PURA;Pura;false
+LWF;LWF;Local World Forwarders;false
+BTC2;BTC2;Bitcoin 2;false
+BTC1;BTC1;Bitcoin1;false
+PONZI;PONZI;PonziCoin;false
+PGC;PGC;PegasCoin;false
+TBT;TBT3;TripBit;false
+SETH;SETH;Sether;false
+ELTCOIN;ELTCOIN;ELTCOIN;false
+CLY;CLY;CoinLegacy;false
+EBT;EBT;Ebittree Coin;false
+PENG;PENG3;Penguin Coin;false
+RTB;RTB;AB-CHAIN RTB token;false
+ETK;ETK;Energi Token;false
+XPA;XPA;XPlay;false
+DTC;DTC3;DateCoin;false
+SKILL;SKILL;Skillcoin;true
+KAPU;KAPU;Kapu;false
+CHG;CHG;Charg Coin;false
+IC;IC;Ignition;false
+MCB;MCB;Microbyte;false
+FNKOS;FNKOS;FNKOS;false
+ADE;ADE;Adeptio;false
+RNSH;RNSH;Renish;false
+MBLC;MBLC;Mont Blanc;false
+CEEK;CEEK;CEEK Smart VR Token;false
+WAB;WAB;WAB Network;false
+FLX;FLX3;Flexinodes;false
+USX;USX;Unified Society USDEX;false
+ECN;ECN;E-coin;false
+MGC;MGC;MergeCoin;false
+USDC;USDC3;USDC;false
+SOAR;SOAR;Soarcoin;false
+ALL;ALLEXT;Allion;false
+NOX;NOX;Nitro;false
+TUN;TUN;Tune;false
+TIGC;TIGC;TigraCoin;false
+VDG;VDG;VeriDocGlobal;false
+ECT;ECT;SuperEdge;false
+ECT;ECT3;eCoin Token;false
+ZDR;ZDR;Zloadr;false
+PAPEL;PAPEL;Papel;false
+EXC;EXC5;ExcaliburCoin;false
+ACTN;ACTN;Action Coin;false
+XTO;XTO;Tao;false
+BLOC;bloc;BLOC Coin;false
+EPS;EPS;ECLIPSE;false
+NPW;NPW;New Power Coin;false
+XSF;XSF;FlakeChain;false
+MIC3;MIC3;MouseCoin;false
+EPC;EPC4;Epacoin;false
+PRE;PRE2;Presearch;false
+LGC;LGC;LiteGoldCoin;false
+KAC;KAC;Kashcoin;false
+TAL;TAL;Talus;false
+DUST;DUST;DustCoin;false
+TRXC;TRXC;TronClassic;false
+SLD;SLD;Soldo;false
+MTN;MTN3;MedToken;false
+ITL;ITL;Italian Lira;false
+ZCR;ZCR;ZCore;false
+GRF;GRF3;Graffiti Coin;false
+NDC;NDC2;NeedleCoin;false
+HEAL;HEAL;Etheal;false
+B2B;B2B4;B2B Coin;false
+NIHL;NIHL;Nihilo Coin;false
+PITCH;PITCH;Pitch;false
+CDC;CDC3;Cloudcoin;false
+DOVU;DOVU;Dovu;false
+REPO;REPO;Repo Coin;false
+DVD;DVD3;Dividend Cash;false
+OYS;OYS;Oyster Platform;false
+XTRD;XTRD;XTRD;false
+NAI;NAI;NeptuneAi;false
+PURE;PURE2;PurePOS;false
+BBT;BBT2;BitBoost;false
+GOAL;GOAL;Goal Bonanza;false
+BSM;BSM;BITSUM;false
+DRPU;DRPU;DRP Utility;false
+ORE;ORE;Galactrum;false
+BRAT;BRAT;Brat;false
+SEXC;SEXC;ShareX;false
+CEL;CEL;Celsius Network;false
+BTDX;BTDX;Bitcloud 2.0;false
+FOR;FOR;Force Network;false
+MTNC;MTNC;Masternodecoin;false
+SWAT;SWAT;SWATCoin;false
+BCS;BCS;BitcoinStake;true
+BTCRED;BTCRED;Bitcoin Red;false
+RLT;RLT;RouletteToken;false
+LIFE;LIFE;LIFE;false
+FLM;FLM;Folm;false
+CMOS;CMOS;Cosmos Coin;false
+RKT;RKT;Rock Token;false
+BTCH;BTCH;Bitcoin Hush;false
+CHE;CHE;CryptoHarborExchange;false
+TRCT;TRCT;Tracto;false
+SRNT;SRNT;Serenity;false
+VIC;VIC;Victorium;false
+DTC2;DTC22;DivotyCoin;false
+COMP;COMP;Compound Coin;false
+ELP;ELP;Ellerium;false
+DNZ;DNZ;Adenz;false
+FREE;FREE;FREE coin;false
+NYX;NYX;NYXCOIN;false
+BUCK;BUCK;BUCK;false
+VASH;VASH;VPNCoin;false
+BTSA;BTSA;BitcoinSaving;false
+XUEZ;XUEZ;Xuez;false
+NOS;NOS;NOS Coin;false
+MANO;MANO;MANO Coin;false
+PBL;PBL;Publica;false
+DXO3;DXO3;Dextro;false
+AXP;AXP;aXpire;false
+STRB;STRB;SuperTurboStake;false
+DASC;DASC;Dascoin;false
+SATC;SATC;Satoshi Coin;false
+PPCET;PPCET;PeerCoin WEX Token;false
+THE;THE;Thore Exchange;false
+KBR;KBR;Kubera Coin;false
+TOK;TOK;Tokugawa;false
+ICO;ICO;ICOBI;false
+BGG;BGG;GoldGate;false
+BITF;BITF;BitF;false
+WOC;WOC;WOCoin;false
+MAO;MAO;Mao Zedong;false
+EGCC;EGCC;Engine Chain Coin;false
+GOSS;GOSS;Gossipcoin;false
+XNK;XNK;Ink Protocol;false
+ARA;ARA;Aura;false
+EOT;EOT;EOT Token;false
+AI;AIEXT;POLY AI;false
+MRQ;MRQ;MIRQ;false
+BTF;BTF3;BitcoinFor;false
+PAR;PAR;Parachute Token;false
+X12;X12;X12 Coin;false
+CLIN;CLIN;Clinicoin;false
+CRS;CRS;CriptoReal;false
+ELIX;ELIX;Elixir;false
+ACC;ACC3;Asset Collection Coin;false
+AMX;AMX;AMERO;false
+DML;DML;Decentralized Machine Learning;false
+CIX;CIX;Cryptonetix;false
+EFX;EFX;EFFECT.AI;false
+TLR;TLR;Taler;false
+CTL;CTL;CTLcoin;false
+XIOS;XIOS;Xios;false
+RCO;RCO;Rampant Coin;false
+GRMD;GRMD;GreenMed;false
+BRM;BRM3;BitRaam;false
+LTT;LTT;Lototo;false
+SIC;SIC;Swisscoin;false
+HYB;HYB;Hybrid Block;false
+AVT;AVT;AventCoin;false
+ALT;ALT;Altcoin;false
+UUU;UUU;U Network;false
+PSTAR;PSTAR;PinkstarcoinV2;false
+FRGC;FRGC;Fargocoin;false
+BTCA;BTCA;Bitair;false
+XSTC;XSTC;Safe Trade Coin;false
+URALS;URALS;Urals Coin;false
+OIO;OIO;Online;false
+SLRM;SLRM;Solareum;false
+NORT;NORT;Northern;false
+NBT;NBT3;NiceBytes;false
+SWC;SWC;Scanetchain Token;false
+FLC;FLC;FLCoin;false
+KEK;KEK;KekCoin;false
+DEC;DEC2;Darico;false
+LELE;LELE;Lelecoin;false
+SHMN;SHMN;StrongHands Masternode;false
+JC;JC;Jesus Coin;false
+XTD;XTD;XTD Coin;false
+PRS;PRS;PressOne;false
+OCC;OCC4;Original Crypto Coin;false
+RTH;RTH;Rutheneum;false
+BBK;BBK;BitBlocks;false
+XBP;XBP;Black Pearl Coin;false
+HERO;HERO;Sovereign Hero;false
+SNIP;SNIP;Snip;false
+CTRT;CTRT;Cryptrust;false
+AOG;AOG;smARTOFGIVING;false
+BDS;BDS;Borderless;false
+ELYTE;ELYTE;Ethereum Lyte;false
+WAGE;WAGE;Digiwage;false
+SHPING;SHPING;Shping Coin;false
+KOI;KOI;KOI Coin;false
+DXO;DXO;DxoCoin;false
+JAPAN;JAPAN;JapanCoin;false
+UCOM;UCOM;UnitedCryptoCommunity;false
+PHILS;PHILS;PhilsCurrency;false
+SLEEP;SLEEP;SleepCoin;false
+XSY;XSY;SYNAPSE;false
+TLOSH;TLOSH;Tokkelosh;false
+BITCAR;BITCAR;BitCar;false
+XDRAC;XDRAC;DRAC;false
+IRC;IRC;IRONCOIN;false
+ERO;ERO;Eroscoin;false
+BUN;BUN;BunnyCoin;false
+BTBC;BTBC;Bitbase;false
+ENZO;ENZO;ENZOLimited;false
+BEE;BEE;Bee Token;false
+YUKI;YUKI;YUKI;false
+FIX;FIX;FornixCore;false
+XNV;XNV;Nerva;false
+PAR;PAR3;Parlay;false
+PFR;PFR;PayFair;false
+TAU;TAU;Lamden Tau;false
+BFDT;BFDT;Befund;false
+TORQ;TORQ;TORQ Coin;false
+PIPL;PIPL;PiplCoin;false
+XUN;XUN;UltraNote;false
+NCXC;ncxc;NCXX Coin;false
+NMCET;NMCET;NameCoin WEX Token;false
+ETHET;ETHET;Ethereum WEX Token;false
+USDET;USDET;USD WEX Token;false
+NVCET;NVCET;NovaCoin WEX Token;false
+DSHET;DSHET;Dashcoin WEX Token;false
+BLACK;BLACK;eosBLACK;false
+ELI;ELI2;Elicoin;false
+EURET;EURET;EUR WEX Token;false
+ORE;ORE3;Orectic;false
+BTCO;BTCO;Business Technology Coin;false
+BEEP;BEEP;BeepCoin;false
+TLEX;TLEX;TattooLE X;false
+DCYP;DCYP;Darkcypher;false
+SSH;SSH;StreamShares;false
+FAITH;FAITH;FaithCoin;false
+FURY;FURY;FURY;false
+UXC;UXC;UnixCoin;false
+MART;MART;MartCoin;false
+HIFUN;HIFUN;SatoshiFun;false
+KARMC;KARMC;KARMA Classic;false
+BA;BA;BitAlpha;false
+STONK;STONK;StonkaCoin;false
+IBITS;IBITS;iBits;false
+BCW;BCW;BitCrownCoin;false
+BCW;BCW3;Bitcoin Wonder;false
+BITE;BITE;BitEthereum;false
+OD;OD;OpenDollar;false
+BKBT;BKBT;BeeKan;false
+DEAL;DEAL;iDealCash;false
+XBL;XBL;Billionaire Token;false
+CBR;CBR;CCBrother;false
+CRED;CRED;Verify;false
+ZOC;ZOC;01Coin;false
+ARION;ARION;Arion;false
+ARKER;ARKER;ARKER;false
+ISC;ISC;InsuranceCoin;false
+VITES;VITES;Vites;false
+BPC;BPC4;BigProfitCoin;false
+POS;POS;PoSToken;false
+WTHC;WTHC;WithCoin;false
+ABAO;ABAO;ABAO;false
+JRC;JRC;FinChain;false
+BLB;BLB;Bilibit;false
+BTRM;BTRM;Betrium Token;false
+TRDT;TRDT;Trident;false
+NOBT;NOBT;Nobt;false
+CPG;CPG;Castle Peak;false
+LIZ;LIZ;Lizus Payments;false
+SNCZ;SNCZ;Sanchezium;false
+BTN;BTN3;Bitcoin-N;false
+DRACO;DRACO3;Draco;false
+KISS;KISS;KissCoin;false
+H2O;H2O;Hydrominer;false
+NPC;NPC3;NPCoin;false
+WTIP;WTIP;Worktips;false
+SUN;SUN;SunCoin Network;false
+IDXM;IDXM;IDEX Membership;false
+NILU;NILU;Nilu;false
+TFT;TFT4;ThreeFold Token;false
+XPX;XPX;ProximaX;false
+GRIM;GRIM;Grimcoin;false
+F1C;F1C;Future1coin;false
+Q2C;Q2C;QubitCoin;false
+EMV;EMV;Ethereum Movie Venture;false
+PF;PF;PROVER;false
+PC;PC;PromotionChain;false
+SAKE;SAKE3;SAKEcoin;false
+DUC;DUC;DucatusCoin;false
+BETHER;BETHER;Bethereum;false
+MRJA;MRJA;GanjaCoin;false
+DALC;DALC;Dalecoin;false
+GOOD;GOOD2;Goodomy;false
+BDC;BDC;BlackDiamondCoin;false
+MYSTIC;MYSTIC;MystiCoin;false
+RID;RID;RiddlerCoin;false
+SEV;SEV;Seven Coin;false
+WAM;WAM;WamCoin;false
+BAB;BAB;Babel;false
+LGR;LGR;Logarithm;false
+CD;CD;CandleCoin;false
+CDO;CDO;CryptoDao Coin;false
+POWER;POWER;PowerStake;false
+SW;SW;SkyWay Coin;false
+IONX;IONX;IonomyX;false
+EVA;EVA;EvaCoin;false
+IQN;IQN;IQeon;false
+SED;SED;Seedbit;false
+POM;POM;Pompei Coin;false
+AECC;AECC;aEchoCoin;false
+BTDOLL;BTDOLL;Bitcoin Dollar;false
+MRB;MRB;Marbles;false
+C0C0;C0C0;c0fferCoin;false
+DOTA;DOTA;DOTA Coin;false
+DAXX;DAXX;DaxxCoin;false
+CAID;CAID;CoinAid;false
+CG;CG;CryptoGold;false
+RH;RH;RhCoin;false
+CRIME;CRIME;CrimeCoin;false
+FCASH;FCASH;FutureCash;false
+JOCKER;JOCKER;JockerCoin;false
+OLIT;OLIT;OliTwistCoin;false
+TIDE;TIDE;Tide Coin;false
+ASCS;ASCS;AS Coins;false
+BNS;BNS;BNS Coin;false
+BOD;BOD;BloodCoin;false
+GE;GE;GreedE;false
+LIZA;LIZA;Bitcoin Liza;false
+KIDS;KIDS;KidsCoin;false
+BBH;BBH;Bitcoin Block Holes;false
+BILL;BILL;BillCoin;false
+DVD;DVD;Dividend;false
+PIPR;PIPR;PiperCoin;false
+BIRD;BIRD;BirdCoin;false
+KUMA;KUMA;KumaCoin;false
+HLM;HLM;Helium;false
+EXTN;EXTN;ExtensiveCoin;false
+POLY;POLY3;Polytimos;false
+HDR;HDR;Hedger;true
+HMT;HMT;Hamster Marketplace Token;false
+LNP;LNP;Linux Pay;false
+ZPAY;ZPAY;ZPAY;false
+GETX;GETX;InsChain;false
+ELLA;ELLA;Ellaism;false
+ADD;ADD;ADD Token;false
+FRD;FRD;Farad;false
+PIN;PIN;PIN Coin;false
+MAGN;MAGN;Magnetcoin;false
+RYZ;RYZ;ANRYZE;false
+YEL;YEL;Yellow Token;false
+ZIPT;ZIPT;Zippie;false
+FDC;FDC;FoodCoin;false
+RRC;RRC3;RoyalRadioCash;false
+BLN;BLN;Bolenum;false
+PRX;PRX3;Prius;false
+BCS;BCS3;BCshop.io;false
+XMT;XMT;SummitCoin;false
+MMB;MMB;MAMBO Coin;false
+DST2;DST2;DragonSeriesToken;false
+ARTIS;ARTIS;Artis;false
+SUN;SUN3;Sun;false
+NDB;NDB;NodeBase;false
+GLYNO;GLYNO;Glyno;false
+OCT;OCT;OracleChain;false
+XYO;XYO;XYO Network;false
+TIM;TIM;TimeIsMoney;false
+GMT;GMT;Mercury Protocol;false
+FMF;FMF;Formosa;false
+GENE;GENE3;Gene Source Code Chain;false
+XIN;XIN2;Mixin;false
+ASA;ASA;Asura;false
+KIND;KIND;Kind Ads;false
+LND;LND;Lendingblock;false
+CHT;CHT;Countinghouse Fund;false
+PKC;PKC;Pikciochain;false
+PRFT;PRFT;Proof Suite Token;false
+BPTN;BPTN;Bit Public Talent Network;true
+SAL;SAL;SALPay;false
+XSC;XSC;CrowdstartCoin;false
+SER;SER;Seratio;false
+BCDT;BCDT;BCDiploma;false
+HUB;HUB;HubCoin;false
+GREENF;GREENF;Green Fingers;false
+KNW;KNW;Knowledge;false
+TRCN;TRCN;The Real Coin;false
+NUA;NUA;Neulaut;false
+FNL;FNL;Funnel;false
+SUPPO;SUPPO;SuppoCoin;false
+VTAR;VTAR;Vantaur;false
+CHEESE;CHEESE;CheeseCoin;false
+XAR;XAR;XaruCoin;false
+STONE;STONE;StoneCoin;false
+CROP;CROP;CropCoin;false
+MEN;MEN;PeopleCoin;false
+LKR;LKR3;LKRCoin;false
+FT;FT;Fabric Token;false
+TIP;tip3;TIP Token;false
+XPTX;XPTX;PlatinumBAR;false
+DATO;DATO;DATO Token;false
+YCE;YCE;Myce;false
+MFC;MFC;MFCoin;false
+VIT;VIT;Vice Industry Token;false
+NCT;NCT;Nectar;false
+BTCF;BTCF;BitcoinFinal;false
+WCO;WCO;WINCO;false
+SAKE;SAKE;SakeCash;false
+DCBL;DCBL;Decibel;false
+LILI;LILI;LILICoin;false
+PLURA;PLURA;PluraCoin;false
+IRD;IRD;Iridium;false
+BSX;BSX;Bit Space;false
+ONZ;ONZ;ONZ Coin;false
+PYRO;PYRO;Pyro;false
+MON;MON;Bitcoin Monster;false
+GCH;GCH;GalaxyCash;false
+DRM;DRM;Dreamcoin;false
+ZIO;ZIO;ZIO;false
+PURK;PURK;Purk;false
+BITV;BITV;Bitvier;false
+UTT;UTT;United Traders Token;false
+PLTS;PLTS;Ploutos;false
+JUMP;JUMP;Jumpcoin;false
+KASH;KASH;KashCoin;false
+MNTP;MNTP;GoldMint;false
+OPCX;OPCX;OPCoinX;false
+LCWP;LCWP;LiteCoinW Plus;false
+EQL;EQL;EQUAL;false
+ECASH;ECASH;Ethereum Cash;false
+NEWB;NEWB;Newbium;false
+GDM;GDM;Geldum;false
+WSH;WSH;Wish Finance;false
+BC;BC;Block-Chain.com;false
+BIT;BITEXT;First Bitcoin;false
+BTW;BTW2;Bitcoin World;false
+KB3;KB3;B3Coin;false
+XCD2;XCD2;Capdax;false
+MEDIBIT;MEDIBIT;MediBit;false
+RUPX;RUPX;Rupaya;false
+RKC;RKC3;Rookie Coin;false
+DAXT;DAXT;BlockEx DAXT;false
+KNC2;KNC22;KingN Coin;false
+NAH;NAH;Straya Coin;false
+PLSR;PLSR;Pulsar;false
+STEM;STEM;STEM Coin;false
+XLQ;XLQ;Liquido;false
+XIM;XIM;XIM;false
+DRXNE;DRXNE;DROXNE;false
+URC;URC;Unrealcoin;false
+BRIM;BRIM;BR1MCoin;false
+WCASH;WCASH;Wcash;false
+VK;VK;VKCoin;false
+TFT;TFT;Traveling Free Token;false
+VTN;VTN;Venturenic;false
+VTN;VTN3;Voltroon;false
+CHILL;CHILL;Chill;false
+ETS;ETS;ETH Share;false
+BCP;BCP4;BCPCoin;false
+BOLD;BOLD;Bold;false
+MUN;MUN;MUNcoin;false
+BTCP;BTCP;Bitcoin Pro;false
+MDC;MDC2;MadCoin;false
+EXN;EXN;ExchangeN;false
+GUM;GUM;DUMDUM;false
+MIX;MIX;MIX;false
+HLW;HLW;HLWCoin;false
+SMQ;SMQ;SIMDAQ;false
+INFO;INFO;InfoCoin;false
+KWH;KWH;KWHCoin;false
+OHM;OHMC;Ohmcoin;false
+FLAX;FLAX;Flaxscript;false
+ICC;ICC;Insta Cash Coin;false
+HUZU;HUZU;HUZU;false
+DGPT;DGPT;DigiPulse;false
+TALAO;TALAO;Talao;false
+FLS;FLS;Fuloos Coin;false
+GOA;GOA;GoaCoin;false
+SPK;SPK;Sparks;false
+KPL;KPL;Kepler;false
+SNET;SNET;Snetwork;false
+BTV;BTV;BitVote;false
+TAXI;TAXI;Taxi;true
+BCP;BCP;Bitcoin Cash Plus;false
+BINS;BINS;BitSense;false
+ETRUST;ETRUST;EntrustCoin;false
+POIX;POIX;POIX;false
+MIAC;MIAC;Miacoin;false
+ERT;ERT3;Eristica;false
+AKN;AKN;Aken Cash;false
+ADL3;ADL3;AdlerCash;false
+SPECT;SPECT;Spectraal;false
+FKX;FKX;Knoxster Token;false
+SME;SME;SME Banking Platform;false
+FORK;FORK;Forkcoin;false
+VLD;VLD;VETRI;false
+SBIT;SBIT3;Squarebit;false
+BHD3;BHD3;Bithold;false
+MVR3;MVR3;MVR Coin;false
+BND3;BND3;Blocknode;false
+EGX;EGX3;EagleX;false
+SGN;SGN;Signal token;false
+N2O;N2O;Nitrous;false
+LUMI;LUMI;LumiCoin;false
+DGS;DGS;Dragonglass;false
+THR;THR;Thorecoin;false
+BTH;BTH3;Bithereum;false
+AKA;AKA;Akroma;false
+LUC;LUC;Play 2 Live;false
+B2G;B2G;Bitcoiin;true
+ITZ;ITZ;Interzone;false
+PLACO;PLACO;PlayerCoin;false
+CRP;CRP;Cryply;false
+BKC;BKC;Balkancoin;false
+MZI;MZI;MooziCoin;false
+FLUZ;FLUZ;FluzFluz;false
+LINC;LINC;LINC;false
+COAL;COAL;BitCoal;false
+EBC;EBC;EBCoin;false
+RST;RST;REGA Risk Sharing Token;false
+OZC;OZC;OzzieCoin;false
+LIZI;LIZI;Lizi;false
+LMN;LMN;Lemanum;false
+WITCH;WITCH;WitchCoin;false
+FADE;FADE;Fade;false
+BDG;BDG;BitDegree;false
+MESH;MESH;MeshBox;false
+UCN;UCN;UC Coin;false
+PTM;PTM;Potentiam;false
+SHP2;SHP2;Sharpe Platform Token;false
+BTL;BTL;Bittlend;false
+FNX;FNX3;FENIX & WAVES Coin;false
+WSP;WSP;Wispr;false
+THUG;thug;THUG Coin;false
+MBC;MBC4;MasterBit;false
+XG;XG3;GIGA;false
+JS;JS;JavaScript Token;false
+RAI;RAI;RaiderCoin;false
+GET;GET;Guaranteed Entrance Token;false
+XAP;XAP;Apollon;false
+ERC20;ERC20;ERC20;false
+SMART;SMART3;Bitcoin Smart;false
+XCLR;XCLR;ClearCoin;false
+IMC;IMC3;Intermodal Coin;false
+BNC0;BNC0;Bionic;true
+AKY;AKY;Akuya Coin;false
+NMD;NMD;Nomad Coin;false
+INC;INC3;Incognito;false
+SHL;SHL;Oyster Shell;false
+PMNT;PMNT;Paymon;false
+LCD;LCD;Lucyd;false
+BALI;BALI;Bali Coin;false
+TLL;TLL;Tellion;false
+TPI;TPI;ThaneCoin;false
+SCRIV;SCRIV;SCRIV NETWORK;false
+XMV;XMV;MoneroV;false
+GEERT;GEERT;GeertCoin;false
+KSS;KSS;Krosscoin;false
+BRF;BRF;Bitrace Token;false
+MASH;MASH;MASTERNET;false
+CONI;CONI;CoinBene;false
+SURGE;SURGE;Surge;false
+BLS;BLS;BLISSCOIN;false
+PWC;PWC;Playwincoin;false
+ITA;ITA;Italocoin;false
+NXCT;NXCT;XChain Token;false
+GMCN;GMCN;GambleCoin;false
+LIVE;LIVE;Live Stars Token;false
+HMC;HMC;HarmonyCoin;false
+FU;FU;FuBi;false
+HNR;HNR;Honor;false
+IFAN;IFAN;iFan;false
+CLPC;CLPC;CLP Token;false
+ESR;ESR;ESR Token;false
+ETHP;ETHP;Ethereum Plus;false
+LYL;LYL;LoyalCoin;false
+ECIO;ECIO;ECOMCASH;false
+ACPR;ACPR;Aces Pro;false
+XNM;XNM;MinnieCoin;false
+LOOT;LOOT;LootCoin;false
+ACRN;ACRN;Acorn Coin;false
+MULTI;MULTI;MultiCoin;false
+ADAM;ADAM;AdamCoin;false
+ARTA;ARTA;ARTA Digital;false
+XPC;XPC;Pork Coin;false
+CST;CST;Capstone;false
+ARTC;ARTC;ARTCurrency;false
+PONZ2;PONZ2;Ponz2;false
+PTY;PTY;PrototypeCoin;false
+CTK;CTK;CashTakers;false
+RAP;RAP;Rapture;false
+GIC;GIC;Giant;false
+SHARD;SHARD;Shard Coin;false
+LST;LST;Lendroid Support Token;false
+GET;GETEXT;GUTS Tickets;false
+CRDS;CRDS;Credits;false
+ALG;ALG;Algory;false
+PYT;PYT;Payther;false
+EPIC;EPIC;EPIC;false
+BTO;BTO3;Bitron Coin;false
+ROCKET;ROCKET;Rocket Coin;false
+FINS;FINS;FinShi Capital;false
+FROST;FROST;Bifrost;false
+JEW;JEW;Shekel;false
+IMP;IMP3;Ether Kingdoms;false
+TGT;TGT;Target Coin;false
+ABC;ABC3;Anti Bureaucracy Coin;false
+DOGEC;DOGEC;DogeCash;false
+EVR;EVR;Everus;false
+HLX;HLX;Hilux;false
+DEFT;DEFT;deft;false
+ECOM;ECOM;eComchain;false
+ACH;ACH;Achilles;false
+XSR;XSR;SucreCoin;false
+CHRC;CHRC;CharnaCoin;false
+SAROS;SAROS;Saros;false
+FNT;FNT;FinTab;false
+BWS;BWS;BitcoinWSpectrum;false
+EDL;EDL;eDollar;false
+TOKEN;TOKEN;SwapToken;false
+CROAT;CROAT;Croat;false
+AMO;AMO;Amo Coin;false
+ARTE;ARTE;Artemine;false
+ARC;ARC;Arcade Token;false
+MDZ;MDZ;Minedozer;false
+XHK;XHK;HOSTINKEY;false
+BTCC;BTCC;Bitcoin Core;false
+GAMEX;GAMEX;GameX;false
+ABS;ABS;Absolute Coin;false
+CSM;CSM;Consentium;false
+LKN;LKN;LinkCoin;false
+BZS;BZS;Bazista;false
+DRCT;DRCT;DRC Token;false
+OOT;OOT;Utrum;false
+STK;STK3;Stakecoin;false
+MEK;MEK;Teky;false
+AMN;AMN;Amon;false
+FGC;FGC;FantasyGold;false
+CAZ;CAZ;CAZ Coin;false
+NEWS;NEWS;NewsToken;false
+FTB;FTB;Fincoin;false
+TRIT;TRIT;Triton;false
+PROUD;PROUD;PROUD Μoney;false
+MOC;MOC;MomoCash;false
+MK;MK;Mankind First;false
+EXC;EXC;XchangerCoin;false
+KNDC;KNDC;KanadeCoin;false
+TBT;TBT;TBOT;false
+BNI;BNI;Business Network Incubator;false
+WBTC;WBTC3;WorldBTC;false
+CAGE;CAGE;CageCoin;false
+ZACA;ZACA;ZACA Coin;false
+KUN;KUN;KUN;false
+BTT;BTT;Blocktrade;false
+POD;POD;Payment Coin;false
+GDC;GDC3;GuardianCoin;false
+KRAIT;KRAIT;KRAIT Coin;false
+BEEFY;BEEFY;Bank4YOU;false
+DL;DL;DUELIUM;false
+EPH;EPH;Euphoria;false
+XCG;XCG;Xchange;false
+DCON;DCON;DCON;false
+IFISH;IFISH;iFish;false
+MRN;MRN;Mercoin;false
+MBCH;MBCH;MillionBitcoinCash;false
+STEEP;STEEP;SteepCoin;false
+ERZ;ERZ;EarnzCoin;false
+MNB;MNB;MoneyBag;false
+BART;BART;BarterCoin;false
+ESCO;ESCO;EscrowCoin;false
+POW;POW;POW Token;false
+KAI;KAI;KaiCoin;false
+TMRW;TMRW;TomorrowCoin;false
+IOG;IOG;Internet of Games;false
+VOL;VOL;VolCoin;false
+VOL;VOL3;Volume Coin;false
+B2C;B2C;BitClassic;false
+AXS;AXS;AXS;false
+XGOD;XGOD;XGOXDark;false
+CNTF;CNTF;Centurion Future;false
+HIGHT;HIGHT;HighCoin;false
+XT3;XT3;Xt3ch;false
+MTLC;MTLC;MagicTheLeagueCoin;false
+GMC;GMC3;GMC Coin;false
+ETZ;ETZ;EtherZero;false
+ARQ;ARQ;Arqma;false
+CNC;CNC3;eCoinomic;false
+THOM;THOM;ThomasJefferson;false
+ATFS;ATFS;ATFS Project;false
+HSN;HSN;Helper Search Token;false
+BPOK;BPOK3;BitPokemonGo;false
+MEETONE;MEETONE;MEET.ONE;false
+HELL;HELL;HELL COIN;false
+BMH;BMH;Black Moon;false
+LUNEX;LUNEX;Lunex Coin;false
+ASTR;ASTR;ASTRcoin;false
+DECR;DECR;DecryptRcoin;false
+UDOWN;UDOWN;UDOWNcoin;false
+JW;JW;JohnnieWalker;false
+WHO;WHO;WhopperCoin;false
+MLNC;MLNC;MelonClassic;false
+FPC;FPC;Fire Peacock Coin;false
+FRDC;FRDC;FreedomCoin;false
+DGX;DGX;Digix Gold token;false
+MDX;MDX;Midex;false
+SLCO;SLCO;Silco;false
+PGN;PGN;Pigeoncoin;false
+OTN;OTN;Open Trading Network;false
+BTP;BTP3;BitPound;false
+ARTX;ARTX;Artax;false
+CBS;CBS;Cerberus;false
+SOLAR;SOLAR;Solar;false
+EET;EET;Energy Eco;false
+FLIP;FLIP4;EtherFlip;false
+EES;EES;EES Super Energy;false
+MEX;MEX;MEX Token;false
+AQX;AQX;Aquila;false
+GALI;GALI;Galilel;false
+ROCK;ROCK2;RocketCoin;false
+RPM;RPM3;Repme;false
+CGEN;CGEN;CommunityGeneration;false
+TROLL;TROLL;Trollcoin;false
+BTCH;BTCH3;Bithash;false
+YOKOCHO;YOKOCHO;Yokochocoin;false
+SP;SP3;Supro;false
+BSH;BSH;BitRush;false
+BIRDS;BIRDS;Birds;false
+PSC;PSC;PrimeStone;false
+JACK;JACK;BlackJack;false
+TALK;TALK;BTCtalkcoin;false
+ITI;ITI;iTicoin;false
+CUZ;CUZ;Cool Cousin;false
+LTHN;LTHN;Lethean;false
+GES;GES;Galaxy eSolutions;false
+LNC;LNC;BlockLancer;false
+MTRC;MTRC;ModuleTrade;false
+SPX;SPX3;Sp8de;false
+ATX;ATX3;Aston;false
+COI;COI;Coinnec;false
+PCO;PCO;Pecunio;false
+IGNX;IGNX;Ignite Ratings;false
+KEC;KEC;KEYCO;false
+SIM;SIM;Simcoin;false
+SIM;SIM3;Simmitri;false
+GLO;GLO;GkobusCoin;false
+VAL;VAL;Valorbit;false
+TRCK;TRCK;Truckcoin;false
+BTCS;BTCS3;Bitcoin Supreme;false
+REBL;REBL;Rebellious;false
+EGAS;EGAS;ETHGAS;false
+QUAN;QUAN;Quantis;false
+BTCUI;BTCUI;Bitcoin Unicorn;false
+LUNA;LUNA;Luna Coin;false
+GIO;GIO;Gravio Coin;false
+CRBT;CRBT;Cruisebit;false
+KGB;KGB;KangaroBits;false
+PLX;PLX;PlexCoin;false
+CORG;CORG;CorgiCoin;false
+MIPS;MIPS;MIPSToken;false
+SBIT;SBIT;StackBIT;false
+SAGA;SAGA;SagaCoin;false
+OGN;OGN;OGNCoin;false
+420G;420G;Ganjacoin;false
+GET;GET3;Themis Global Escrow Token;false
+MNZ;MNZ3;Monetize Coin;false
+HER;HER;Hera Coin;false
+EURN;EURN;Noku EUR Token;false
+XGS;XGS;GenesisX;false
+NEWG;NEWG;Newifi Gold;false
+VTL;VTL2;VTL Token;false
+BRH;BRH;Brahma Coin;false
+ACTP;ACTP;Archetypal Network;false
+CKS;CKS;Chicks;false
+XFLEA;XFLEA;zXFlea;false
+EDIT;EDIT;EditCoin;false
+ALF;ALF3;Aeternum;false
+ZZC;ZZC;ZoZoCoin;false
+QTG;QTG;Quantum Gold;false
+EMP;EMP;EMoneyPower;false
+COTN;COTN;Cotton;false
+SCC;SCC3;StakeCube;false
+GIVE;GIVE3;GIVES;false
+RPX;RPX;Red Pulse;false
+BTCONE;BTCONE;BitCoin ONE;false
+EGEM;EGEM;EtherGem;false
+MTN;MTN4;Motion Token;false
+BBP;BBP;BiblePay;false
+IPS;IPS;IPSUM;false
+MDFY;MDFY;Motify;false
+QWC;QWC;Qwertycoin;false
+ANGL;ANGL;Angel Token;false
+AST;AST2;Astral;false
+AZART;AZART;Azart;false
+AERM;AERM;Aerium;false
+WAE;WAE;WeyCoin;false
+H2O;H2O3;H2O Coin;false
+CNZ;CNZ;CryptoNationZ;false
+PHC;PHC;Profit Hunters Coin;false
+EMN;EMN;Eminent Token;false
+IMC;IMC;IMM Coin;false
+3DES;3DES;3DES;false
+CTX;CTX;CarTaxi;false
+WIN;WIN;WinToken;false
+KARMA;KARMA;Karmacoin;false
+SNPT;SNPT;SnapToken;false
+TYV;TYV;Tyrtkov;false
+BAS;BAS;BitAsean;false
+TOP;TOPEXT;TopCoin;false
+BOPS;BOPS;BeonPush Coin;false
+COOC;COOC;CoochieCoin;false
+XYZ;XYZ;XYZCoin;false
+ALPHA;ALPHA;ALPHA;false
+GREED;GREED3;Greed;false
+THUG;thug3;THUG Life;false
+XLN;XLN;Lunarium;false
+PHON;PHON;Phonecoin;false
+BERRY;BERRY;Rentberry;false
+MOZO;MOZO;Mozo Token;false
+USX;USX2;USX;false
+FRAS;FRAS;Frasindo;false
+XTR;XTR3;Xatra;false
+HELP;HELP3;HELP;false
+ACAD;ACAD;Academy Token;false
+VIS;VIS;Vision;false
+SPD;SPD3;Spindle;false
+ZNC;ZNC;ZEON;false
+WILD;WILD;Wild Crypto;false
+DNN;DNN;DNN Token;false
+CMM;CMM;Commercium;false
+CNMC;CNMC3;Cryptonodes;false
+XBI;XBI;Bitcoin Incognito;false
+MNP;MNP;MNPCoin;false
+XRC;XRC3;Charycoin;false
+GLT;GLT3;Galatium;false
+AIVA;AIVA;Aid Eva Coin;false
+NAVY;NAVY;BoatPilot;false
+SPRK;SPRK;SparkleCoin;false
+DRONE;DRONE;DEEP AERO;true
+TER;TER;TerraNovaCoin;false
+LUCK;LUCK;Luckbox;false
+CNNC;CNNC;Cannation;false
+MAME;MAME;mameCoin;false
+HAVY;HAVY;Havy;false
+MER;MER2;TheMermaidCoin;false
+BON;BON2;BonesCoin;false
+ZULA;ZULA;Zula Coin;false
+PTC;PTC3;Perfect Coin;false
+RAGNA;RAGNA;Ragnarok;false
+CFTY;CFTY;Crafty;false
+FNO;FNO;Fonero;false
+PASS;PASS;Blockpass;false
+EBCH;EBCH;eBitcoinCash;false
+AURA;AURA;Aurora DAO;false
+QBIT;QBIT;Qubitica;false
+CBC;CBC5;CubisCoin;false
+CSX;CSX;CASAX;false
+TRIP;TRIP3;TRIP COIN;false
+XDRC;XDRC;Direct Coin;false
+FRRN;FRRN;Ferron;false
+GTMR;GTMR;Getmoder;false
+CAG;CAG;Change;false
+VIOG;VIOG;VIOG;false
+REC;REC;Regalcoin;false
+PRJ;PRJ3;PRJCoin;false
+RUP;RUP;Rupee;false
+EVO;EVO;Evotion;false
+COT;COT;CoTrader;false
+CPN;CPN;CompuCoin;false
+FERMA;FERMA;FERMA;false
+WORK;WORK;Aworker;false
+MARS;MARS;MarsCoin;false
+STM;STM;Stoxum;false
+SECI;SECI;SECI;false
+BTAD;BTAD;Bitcoin Adult;false
+LDG;LDG;Ledgit;false
+CLC;CLC;CaluraCoin;false
+BEPAY;BEPAY;Bytepay;false
+WAND;WAND;WandX;false
+PAXEX;PAXEX;PAXEX;false
+NEWOS;NEWOS;NewsToken;false
+BOC;BOC;BingoCoin;false
+PKG;PKG;PKG Token;false
+SDA;SDA;Six Domain Chain;false
+RGS;RGS;RusGas;false
+HPS;HPS;HyperPlayShare;false
+MVC;MVC;Maverick Chain;false
+ARCT;ARCT;ArbitrageCT;false
+LSC;LSC;LogosCoin;false
+BLO;BLO;Blok;false
+CO2;CO2;ClimateCoin;false
+GST;GST3;GrEARN;false
+CBX;CBX3;Chubex Token;false
+CLC;CLC3;Crypto Lion;false
+DST;DST;DSTRA;false
+RPD;RPD;Rapids;false
+BTF;BTF;Bitcoin Faith;false
+DLR;DLR3;Delor;false
+STY;STY;Styras;false
+ETHPR;ETHPR;Ethereum Premium;false
+BEAT;BEAT;BEAT;false
+KRT;KRT;Kreita;false
+GREED;GREED;GREED Token;false
+TBX;TBX;Tokenbox;false
+MAN;MAN2;Matrix AI Network;false
+STAC;STAC;StarterCoin;false
+IIC;IIC;Intelligent Investment Chain;false
+TUB;TUB;TUBI;false
+IFP;IFP;INFINIPAY;false
+SENSE;SENSE;Sense Token;false
+GMR;GMR;Gimmer;false
+BUMBA;BUMBA;BumbaCoin;false
+GBX;GBX3;Globitex Token;false
+DAC;DAC;DACash;false
+XIND;XIND;INDINODE;false
+USERV;USERV;UservCoin;false
+BM;BM2;Bitcomo;false
+CAT;CAT;BlockCAT;false
+DPC;DPC3;Date Palm Coin;false
+ATH;ATH2;Atheios;false
+CLT;CLT3;CoinLoan;false
+AMZ;AMZ;AmazingCoin;false
+BUC;buc;BuyUCoin Token;false
+BUC;buc3;Bit Union Coin;false
+RPI;RPI;RPI Coin;false
+MFTU;MFTU;Mainstream For The Underground;false
+ALTX;ALTX;Alttex;false
+SC2;SC2;SecureCloudCoin;false
+SEAL;SEAL;Seal Network;false
+SGP;SGP;SGPay;false
+MEOW;MEOW;Kittehcoin;false
+MKT;MKT;MarketCash;false
+TMC;TMC3;TulipManiaCoin;false
+GLUCK;GLUCK;GoodLuck;false
+NRG;NRG;Energi;false
+NRN;NRN;Doc.ai Neuron;false
+GZE;GZE;GazeCoin;false
+BTCN;BTCN;BitcoiNote;false
+QCH;QCH;QChi;false
+ZNCO;ZNCO;ZNCoin;false
+PZDC;PZDC;PZDC;false
+ESN;ESN;Ether Social Network;false
+XORN;XORN;XORN;false
+PEXT;PEXT;PEX-Token;false
+TWIST;TWIST;TWIST;false
+MEME;MEME3;Memez Token;false
+EVC;EVC3;Eco Value Coin;false
+ELT;ELT3;ETH Light;false
+GTFO;GTFO;GotFomo;false
+ITS;ITS;ITS Chain;false
+BFI;BFI;BitFinTech;false
+BUS;BUS;BTU Support;false
+PUREX;PUREX;Purex;false
+LSTR;LSTR;Luna Stars;false
+SONIQ;SONIQ;Soniq;false
+300;300;300 Token;false
+ZMC;ZMC;ZetaMicron;false
+BB;BB;BillionBond;false
+WED;WED;WednesdayCoin;false
+LAMBO;LAMBO;LamboCoin;false
+XEM;XEM2;NewEconomyMovement;false
+CAPT;CAPT;CAPTcoin;false
+DRV;DRV;Dravite;false
+DXC;DXC;Devil Coin;false
+CPAY;CPAY;CryptoPay;false
+RDC;RDC;Rapidchain;false
+ENCO;ENCO;Easynodecoin;false
+DRL;DRL;Daral;false
+CTC;CTC6;Cryptonium;false
+ATS;ATS;Authorship;false
+CVC;CVC3;CalvaryCoin;false
+ODN;ODN;Obsidian;false
+ELT;ELT;Eloplay;false
+HEX;HEX;HexCoin;false
+FLLW;FLLW;Follow Coin;false
+VZT;VZT;Vezt;false
+ARENA;ARENA;Arena;false
+BQ;BQ;Bitqy;false
+VIKKY;VIKKY;VikkyToken;false
+CHEX;CHEX;CHEX;false
+NVT;NVT3;Nova Token;false
+PIRL;PIRL;Pirl;false
+INDI;INDI;IndiCoin;false
+DTT;DTT;DreamTeam Token;false
+KOLION;KOLION;Kolion;false
+WISH;WISH;Wish Finance;false
+GAT;GAT;GAT Coin;false
+CLOUT;CLOUT;Clout;false
+BTC2X;BTC2X;Bitcoin2x;false
+EBET;EBET;EthBet;false
+ANS;ANS3;ANODOS;false
+NYEX;NYEX;Nyerium;false
+MUSD;MUSD;MUSDcoin;false
+WOMEN;WOMEN;WomenCoin;false
+NEU;NEU2;Neumark;false
+SLOTH;SLOTH;Slothcoin;false
+ARC;ARC2;Advanced Technology Coin;false
+TKR;TKR;CryptoInsight;false
+HAC;HAC;Hackspace Capital;false
+BAR;BAR;Titanium Blockchain;false
+COLX;COLX;ColossusCoinXT;false
+NTM;NTM;NetM;false
+ART;ART2;Maecenas;false
+PPP;PPP;PayPie;false
+VIVO;VIVO;VIVO Coin;false
+ANTS;ANTS;ANTS Reloaded;false
+MTN;MTN;TrackNetToken;false
+VOISE;VOISE;Voise;false
+FLASH;FLASH;FLASH coin;false
+MCI;MCI;Musiconomi;false
+RLC;RLC3;RuLite Coin;false
+MORE;MORE;More Coin;false
+AURS;AURS;Aureus;false
+BITON;BITON;BitOn Coin;false
+INXT;INXT;Internxt;false
+EDDIE;EDDIE;Eddie coin;false
+MTC;MTC3;Metacube;false
+SAP;SAP;Methuselah;false
+VSX;VSX;Vsync;false
+BLUE;BLUE;Ethereum Blue;false
+FRAZ;FRAZ;FrazCoin;false
+ETG;ETG;Ethereum Gold;false
+LUX;LUX2;BitLux;false
+COV;COV2;CovenCoin;false
+ERT;ERT;Esports.com;false
+RGC;RGC;RG Coin;false
+EBTC;EBTC;eBitcoin;false
+COMM;COMM;Community Coin;false
+LQD;LQD;Liquid;false
+SHLD;SHLD;ShieldCoin;false
+LK7;LK7;Lucky7Coin;false
+PIZZA;PIZZA;PizzaCoin;false
+PRC;PRC;ProsperCoin;false
+CRYPT;CRYPT;CryptCoin;false
+ICOO;ICOO;ICO OpenLedger;false
+GLYPH;GLYPH;GlyphCoin;false
+ARI;ARI2;BeckSang;false
+AUT;AUT;Autoria;false
+DFBT;DFBT;DentalFix;false
+HKG;HKG;Hacker Gold;false
+LAB;LAB;CoinWorksCoin;false
+CON2X;CON2X;Paycon;false
+MRV;MRV;Macroverse;false
+XVC;XVC;Vcash;false
+SCN;SCN;Swiscoin;false
+BTQ;BTQ;BitQuark;false
+FLAP;FLAP;Flappy Coin;false
+TRV;TRV;Travel Coin;false
+XEN;XEN;XenixCoin;false
+HBN;HBN;HoboNickels;false
+LOG;LOG;Wood Coin;false
+MIL;MIL;Milllionaire Coin;false
+GNJ;GNJ;GanjaCoin V2;false
+UNIQ;UNIQ;Uniqredit;false
+GLX;GLX;GalaxyCoin;false
+CRAIG;CRAIG;CraigsCoin;false
+XNA;XNA;DeOxyRibose;false
+XPB;XPB;Pebble Coin;false
+XBOT;XBOT;SocialXbotCoin;false
+EMIGR;EMIGR;EmiratesGoldCoin;false
+LXC;LXC;LibrexCoin;false
+RZR;RZR;RazorCoin;false
+MRS;MRS;MarsCoin;false
+SOLE;SOLE;SoleCoin;false
+NXTI;NXTI;NXTI;false
+XSEED;XSEED;BitSeeds;false
+WEX;WEX;Wexcoin;false
+CELL;CELL;SolarFarm;false
+JIO;JIO;JIO Token;false
+MMNXT;MMNXT;MMNXT;false
+ZXT;ZXT;Zcrypt;false
+CHASH;CHASH;CleverHash;false
+WOLK;WOLK;Wolk;false
+AND;AND;AndromedaCoin;false
+BOG;BOG;Bogcoin;false
+XCR;XCR;Crypti;false
+MN;MN;Cryptsy Mining Contract;false
+PYC;PYC;PayCoin;false
+BLOCKPAY;BLOCKPAY;BlockPay;false
+RT2;RT2;RotoCoin;false
+AGS;AGS;Aegis;false
+PBC;PBC;PabyosiCoin;false
+XSI;XSI;Stability Shares;false
+MG;MG;Mind Gene;false
+BTCD;BTCD;BitcoinDark;false
+SHADE;SHADE;ShadeCoin;false
+GHC;GHC;GhostCoin;false
+APC;APC;AlpaCoin;false
+BLITZ;BLITZ;BlitzCoin;false
+CFT;CFT;CryptoForecast;false
+NODE;NODE;Node;false
+IMPCH;IMPCH;Impeach;false
+ERB;ERB;ERBCoin;false
+XID;XID2;International Diamond Coin;false
+VIRAL;VIRAL;Viral Coin;false
+EVENT;EVENT;Event Token;false
+FRAC;FRAC;FractalCoin;false
+EQ;EQ;EQUI;false
+NXTTY;NXTTY;NXTTY;false
+XLB;XLB;LibertyCoin;false
+FAME;FAME;FameCoin;false
+LTCD;LTCD;LitecoinDark;false
+BFX;BFX;BitFinex Tokens;false
+TOM;TOM;Tomahawkcoin;false
+MWC;MWC;MultiWallet Coin;false
+BOTS;BOTS;ArkDAO;false
+CAIX;CAIX;CAIx;false
+UNIKRN;UNIKRN;UnikoinGold;false
+THNX;THNX;ThankYou;false
+BOU;BOU;Boulle;false
+ATOM;ATOM2;Cosmos;false
+RYCN;RYCN;RoyalCoin 2.0;false
+FCS;FCS;CryptoFocus;false
+SQP;SQP;SqPay;false
+SNS;SNS;Sense;false
+OLDSF;OLDSF;OldSafeCoin;false
+BTX;BTX2;BitcoinTX;false
+MASS;MASS;Mass.Cloud;false
+ANTC;ANTC;AntiLitecoin;false
+QBK;QBK;QuBuck Coin;false
+DMARKET;DMARKET;DMarket;false
+AMIS;AMIS;AMIS;false
+PQT;PQT;PAquarium;false
+8BT;8BT;8 Circuit Studios;false
+BTMI;BTMI;BitMiles;false
+CTT;CTT;CodeTract;false
+CKC;CKC;Clockcoin;false
+BLAS;BLAS;BlakeStar;false
+NBL;NBL;Nybble;false
+SSV;SSV;SSVCoin;false
+ZED;ZED;ZedCoins;false
+BULLS;BULLS;BullshitCoin;false
+LUCKY;LUCKY;LuckyBlocks;false
+DRKC;DRKC;DarkCash;false
+MLS;MLS;CPROP;false
+NAS2;NAS2;Nas2Coin;false
+SPOTS;SPOTS;Spots;false
+COOL;COOL;CoolCoin;false
+EKN;EKN;Elektron;false
+CMP;CMP;Compcoin;false
+OCTO;OCTO;OctoCoin;false
+PDC;PDC;Project Decorum;false
+SCOT;SCOT;Scotcoin;false
+BITSD;BITSD;Bits Digit;false
+SAT2;SAT2;Saturn2Coin;false
+BT;BT;BuildTeam;false
+CINNI;CINNI;CINNICOIN;false
+SFR;SFR;SaffronCoin;false
+MINE;MINE;Instamine Nuggets;false
+AXR;AXR;AXRON;false
+XTC;XTC;TileCoin;false
+ROOT;ROOT;RootCoin;false
+VNT;VNT;Veredictum;false
+QORA;QORA;QoraCoin;false
+NDAO;NDAO;NeuroDAO;false
+BIP;BIP;BipCoin;false
+WOP;WOP;WorldPay;false
+VDO;VDO;VidioCoin;false
+XNC;XNC2;Numismatic Collections;false
+VSM;VSM;VOISE;false
+ROOTS;ROOTS;RootProject;false
+BITS;SWIFT;BitSwift;false
+XPOKE;XPOKE;PokeChain;false
+FAL;FAL;Falcoin;false
+DANK;DANK;DarkKush;false
+EON;EON;Exscudo;false
+APEX;APEX;ApexCoin;false
+SYC;SYC;SynchroCoin;false
+CSH;CSH;CashOut;false
+MI;MI;XiaoMiCoin;false
+ARC;ARC1;Archain;false
+SAR;SAR;SARCoin;false
+CAT;CAT1;Catcoin;false
+JUDGE;JUDGE;JudgeCoin;false
+DVC;DVC;DevCoin;false
+SOJ;SOJ;Sojourn Coin;false
+MARYJ;MARYJ;MaryJane Coin;false
+WOLF;WOLF;Insanity Coin;false
+IOU;IOU;IOU1;false
+BANKEX;BANKEX;Bankex;false
+CTO;CTO;Crypto;false
+LATO;LATO;LAToken;false
+JBS;JBS;JumBucks Coin;false
+SMNX;SMNX;SMNX;false
+DRM8;DRM8;Dream8Coin;false
+MSC;MSC;MasterCoin;false
+FIBRE;FIBRE;FIBRE;false
+GAIA;GAIA;GAIA Platform;false
+MUDRA;MUDRA;MudraCoin;false
+RBR;RBR;Ribbit Rewards;false
+FIRST;FIRST;FirstCoin;false
+EQB;EQB;Equibit;false
+HIRE;HIRE2;BitHIRE;false
+DAS;DAS;DAS;false
+MEDI;MEDI;MediBond;false
+BUCKS;BUCKS2;GorillaBucks;false
+LYB;LYB;LyraBar;false
+VERSA;VERSA;Versa Token;false
+TME;TME;Timereum;false
+DNET;DNET;Darknet;false
+FSC2;FSC2;FriendshipCoin;false
+LTCX;LTCX;LitecoinX;false
+CXC;CXC;CheckCoin;false
+LEMON;LEMON;LemonCoin;false
+IML;IML;IMMLA;false
+UR;UR;UR;false
+POL;POL;PolToken.pl;false
+Z2;Z2;Z2 Coin;false
+XAI;XAI2;AICoin;false
+MZC;MZC;MazaCoin;false
+GBRC;GBRC;GBR Coin;false
+HRB;HRB;Harbour DAO;false
+RIPO;RIPO;RipOffCoin;false
+FTP;FTP;FuturePoints;false
+GUNS;GUNS;GeoFunders;false
+JNS;JNS;Janus;false
+OROC;OROC;Orocrypt;false
+CABS;CABS;CryptoABS;false
+FRC;FRC;FireRoosterCoin;false
+CCN;CCN;CannaCoin;false
+HVC;HVC;HeavyCoin;false
+UTH;UTH;Uther;false
+GHOUL;GHOUL;Ghoul Coin;false
+NRB;NRB;NoirBits;false
+SCOR;SCOR;Scorista;false
+S8C;S8C;S88 Coin;false
+TKN;TKN2;TrollTokens;false
+NEC;NEC;NeoCoin;false
+QSLV;QSLV;Quicksilver coin;false
+WGC;WGC;World Gold Coin;false
+DSB;DSB;DarkShibe;false
+LTBC;LTBC;LTBCoin;false
+BET;BET2;DAO.casino;false
+XGB;XGB;GoldenBird;false
+KCN;KCN;Kencoin;false
+SMAC;SMAC;Social Media Coin;false
+DT;DT;DarkToken;false
+BCC;BCC;BitConnect;false
+OFF;OFF;Cthulhu Offerings;false
+ETB;ETB;EthBits;false
+1CR;1CR;1Credit;false
+NRS;NRS;NoirShares;false
+MRY;MRY;MurrayCoin;false
+MNY;MNY;Monkey;false
+DCS;DCS;deCLOUDs;false
+DIEM;DIEM;CarpeDiemCoin;false
+BUK;BUK;CryptoBuk;false
+EDGE;EDGE;EdgeCoin;false
+BQC;BQC;BQCoin;false
+CGA;CGA;Cryptographic Anomaly;false
+ICB;ICB;IceBergCoin;false
+LTA;LTA;Litra;false
+XDQ;XDQ;Dirac Coin;false
+VLUX;VLUX;VLUX;false
+XNC;XNC;XenCoin;false
+RYC;RYC;RoyalCoin;false
+MYST;MYST2;MysteryCoin;false
+SNK;SNK;Sosnovkino;false
+CNMT;CNMT;Coinomat;false
+AHT;AHT;Ahoolee;false
+BMAX;BMAX;BitcoinMax;false
+TWLV;TWLV;Twelve Coin;false
+MTR;MTR;MasterTraderCoin;false
+GUE;GUE;GuerillaCoin;false
+DOGED;DOGED;DogeCoinDark;false
+BITUSD;BITUSD;bitUSD;false
+LFC;LFC;BigLifeCoin;false
+JKC;JKC;JunkCoin;false
+EB3;EB3;EB3coin;false
+LGD;LGD;Legends Cryptocurrency;false
+KEX;KEX;KexCoin;false
+XDP;XDP;DogeParty;false
+SSD;SSD;Sonic Screw Driver Coin;false
+EBZ;EBZ;Ebitz;false
+POINTS;POINTS;Cryptsy Points;false
+MIV;MIV;MakeItViral;false
+NAUT;NAUT;Nautilus Coin;false
+EXE;EXE;ExeCoin;false
+BQX;BQX;Ethos;false
+CLOUD;CLOUD;Cloud;false
+MDC;MDC;MedicCoin;false
+XCI;XCI;Cannabis Industry Coin;false
+KDC;KDC;Klondike Coin;false
+COE;COE;CoEval;false
+GPL;GPL;Gold Pressed Latinum;false
+GIVE;GIVE;GiveCoin;false
+XGR;XGR;GoldReserve;false
+XC;XC;X11 Coin;false
+KRC;KRC;KRCoin;false
+CHAO;CHAO;23 Skidoo;false
+CALC;CALC;CaliphCoin;false
+PRIME;PRIME;PrimeChain;false
+DRACO;DRACO;DT Token;false
+TRIBE;TRIBE;TribeToken;false
+MCN;MCN;MonetaVerde;false
+CHILD;CHILD;ChildCoin;false
+EZC;EZC;EZCoin;false
+SLG;SLG;SterlingCoin;false
+PHS;PHS;PhilosophersStone;false
+CHIEF;CHIEF;TheChiefCoin;false
+CLV;CLV;CleverCoin;false
+PSEUD;PSEUD;PseudoCash;false
+DUCK;DUCK;DuckDuckCoin;false
+REV;REV;Revenu;false
+UNAT;UNAT;Unattanium;false
+RIC;RIC;Riecoin;false
+VMC;VMC;VirtualMining Coin;false
+SBC;SBC;StableCoin;false
+CETI;CETI;CETUS Coin;false
+MMXIV;MMXIV;MaieutiCoin;false
+MYC;MYC;MayaCoin;false
+ARCH;ARCH;ArchCoin;false
+NVST;NVST;NVO;false
+BMXT;BMXT;Bitmxittz;false
+NMB;NMB;Nimbus Coin;false
+STR2;STR2;StarCoin;false
+SRT;SRT;Scrypto;false
+NAN;NAN;NanoToken;false
+BITCNY;BITCNY;bitCNY;false
+STA;STA2;Stakers;false
+DEUR;DEUR;DigiEuro;false
+GEMZ;GEMZ;Gemz Social;false
+FC2;FC2;Fuel2Coin;false
+JDC;JDC;JustDatingSite;false
+CUBE;CUBE;DigiCube;false
+LGD;LGD2;Legendary Coin;false
+ZRC;ZRC2;ZiftrCoin;false
+XPH;XPH;PharmaCoin;false
+HZ;HZ;Horizon;false
+VIOR;VIOR;ViorCoin;false
+AVA;AVA;Avalon;false
+DIGS;DIGS;Diggits;false
+GXC;GXC;Gx Coin;false
+MRSA;MRSA;MrsaCoin;false
+XCJ;XCJ;CoinJob;false
+ZSE;ZSE;ZSEcoin;false
+UTIL;UTIL;Utility Coin;false
+CIR;CIR;CircuitCoin;false
+ULTC;ULTC;Umbrella;false
+XWT;XWT;World Trade Funds;false
+CRACK;CRACK;CrackCoin;false
+HILL;HILL;President Clinton;false
+GLOBE;GLOBE;Global;false
+CNL;CNL;ConcealCoin;false
+MEGA;MEGA;MegaFlash;false
+SRC;SRC2;StarCredits;false
+ANCP;ANCP;Anacrypt;false
+VTR;VTR;Vtorrent;false
+FUTC;FUTC;FutCoin;false
+SWARM;SWARM;SwarmCoin;false
+INF8;INF8;Infinium-8;false
+AERO;AERO;Aero Coin;false
+NTCC;NTCC;NeptuneClassic;false
+DAGT;DAGT;Digital Asset Guarantee Token;false
+BCU;BCU;Bitcoin Unlimited;false
+EXL;EXL;Excelcoin;false
+8TH;8TH;EighthCoin;false
+JPC;JPC2;J Coin;false
+VGC;VGC;VegasCoin;false
+XAPC;XAPC;XAPC;false
+PI;PI;PiCoin;false
+ARRR;ARRR;Pirate;false
+SGL;SGL;Sigil;false
+DARX;DARX;Bitdaric;false
+VANY;VANY;Vanywhere;false
+WEC;WEC;Wowecoin;false
+RBL;RBL3;RainbowLite;false
+CPL;CPL;CoinPlace Token;false
+AXF;AXF;AxFunds;false
+SKR1;SKR1;Sakuracoin;false
+DAV;DAV;DavorCoin;false
+NBE;NBE;BitCentavo;false
+CDX;CDX2;Commodity Ad Network;false
+CRC;CRC;CraftCoin;false
+XRY;XRY;Royalties;false
+BCD;BCD2;BitCAD;false
+MIU;MIU;MIYUCoin;false
+CHBR;CHBR;CriptoHub;false
+PTC;PTC2;Propthereum;false
+CHARM;CHARM;Charm Coin;false
+ASC;ASC;AsicCoin;false
+ELI;ELI3;Elisor Coin;false
+CADASTRAL;CADASTRAL;Bitland;false
+TERA;TERA;TeraCoin;false
+IDT;IDT;InvestDigital;false
+INF;INF;InfChain;false
+RAI;RAI3;RealAssetChain;false
+ERSO;ERSO;JynErso;false
+FRV;FRV;Fitrova;false
+XOXO;XOXO;Bitxoxo;false
+NDA;NDA;NDACoin;false
+ODMC;ODMC;ODMCoin;false
+XBG;XBG;BTCGold;false
+MRC;MRC;microCoin;false
+XCZM;XCZM;Xavander Coin;false
+DROP;DROP4;xDrop;false
+LNC;LNC3;Linker Coin;false
+PROD;PROD;Darenta;false
+EXVO;EXVO;Exvo;false
+BYR;BYR;Bykor;false
+UNY;UNYEXT;Unity Ingot;false
+DEX;DEX4;Dexer;false
+PIE;PIEEXT;PIECoin;false
+BTCRED;BTCREDEXT;Bitcoin Red;false
+SAC;SACEXT;SACoin;false
+PWC;PWC3;Paw Coin;false
+9COIN;9COIN;9COIN;false
+PRC;PRCEXT;PRCoin;false
+MAG;MAG22;Maggie Token;false
+DEX;DEX3;EDEX;false
+LTCU;LTCUEXT;LiteCoin Ultra;false
+RIPT;RIPT;RiptideCoin;false
+EMV;EMVEXT;Ethereum Movie Venture;false
+NXB;NXB;NXBoost;false
+CASINO;CASINOEXT;Casino;false
+FRC;FRCEXT;Freicoin;false
+TLP;TLP;TulipCoin;false
+VC;VCEXT;VirtualCoin;false
+PAL;PAL4;PallyCoin;false
+TLX;TLX;Telex;false
+WOW;WOW3;Wownero;false
+DFS;DFS;DFSCoin;false
+NBX;NBX;Noxbox;false
+HLP;HLP;Purpose Coin;false
+ARM;ARM3;ArmCoin;false
+TIX;TIXEXT;Tickets;false
+GRAM;GRAM3;Telegram;false
+FNTB;FNTB;FinTab;false
+QBK;QBKEXT;Qibuck Asset;false
+MNC;MNCEXT;MantraCoin;false
+CAF;CAF;Charter;false
+XBD;XBD;BitDollar;false
+FDC;FDCEXT;Future Digital Currency;false
+MTM;MTM;MTMGaming;false
+OTN;OTNEXT;Open Trading Network;false
+IMX;IMX3;IMX;false
+LTG;LTGEXT;LiteCoin Gold;false
+UGT;UGTEXT;UG Token;false
+BKM;BKM;Blockmall;false
+ELITE;ELITEEXT;Ethereum Lite;false
+LLT;LLTEXT;LLToken;false
+NNC;NNC;Nanucoin;false
+NTC;NTCEXT;Natcoin;false
+ZIX;ZIX;ZIX Token;false
+TUT;TUT;Tutellus;false
+ICOS;ICOSEXT;ICOS;false
+ORBS;ORBS;Orbis;false
+LIFE;LIFEEXT;LIFE;false
+CHT;CHT3;Charity Token;false
+DTC;DTC2;Datacoin;false
+WA;WAEXT;WA Space;false
+DRC;DRC;Dropcoin;false
+BKT;BKT;BanKITT;false
+HNC;HNCEXT;Huncoin;false
+ECC;ECCEXT;ECC;false
+BTU;BTUEXT;Bitcoin Unlimited (Futures);false
+MDT;MDTEXT;Measurable Data Token;false
+GARY;GARYEXT;President Johnson;false
+MBT;MBT;Multibot;false
+ACE;ACEEXT;Ace;false
+BAT;BATEXT;BatCoin;false
+TESTCOIN;TESTCOIN;testcoin;false
+ABC;ABCEXT;Alphabit;false
+CCOS;CCOS;CrowdCoinage;false
+VOCT;VOCT;VOCO Token;false
+ENT;ENTEXT;ENTCash;false
+BITCF;BITCFEXT;First Bitcoin Capital;false
+NFN;NFN;Nafen;false
+SKR;SKREXT;Sakuracoin;false
+DBC2;DBC2;Debit Coin;false
+HDLB;HDLBEXT;HODL Bucks;false
+XSTC;XSTCEXT;Safe Trade Coin;false
+STC;STCEXT;StarChain;false
+MAG;MAGEXT;Maggie;false
+ENTRC;ENTRC;ENTER COIN;false
+CYC;CYCEXT;Cycling Coin;false
+ASN;ASNEXT;Aseancoin;false
+BOTC;BOTC;BotChain;false
+XOT;XOTEXT;Internet of Things;false
+EDOGE;EDOGEEXT;EtherDoge;false
+WYKOP.PL;WYKOP.PL;Wykop Coin;false
+CFT;CFT2;Credo;false
+ENX;ENX;ENOX;false
+LEU;LEU;CryptoLEU;false
+GEN2;GEN2;Genstake;false
+SYMM;SYMM;Symmetry Fund;false
+MNTS;MNTS;Mint;false
+NIKO;NIKO;NIKO;false
+XBR;XBR4;BitcoinRapid;false
+EBC;EBC3;EbullionCoin;false
+SPES;SPES;SpesCoin;false
+RAC2;RAC2;RoboAdvisorCoin;false
+TRAK;TRAK;TrakInvest Token;false
+CFD;CFD;Confido;false
+MNC;MNC2;Media Network Coin;false
+CNBC;CNBC;Cash & Back Coin;false
+XYLO;XYLO;XYLO;false
+SHC;SHC;Sharing Coin;false
+PCASH;PCASH;PlayCash;false
+AICC;AICC;AICore Coin;false
+FCH;FCH;FastCash;false
+ICC;ICC3;Intelligent Commerce Chain;false
+KVT;KVT;Kinesis Velocity Token;false
+BCOO;BCOO;BitConch;false
+ZIBER;ZIBER;Ziber;false
+CPU;CPU;CouponOne;false
+ZCG;ZCG;ZCashGOLD;false
+WEB1;WEB1;Webchain;false
+DBR;DBR;Düber;false
+WRC;WRC2;WarCoin;false
+PSD;PSD;Poseidon;false
+INVOX;INVOX;Invox Finance;false
+LEC;LEC;DleCoin;false
+VCC;VCC;VaderCorpCoin;false
+VCC;VCC3;VClassic Coin;false
+FUTX;FUTX;Futereum X;false
+BOP;BOP;BlockOptions;false
+DWC;DWC;DeepWebCash;false
+OID;OID;Opioid Coin;false
+TON;TON;Tontine Token;false
+RAC22;RAC22;RAC;false
+JLP;JLP;JoylinkPound;false
+QRT;QRT;Qredit;false
+GCT;GCT;GCT Token;false
+GXVC;GXVC;Geneviève VC;false
+PYY;PYY;Payway Coin;false
+MTCOIN;MTCoin;MTCoin;false
+BIRD;BIRD3;BirdChain;false
+ONEX;ONEX;Onex Cash;false
+ZAB;ZAB;ZABERcoin;false
+ADM;ADM;Adamant;false
+GIRO;GIRO;Giro Coin;false
+KLT;KLT;KloutCoin;false
+GIN;GIN3;GingerDrink.EU;false
+XDNCO;XDNCO;XDNCO;false
+SLC;SLC;SuperLumic Coin;false
+HOLD2;HOLD2;Interstellar Holdings;false
+XPD3;XPD3;Palladium (Lykke);false
+GFT;GFT;Giftcoin;false
+BTE;BTE3;Bitcoineum;false
+SHR;SHR;ShareRing;false
+REGA;REGA;Regacoin;false
+PAVO;PAVO;Pavocoin;false
+AET;AET;AfterEther;false
+PROOF;PROOF;Prover;false
+STRY;STRY;STRYKZ;false
+EMT2;EMT2;Memority;false
+ETCO;ETCO;EtherCoin;false
+PAS;PAS;Passive;false
+ENO;ENO;Ethino;false
+ZIP;ZIP3;ZipCoin;false
+XA9;XA9;Astral9;false
+COBC;COBC;Combill;true
+RIDDLE;RIDDLE;Riddle;false
+AQUA;AQUA;AQUA;false
+WEED;WEED;Weed;false
+EBG;EBG;EmbargoCoin;false
+FORT;FORT;FortCoin;false
+MFX;MFX;MFChain;false
+OFCR;OFCR;OfficerCoin;false
+SAF;SAF;Safinus;false
+MRNG;MRNG;MorningStar;false
+PAKKA;PAKKA;NextPakk;false
+GMA;GMA;Goldchip Mining Asset;false
+XDT;XDT;Dataeum;false
+DYNO;DYNO;DYNO;false
+LED;LED;Terawatt;false
+AIRE;AIRE;Tokenaire;false
+YBT;YBT;YellowBetter;false
+FLEX;FLEX;TrustedCars FLEX;false
+PRLPAY;PRLPAY;PearlPay;false
+PSK;PSK;Pool of Stake;false
+ATX2;ATX2;Aston;false
+ARR;ARR;ARROUND;false
+PYP;PYP;PayPro;false
+RBTC1;RBTC1;Bitcoin Revolution;false
+BMK;BMK;Benchmark;false
+ILT;ILT;iOlite;false
+MBC;MBC;My Big Coin;false
+STAR;STAR2;StarCoin;false
+CCM100;CCM100;CCMiner;false
+ENK;ENK;Enkidu;false
+CTF;CTF3;CryptoTask;false
+MINT;MINT2;Mineable Token;false
+BCIO;BCIO;Blockchain.io;false
+DRC;DRC2;Darico;false
+DBCCOIN;DBCCOIN;Datablockchain;false
+ZUP;ZUP;Zupply Token;false
+SMART;SMART2;SmartBillions;false
+SNAKE;SNAKE;SnakeEyes;false
+DEC;DEC3;DeuterCoin;false
+TBG;TBG;TURBOGOLD;false
+FNC;FNC;FinCoin;false
+GXG;GXG;GroinCoin;false
+WLC;WLC;WirelessCoin;false
+INB;INB;Insight Chain;false
+WSD;WSD;White Standard;false
+OBT;OBT;Orbis Token;false
+BTI;BTI;Bitcoin Instant;false
+AOP;AOP;Averopay;false
+VIZZ;VIZZ;Vizzotop;false
+BPC;BPC3;BestPhysique;false
+BTCI;BTCI;Bitcoin Incognito;false
+ECOS;ECOS;Ecos Token;false
+EDU;EDU3;LiveEdu;false
+BUS;BUS3;Bus;false
+TIO;TIO2;Tio Tour Guides;false
+BRC;BRC2;BinaryCoin;false
+PCOIN;PCOINEXT;Pioneer Coin;false
+MBL;MBL;MobileCash;false
+BTCL;BTCL2;BitluckCoin;false
+XAT;XAT;Catalyst;false
+OMGC;OMGC;OmiseGO Classic;false
+BTE;BTE2;BitSerial;false
+MZC;MZC2;MZCoin;false
+CRE;CRE2;Creditcoin;false
+EQUI;EQUI;EQUI Token;false
+RURET;RURET;Ruble WEX Token;false
+MGC;MGC2;MineGoldCoin;false
+IZE;IZE;IZEcoin;false
+ELIQA;ELIQA;ELIQA;false
+ANNC;ANNC;AnonCoin;false
+GEN;GEN3;Genesis;false
+PFT;PFT;PFT Token;false
+GOFF;GOFF;Gift Off Token;false
+RCH;RCH;Regalcoin Cash;false
+GDS;GDS;Goods Coin;false
+INJ;INJ;Injex;false
+BHC;BHC2;BlackholeCoin;false
+SCD;SCD;Digital Scudo;false
+AGA;AGA;AmigaCoin;false
+WAX;WAX2;Wax Token;false
+CRL;CRL;Cryptelo Coin;false
+SOOM;SOOM;SOOM;false
+NYN;NYN;NYNJA;false
+ZEEW;ZEEW;Zeew;false
+SPOT;SPOT;Spotcoin;false
+RBTC;RBTC;Bitcoin Revolution;false
+WMB;WMB;WatermelonBlock;false
+TYC;TYC;Tyrocoin;false
+QCX;QCX;QuickX Protocol;false
+CHART;CHART;BetOnChart;false
+IMU;IMU;imusify;false
+TRN;TRN;Ternion;false
+TRAW;TRAW;TRAW Network;false
+CANDY;CANDY3;Unicorn Candy Coin;false
+XEN;XEN3;Xeon Coin;false
+KBG;KBG;KuboGold;false
+YUP;YUP3;YupCoin;false
+MESH;MESH3;BlockMesh;false
+LINO;LINO;Lino;false
+G3N;G3N;G3N;false
+XCPO;XCPO;Copico;false
+GCC2;GCC2;TheGCCcoin;false
+OC;OCEXT;OceanChain;false
+HMC;HMCEXT;Health Mutual Society;false
+BUT;BUT;BitUP Token;false
+MUSEUM;MUSEUM;Marquise Museum;false
+TFT;TFT3;Timesfarm;false
+SOC;SOCEXT;All Sports;false
+NKC;NKCEXT;Nework;false
+EQL;EQLEXT;Equal;false
+BASHC;BASHC;BashCoin;false
+RMC;RMC3;RajmudraCoin;false
+DIGIF;DIGIF;DigiFel;false
+BLN2;BLN2;Bolenum;false
+ITNS;ITNS;IntenseCoin;false
+XBT;XBT;Bricktox;false
+ENSA;ENSA;ENSA;false
+GRN;GRN;Granite;false
+BPC;BPC5;BigProfitCoin;false
+CABS;CABS2;CyberTrust;false
+BLC;BLC2;Cryptobullcoin;false
+OTX;OTX2;OTCCoin;false
+IOT;IOT2;IoTcoin;false
+SBC;SBC2;SBCcoin;false
+ZSC;ZSC2;Zeusshield Coin;false
+SMT;SMT3;Smart Node;false
+ETN;ETN2;Ethernex;false
+BON;BON3;Bon PeKaO;false
+BDR;BDR;BlueDragon;false
+GMC2;GMC2;GMC Coin;false
+BTF2;BTF2;BitcoinFor;false
+AEC2;AEC2;EmaratCoin;false
+BTSR;BTSR;BTSR;false
+REDBUX;redBUX;redBUX;false
+AEN;AEN;Aenco;false
+BPT;BPT3;Blockpass Token;false
+UWC;UWC;Uwezocoin;false
+EPY;EPYEXT;Emphy;false
+SPD2;SPD2;Stipend;false
+INTFREE;INTFREE;INTFREE;false
+TGCH;TGCH;TrueGalaxyCash;false
+WAVI;WAVI;WAVI;false
+CTC;CTC3;Carbon Token Classic;false
+TRW;TRW;Triwer;false
+BUD;BUD;Buddy;false
+BCT;BCT;Blockchain Terminal;false
+KYD;KYD3;Know Your Developer;false
+SAPOTA;SAPOTA;Sapotacoin;false
+EXIT;EXIT3;Exhibit Token;false
+AXT;AXT;AIX;false
+TLE;TLEEXT3;TLE Coin;false
+CNYT;CNYT;CNY Tether;false
+LNC2;LNC2;Linker Coin;false
+ICC;ICC5;Infocash;false
+ORO;ORO3;Orozu;false
+BRC;BRC4;Bryllite;false
+GEX;GEX;GreenX;false
+SRC22;SRC22;SwissRealCoin;false
+HMD;HMD;Homelend;false
+URB;URB;Urbit Data;false
+ACCO;ACCO;Accolade;false
+KAAS;KAAS;KAASY.AI;false
+QC;QC;QCash;false
+LOL;LOL;Loan Or Lease;false
+XGCS;XGCS;xGalaxy;false
+BINARIUM;BINARIUM;Binarium;false
+INTO;INTO;Influ Token;false
+AIMS;AIMS;HighCastle Token;false
+CMZ;CMZ;CRYPTOMAGZ;false
+VST;VST;Vestarin;false
+YASH;YASH;YashCoin;false
+LST;LST3;Life Style Chain;false
+KZ;KZ;KZCash;false
+HHEM;HHEM;Healthureum;false
+GBIT;GBIT3;GBIT;false
+PWC;PWC4;PAWCOIN;false
+Q1S;Q1S;Quantum1Net;false
+ABT;ABT2;ArcBlock;false
+NBX;NBX3;Nibex;false
+KNC;KNC2;Khancoin;false
+CDC;CDC4;CryptoDiamondCoin;false
+DIX;DIX;Dix Asset;false
+BSX;BSX3;BaseCoin;false
+TPI;TPI3;TPICoin;false
+XDC;XDC;XinFin Coin;false
+REPUX;REPUX;Repux;false
+BCX;BCXEXT;BitcoinX [Futures];false
+ENQ;ENQ;Enecuum;false
+SBTC;SBTCEXT;Super Bitcoin [Futures];false
+LCC;LCC4;Litecoin Classic;false
+DV8;DV8;DV8 Coin;false
+OPP;OPP;Opporty;false
+HAT;HAT;Hawla.Today;false
+ZEPH;ZEPH;Zephyr;false
+AWR;AWR;AWARE;false
+ACC;ACC2;ACChain;false
+MTN22;MTN22;Motion;false
+XIN;XIN3;XINcoin;false
+KMR;KMR;Kamera;false
+PARS;PARS;ParsiCoin;false
+BLOC;BLOC3;BLOC Money;false
+FTM;FTM;Fantom Token;false
+FEST;FEST;FESTIVAL;false
+MNT;MNT2;Media Network Coin;false
+MIND;MIND;MIND Token;false
+WEB2;WEB2;Webchain;false
+CRT;CRT;CRTCoin;false
+LVL;LVL;LevelNet Token;false
+MCU;MCU;MediChain;false
+SPC2;SPC2;SpaceChain;false
+MAT;MAT2;Manet Coin;false
+DNO;DNO;Denaro;false
+ZEN;ZEN2;Zen Protocol;false
+ET4;ET4;Eticket4;false
+EFIC;eFIC;FIC Network;false
+DARICO;DARICO;Darico;false
+SKR21;SKR21;Skrilla Token;false
+WISH21;WISH21;WishFinance;false
+PRP;PRP;Papyrus;false
+CMA;CMA;CoinMarketAlert;false
+CPRA;CPRA;Capra Coin;false
+BTB;BTB3;Bitibu Coin;false
+PRIM;PRIM;PRIMUS;false
+BCCS;BCCS;BitcoinCashScrypt;false
+ETF;ETF3;EtherFact;false
+BTCS2;BTCS2;Bitcoin Supreme;false
+GTC;GTC2;Global Tour Coin;false
+ADN;ADN3;Adrenaline;false
+UCOIN;UCOIN;UCOIN Currency;false
+LXT;LXT;LITEX Token;false
+XFBX;XFBX;Feedback Token;false
+ZP;ZP;ZEN PROTOCOL;false
+XRED;XRED;X Real Estate Development;false
+JCR;JCR;Jincor;false
+8S;8S;Elite 888;false
+XBD;XBD3;Bitdinnero;false
+EPIK;EPIK;EPIK Token;false
+DTN;DTN;Datareum;false
+CCC;CCC3;Coindom Platform;false
+KRX;KRX;RAVN Korrax;false
+EON;EON3;EOS Network;false
+LIZA;LIZA3;Liza Token;false
+MAC;MAC3;MatrexCoin;false
+LVPS;LVPS;LevoPlus;false
+FAN;FAN;Fan360;false
+COMBI;COMBI3;ComBit;false
+ILCT;ILCT;ILCoin Token;false
+TPC;TPC3;TPCash;false
+MDEX;MDEX3;MoonDEX;false
+LUPX;LUPX;Lupecoin;false
+HORUS;HORUS;HorusPay;false
+FTC;FTC3;FTC Token;false
+VLC;VLC;ValueChain;false
+FIC;FIC3;FiCoin;false
+GJC;GJC;Global Jobcoin;false
+XGC;XGC;GOATCheese;false
+PDG;PDG;PinkDog;false
+BTDW;BTDW;BitDraw;false
+EPY;EPY2;Emphy;false
+EJAC;EJAC;EJA Coin;false
+BIG;BIG;BigONE Token;false
+HGS;HGS;HashGains;false
+XCS;XCS;CybCSec Coin;false
+MCT;MCT4;MCT+;false
+ETX;ETX;Etherx;false
+XBBT;XBBT;Bounty Busters Token;false
+OTR;OTR;OTRchain;false
+SND;SND3;SnodeCoin;false
+UCD;UCD;CD Currency;false
+BEC;BEC3;BitherCash;false
+STOCKBET;STOCKBET;StockBet;false
+AGLC;AGLC;AgrolifeCoin;false
+VLR;VLR;Valorem;false
+ULA;ULA;Ulatech;false
+LUX2;LUX22;Luxmi Coin;false
+DOV;DOV2;DOVU;false
+WLX;WLX;WaveLengthXash;false
+BOXY;BOXY;BoxyCoin;false
+TRIP;TRIP;Trippki;false
+MCT;MCT3;Master Contract Token;false
+WXX;WXX;WAXEX;false
+XSB;XSB;Extreme Sportsbook;false
+PRE;PRE3;Premine;false
+BCOIN;BCOIN;BannerCoin;false
+TCC;TCCEXT;The ChampCoin;false
+LEX;LEX;Lex4All;false
+HUB;HUB3;uHub;false
+VRA;VRA;Verasity;false
+PGAS;PGAS;Platio;false
+AXE;AXE;Axe;false
+AMBT;AMBT;AMBT Token;false
+AGNI;AGNI;AGNI Ccoin;false
+PPC;PPC3;PurpleCoin;false
+RUSTBITS;RUSTBITS;Rustbits;false
+PLC2;PLC2;PlatinCoin;false
+HXT;HXT;HextraCoin;false
+ZMR;ZMR;Monero 0;false
+BTM;BTM3;Bitmillion;false
+IPC;IPCEXT;IPChain;false
+GEA;GEA;Goldea;false
+DUBI;DUBI;Decentralized Universal Basic Income;false
+BCA;BCAEXT;Bitcoin Atom [Futures];false
+DAC2;DAC2;Davinci;false
+SMOKE;SMOKE;Smoke;false
+IEI;IEI;INHERITANCE;false
+JVY;JVY;Javvy;false
+YUM;YUM;Yumerium;false
+SPIKE;SPIKE;Spiking;false
+BTP;BTP4;Bitcoin Protocol;false
+YBY;YBY;LeCheng Coin;false
+MAD;MAD3;MAD Network;false
+ERT2;ERT2;Eristica;false
+CANDY;CANDY4;UnicornGo Candy;false
+STN;STN;São Tomé and Príncipe Dobra;false
+MRU;MRU;Mauritanian Ouguiya;false
+RUBY;RUBY;Rubius;false
+BTE;BTEEXT;BitSerial;false
+IPY;IPYEXT;Infinity Pay;false
+MDX;MDX3;Mandala;false
+CRD;CRD;CryptalDash;false
+SKR;SKR2;Skrilla Token;false
+ARKT;ARKT;ARKTUR;false
+GRX;GRXEXT;GOLD Reward Token;false
+OCC;OCC3;OurCoinClassic;false
+XSTK;XSTK;XStake;false
+XBD;XBD4;Bitdinero;false
+MZX;MZX;Mosaic Token;false
+BCF;BCF3;BCF Shares;false
+CRUR;CRUR;CryptoRuble;false
+X3C;X3C;X3C;false
+AITT;AITT;AITT Token;false
+SEND;SENDEXT;Social Send;false
+PWV;PWV;Wavebase;false
+KMC;KMC;KemCredit;false
+LCN;LCN;Lucin;false
+LBS;LBS;Liteblocks;false
+EGY;EGY;EGYPT;false
+ONEPAY;ONEPAY;Onepay;false
+ITL;ITL3;Italian Lira;false
+ESC;ESC;Ethersportcoin;false
+GPU;GPU;GPU Coin;false
+BSS;BSS;BitstradesCoin;false
+SBC;SBCEXT;StrikeBitClub;false
+MHP;MHP;MedicoHealth;false
+NN;NN;Neodium Network;false
+TTT;TTT3;Tap Project;false
+ENV;ENV;Environ;false
+HARC;HARC;HashRentalCoin;false
+DRPU;DRPU3;DcorpUtility;false
+GEEM;GEEM;Geem;false
+MIO;MIO;Miner One token;false
+COIN;COIN2;Coin;false
+WPT;WPT;Worldopoly;false
+TDZ;TDZ;Tradelize;false
+XTROPTIONS;XTROPTIONS;TROPTIONS;false
+FLEA;FLEA;Flea Coin;false
+ADVP;ADVP;AdevPlus;false
+FSN;FSN2;Fusion;false
+RIGS;RIGS;RIGS OIL TOKEN;false
+CVTC;CVTC;CavatCoin;false
+RCD;RCD;Record;false
+DONBASS;DONBASS;DonbassCoin;false
+ICX;ICXEXT;ICON [Futures];false
+BDP;BDP;Bidipass;false
+ECN;ECN3;EtherCarbon;false
+DVN;DVN;Developer Network;false
+ACT;ACT2;ACT;false
+SGCC;SGCC;Super Game Chain;false
+NXO;NXO;Next Payment Golden;false
+XCM;XCM;CoinMetro;false
+ITM;ITM;intimate.io;false
+ESHIP;ESHIP;EliteShipperToken;false
+RMC;RMC;Remicoin;false
+CAP;CAP3;Capital;false
+XBTY;XBTY;Bounty;false
+PRIV;PRIV;PRiVCY;false
+STCEXT;STCEXT2;Santa Coin;false
+SPX2;SPX2;Specie;false
+ECC2;ECC2;E-CurrencyCoin;false
+IPC;IPC2;IPChain;false
+QBT;QBT2;Qbao;false
+NVT;NVT;NaviAddress;false
+WBTC;WBTC2;wBTC;false
+XDLR;DLR4;DOLLAR Token;false
+BCK;BCK;BTC King;false
+GMIT;GMIT;Game Machine;false
+FANS;FANS;Fantasy Cash;false
+LYK;LYK;Loyakk Vega;false
+MONK;MONKEXT;Monkey Project;false
+TNBEXTD;TNBEXTd;Time New Bank;false
+HYTV;HYTVEXT;Hyper TV;false
+CRAVE;CRAVE3;Crave;false
+EAGLE;EAGLEEXT;EagleCoin;false
+CRTM;CRTMEXT;Corethum;false
+PLY;PLY3;Play For Privacy;false
+IFOOD;IFOOD;Ifoods Chain;false
+JTX;JTX;Project J;false
+MLT;MLT;MultiGames;false
+CTB;CTB;Coinbit;false
+BRO;BRO3;BroFistCoin;false
+BTENX;BTENX;BitenX;false
+BIM;BIM;BitminerCoin;false
+LDC;LDC3;LADAcoin;false
+WINS;WINS;WinStars;false
+JSE;JSE;JSEcoin;false
+PHT;PHT;Photochain;false
+LOAN;LOAN;Loan;false
+LTCH;LTCH;Litecoin Cash;false
+FIMK;FIMK;FIMKrypto;false
+BIL;BIL;Blackbill;false
+GXC;GXC2;GenXCoin;false
+ALP;ALP3;Alpha;false
+T4GM;T4GM;GameMarketToken;false
+MOS;MOS;MOS Coin;false
+INV;INV2;Invacio;false
+FINV;FINV;Investment Fund;false
+RCPT;RCT3;ReceiptCoin;false
+BYT;BYT;Bytcoins;false
+GRM;GRM;GridMaster;false
+IST34;IST34;IST34 Token;false
+LDN;LDN;LydianCoin;false
+ICH;ICH;InstaCash;false
+JEDI;JEDI;JediCoin;false
+A;A;Alpha;false
+OTG;otg;Octagen;false
+OTG;otg3;Outing;false
+ICC;ICC4;Interconnect Cash;false
+EVA;EVA3;Eva Token;false
+FCN;FCN3;FacileCoin;false
+WEAC;WEAC;Weacoin;false
+KGH;KGH;Kwagsh;false
+PLC;PLC5;PlusCoin;false
+BITBTC;BITBTC;bitBTC;false
+DTT;DTT2;Data Trading;false
+CTKN;CTKN;Curaizon;false
+RFL;RFL;RAFL;false
+ARCD;ARCD;Arcade City;false
+BBI;BBI;BelugaPay;false
+IDA;IDA;IDA PAY;false
+REDC;REDC;RedCab;false
+U42;U42;You42;false
+UNY;UNY;UnityIngot;false
+KNX;KNX;Knox Coin;false
+ZEX;ZEX;ZEXCoin;false
+PHC;PHC3;PuchCoin;false
+HKTT;HKTT;Tranchor Token;false
+BEX;BEX;Binex Trade token;false
+NCT;NCT3;PolySwarm;false
+SMART;SMART4;Ethereum Smart;false
+CRB;CRB;Creditbit;false
+TYCHO;TYCHO;Tychocoin;false
+OBC;OBC;ObamaCare;false
+ZIG;ZIG;Ziggurat;false
+FXE;FXE;FuturXe;false
+XCPS;XCPS;Cryphos;false
+EKO;EKO2;EkoCoin;false
+ARAW;ARAW;ARAW Token;false
+PRPS;PRPS;Purpose;false
+MCOIN;MCOIN;MCoin;false
+NUMUS;NUMUS;NumusCash;false
+GCS;GCS;GameChain System;false
+WSC;WSC;WiserCoin;false
+CHF2;CHF2;MobileBridge Momentum;false
+MDL2;MDL2;Modulum;false
+RETN;RETN;Retainly Token;false
+SDD;SDD;Super Diamond;false
+MAG;MAG2;Magos;false
+WHEN;WHEN;WhenHub;false
+XEC;XEC;Eternal Coin;false
+ACEPAY;ACEPAY;ACEPAY;false
+ALC;ALC3;Allcoin Token;false
+CRC222;CRC222;CrowdCoin;false
+PR;PR;Prototanium;false
+MEE;MEE;CoinMeet;false
+LIGER;LIGER;Ligercoin;false
+BETT;BETT;Bettium;false
+CRE;CRE3;Cybereits;false
+LDCN;LDCNEXT;LandCoin;false
+SPEND;SPEND;Spend;false
+LVT;LVT;Levitate;false
+OAK;OAK;Acorn Collective;false
+GOKU;GOKU;Gokucoin;false
+LDC1;LDC1;Leadcoin;false
+GSI;GSI;Globex SCI;false
+OX;OXEXT;OX Fina;false
+STAKE;STAKE;StakeIt;false
+XGM;XGM;XaurumGamma;false
+C47;C47;Code47;false
+TIN;TIN;TinCoin;false
+BIT;BIT3;BIT MONEY;false
+LTZ;LTZ;LitecoinZ;false
+ELD;ELD;Electrum Dark;false
+VIT;VIT3;VitalCoin;false
+SLRC;SLRC;Solarium;false
+GRU;GRU;GrupBit;false
+DPC;DPC;DigitalPrice Classic;false
+FOTC;FOTC;Forte Coin;false
+MCC;MCC3;MicroCoin;false
+BTWTY;BTWTY;Bit20;false
+BT2;BT2;Bitfinex Bitcoin Segwit2x;false
+DASH3;DASH3;DashGold;false
+HYS;HYS;Heiss Shares;false
+EDU;EDU4;Open Source University;false
+BITGOLD;BITGOLD;bitGold;false
+PLMT;PLMT;Pallium;false
+FARM;FARM;FARM Coin;false
+PTR;PTR;Petro;false
+LVL2;LVL2;LevelNet Token;false
+SCR2;SCR2;Scorum;false
+HION;HION;Handelion;false
+ATOM;ATOM3;AtomicX;false
+XXX;XXX3;AdultChain;false
+LCE;LCE;LitecoinExtreme;false
+TELLUS;TELLUS;Irene Energy Tellus;false
+BTCGO;BTCGO;BitcoinGo;false
+POKER;POKER;PokerCoin;false
+AXYS;AXYS;Axys;false
+LIPC;LIPC;LIpcoin;false
+PROPS;PROPS;Props;false
+HNC;HNC2;Huncoin;false
+QSHC;QSHC;QSHU Coin;false
+PAN;PAN;Pantos;false
+RSX;RSX;RaisexToken;false
+PERU;PERU;PeruCoin;false
+OMI;OMI;ECOMI;false
+COCO;COCO;Cookie Coin;false
+CVH;CVH;Curriculum Vitae;false
+TSTR;TSTR;Tristar Coin;false
+BUGO;BUGO;BU-GO;false
+MOAT;MOAT;Mother Of All Tokens;false
+FTC;FTC4;Fuck Trump Coin;false
+ADBL;ADBL;Adblurb;false
+JEX;JEX;JEX Token;false
+BNTN;BNTN;Blocnation;false
+MUT;MUT;Mutual Coin;false
+BCP;BCP3;Bitcaps;false
+TBAR;TBAR;Titanium BAR;false
+SQOIN;SQOIN;StasyQ;false
+LEEK;LEEK;LEEKICO;false
+BITEUR;BITEUR;bitEUR;false
+PTC;PTC22;Plutocoin;false
+AIO;AIO;AllInOne;false
+ANA;ANA;Anacoin;false
+FLX;FLX2;BitFlux;false
+FRCT;FRCT;Farstcoin;false
+SSP3;SSP3;Smartshare;false
+SOS3;SOS3;SOScoin;false
+BDB;BDB;Big Data Block;false
+CRGO;CRGO;CargoCoin;false
+VRH;VRH;Virtual Rehab;false
+ABELE;ABELE;Abele;false
+XIR;XIR;Xirkle;false
+WBBC;WBBC;World Bit Bank;false
+DIBC;DIBC;DIBCOIN;false
+SEDUS;SEDUS;Sedus Coin;false
+XEP;XEP;ephelants360;false
+XTRA;XTRA;ExtraCredit;false
+USOAMIC;USOAMIC;USOAMIC;false
+CROPS;CROPS;Crops;false
+BTE;BTE4;BitExchange;false
+GAS;GAS3;Gas Files;false
+NAM;NAM;Namaste;false
+BCR;BCR2;Bitcoin Royal;false
+TFOOD;TFOOD;TE-FOOD;false
+PURE;PURE;Pure;false
+XSH;XSHEXT;Shield Coin;false
+HIGH;HIGHEXT;High Gain;false
+EBIT;EBITEXT;eBIT;false
+ORST;ORST;ORST;false
+CHI;CHI;Chimaera;false
+MERI;MERI;Merebel;false
+BASE;BASE;Equitybase;false
+PEN2;PEN2;PenCoin;false
+AVA;AVA3;Travala;false
+HPP;HPP;HPPCoin;false
+BTL;BTL3;Bitlong;false
+FNX;FNX;Fenix Coin;false
+BNS;BNS3;Bitcoiners;false
+PHX;PHX3;Phoenix;false
+AVL;AVL;Avalanche;false
+SFT;SFT;SportsFix;false
+0X1;0X1;0x1;false
+DON;DON;DonationCoin;false
+EBTC;EBTCEXT;eBTC [inactive];false
+VZH;VZH;Vizeh;false
+CBC2;CBC2;CashBet Coin;false
+XRUP;XRUP;RUPEES;false
+SHLD;SHLD3;Shield Vision;false
+TLAND;TLAND;TOKENLAND;false
+FTR;FTR;Futourist;false
+GRO;GRO;Gron Digital;false
+BKZ;BKZ;BanKitz;false
+AQA;AQA;AQUILA;false
+XWM;XWM;WavesMoney;false
+SPARTA;SPARTA;SPARTA;false
+OCN;OCN3;OperaCoin;false
+SAR2;SAR2;SARCoin;false
+KEA;KEA;KEA Coin;false
+IMGZ;IMGZ;Imigize;false
+SBD2;SBD2;Steem Backed Dollars;false
+ABN;ABN;Abncoin;false
+PGT;PGT;Puregold Token;false
+EBS;EBS3;Elbrus;false
+GX;GX;GameX;true
+RSCT;RSCT;RiseCoin Token;false
+APW;APW;AppleCoin;false
+UAH;UAHEXT;UAHPay;false
+BTCR;BTCR3;Bitcoin Ruble;false
+YIC;YIC;YiCoin;false
+JINN;JINN;Jinn;false
+DELTA;DELTA3;DeltaChain;false
+LHC;LHC;LHCoin;false
+KEP;KEP;Kepler;false
+DUB;DUBEXT;Dubstep;false
+FLAT;FLAT;Future Loan Access Tokens;false
+BXB;BXB;Bixbite;false
+KBC;KBC3;KBClassic Coin;false
+FGC;FGC3;FoundGame;false
+MEET;MEET;CoinMeet;false
+EXC;EXC3;Exceed;false
+MOR;MOR;MoriaToken;false
+BEC;BEC;Bitcoin ECO;false
+MCPI;MCPI;MCPi;false
+TOS;TOS;ThingsOperatingSystem;false
+SLX;SLX;Slate;false
+BOB2;BOB2;Bob Coin;false
+ZCG;ZCGEXT;ZCash Gold;false
+VES;VES;Venezuelan Bolívar Soberano;false
+FOPA;FOPA;Fopacoin;false
+CARE2;CARE2;Care Token;false
+LAB;LAB2;CoinWorksCoin;false
+ZBK;ZBK;zBucks;false
+PGSX;PGSX;PegasusX;false
+X42;X42;x42 Protocol;false
+QUA;QUA;Quasa;false
+SHPT;SHPT;Shipit;false
+RSC;RSC;Ronaldinho Soccer Coin;false
+ITR;ITR;INTRO;false
+MSC;MSC3;MaisCoin;false
+ICE;ICE3;Frozen;false
+WCC;WCC;WolfCloverCoin;false
+MXI;MXI;Star Coin;false
+UDB;UDB;Ud Coin;false
+RHC;RHC;Rhino Coin;false
+CJS;CJS;CJs;false
+PBS;PBS;Phobos;false
+HFT;HFT;Hirefreehands;false
+ZUCC;ZUCC;Zuccbucc;false
+FIT;FIT3;FIT Token;false
+ALP;ALP;Alpha Protocol;false
+DROP;DROP2;FaucetCoin;false
+SKB2;SKB2;Sakura Bloom;false
+WCG;WCG;World Crypto Gold;false
+GTCEXT2;GTCEXT2;Game;false
+AIDOC;AIDOCEXT;AI Doctor;false
+HPY;HPYEXT;Hyper Pay;false
+BANK3;BANK3;Bankcoin;false
+ZAZA;ZAZA;ZAZA;false
+BTCE2;BTCE2;BitcoinEX;false
+FILL;FILL;Fillit;false
+PUT;PUT2;Robin8 Profile Utility Token;false
+LTCC;LTCC;Listerclassic Coin;false
+MSC2;MSC2;MaisCoin;false
+DESI;DESI;DESI;false
+XKC;XKC;Xiaokabi;false
+BAI;BAI;BAIC;false
+BCB;BCB;BCB Token;false
+AIA;AIA;AllChain;false
+MUSK;MUSK;MUSK Token;false
+GRID;GRID2;GridPay;false
+FNP;FNP;FlipNpik;false
+KEY;KEY3;KeyCoin;false
+SDT;SDT;Alchemint;false
+GUC;GUC;GoldUnionCoin;false
+EXT;EXT3;Exsolution;false
+VIT;VIT4;Vitality;false
+E10;E10;Ethereum10 Index;false
+FUDD;FUDD;DimonCoin;false
+ARHM;ARHM;ArchimedCoin;false
+EXC;EXC4;EximChain;false
+BCOIN;BCOIN3;Bullcoin;false
+AIC;AIC3;Aladin Coin;false
+BT;BT1;Bitfinex Incumbent Bitcoin Blockchain;false
+EAZY;EAZY;EAZY;false
+STONE;STONE3;Stone;false
+TRVC;TRVC;Trivecoin;false
+STRS;STRS;STARS;false
+UTA;UTA;UtaCoin;false
+AVE;AVE;Avesta;false
+VIG;VIG;TheVig;false
+BTX;BTX3;Bitcoin X;false
+CETH;CETH;CreaEther;false
+CCX;CCX3;Conceal;false
+STT;STT;Staramba;false
+MAD2;MAD2;SatoshiMadness;false
+UCN;UCN3;VerifyUnion;false
+DAC;DAC3;HDAC;false
+MRP2;MRP2;MoneyRebel;false
+OLV;OLV;OldV;false
+BEN2;BEN2;Benjamins;false
+GUN;GUN;Guncoin;false
+BSD2;BSD2;BitSend;false
+ACC;ACCEXT;Accelerator Network;false
+WIIX;WIIX;Wiix;false
+SUCR;SUCR;Sucre;false
+CCC2;CCC2;Blockshipping;false
+1AD;1AD;OneAD;false
+BITSILVER;BITSILVER;bitSilver;false
+CHFN;CHFN;NOKU CHF;false
+ILK;ILK;Inlock;false
+LGO;LGO3;LetsGO Token;false
+0XDIARY;0XDIARY;The 0xDiary Token;false
+RHFC;RHFC;RHFCoin;false
+DNET2;DNET2;DeNet;false
+UNIC;UNIC;UniCoin;false
+BOBA;BOBA;BobaChain;false
+RAVE;RAVE;Ravelous;false
+MPT;MPT;Media Protocol Token;false
+XCL;XCL;XcelR;false
+SICA;SICA;SignatureChain;false
+SPRK;SPRK3;Sparkster;false
+GHS2;GHS2;Giga Hash;false
+EOSC;EOSC3;EOSclassic;false
+EOSC;EOSC4;EOS Chicken;false
+VUU;VUU;Vuulr;false
+RAWG;RAWG;RAWG;false
+SOLID;SOLID;Solidified;false
+NBOX;NBOX;Unboxed;false
+ENDO;ENDO;Endocoin;false
+CRS2;CRS2;CRYSTALS;false
+ETT2;ETT2;Eternal Trusts;false
+K2G;K2G;Kasko2go;false
+E4ROW;E4ROW;E4ROW;false
+IMV;IMV;ImmVRse;false
+HPAY;HPAY;HadePay;false
+SPICE;SPICE;SPiCE Venture Capital;false
+CTC;CTC4;Credit Tag Chain;false
+MUG;MUG;MikeTheMug;false
+GAD;GAD;Gadcoin;false
+ARB;ARB2;ARBITRAGE;false
+OCTO2;OCTO2;OctoBit Coin;false
+HYT;HYT;HoryouToken;false
+RBDT;RBDT;RoBust Defense Token;false
+GLDR;GLDR;WAR FIELD;false
+STCN;STCN3;Stop Tabac Coin;false
+XCA;XCA;X-Cash;false
+CDPT;CDPT;Creditor Data Platform;false
+QBTC;QBTC;Quantum Bitcoin;false
+OCP;OCP;OC Protocol;false
+BBT;BBT3;BlockBooster;false
+BLUR;BLUR;Blur Network;false
+HERO;HERO3;HERO Origen Token;false
+IQB;IQB;Intelligence Quotient Benefit;false
+HERO;HERO3;HERO Origen Token;false
+IQB;IQB;Intelligence Quotient Benefit;false
+SCH;SCH;SCHAIN;false
+TYCH;TYCH;TycheCash;false
+JIO;JIO2;Jiocoin;false
+20;20;020LondonCoin;false
+OPP2;OPP2;OPP Open WiFi;false
+BAC;BAC2;LakeBanker;false
+OSA;OSA;Optimal Shelf Availability Token;false
+WPP;WPP;Green Energy Token;false
+SLN;SLN;Social Lending Network;false
+ABDT;ABDT;Atlantis Blue Digital Token;false
+MBC;MBC2;Micro Bitcoin;false
+EOSC;EOSC;EOSForce;false
+DREAM;DREAM;DreamTeam Token;false
+CRAVE;CRAVE2;Crave-NG;false
+BLO;BLO3;Pablo Coin;false
+WYV;WYV;Wyvern;false
+NWCN;NWCN;NowCoin;false
+ICST;ICST;ICST;false
+LFTC;LFTC;LFTCCoin;false
+ENTRY;ENTRY;ENTRY;false
+NOM;NOM;Finom NOM Token;false
+FIN;FIN;Finom FIN Token;false
+ARNA;ARNA2;Arena;false
+MUSE;MUSE;MUSE;false
+CTC;CTC5;Culture Ticket Chain;false
+AUC2;AUC2;AU-Coin;false
+VIDT;VIDT;V-ID;false
+EGX;EGX;EGAMEX Coin;false
+EPRX;ePRX;eProxy;false
+XIN;XIN4;iCoin;false
+21M;21M;21Million;false
+AR;AR;Cappasity;false
+ATH;ATH3;Ethereum Anonymizer;false
+OBZ;OBZ;ObizCoin;false
+IAM;IAM;Bridge Protocol;false
+IDAP;IDAP;IDAP;false
+KEN;KEN;Kencoin;false
+ICTA;ICTA;AICT;false
+IRLE;IRLE;Irlecoin;false
+XBTUSD;XBTUSD;XBTUSD;false
+HALO;HALO;Halo Platform;false
+CWIS;CWIS;Crypto Wisdom Coin;false
+INRDC;INRDC;INRDC;false
+SOUNDEON;SOUNDEON;Soundeon;false
+CBT;CBT5;Cibus;false
+WIN;WIN3;WCoin;false
+KNOW;KNOW;KNOW;false
+BTLC;BTLC;BitLuckCoin;false
+CTL;CTL3;Citadel;false
+BOE;BOE;Bodhi;false
+TT;TT;TravelChain;false
+MCV;MCV;MCV Token;false
+SAY;SAY;SpherePay;false
+SPN2;SPN2;Sapien Network;false
+TPT;TPT;Teleport;false
+EIDOO;EIDOO;Eidoo;false
+SMRTC;SMRTC;SmartCloud;false
+SCAL;SCAL;Scaltinof;false
+RHEA;RHEA;Rhea;false
+CZC;CZC;Crazy Coin;false
+FLIP;FLIP3;Flip;false
+CNX;CNX2;Cryptonetix;false
+CND;CND2;Canada eCoin;false
+VID;VID;VideoCoin;false
+EMPR;EMPR;empowr coin;false
+EMGO;EMGO;MobileGo;false
+NAMO;NAMO;NamoCoin;false
+ATKN;ATKN;A-Token;false
+STARTUP;STARTUP;STARTUP;false
+DEI;DEI;Deimos;false
+AR;AR2;Ar.cash;false
+EZM;EZM;EZMarket;false
+CAV;CAV;Caviar;false
+XOUND;XOUND;Inmusik;false
+MTK;MTK;Moya Token;false
+ESC;ESCEXT;Escroco;false
+PLM;PLM;Algo.Land;false
+RNDR;RNDR;Render Token;false
+WYR;WYR;Wyrify;false
+CYBER;CYBER;CyberChain;false
+PTS;PTS2;Protoshares;false
+ZNA;ZNA;Zenome;false
+ELM;ELM;Elements;false
+MNZ;MNZ;Monaize;false
+GRF;GRF;Graft Network;false
+ARBI;ARBI;Arbi;false
+ROK;ROK;Rockchain;false
+ELTC2;ELTC2;eLTC;false
+PHC;PHC4;Pharmaceutical Commerce;false
+USC;USC3;Coinfix;false
