@@ -7,13 +7,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.exceptions.ExchangerException;
-import me.exrates.exchange.models.enums.BaseCurrency;
+import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.support.SupportedCoinMarketCupService;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -26,7 +24,6 @@ import java.util.stream.Stream;
 
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
-import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_COIN_MARKET_CUP_EXCHANGER;
 import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 
 @Slf4j
@@ -37,15 +34,12 @@ public class CoinMarketCupExchanger implements Exchanger {
     private String apiUrlTicker;
 
     private final SupportedCoinMarketCupService supportedService;
-    private final Cache cache;
     private final RestTemplate restTemplate;
 
     public CoinMarketCupExchanger(@Value("${exchangers.coinmarketcup.api-url.ticker}") String apiUrlTicker,
-                                  SupportedCoinMarketCupService supportedService,
-                                  @Qualifier(CACHE_COIN_MARKET_CUP_EXCHANGER) Cache cache) {
+                                  SupportedCoinMarketCupService supportedService) {
         this.apiUrlTicker = apiUrlTicker;
         this.supportedService = supportedService;
-        this.cache = cache;
         this.restTemplate = new RestTemplate();
     }
 
@@ -55,22 +49,22 @@ public class CoinMarketCupExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getRate(String currencySymbol, BaseCurrency baseCurrency) {
-        List<CoinMarketCupData> data = cache.get(currencySymbol, () -> getDataFromMarket(currencySymbol));
+    public CurrencyDto getRate(String currencySymbol) {
+        List<CoinMarketCupData> data = getDataFromMarket(currencySymbol);
         if (isEmpty(data)) {
             log.info("Data from Coinmarketcup server is not available");
-            return BigDecimal.ZERO;
+            return null;
         }
-        CoinMarketCupData response = data.get(0);
+        final CoinMarketCupData response = data.get(0);
 
-        switch (baseCurrency) {
-            case USD:
-                return nonNull(response) ? new BigDecimal(response.priceUSD) : BigDecimal.ZERO;
-            case BTC:
-                return nonNull(response) ? new BigDecimal(response.priceBTC) : BigDecimal.ZERO;
-            default:
-                return BigDecimal.ZERO;
-        }
+        return nonNull(response)
+                ? CurrencyDto.builder()
+                .name(currencySymbol)
+                .type(getExchangerType())
+                .btcRate(new BigDecimal(response.priceBTC))
+                .usdRate(new BigDecimal(response.priceUSD))
+                .build()
+                : null;
     }
 
     private List<CoinMarketCupData> getDataFromMarket(String currencySymbol) {
@@ -88,7 +82,9 @@ public class CoinMarketCupExchanger implements Exchanger {
         }
         CoinMarketCupData[] body = responseEntity.getBody();
 
-        return nonNull(body) ? Stream.of(body).collect(toList()) : Collections.emptyList();
+        return nonNull(body)
+                ? Stream.of(body).collect(toList())
+                : Collections.emptyList();
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)

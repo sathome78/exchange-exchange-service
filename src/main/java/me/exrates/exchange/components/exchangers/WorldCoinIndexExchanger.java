@@ -7,12 +7,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.exceptions.ExchangerException;
+import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -32,7 +31,6 @@ import java.util.stream.Stream;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toMap;
-import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_WORLD_COIN_INDEX_EXCHANGER;
 import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 import static me.exrates.exchange.utils.CollectionUtil.isNotEmpty;
 
@@ -44,15 +42,12 @@ public class WorldCoinIndexExchanger implements Exchanger {
     private String apiUrlTicker;
     private String apiKey;
 
-    private final Cache cache;
     private final RestTemplate restTemplate;
 
     public WorldCoinIndexExchanger(@Value("${exchangers.worldcoinindex.api-url.ticker}") String apiUrlTicker,
-                                   @Value("${exchangers.worldcoinindex.api-key}") String apiKey,
-                                   @Qualifier(CACHE_WORLD_COIN_INDEX_EXCHANGER) Cache cache) {
+                                   @Value("${exchangers.worldcoinindex.api-key}") String apiKey) {
         this.apiUrlTicker = apiUrlTicker;
         this.apiKey = apiKey;
-        this.cache = cache;
         this.restTemplate = new RestTemplate();
     }
 
@@ -62,19 +57,28 @@ public class WorldCoinIndexExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getRate(String currencySymbol, BaseCurrency baseCurrency) {
-        Map<BaseCurrency, List<Market>> data = cache.get(currencySymbol, () -> getDataFromMarket(currencySymbol));
+    public CurrencyDto getRate(String currencySymbol) {
+        Map<BaseCurrency, List<Market>> data = getDataFromMarket(currencySymbol);
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from WorldCoinIndex server is not available");
-            return BigDecimal.ZERO;
+            return null;
         }
-        List<Market> markets = data.get(baseCurrency);
-        if (isEmpty(markets)) {
-            return BigDecimal.ZERO;
+        List<Market> btcData = data.get(BaseCurrency.BTC);
+        List<Market> usdData = data.get(BaseCurrency.USD);
+        if (isEmpty(btcData) || isEmpty(usdData)) {
+            return null;
         }
-        Market response = markets.get(0);
+        final Market btcRate = btcData.get(0);
+        final Market usdRate = usdData.get(0);
 
-        return nonNull(response) ? BigDecimal.valueOf(response.price) : BigDecimal.ZERO;
+        return nonNull(btcRate) && nonNull(usdRate)
+                ? CurrencyDto.builder()
+                .name(currencySymbol)
+                .type(getExchangerType())
+                .btcRate(BigDecimal.valueOf(btcRate.price))
+                .usdRate(BigDecimal.valueOf(usdRate.price))
+                .build()
+                : null;
     }
 
     private Map<BaseCurrency, List<Market>> getDataFromMarket(String currencySymbol) {

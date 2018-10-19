@@ -8,11 +8,11 @@ import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.exceptions.ExchangerException;
+import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -25,10 +25,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_FREE_CURRENCY_EXCHANGER;
 
 @Slf4j
 @Lazy
@@ -37,13 +37,10 @@ public class FreeCurrencyExchanger implements Exchanger {
 
     private String apiUrlConvert;
 
-    private final Cache cache;
     private final RestTemplate restTemplate;
 
-    public FreeCurrencyExchanger(@Value("${exchangers.freecurrency.api-url.convert}") String apiUrlConvert,
-                                 @Qualifier(CACHE_FREE_CURRENCY_EXCHANGER) Cache cache) {
+    public FreeCurrencyExchanger(@Value("${exchangers.freecurrency.api-url.convert}") String apiUrlConvert) {
         this.apiUrlConvert = apiUrlConvert;
-        this.cache = cache;
         this.restTemplate = new RestTemplate();
     }
 
@@ -53,17 +50,31 @@ public class FreeCurrencyExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getRate(String currencySymbol, BaseCurrency baseCurrency) {
-        Map<String, Rate> data = cache.get(currencySymbol, () -> getDataFromMarket(currencySymbol));
+    public CurrencyDto getRate(String currencySymbol) {
+        Map<String, Rate> data = getDataFromMarket(currencySymbol);
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from FreeCurrency server is not available");
-            return BigDecimal.ZERO;
+            return null;
         }
-        return data.entrySet().stream()
-                .filter(entry -> baseCurrency.name().equals(entry.getKey().split("_")[1]))
-                .map(entry -> new BigDecimal(entry.getValue().val))
-                .findFirst()
-                .orElse(BigDecimal.ZERO);
+        Map<BaseCurrency, Rate> groupedByBaseCurrency = data.entrySet().stream()
+                .map(entry -> Pair.of(getBaseCurrency(entry.getKey()), entry.getValue()))
+                .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
+
+        final Rate btcRate = groupedByBaseCurrency.get(BaseCurrency.BTC);
+        final Rate usdRate = groupedByBaseCurrency.get(BaseCurrency.USD);
+
+        return nonNull(btcRate) && nonNull(usdRate)
+                ? CurrencyDto.builder()
+                .name(currencySymbol)
+                .type(getExchangerType())
+                .btcRate(new BigDecimal(btcRate.val))
+                .usdRate(new BigDecimal(usdRate.val))
+                .build()
+                : null;
+    }
+
+    private BaseCurrency getBaseCurrency(String key) {
+        return BaseCurrency.valueOf(key.split("_")[1]);
     }
 
     private Map<String, Rate> getDataFromMarket(String currencySymbol) {

@@ -10,7 +10,8 @@ spring:
     active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+#    url: jdbc:mysql://localhost:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
     username: root
     password: root
     hikari:
@@ -67,12 +68,6 @@ spring:
         tags: exchange-service
         service-name: exchange-service
         port: 8083
-  flyway:
-    baseline-on-migrate: true
-    validate-on-migrate: true
-    clean-on-validation-error: true
-    table: schema_version
-    enabled: true
 
 logging:
   level:
@@ -82,6 +77,10 @@ logging:
 
 swagger:
   enabled: true
+
+scheduled:
+  update:
+    currency: 0 */15 * ? * *
 
 exchangers:
   coinlib:

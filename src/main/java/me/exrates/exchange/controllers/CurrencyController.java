@@ -1,12 +1,13 @@
 package me.exrates.exchange.controllers;
 
+import me.exrates.exchange.entities.Currency;
 import me.exrates.exchange.exceptions.ValidationException;
 import me.exrates.exchange.models.dto.CurrencyDto;
-import me.exrates.exchange.models.dto.RateDto;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.models.form.CurrencyForm;
 import me.exrates.exchange.services.CurrencyService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,16 +15,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/currency")
@@ -39,26 +43,18 @@ public class CurrencyController {
         this.modelMapper = modelMapper;
     }
 
-    @PostMapping(value = "/btc-rate", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RateDto> getBTCRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
-        final BigDecimal rate = currencyService.getBTCRateForCurrency(symbol);
-        return ResponseEntity.ok(new RateDto(symbol, rate));
+    @GetMapping(value = "/rates/{currency_symbol}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CurrencyDto> getRatesByCurrency(@PathVariable(value = "currency_symbol") String symbol) {
+        Currency currency = currencyService.getRatesByCurrency(symbol);
+        return ResponseEntity.ok(modelMapper.map(currency, CurrencyDto.class));
     }
 
-    @PostMapping(value = "/btc-rate/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<ExchangerType, List<RateDto>>> getBTCRates() {
-        return ResponseEntity.ok(currencyService.getBTCRateForAll());
-    }
-
-    @PostMapping(value = "/usd-rate", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RateDto> getUSDRate(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
-        final BigDecimal rate = currencyService.getUSDRateForCurrency(symbol);
-        return ResponseEntity.ok(new RateDto(symbol, rate));
-    }
-
-    @PostMapping(value = "/usd-rate/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<ExchangerType, List<RateDto>>> getUSDRates() {
-        return ResponseEntity.ok(currencyService.getUSDRateForAll());
+    @GetMapping(value = "/rates/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<ExchangerType, List<CurrencyDto>>> getAllRates() {
+        List<Currency> all = currencyService.getRatesForAll();
+        List<CurrencyDto> result = modelMapper.map(all, new TypeToken<List<CurrencyDto>>() {
+        }.getType());
+        return ResponseEntity.ok(result.stream().collect(Collectors.groupingBy(CurrencyDto::getType)));
     }
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -77,7 +73,7 @@ public class CurrencyController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PostMapping(value = "/update-type")
+    @PutMapping(value = "/update-type")
     public ResponseEntity updateCurrencyType(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol,
                                              @RequestParam(value = "exchanger_type", defaultValue = "FREE_CURRENCY") ExchangerType type) {
         currencyService.updateExchangerType(symbol, type);

@@ -14,27 +14,13 @@ import java.math.BigDecimal;
 @Repository
 public interface CurrencyRepository extends JpaRepository<Currency, String> {
 
-    @Transactional
-    @Query("SELECT c.type FROM Currency c WHERE c.name = :symbol")
-    ExchangerType getType(@Param("symbol") String currencySymbol);
-
-    @Transactional
-    @Query("SELECT c.btcRate FROM Currency c WHERE c.name = :symbol")
-    BigDecimal getBtcRate(@Param("symbol") String currencySymbol);
-
-    @Transactional
-    @Query("SELECT c.usdRate FROM Currency c WHERE c.name = :symbol")
-    BigDecimal getUsdRate(@Param("symbol") String currencySymbol);
+    @Transactional(readOnly = true)
+    Currency getByName(String currencySymbol);
 
     @Transactional
     @Modifying
-    @Query("UPDATE Currency c SET c.btcRate = :rate, c.btcRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.name = :symbol")
-    void updateBtcRate(@Param("symbol") String currencySymbol, @Param("rate") BigDecimal btcRate);
-
-    @Transactional
-    @Modifying
-    @Query("UPDATE Currency c SET c.usdRate = :rate, c.usdRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.name = :symbol")
-    void updateUsdRate(@Param("symbol") String currencySymbol, @Param("rate") BigDecimal usdRate);
+    @Query("UPDATE Currency c SET c.btcRate = :btc_rate, c.btcRateUpdatedAt = CURRENT_TIMESTAMP, c.usdRate = :usd_rate, c.usdRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.name = :symbol")
+    void updateRates(@Param("symbol") String currencySymbol, @Param("btc_rate") BigDecimal btcRate, @Param("usd_rate") BigDecimal usdRate);
 
     @Transactional
     @Modifying

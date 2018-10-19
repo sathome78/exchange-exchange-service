@@ -6,13 +6,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.exceptions.ExchangerException;
+import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.support.SupportedCoinlibService;
 import org.apache.commons.lang3.tuple.Pair;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -29,7 +28,6 @@ import java.util.stream.Stream;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toMap;
-import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_COINLIB_EXCHANGER;
 
 @Slf4j
 @Lazy
@@ -40,17 +38,14 @@ public class CoinlibExchanger implements Exchanger {
     private String apiKey;
 
     private final SupportedCoinlibService supportedService;
-    private final Cache cache;
     private final RestTemplate restTemplate;
 
     public CoinlibExchanger(@Value("${exchangers.coinlib.api-url.coin}") String apiUrlCoin,
                             @Value("${exchangers.coinlib.api-key}") String apiKey,
-                            SupportedCoinlibService supportedService,
-                            @Qualifier(CACHE_COINLIB_EXCHANGER) Cache cache) {
+                            SupportedCoinlibService supportedService) {
         this.supportedService = supportedService;
         this.apiUrlCoin = apiUrlCoin;
         this.apiKey = apiKey;
-        this.cache = cache;
         this.restTemplate = new RestTemplate();
     }
 
@@ -60,25 +55,33 @@ public class CoinlibExchanger implements Exchanger {
     }
 
     @Override
-    public BigDecimal getRate(String currencySymbol, BaseCurrency baseCurrency) {
-        Map<BaseCurrency, Coin> data = cache.get(currencySymbol, () -> getDataFromMarket(currencySymbol));
+    public CurrencyDto getRate(String currencySymbol) {
+        Map<BaseCurrency, CoinlibData> data = getDataFromMarket(currencySymbol);
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from Coinlib server is not available");
-            return BigDecimal.ZERO;
+            return null;
         }
-        Coin response = data.get(baseCurrency);
+        final CoinlibData btcRate = data.get(BaseCurrency.BTC);
+        final CoinlibData usdRate = data.get(BaseCurrency.USD);
 
-        return nonNull(response) ? BigDecimal.valueOf(response.price) : BigDecimal.ZERO;
+        return nonNull(btcRate) && nonNull(usdRate)
+                ? CurrencyDto.builder()
+                .name(currencySymbol)
+                .type(getExchangerType())
+                .btcRate(BigDecimal.valueOf(btcRate.price))
+                .usdRate(BigDecimal.valueOf(usdRate.price))
+                .build()
+                : null;
     }
 
-    private Map<BaseCurrency, Coin> getDataFromMarket(String currencySymbol) {
+    private Map<BaseCurrency, CoinlibData> getDataFromMarket(String currencySymbol) {
         return Stream.of(BaseCurrency.values())
                 .map(value -> Pair.of(value, getDataFromMarketByBaseCurrency(currencySymbol, value)))
                 .filter(pair -> nonNull(pair.getValue()))
                 .collect(toMap(Pair::getKey, Pair::getValue));
     }
 
-    private Coin getDataFromMarketByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {
+    private CoinlibData getDataFromMarketByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {
         MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("key", apiKey);
         requestParameters.add("symbol", supportedService.getSearchId(currencySymbol));
@@ -89,9 +92,9 @@ public class CoinlibExchanger implements Exchanger {
                 .queryParams(requestParameters)
                 .build();
 
-        ResponseEntity<Coin> responseEntity;
+        ResponseEntity<CoinlibData> responseEntity;
         try {
-            responseEntity = restTemplate.getForEntity(builder.toUriString(), Coin.class);
+            responseEntity = restTemplate.getForEntity(builder.toUriString(), CoinlibData.class);
             if (responseEntity.getStatusCodeValue() != 200) {
                 throw new ExchangerException("Coinlib server is not available");
             }
@@ -104,7 +107,7 @@ public class CoinlibExchanger implements Exchanger {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class Coin {
+    private static class CoinlibData {
 
         double price;
     }

@@ -6,7 +6,6 @@ import feign.jackson.JacksonEncoder;
 import feign.slf4j.Slf4jLogger;
 import me.exrates.exchange.entities.Currency;
 import me.exrates.exchange.models.dto.CurrencyDto;
-import me.exrates.exchange.models.dto.RateDto;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.models.form.CurrencyForm;
 import me.exrates.exchange.repositories.CurrencyRepository;
@@ -24,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
@@ -97,51 +97,49 @@ public class ExchangeApiTest {
     }
 
     @Test
-    public void getRatesTest() {
-        Map<ExchangerType, List<RateDto>> btcRates = exchangeApi.getBTCRates();
+    public void getRatesByExchangerTypesTest() {
         //Coinlib coin
-        RateDto btcRate = exchangeApi.getBTCRate(BCS);
-        RateDto usdRate = exchangeApi.getUSDRate(BCS);
+        CurrencyDto currency = exchangeApi.getRatesByCurrency(BCS);
 
-        assertNotNull(btcRate);
-        assertEquals(BCS, btcRate.getCurrencySymbol());
-        assertNotNull(usdRate);
-        assertEquals(BCS, usdRate.getCurrencySymbol());
+        assertNotNull(currency);
+        assertEquals(BCS, currency.getName());
+        assertEquals(ExchangerType.COINLIB, currency.getType());
 
         //CoinMarketCup coin
-        btcRate = exchangeApi.getBTCRate(DASH);
-        usdRate = exchangeApi.getUSDRate(DASH);
+        currency = exchangeApi.getRatesByCurrency(DASH);
 
-        assertNotNull(btcRate);
-        assertEquals(DASH, btcRate.getCurrencySymbol());
-        assertNotNull(usdRate);
-        assertEquals(DASH, usdRate.getCurrencySymbol());
+        assertNotNull(currency);
+        assertEquals(DASH, currency.getName());
+        assertEquals(ExchangerType.COIN_MARKET_CUP, currency.getType());
 
         //Exrates coin
-        btcRate = exchangeApi.getBTCRate(BRB);
-        usdRate = exchangeApi.getUSDRate(BRB);
+        currency = exchangeApi.getRatesByCurrency(BRB);
 
-        assertNotNull(btcRate);
-        assertEquals(BRB, btcRate.getCurrencySymbol());
-        assertNotNull(usdRate);
-        assertEquals(BRB, usdRate.getCurrencySymbol());
+        assertNotNull(currency);
+        assertEquals(BRB, currency.getName());
+        assertEquals(ExchangerType.EXRATES, currency.getType());
 
         //FreeCurrency coin
-        btcRate = exchangeApi.getBTCRate(VND);
-        usdRate = exchangeApi.getUSDRate(VND);
+        currency = exchangeApi.getRatesByCurrency(VND);
 
-        assertNotNull(btcRate);
-        assertEquals(VND, btcRate.getCurrencySymbol());
-        assertNotNull(usdRate);
-        assertEquals(VND, usdRate.getCurrencySymbol());
+        assertNotNull(currency);
+        assertEquals(VND, currency.getName());
+        assertEquals(ExchangerType.FREE_CURRENCY, currency.getType());
 
         //WorldCoinIndex coin
-        btcRate = exchangeApi.getBTCRate(eMTV);
-        usdRate = exchangeApi.getUSDRate(eMTV);
+        currency = exchangeApi.getRatesByCurrency(eMTV);
 
-        assertNotNull(btcRate);
-        assertEquals(eMTV, btcRate.getCurrencySymbol());
-        assertNotNull(usdRate);
-        assertEquals(eMTV, usdRate.getCurrencySymbol());
+        assertNotNull(currency);
+        assertEquals(eMTV, currency.getName());
+        assertEquals(ExchangerType.WORLD_COIN_INDEX, currency.getType());
+    }
+
+    @Test
+    public void getAllRatesTest() {
+        Map<ExchangerType, List<CurrencyDto>> all = exchangeApi.getAllRates();
+
+        assertNotNull(all);
+        assertFalse(all.isEmpty());
+        assertEquals(ExchangerType.values().length, all.size());
     }
 }
