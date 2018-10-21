@@ -73,6 +73,8 @@ spring:
         port: 8083
   flyway:
     check-location: false
+#    clean-on-validation-error: true
+#    enabled: true
 
 logging:
   level:
@@ -85,7 +87,7 @@ swagger:
 
 scheduled:
   update:
-    currency: 0 */15 * ? * *
+    currency: 0 */10 * ? * *
 
 exchangers:
   coinlib:

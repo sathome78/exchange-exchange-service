@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CurrencyDto {
 
-    private String name;
+    private String symbol;
     private ExchangerType type;
     @JsonProperty("usd_rate")
     private BigDecimal usdRate;

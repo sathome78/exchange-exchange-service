@@ -68,7 +68,7 @@ spring:
         service-name: exchange-service
         port: 8083
   flyway:
-    check-location: false
+    enabled: false
 
 logging:
   level:

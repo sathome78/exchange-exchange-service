@@ -10,6 +10,7 @@ import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -42,6 +43,7 @@ public class ExratesExchanger implements Exchanger {
 
     private final RestTemplate restTemplate;
 
+    @Autowired
     public ExratesExchanger(@Value("${exchangers.exrates.api-url.ticker}") String apiUrlTicker) {
         this.apiUrlTicker = apiUrlTicker;
         this.restTemplate = new RestTemplate();
@@ -69,7 +71,7 @@ public class ExratesExchanger implements Exchanger {
 
         return nonNull(btcRate) && nonNull(usdRate)
                 ? CurrencyDto.builder()
-                .name(currencySymbol)
+                .symbol(currencySymbol)
                 .type(getExchangerType())
                 .btcRate(BigDecimal.valueOf(btcRate.last))
                 .usdRate(BigDecimal.valueOf(usdRate.last))

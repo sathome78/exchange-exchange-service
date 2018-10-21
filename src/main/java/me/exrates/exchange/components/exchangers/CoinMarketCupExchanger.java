@@ -6,11 +6,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
+import me.exrates.exchange.entities.CoinmarketcupDictionary;
 import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.ExchangerType;
-import me.exrates.exchange.support.SupportedCoinMarketCupService;
+import me.exrates.exchange.repositories.CoinmarketcupDictionaryRepository;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +22,12 @@ import org.springframework.web.client.RestTemplate;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 
 @Slf4j
@@ -33,13 +37,23 @@ public class CoinMarketCupExchanger implements Exchanger {
 
     private String apiUrlTicker;
 
-    private final SupportedCoinMarketCupService supportedService;
+    private final Map<String, String> codes;
+
     private final RestTemplate restTemplate;
 
+    @Autowired
     public CoinMarketCupExchanger(@Value("${exchangers.coinmarketcup.api-url.ticker}") String apiUrlTicker,
-                                  SupportedCoinMarketCupService supportedService) {
+                                  CoinmarketcupDictionaryRepository dictionaryRepository) {
         this.apiUrlTicker = apiUrlTicker;
-        this.supportedService = supportedService;
+        this.codes = dictionaryRepository.findAllByEnabledTrue().stream()
+                .filter(dictionary -> nonNull(dictionary.getCurrencySymbol()))
+                .collect(toMap(
+                        CoinmarketcupDictionary::getCurrencySymbol,
+                        CoinmarketcupDictionary::getCoinmarketcupSymbol,
+                        (k1, k2) -> {
+                            log.debug("Duplicate key: {}", k2);
+                            return k2;
+                        }));
         this.restTemplate = new RestTemplate();
     }
 
@@ -59,7 +73,7 @@ public class CoinMarketCupExchanger implements Exchanger {
 
         return nonNull(response)
                 ? CurrencyDto.builder()
-                .name(currencySymbol)
+                .symbol(currencySymbol)
                 .type(getExchangerType())
                 .btcRate(new BigDecimal(response.priceBTC))
                 .usdRate(new BigDecimal(response.priceUSD))
@@ -69,7 +83,7 @@ public class CoinMarketCupExchanger implements Exchanger {
 
     private List<CoinMarketCupData> getDataFromMarket(String currencySymbol) {
         final String url = apiUrlTicker
-                + (nonNull(currencySymbol) ? supportedService.getSearchId(currencySymbol) : StringUtils.EMPTY);
+                + (nonNull(currencySymbol) ? codes.get(currencySymbol) : StringUtils.EMPTY);
 
         ResponseEntity<CoinMarketCupData[]> responseEntity;
         try {

@@ -7,8 +7,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-
 @Slf4j
 @Service
 @EnableScheduling
@@ -19,11 +17,6 @@ public class ScheduledUpdateCurrencyRate {
     public ScheduledUpdateCurrencyRate(CurrencyService currencyService) {
         this.currencyService = currencyService;
     }
-
-//    @PostConstruct
-//    public void init() {
-//        currencyService.refreshCurrencyRate();
-//    }
 
     @Scheduled(cron = "${scheduled.update.currency}")
     public void updateCurrencyRate() {

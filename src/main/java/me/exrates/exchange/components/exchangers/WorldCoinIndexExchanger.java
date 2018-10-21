@@ -11,6 +11,7 @@ import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +45,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
 
     private final RestTemplate restTemplate;
 
+    @Autowired
     public WorldCoinIndexExchanger(@Value("${exchangers.worldcoinindex.api-url.ticker}") String apiUrlTicker,
                                    @Value("${exchangers.worldcoinindex.api-key}") String apiKey) {
         this.apiUrlTicker = apiUrlTicker;
@@ -73,7 +75,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
 
         return nonNull(btcRate) && nonNull(usdRate)
                 ? CurrencyDto.builder()
-                .name(currencySymbol)
+                .symbol(currencySymbol)
                 .type(getExchangerType())
                 .btcRate(BigDecimal.valueOf(btcRate.price))
                 .usdRate(BigDecimal.valueOf(usdRate.price))

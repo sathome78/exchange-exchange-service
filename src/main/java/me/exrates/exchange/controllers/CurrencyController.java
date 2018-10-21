@@ -56,7 +56,7 @@ public class CurrencyController {
         List<Currency> all = currencyService.getRatesForAll();
         List<CurrencyDto> result = modelMapper.map(all, new TypeToken<List<CurrencyDto>>() {
         }.getType());
-        return ResponseEntity.ok(result.stream().collect(toMap(CurrencyDto::getName, Function.identity())));
+        return ResponseEntity.ok(result.stream().collect(toMap(CurrencyDto::getSymbol, Function.identity())));
     }
 
     @ResponseStatus(HttpStatus.CREATED)

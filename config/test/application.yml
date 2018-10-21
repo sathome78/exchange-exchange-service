@@ -68,7 +68,7 @@ spring:
         service-name: exchange-service
         port: 8083
   flyway:
-    check-location: false
+    enabled: false
 
 logging:
   level:
@@ -81,7 +81,7 @@ swagger:
 
 scheduled:
   update:
-    currency: 0 */15 * ? * *
+    currency: 0 */10 * ? * *
 
 exchangers:
   coinlib:

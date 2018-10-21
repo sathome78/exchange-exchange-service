@@ -21,15 +21,15 @@ import java.time.LocalDateTime;
 @Builder(builderClassName = "Builder")
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"name", "type"})
+@EqualsAndHashCode(of = {"symbol", "type"})
 @Indexed
 @Entity
 @Table(name = "currency")
 public class Currency {
 
     @Id
-    @Column(name = "name", unique = true, nullable = false, length = 16)
-    private String name;
+    @Column(name = "symbol", unique = true, nullable = false, length = 16)
+    private String symbol;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type", nullable = false)

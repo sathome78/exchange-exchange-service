@@ -5,12 +5,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
+import me.exrates.exchange.entities.CoinlibDictionary;
 import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
-import me.exrates.exchange.support.SupportedCoinlibService;
+import me.exrates.exchange.repositories.CoinlibDictionaryRepository;
 import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -37,15 +39,25 @@ public class CoinlibExchanger implements Exchanger {
     private String apiUrlCoin;
     private String apiKey;
 
-    private final SupportedCoinlibService supportedService;
+    private final Map<String, String> codes;
+
     private final RestTemplate restTemplate;
 
+    @Autowired
     public CoinlibExchanger(@Value("${exchangers.coinlib.api-url.coin}") String apiUrlCoin,
                             @Value("${exchangers.coinlib.api-key}") String apiKey,
-                            SupportedCoinlibService supportedService) {
-        this.supportedService = supportedService;
+                            CoinlibDictionaryRepository dictionaryRepository) {
         this.apiUrlCoin = apiUrlCoin;
         this.apiKey = apiKey;
+        this.codes = dictionaryRepository.findAllByEnabledTrue().stream()
+                .filter(dictionary -> nonNull(dictionary.getCurrencySymbol()))
+                .collect(toMap(
+                        CoinlibDictionary::getCurrencySymbol,
+                        CoinlibDictionary::getCoinlibSymbol,
+                        (k1, k2) -> {
+                            log.debug("Duplicate key: {}", k2);
+                            return k2;
+                        }));
         this.restTemplate = new RestTemplate();
     }
 
@@ -66,7 +78,7 @@ public class CoinlibExchanger implements Exchanger {
 
         return nonNull(btcRate) && nonNull(usdRate)
                 ? CurrencyDto.builder()
-                .name(currencySymbol)
+                .symbol(currencySymbol)
                 .type(getExchangerType())
                 .btcRate(BigDecimal.valueOf(btcRate.price))
                 .usdRate(BigDecimal.valueOf(usdRate.price))
@@ -84,7 +96,7 @@ public class CoinlibExchanger implements Exchanger {
     private CoinlibData getDataFromMarketByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {
         MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("key", apiKey);
-        requestParameters.add("symbol", supportedService.getSearchId(currencySymbol));
+        requestParameters.add("symbol", codes.get(currencySymbol));
         requestParameters.add("pref", baseCurrency.name());
 
         UriComponents builder = UriComponentsBuilder

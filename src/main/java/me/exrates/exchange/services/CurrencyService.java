@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.validation.constraints.Null;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -44,7 +43,7 @@ public class CurrencyService {
 
     @Transactional(readOnly = true)
     public Currency getRatesByCurrency(String currencySymbol) {
-        Currency currency = currencyRepository.getByName(currencySymbol);
+        Currency currency = currencyRepository.getBySymbol(currencySymbol);
         if (isNull(currency)) {
             log.info("Currency {} is not present in database", currencySymbol);
             return null;
@@ -68,7 +67,7 @@ public class CurrencyService {
         final LocalDateTime now = LocalDateTime.now();
 
         Currency newCurrency = Currency.builder()
-                .name(form.getName())
+                .symbol(form.getSymbol())
                 .type(form.getType())
                 .btcRate(form.getBtcRate())
                 .btcRateUpdatedAt(now)
@@ -76,7 +75,7 @@ public class CurrencyService {
                 .usdRateUpdatedAt(now)
                 .build();
         currencyRepository.save(newCurrency);
-        log.info("Currency {} has been created", form.getName());
+        log.info("Currency {} has been created", form.getSymbol());
         return newCurrency;
     }
 
@@ -115,12 +114,12 @@ public class CurrencyService {
             } catch (InterruptedException ex) {
                 log.debug("Delay interrupted!");
             }
-            refreshRateByCurrency(type, currency.getName());
+            refreshRateByCurrency(type, currency.getSymbol());
         });
     }
 
     @Transactional
-    public void refreshRateByCurrency(@Null ExchangerType type, String currencySymbol) {
+    public void refreshRateByCurrency(ExchangerType type, String currencySymbol) {
         Exchanger exchanger = factory.getExchanger(type);
 
         CurrencyDto currency = exchanger.getRate(currencySymbol);
