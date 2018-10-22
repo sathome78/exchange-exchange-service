@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>10</java.version>
+        <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
         <docker.image.prefix>exchange</docker.image.prefix>
     </properties>
@@ -271,15 +271,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <release>10</release>
+                    <source>1.8</source>
+                    <compilerVersion>1.8</compilerVersion>
                 </configuration>
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.ow2.asm</groupId>-->
-                        <!--<artifactId>asm</artifactId>-->
-                        <!--<version>6.2</version> &lt;!&ndash; Use newer version of ASM &ndash;&gt;-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
             </plugin>
             <plugin>
                 <groupId>com.spotify</groupId>
