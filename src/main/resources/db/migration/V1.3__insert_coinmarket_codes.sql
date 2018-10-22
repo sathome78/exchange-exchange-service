@@ -9,7 +9,7 @@ INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_curr
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('ADA', 'cardano', 'Cardano', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('XMR', 'monero', 'Monero', true);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('TRX', 'tron', 'TRON', true);
-INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('MIOTA', 'iota', 'IOTA', false);
+INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('MIOTA', 'iota', 'IOTA', true);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('IOTA', 'iota', 'IOTA', true);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('DASH', 'dash', 'Dash', true);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('BNB', 'binance-coin', 'Binance Coin', true);
