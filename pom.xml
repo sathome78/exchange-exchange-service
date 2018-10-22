@@ -271,8 +271,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
                 <configuration>
-                    <source>1.8</source>
-                    <compilerVersion>1.8</compilerVersion>
+                    <source>1.10</source>
+                    <compilerVersion>1.10</compilerVersion>
                 </configuration>
             </plugin>
             <plugin>
