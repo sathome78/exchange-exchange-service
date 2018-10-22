@@ -15,7 +15,7 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t roadtomoon/exrates-exchange-service:latest .'
+        sh 'docker build --build-arg ENVIRONMENT -t roadtomoon/exrates-exchange-service:latest .'
       }
     } 
     stage('Docker pull') {
