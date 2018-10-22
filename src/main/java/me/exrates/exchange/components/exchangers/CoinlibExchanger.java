@@ -13,7 +13,9 @@ import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.repositories.CoinlibDictionaryRepository;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -30,6 +32,7 @@ import java.util.stream.Stream;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toMap;
+import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_COINLIB_CODES;
 
 @Slf4j
 @Lazy
@@ -39,26 +42,21 @@ public class CoinlibExchanger implements Exchanger {
     private String apiUrlCoin;
     private String apiKey;
 
-    private final Map<String, String> codes;
+    private final Cache codesCache;
 
+    private final CoinlibDictionaryRepository dictionaryRepository;
     private final RestTemplate restTemplate;
 
     @Autowired
     public CoinlibExchanger(@Value("${exchangers.coinlib.api-url.coin}") String apiUrlCoin,
                             @Value("${exchangers.coinlib.api-key}") String apiKey,
-                            CoinlibDictionaryRepository dictionaryRepository) {
+                            CoinlibDictionaryRepository dictionaryRepository,
+                            @Qualifier(CACHE_COINLIB_CODES) Cache codesCache) {
         this.apiUrlCoin = apiUrlCoin;
         this.apiKey = apiKey;
-        this.codes = dictionaryRepository.findAllByEnabledTrue().stream()
-                .filter(dictionary -> nonNull(dictionary.getCurrencySymbol()))
-                .collect(toMap(
-                        CoinlibDictionary::getCurrencySymbol,
-                        CoinlibDictionary::getCoinlibSymbol,
-                        (k1, k2) -> {
-                            log.debug("Duplicate key: {}", k2);
-                            return k2;
-                        }));
+        this.dictionaryRepository = dictionaryRepository;
         this.restTemplate = new RestTemplate();
+        this.codesCache = codesCache;
     }
 
     @Override
@@ -96,7 +94,7 @@ public class CoinlibExchanger implements Exchanger {
     private CoinlibData getDataFromMarketByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {
         MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("key", apiKey);
-        requestParameters.add("symbol", codes.get(currencySymbol));
+        requestParameters.add("symbol", codesCache.get(currencySymbol, () -> getCode(currencySymbol)));
         requestParameters.add("pref", baseCurrency.name());
 
         UriComponents builder = UriComponentsBuilder
@@ -114,6 +112,11 @@ public class CoinlibExchanger implements Exchanger {
             return null;
         }
         return responseEntity.getBody();
+    }
+
+    private String getCode(String currencySymbol) {
+        CoinlibDictionary coinlibDictionary = dictionaryRepository.getByCurrencySymbolAndEnabledTrue(currencySymbol);
+        return nonNull(coinlibDictionary) ? coinlibDictionary.getCoinlibSymbol() : currencySymbol;
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
