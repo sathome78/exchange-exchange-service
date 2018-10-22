@@ -9,5 +9,5 @@ import java.util.Set;
 @Repository
 public interface CoinlibDictionaryRepository extends JpaRepository<CoinlibDictionary, Long> {
 
-    Set<CoinlibDictionary> findAllByEnabledTrue();
+    CoinlibDictionary getByCurrencySymbolAndEnabledTrue(String currencySymbol);
 }

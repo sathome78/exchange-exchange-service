@@ -1102,7 +1102,7 @@ INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_curr
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('ELY', 'elysian', 'Elysian', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('XRA', 'ratecoin', 'Ratecoin', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('CRD', 'cryptaldash', 'CryptalDash', false);
-INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('TTC', 'tittiecoin', 'TittieCoin', false);
+INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('TTC', 'tittiecoin', 'TittieCoin', true);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('VOT', 'votecoin', 'VoteCoin', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('RLT', 'roulettetoken', 'RouletteToken', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('ZEUS', 'zeuscrowdfunding', 'ZeusCrowdfunding', false);
@@ -1155,6 +1155,7 @@ INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_curr
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('ACTP', 'archetypal-network', 'Archetypal Network', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('OUR', 'ourcoin', 'Ourcoin', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('BNC0', 'bionic', 'Bionic', true);
+INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('BNC', 'bionic', 'Bionic', true);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('WIX', 'wixlar', 'Wixlar', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('CJ', 'cryptojacks', 'Cryptojacks', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('TDS', 'tokendesk', 'TokenDesk', false);
@@ -1710,7 +1711,7 @@ INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_curr
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('DFT', 'digifinextoken', 'DigiFinexToken', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('FTO', 'futurocoin', 'FuturoCoin', true);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('BLACK', 'eosblack', 'eosBLACK', false);
-INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('PLC', 'platincoin', 'PLATINCOIN', false);
+INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('PLC', 'platincoin', 'PLATINCOIN', true);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('OF', 'ofcoin', 'OFCOIN', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('XMC', 'monero-classic', 'Monero Classic', false);
 INSERT IGNORE INTO coinmarketcup_dictionary (currency_symbol, coinmarketcup_currency_symbol, coinmarketcup_currency_name, enabled) VALUES ('USE', 'usechain-token', 'Usechain Token', false);

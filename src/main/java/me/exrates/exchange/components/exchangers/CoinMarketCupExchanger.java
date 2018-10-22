@@ -13,7 +13,9 @@ import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.repositories.CoinmarketcupDictionaryRepository;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -22,12 +24,11 @@ import org.springframework.web.client.RestTemplate;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Stream;
 
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toMap;
+import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_COIN_MARKET_CUP_CODES;
 import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 
 @Slf4j
@@ -37,24 +38,19 @@ public class CoinMarketCupExchanger implements Exchanger {
 
     private String apiUrlTicker;
 
-    private final Map<String, String> codes;
+    private final Cache codesCache;
 
+    private final CoinmarketcupDictionaryRepository dictionaryRepository;
     private final RestTemplate restTemplate;
 
     @Autowired
     public CoinMarketCupExchanger(@Value("${exchangers.coinmarketcup.api-url.ticker}") String apiUrlTicker,
-                                  CoinmarketcupDictionaryRepository dictionaryRepository) {
+                                  CoinmarketcupDictionaryRepository dictionaryRepository,
+                                  @Qualifier(CACHE_COIN_MARKET_CUP_CODES) Cache codesCache) {
         this.apiUrlTicker = apiUrlTicker;
-        this.codes = dictionaryRepository.findAllByEnabledTrue().stream()
-                .filter(dictionary -> nonNull(dictionary.getCurrencySymbol()))
-                .collect(toMap(
-                        CoinmarketcupDictionary::getCurrencySymbol,
-                        CoinmarketcupDictionary::getCoinmarketcupSymbol,
-                        (k1, k2) -> {
-                            log.debug("Duplicate key: {}", k2);
-                            return k2;
-                        }));
+        this.dictionaryRepository = dictionaryRepository;
         this.restTemplate = new RestTemplate();
+        this.codesCache = codesCache;
     }
 
     @Override
@@ -83,7 +79,7 @@ public class CoinMarketCupExchanger implements Exchanger {
 
     private List<CoinMarketCupData> getDataFromMarket(String currencySymbol) {
         final String url = apiUrlTicker
-                + (nonNull(currencySymbol) ? codes.get(currencySymbol) : StringUtils.EMPTY);
+                + (nonNull(currencySymbol) ? codesCache.get(currencySymbol, () -> getCode(currencySymbol)) : StringUtils.EMPTY);
 
         ResponseEntity<CoinMarketCupData[]> responseEntity;
         try {
@@ -99,6 +95,11 @@ public class CoinMarketCupExchanger implements Exchanger {
         return nonNull(body)
                 ? Stream.of(body).collect(toList())
                 : Collections.emptyList();
+    }
+
+    private String getCode(String currencySymbol) {
+        CoinmarketcupDictionary coinlibDictionary = dictionaryRepository.getByCurrencySymbolAndEnabledTrue(currencySymbol);
+        return nonNull(coinlibDictionary) ? coinlibDictionary.getCoinmarketcupSymbol() : currencySymbol;
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
