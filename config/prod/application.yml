@@ -88,11 +88,9 @@ exchangers:
     api-url:
       coin: https://coinlib.io/api/v1/coin
     api-key: 'a5c162aa66e69ee6'
-    csv: coinlib.csv
   coinmarketcup:
     api-url:
       ticker: https://api.coinmarketcap.com/v1/ticker/
-    csv: coinmarketcup.csv
   exrates:
     api-url:
       ticker: https://exrates.me/openapi/v1/public/ticker
