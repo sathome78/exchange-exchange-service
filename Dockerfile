@@ -1,4 +1,4 @@
-FROM openjdk:10
+FROM java:8
 VOLUME /tmp
 ARG APP_PATH=/exchange
 ARG ENVIRONMENT
@@ -11,5 +11,5 @@ ARG CONFIG_FILE_PATH="-Dspring.config.location="${ENVIRONMENT}"/application.yml"
 
 WORKDIR ${APP_PATH}
 
-EXPOSE 8083
+EXPOSE 8080
 CMD java -jar exchange.jar $CONFIG_FILE_PATH
