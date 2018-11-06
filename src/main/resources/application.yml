@@ -93,7 +93,7 @@ exchangers:
   coinlib:
     api-url:
       coin: https://coinlib.io/api/v1/coin
-    api-key: 'a5c162aa66e69ee6'
+    api-key: '53f7ed6d06dc59ed'
   coinmarketcup:
     api-url:
       ticker: https://api.coinmarketcap.com/v1/ticker/
@@ -107,7 +107,7 @@ exchangers:
   worldcoinindex:
     api-url:
       ticker: https://www.worldcoinindex.com/apiservice/ticker
-    api-key: 'GGJokOdeHrwab8hR8AdVDSn6k3kg4P'
+    api-key: 'O0nWXOhVzIRgHs7QS4TpzxVxgrdi4n'
 
 
 

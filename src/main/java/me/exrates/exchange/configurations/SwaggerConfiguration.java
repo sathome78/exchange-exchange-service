@@ -40,6 +40,7 @@ public class SwaggerConfiguration {
         return new ApiInfoBuilder()
                 .title("Exchange service")
                 .description("Describe REST Web services 'Exchange api'.")
+                .description("Powered by https://coinlib.io/apidocs")
                 .version("1.0")
                 .termsOfServiceUrl("http://terms-of-services.url")
                 .license("Licence Type if need")

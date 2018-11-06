@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.exchangers.WorldCoinIndexExchanger;
 import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.ExchangerType;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-@Ignore
+//@Ignore
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest
