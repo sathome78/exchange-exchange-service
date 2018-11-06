@@ -13,6 +13,7 @@ import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
@@ -35,6 +36,7 @@ import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 import static me.exrates.exchange.utils.CollectionUtil.isNotEmpty;
 
 @Slf4j
+@Lazy
 @Component("worldCoinIndexExchanger")
 public class WorldCoinIndexExchanger implements Exchanger {
 

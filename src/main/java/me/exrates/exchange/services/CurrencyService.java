@@ -11,7 +11,6 @@ import me.exrates.exchange.repositories.CurrencyRepository;
 import me.exrates.exchange.utils.ExecutorUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -122,7 +121,7 @@ public class CurrencyService {
         });
     }
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional
     public void refreshRateByCurrency(ExchangerType exchangerType, Currency currency) {
         Exchanger exchanger = factory.getExchanger(exchangerType);
 
