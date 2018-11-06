@@ -32,10 +32,10 @@ public class ExchangerFactoryImpl implements ExchangerFactory {
     }
 
     @Override
-    public Exchanger getExchanger(ExchangerType type) {
-        Exchanger exchanger = exchangers.get(type);
+    public Exchanger getExchanger(ExchangerType exchangerType) {
+        Exchanger exchanger = exchangers.get(exchangerType);
         if (isNull(exchanger)) {
-            throw new NoSuchExchangerException(String.format("No exchanger found with name: %s", type));
+            throw new NoSuchExchangerException(String.format("No exchanger found with name: %s", exchangerType));
         }
         return exchanger;
     }

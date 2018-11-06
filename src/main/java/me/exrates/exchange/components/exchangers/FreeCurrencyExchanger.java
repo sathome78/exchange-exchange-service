@@ -68,7 +68,7 @@ public class FreeCurrencyExchanger implements Exchanger {
         return nonNull(btcRate) && nonNull(usdRate)
                 ? CurrencyDto.builder()
                 .symbol(currencySymbol)
-                .type(getExchangerType())
+                .exchangerType(getExchangerType())
                 .btcRate(new BigDecimal(btcRate.val))
                 .usdRate(new BigDecimal(usdRate.val))
                 .build()

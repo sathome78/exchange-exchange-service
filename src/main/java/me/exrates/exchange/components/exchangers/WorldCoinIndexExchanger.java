@@ -76,7 +76,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
         return nonNull(btcRate) && nonNull(usdRate)
                 ? CurrencyDto.builder()
                 .symbol(currencySymbol)
-                .type(getExchangerType())
+                .exchangerType(getExchangerType())
                 .btcRate(BigDecimal.valueOf(btcRate.price))
                 .usdRate(BigDecimal.valueOf(usdRate.price))
                 .build()
@@ -85,6 +85,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
 
     private Map<BaseCurrency, List<Market>> getDataFromMarket(String currencySymbol) {
         return Stream.of(BaseCurrency.values())
+                .filter(value -> !BaseCurrency.ETH.equals(value))
                 .map(value -> Pair.of(value, getDataFromMarketByBaseCurrency(currencySymbol, value)))
                 .filter(pair -> isNotEmpty(pair.getValue()))
                 .collect(toMap(Pair::getKey, Pair::getValue));

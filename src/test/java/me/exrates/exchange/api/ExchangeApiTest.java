@@ -10,7 +10,6 @@ import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.models.form.CurrencyForm;
 import me.exrates.exchange.repositories.CurrencyRepository;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
-@Ignore
+//@Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ExchangeApiTest {
@@ -65,7 +64,8 @@ public class ExchangeApiTest {
         //create new currency
         CurrencyForm currency = CurrencyForm.builder()
                 .symbol(TEST_COIN)
-                .type(ExchangerType.EXRATES)
+                .exchangerType(ExchangerType.EXRATES)
+                .exchangerSymbol(TEST_COIN + ExchangerType.EXRATES.name())
                 .btcRate(BigDecimal.ONE)
                 .usdRate(BigDecimal.TEN)
                 .build();
@@ -73,25 +73,26 @@ public class ExchangeApiTest {
 
         assertNotNull(newCurrency);
         assertNotNull(newCurrency.getSymbol());
-        assertNotNull(newCurrency.getType());
+        assertNotNull(newCurrency.getExchangerType());
         assertNotNull(newCurrency.getBtcRate());
         assertNotNull(newCurrency.getBtcRateUpdatedAt());
         assertNotNull(newCurrency.getUsdRate());
         assertNotNull(newCurrency.getUsdRateUpdatedAt());
 
         assertEquals(TEST_COIN, newCurrency.getSymbol());
-        assertEquals(ExchangerType.EXRATES, newCurrency.getType());
+        assertEquals(ExchangerType.EXRATES, newCurrency.getExchangerType());
         assertEquals(BigDecimal.ONE, newCurrency.getBtcRate());
         assertEquals(BigDecimal.TEN, newCurrency.getUsdRate());
 
         //update exchanger type
-        exchangeApi.updateCurrencyType(TEST_COIN, ExchangerType.COIN_MARKET_CUP);
+        exchangeApi.updateCurrency(TEST_COIN, ExchangerType.COIN_MARKET_CUP, TEST_COIN + ExchangerType.COIN_MARKET_CUP.name());
 
         Currency one = currencyRepository.getOne(TEST_COIN);
 
         assertNotNull(one);
-        assertNotNull(one.getType());
-        assertEquals(ExchangerType.COIN_MARKET_CUP, one.getType());
+        assertNotNull(one.getExchangerType());
+        assertEquals(ExchangerType.COIN_MARKET_CUP, one.getExchangerType());
+        assertEquals(TEST_COIN + ExchangerType.COIN_MARKET_CUP.name(), one.getExchangerSymbol());
 
         //delete new currency
         exchangeApi.deleteCurrency(TEST_COIN);
@@ -100,39 +101,39 @@ public class ExchangeApiTest {
     @Test
     public void getRatesByExchangerTypesTest() {
         //Coinlib coin
-        CurrencyDto currency = exchangeApi.getRatesByCurrency(BCS);
+        CurrencyDto currency = exchangeApi.getRatesByCurrencySymbol(BCS);
 
         assertNotNull(currency);
         assertEquals(BCS, currency.getSymbol());
-        assertEquals(ExchangerType.COINLIB, currency.getType());
+        assertEquals(ExchangerType.COINLIB, currency.getExchangerType());
 
         //CoinMarketCup coin
-        currency = exchangeApi.getRatesByCurrency(DASH);
+        currency = exchangeApi.getRatesByCurrencySymbol(DASH);
 
         assertNotNull(currency);
         assertEquals(DASH, currency.getSymbol());
-        assertEquals(ExchangerType.COIN_MARKET_CUP, currency.getType());
+        assertEquals(ExchangerType.COIN_MARKET_CUP, currency.getExchangerType());
 
         //Exrates coin
-        currency = exchangeApi.getRatesByCurrency(BRB);
+        currency = exchangeApi.getRatesByCurrencySymbol(BRB);
 
         assertNotNull(currency);
         assertEquals(BRB, currency.getSymbol());
-        assertEquals(ExchangerType.EXRATES, currency.getType());
+        assertEquals(ExchangerType.EXRATES, currency.getExchangerType());
 
         //FreeCurrency coin
-        currency = exchangeApi.getRatesByCurrency(VND);
+        currency = exchangeApi.getRatesByCurrencySymbol(VND);
 
         assertNotNull(currency);
         assertEquals(VND, currency.getSymbol());
-        assertEquals(ExchangerType.FREE_CURRENCY, currency.getType());
+        assertEquals(ExchangerType.FREE_CURRENCY, currency.getExchangerType());
 
         //WorldCoinIndex coin
-        currency = exchangeApi.getRatesByCurrency(eMTV);
+        currency = exchangeApi.getRatesByCurrencySymbol(eMTV);
 
         assertNotNull(currency);
         assertEquals(eMTV, currency.getSymbol());
-        assertEquals(ExchangerType.WORLD_COIN_INDEX, currency.getType());
+        assertEquals(ExchangerType.WORLD_COIN_INDEX, currency.getExchangerType());
     }
 
     @Test

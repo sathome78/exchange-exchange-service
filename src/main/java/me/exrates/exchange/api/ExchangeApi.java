@@ -22,7 +22,7 @@ import java.util.Map;
 public interface ExchangeApi {
 
     @GetMapping("/rates/{currency_symbol}")
-    CurrencyDto getRatesByCurrency(@PathVariable(value = "currency_symbol") String symbol);
+    CurrencyDto getRatesByCurrencySymbol(@PathVariable(value = "currency_symbol") String symbol);
 
     @GetMapping("/rates/all")
     Map<String, CurrencyDto> getAllRates();
@@ -31,9 +31,10 @@ public interface ExchangeApi {
     CurrencyDto createCurrency(@Validated @RequestBody CurrencyForm form);
 
     @DeleteMapping("/delete")
-    void deleteCurrency(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol);
+    void deleteCurrency(@RequestParam(value = "currency_symbol", defaultValue = "BTC") String symbol);
 
-    @PutMapping("/update-type")
-    void updateCurrencyType(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol,
-                            @RequestParam(value = "exchanger_type", defaultValue = "FREE_CURRENCY") ExchangerType type);
+    @PutMapping("/update")
+    void updateCurrency(@RequestParam(value = "currency_symbol", defaultValue = "BTC") String symbol,
+                        @RequestParam(value = "exchanger_type", defaultValue = "COIN_MARKET_CUP") ExchangerType exchangerType,
+                        @RequestParam(value = "exchanger_symbol", defaultValue = "bitcoin") String exchangerSymbol);
 }

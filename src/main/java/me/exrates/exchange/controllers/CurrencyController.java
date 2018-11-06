@@ -46,8 +46,8 @@ public class CurrencyController {
     }
 
     @GetMapping(value = "/rates/{currency_symbol}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CurrencyDto> getRatesByCurrency(@PathVariable(value = "currency_symbol") String symbol) {
-        Currency currency = currencyService.getRatesByCurrency(symbol);
+    public ResponseEntity<CurrencyDto> getRatesByCurrencySymbol(@PathVariable(value = "currency_symbol") String symbol) {
+        Currency currency = currencyService.getRatesByCurrencySymbol(symbol);
         return ResponseEntity.ok(modelMapper.map(currency, CurrencyDto.class));
     }
 
@@ -70,15 +70,16 @@ public class CurrencyController {
     }
 
     @DeleteMapping(value = "/delete")
-    public ResponseEntity deleteCurrency(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol) {
+    public ResponseEntity deleteCurrency(@RequestParam(value = "currency_symbol", defaultValue = "BTC") String symbol) {
         currencyService.delete(symbol);
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PutMapping(value = "/update-type")
-    public ResponseEntity updateCurrencyType(@RequestParam(value = "currency_symbol", defaultValue = "UAH") String symbol,
-                                             @RequestParam(value = "exchanger_type", defaultValue = "FREE_CURRENCY") ExchangerType type) {
-        currencyService.updateExchangerType(symbol, type);
+    @PutMapping(value = "/update")
+    public ResponseEntity updateCurrency(@RequestParam(value = "currency_symbol", defaultValue = "BTC") String symbol,
+                                         @RequestParam(value = "exchanger_type", defaultValue = "COIN_MARKET_CUP") ExchangerType exchangerType,
+                                         @RequestParam(value = "exchanger_symbol", defaultValue = "bitcoin") String exchangerSymbol) {
+        currencyService.updateCurrency(symbol, exchangerType, exchangerSymbol);
         return new ResponseEntity(HttpStatus.OK);
     }
 }

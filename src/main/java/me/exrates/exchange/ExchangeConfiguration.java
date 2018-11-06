@@ -3,7 +3,6 @@ package me.exrates.exchange;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
-import me.exrates.exchange.configurations.CacheConfiguration;
 import me.exrates.exchange.configurations.ResourcesServerConfiguration;
 import me.exrates.exchange.configurations.SwaggerConfiguration;
 import me.exrates.exchange.configurations.WebSecurityConfiguration;
@@ -27,7 +26,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Import({
         WebSecurityConfiguration.class,
         ResourcesServerConfiguration.class,
-        CacheConfiguration.class,
         SwaggerConfiguration.class
 })
 public class ExchangeConfiguration {

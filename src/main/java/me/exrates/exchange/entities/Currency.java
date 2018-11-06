@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 @Builder(builderClassName = "Builder")
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"symbol", "type"})
+@EqualsAndHashCode(of = {"symbol", "exchangerType", "exchangerSymbol"})
 @Indexed
 @Entity
 @Table(name = "currency")
@@ -32,8 +32,11 @@ public class Currency {
     private String symbol;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "type", nullable = false)
-    private ExchangerType type;
+    @Column(name = "exchanger_type", nullable = false)
+    private ExchangerType exchangerType;
+
+    @Column(name = "exchanger_symbol", nullable = false, length = 32)
+    private String exchangerSymbol;
 
     @Column(name = "usd_rate")
     private BigDecimal usdRate;

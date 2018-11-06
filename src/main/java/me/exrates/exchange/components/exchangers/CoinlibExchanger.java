@@ -5,17 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
-import me.exrates.exchange.entities.CoinlibDictionary;
 import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
-import me.exrates.exchange.repositories.CoinlibDictionaryRepository;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -32,7 +28,6 @@ import java.util.stream.Stream;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toMap;
-import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_COINLIB_CODES;
 
 @Slf4j
 @Lazy
@@ -42,21 +37,14 @@ public class CoinlibExchanger implements Exchanger {
     private String apiUrlCoin;
     private String apiKey;
 
-    private final Cache codesCache;
-
-    private final CoinlibDictionaryRepository dictionaryRepository;
     private final RestTemplate restTemplate;
 
     @Autowired
     public CoinlibExchanger(@Value("${exchangers.coinlib.api-url.coin}") String apiUrlCoin,
-                            @Value("${exchangers.coinlib.api-key}") String apiKey,
-                            CoinlibDictionaryRepository dictionaryRepository,
-                            @Qualifier(CACHE_COINLIB_CODES) Cache codesCache) {
+                            @Value("${exchangers.coinlib.api-key}") String apiKey) {
         this.apiUrlCoin = apiUrlCoin;
         this.apiKey = apiKey;
-        this.dictionaryRepository = dictionaryRepository;
         this.restTemplate = new RestTemplate();
-        this.codesCache = codesCache;
     }
 
     @Override
@@ -77,7 +65,7 @@ public class CoinlibExchanger implements Exchanger {
         return nonNull(btcRate) && nonNull(usdRate)
                 ? CurrencyDto.builder()
                 .symbol(currencySymbol)
-                .type(getExchangerType())
+                .exchangerType(getExchangerType())
                 .btcRate(BigDecimal.valueOf(btcRate.price))
                 .usdRate(BigDecimal.valueOf(usdRate.price))
                 .build()
@@ -86,6 +74,7 @@ public class CoinlibExchanger implements Exchanger {
 
     private Map<BaseCurrency, CoinlibData> getDataFromMarket(String currencySymbol) {
         return Stream.of(BaseCurrency.values())
+                .filter(value -> !BaseCurrency.ETH.equals(value))
                 .map(value -> Pair.of(value, getDataFromMarketByBaseCurrency(currencySymbol, value)))
                 .filter(pair -> nonNull(pair.getValue()))
                 .collect(toMap(Pair::getKey, Pair::getValue));
@@ -94,7 +83,7 @@ public class CoinlibExchanger implements Exchanger {
     private CoinlibData getDataFromMarketByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {
         MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("key", apiKey);
-        requestParameters.add("symbol", codesCache.get(currencySymbol, () -> getCode(currencySymbol)));
+        requestParameters.add("symbol", currencySymbol);
         requestParameters.add("pref", baseCurrency.name());
 
         UriComponents builder = UriComponentsBuilder
@@ -112,11 +101,6 @@ public class CoinlibExchanger implements Exchanger {
             return null;
         }
         return responseEntity.getBody();
-    }
-
-    private String getCode(String currencySymbol) {
-        CoinlibDictionary coinlibDictionary = dictionaryRepository.getByCurrencySymbolAndEnabledTrue(currencySymbol);
-        return nonNull(coinlibDictionary) ? coinlibDictionary.getCoinlibSymbol() : currencySymbol;
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)

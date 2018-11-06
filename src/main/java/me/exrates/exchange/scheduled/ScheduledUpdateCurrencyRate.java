@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @EnableScheduling
 public class ScheduledUpdateCurrencyRate {
+
     private final CurrencyService currencyService;
 
     @Autowired

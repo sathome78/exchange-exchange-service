@@ -42,7 +42,7 @@ public class CurrencyService {
     }
 
     @Transactional(readOnly = true)
-    public Currency getRatesByCurrency(String currencySymbol) {
+    public Currency getRatesByCurrencySymbol(String currencySymbol) {
         Currency currency = currencyRepository.getBySymbol(currencySymbol);
         if (isNull(currency)) {
             log.info("Currency {} is not present in database", currencySymbol);
@@ -68,11 +68,12 @@ public class CurrencyService {
 
         Currency newCurrency = Currency.builder()
                 .symbol(form.getSymbol())
-                .type(form.getType())
-                .btcRate(form.getBtcRate())
-                .btcRateUpdatedAt(now)
+                .exchangerType(form.getExchangerType())
+                .exchangerSymbol(form.getExchangerSymbol())
                 .usdRate(form.getUsdRate())
                 .usdRateUpdatedAt(now)
+                .btcRate(form.getBtcRate())
+                .btcRateUpdatedAt(now)
                 .build();
         currencyRepository.save(newCurrency);
         log.info("Currency {} has been created", form.getSymbol());
@@ -86,9 +87,9 @@ public class CurrencyService {
     }
 
     @Transactional
-    public void updateExchangerType(String currencySymbol, ExchangerType newType) {
-        currencyRepository.updateExchangerType(currencySymbol, newType);
-        log.info("Currency {} exchanger type has been updated: {}", currencySymbol, newType);
+    public void updateCurrency(String currencySymbol, ExchangerType exchangerType, String exchangerSymbol) {
+        currencyRepository.updateCurrency(currencySymbol, exchangerType, exchangerSymbol);
+        log.info("Currency {} exchanger type has been updated: {}", currencySymbol, exchangerType);
     }
 
     @Transactional
@@ -98,7 +99,7 @@ public class CurrencyService {
             log.info("No currencies present in database");
             return;
         }
-        Map<ExchangerType, List<Currency>> groupedByType = all.stream().collect(Collectors.groupingBy(Currency::getType));
+        Map<ExchangerType, List<Currency>> groupedByType = all.stream().collect(Collectors.groupingBy(Currency::getExchangerType));
 
         ExecutorService executor = Executors.newFixedThreadPool(groupedByType.size());
 
@@ -107,29 +108,29 @@ public class CurrencyService {
         ExecutorUtil.shutdownExecutor(executor);
     }
 
-    private void refreshRatesByType(ExchangerType type, List<Currency> currencies) {
+    private void refreshRatesByType(ExchangerType exchangerType, List<Currency> currencies) {
         currencies.forEach(currency -> {
             try {
                 TimeUnit.MILLISECONDS.sleep(2500);
             } catch (InterruptedException ex) {
                 log.debug("Delay interrupted!");
             }
-            refreshRateByCurrency(type, currency.getSymbol());
+            refreshRateByCurrency(exchangerType, currency);
         });
     }
 
     @Transactional
-    public void refreshRateByCurrency(ExchangerType type, String currencySymbol) {
-        Exchanger exchanger = factory.getExchanger(type);
+    public void refreshRateByCurrency(ExchangerType exchangerType, Currency currency) {
+        Exchanger exchanger = factory.getExchanger(exchangerType);
 
-        CurrencyDto currency = exchanger.getRate(currencySymbol);
-        if (isNull(currency)) {
-            log.info("The exchange rate for {} is not taken from {} server", currencySymbol, type);
+        CurrencyDto currencyDto = exchanger.getRate(currency.getExchangerSymbol());
+        if (isNull(currencyDto)) {
+            log.info("The exchange rate for {} is not taken from {} server", currency.getSymbol(), exchangerType);
             return;
         }
-        final BigDecimal btcRate = currency.getBtcRate();
-        final BigDecimal usdRate = currency.getUsdRate();
-        log.info("The exchange rate for {} is taken from {} server: BTC {}, USD {}", currencySymbol, type, btcRate, usdRate);
-        currencyRepository.updateRates(currencySymbol, btcRate, usdRate);
+        final BigDecimal btcRate = currencyDto.getBtcRate();
+        final BigDecimal usdRate = currencyDto.getUsdRate();
+        log.info("The exchange rate for {} is taken from {} server: BTC {}, USD {}", currency.getSymbol(), exchangerType, btcRate, usdRate);
+        currencyRepository.updateRates(currency.getSymbol(), btcRate, usdRate);
     }
 }

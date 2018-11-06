@@ -21,7 +21,8 @@ import java.time.LocalDateTime;
 public class CurrencyDto {
 
     private String symbol;
-    private ExchangerType type;
+    @JsonProperty("exchanger_type")
+    private ExchangerType exchangerType;
     @JsonProperty("usd_rate")
     private BigDecimal usdRate;
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)

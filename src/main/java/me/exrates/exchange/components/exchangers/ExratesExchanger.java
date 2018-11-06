@@ -3,6 +3,8 @@ package me.exrates.exchange.components.exchangers;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.exceptions.ExchangerException;
@@ -11,7 +13,9 @@ import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -25,28 +29,42 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
-import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 import static me.exrates.exchange.utils.CollectionUtil.isNotEmpty;
 
 @Slf4j
 @Lazy
+@DependsOn("coinMarketCupExchanger")
 @Component("exratesExchanger")
 public class ExratesExchanger implements Exchanger {
+
+    private static final String BTC = "bitcoin";
+    private static final String ETH = "ethereum";
+
+    private static final double DEFAULT_USD_RATE = 0.000001;
 
     private String apiUrlTicker;
 
     private final RestTemplate restTemplate;
+    private final Exchanger coinmarketcupExchanger;
+    private final Cache<String, Double> usdRates;
 
     @Autowired
-    public ExratesExchanger(@Value("${exchangers.exrates.api-url.ticker}") String apiUrlTicker) {
+    public ExratesExchanger(@Value("${exchangers.exrates.api-url.ticker}") String apiUrlTicker,
+                            @Qualifier("coinMarketCupExchanger") Exchanger coinmarketcupExchanger) {
         this.apiUrlTicker = apiUrlTicker;
+        this.coinmarketcupExchanger = coinmarketcupExchanger;
         this.restTemplate = new RestTemplate();
+        this.usdRates = CacheBuilder.newBuilder()
+                .expireAfterWrite(10, TimeUnit.MINUTES)
+                .build();
     }
 
     @Override
@@ -56,27 +74,76 @@ public class ExratesExchanger implements Exchanger {
 
     @Override
     public CurrencyDto getRate(String currencySymbol) {
+        Double btcUsd;
+        try {
+            btcUsd = usdRates.get(BTC, () -> getUsdRateFromCoinmarketcup(BTC));
+        } catch (ExecutionException ex) {
+            btcUsd = 0d;
+        }
+
+        Double ethUsd;
+        try {
+            ethUsd = usdRates.get(ETH, () -> getUsdRateFromCoinmarketcup(ETH));
+        } catch (ExecutionException ex) {
+            ethUsd = 0d;
+        }
+
         Map<BaseCurrency, List<ExratesData>> data = getDataFromMarket(currencySymbol);
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from Exrates server is not available");
-            return null;
+            return CurrencyDto.builder()
+                    .symbol(currencySymbol)
+                    .exchangerType(getExchangerType())
+                    .usdRate(BigDecimal.valueOf(DEFAULT_USD_RATE))
+                    .btcRate(BigDecimal.valueOf(DEFAULT_USD_RATE / btcUsd))
+                    .build();
         }
-        List<ExratesData> btcData = data.get(BaseCurrency.BTC);
-        List<ExratesData> usdData = data.get(BaseCurrency.USD);
-        if (isEmpty(btcData) || isEmpty(usdData)) {
-            return null;
-        }
-        final ExratesData btcRate = btcData.get(0);
-        final ExratesData usdRate = usdData.get(0);
 
-        return nonNull(btcRate) && nonNull(usdRate)
-                ? CurrencyDto.builder()
+        List<ExratesData> usdData = data.get(BaseCurrency.USD);
+        List<ExratesData> btcData = data.get(BaseCurrency.BTC);
+        List<ExratesData> ethData = data.get(BaseCurrency.ETH);
+
+        int number = 0;
+        double usdRate1;
+        if (isNotEmpty(usdData) && nonNull(usdData.get(0))) {
+            usdRate1 = usdData.get(0).last;
+            number++;
+        } else {
+            usdRate1 = 0;
+        }
+        double usdRate2;
+        if (isNotEmpty(btcData) && nonNull(btcData.get(0))) {
+            usdRate2 = btcData.get(0).last * btcUsd;
+            number++;
+        } else {
+            usdRate2 = 0;
+        }
+        double usdRate3;
+        if (isNotEmpty(ethData) && nonNull(ethData.get(0))) {
+            usdRate3 = ethData.get(0).last * ethUsd;
+            number++;
+        } else {
+            usdRate3 = 0;
+        }
+
+
+        final double midUsdRate = (usdRate1 + usdRate2 + usdRate3) / number;
+        final double midBtcRate = midUsdRate / btcUsd;
+
+        return CurrencyDto.builder()
                 .symbol(currencySymbol)
-                .type(getExchangerType())
-                .btcRate(BigDecimal.valueOf(btcRate.last))
-                .usdRate(BigDecimal.valueOf(usdRate.last))
-                .build()
-                : null;
+                .exchangerType(getExchangerType())
+                .usdRate(midUsdRate != 0 ? BigDecimal.valueOf(midUsdRate) : BigDecimal.valueOf(DEFAULT_USD_RATE))
+                .btcRate(midBtcRate != 0 ? BigDecimal.valueOf(midBtcRate) : BigDecimal.valueOf(DEFAULT_USD_RATE / btcUsd))
+                .build();
+    }
+
+    private Double getUsdRateFromCoinmarketcup(String symbol) {
+        CurrencyDto currencyDto = coinmarketcupExchanger.getRate(symbol);
+        if (isNull(currencyDto)) {
+            return 0d;
+        }
+        return currencyDto.getUsdRate().doubleValue();
     }
 
     private Map<BaseCurrency, List<ExratesData>> getDataFromMarket(String currencySymbol) {

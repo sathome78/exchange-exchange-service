@@ -2,5 +2,5 @@ package me.exrates.exchange.models.enums;
 
 public enum BaseCurrency {
 
-    USD, BTC
+    USD, BTC, ETH
 }

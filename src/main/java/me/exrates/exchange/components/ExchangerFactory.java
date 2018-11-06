@@ -8,5 +8,5 @@ public interface ExchangerFactory {
 
     Set<ExchangerType> getAvailableExchangers();
 
-    Exchanger getExchanger(ExchangerType type);
+    Exchanger getExchanger(ExchangerType exchangerType);
 }

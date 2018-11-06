@@ -24,6 +24,6 @@ public interface CurrencyRepository extends JpaRepository<Currency, String> {
 
     @Transactional
     @Modifying
-    @Query("UPDATE Currency c SET c.type = :type, c.usdRate = 0, c.usdRateUpdatedAt = CURRENT_TIMESTAMP, c.btcRate = 0, c.btcRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.symbol = :symbol")
-    void updateExchangerType(@Param("symbol") String currencySymbol, @Param("type") ExchangerType newType);
+    @Query("UPDATE Currency c SET c.exchangerType = :exchanger_type, c.exchangerSymbol = :exchanger_symbol, c.usdRate = 0, c.usdRateUpdatedAt = CURRENT_TIMESTAMP, c.btcRate = 0, c.btcRateUpdatedAt = CURRENT_TIMESTAMP WHERE c.symbol = :symbol")
+    void updateCurrency(@Param("symbol") String currencySymbol, @Param("exchanger_type") ExchangerType exchangerType, @Param("exchanger_symbol") String exchangerSymbol);
 }

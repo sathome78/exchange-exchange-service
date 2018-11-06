@@ -18,7 +18,8 @@ public class CurrencyForm {
 
     @NotEmpty
     private String symbol;
-    private ExchangerType type;
+    private ExchangerType exchangerType;
+    private String exchangerSymbol;
     private BigDecimal usdRate;
     private BigDecimal btcRate;
 }
