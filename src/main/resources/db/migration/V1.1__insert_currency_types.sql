@@ -184,7 +184,7 @@ INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('WAVES', 'COIN_MARKET_CUP', 'waves');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('WDSC', 'COINLIB', 'WDSC');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('WTL', 'COIN_MARKET_CUP', 'welltrado');
-INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XBD', 'COINLIB', 'BitDollar');
+INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XBD', 'COINLIB', 'XBD');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XEM', 'COIN_MARKET_CUP', 'nem');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XFC', 'COINLIB', 'XFC3');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XLM', 'COIN_MARKET_CUP', 'stellar');

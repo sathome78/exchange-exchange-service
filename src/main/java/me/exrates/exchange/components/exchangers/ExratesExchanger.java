@@ -167,7 +167,7 @@ public class ExratesExchanger implements Exchanger {
                 throw new ExchangerException("Exrates server is not available");
             }
         } catch (Exception ex) {
-            log.warn("Error:", ex);
+            log.warn("Error {}-{}:", getExchangerType(), currencySymbol, ex);
             return Collections.emptyList();
         }
         ExratesData[] body = responseEntity.getBody();

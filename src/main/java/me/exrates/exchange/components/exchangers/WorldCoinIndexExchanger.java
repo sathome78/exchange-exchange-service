@@ -11,10 +11,14 @@ import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -50,7 +54,14 @@ public class WorldCoinIndexExchanger implements Exchanger {
                                    @Value("${exchangers.worldcoinindex.api-key}") String apiKey) {
         this.apiUrlTicker = apiUrlTicker;
         this.apiKey = apiKey;
-        this.restTemplate = new RestTemplate();
+
+        CloseableHttpClient httpClient = HttpClients.custom()
+                .setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE)
+                .build();
+        HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
+        requestFactory.setHttpClient(httpClient);
+
+        this.restTemplate = new RestTemplate(requestFactory);
     }
 
     @Override
@@ -109,7 +120,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
                 throw new ExchangerException("WorldCoinIndex server is not available");
             }
         } catch (Exception ex) {
-            log.warn("Error:", ex);
+            log.warn("Error {}-{}:", getExchangerType(), currencySymbol, ex);
             return Collections.emptyList();
         }
         WorldCoinIndexData body = responseEntity.getBody();
