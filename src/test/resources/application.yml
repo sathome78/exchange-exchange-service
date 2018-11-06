@@ -93,7 +93,7 @@ exchangers:
       ticker: https://api.coinmarketcap.com/v1/ticker/
   exrates:
     api-url:
-      ticker: https://exrates.me/openapi/v1/public/ticker
+      ticker: http://172.31.14.167:8080/openapi/v1/public/ticker
   freecurrency:
     api-url:
       convert: https://free.currencyconverterapi.com/api/v6/convert

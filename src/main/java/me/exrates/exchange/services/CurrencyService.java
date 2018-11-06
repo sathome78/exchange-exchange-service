@@ -106,16 +106,14 @@ public class CurrencyService {
         groupedByType.forEach((key, value) -> CompletableFuture.runAsync(() -> refreshRatesByType(key, value), executor));
 
         ExecutorUtil.shutdownExecutor(executor);
-
-//        groupedByType.forEach(this::refreshRatesByType);
     }
 
     private void refreshRatesByType(ExchangerType exchangerType, List<Currency> currencies) {
         currencies.forEach(currency -> {
             try {
-                TimeUnit.MILLISECONDS.sleep(2500);
+                TimeUnit.MILLISECONDS.sleep(3000);
             } catch (InterruptedException ex) {
-                log.debug("Delay interrupted!");
+                log.debug("Delay interrupted!", ex);
             }
             refreshRateByCurrency(exchangerType, currency);
         });

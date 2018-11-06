@@ -81,26 +81,26 @@ swagger:
 
 scheduled:
   update:
-    currency: 0 */10 * ? * *
+    currency: 0 */30 * ? * *
 
 exchangers:
   coinlib:
     api-url:
       coin: https://coinlib.io/api/v1/coin
-    api-key: a5c162aa66e69ee6
+    api-key: 'a5c162aa66e69ee6'
   coinmarketcup:
     api-url:
       ticker: https://api.coinmarketcap.com/v1/ticker/
   exrates:
     api-url:
-      ticker: https://exrates.me/openapi/v1/public/ticker
+      ticker: http://172.31.14.167:8080/openapi/v1/public/ticker
   freecurrency:
     api-url:
       convert: https://free.currencyconverterapi.com/api/v6/convert
   worldcoinindex:
     api-url:
       ticker: https://www.worldcoinindex.com/apiservice/ticker
-    api-key: GGJokOdeHrwab8hR8AdVDSn6k3kg4P
+    api-key: 'GGJokOdeHrwab8hR8AdVDSn6k3kg4P'
 
 
 

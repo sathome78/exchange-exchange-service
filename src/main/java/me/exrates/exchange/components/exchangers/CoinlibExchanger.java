@@ -74,6 +74,7 @@ public class CoinlibExchanger implements Exchanger {
 
     private Map<BaseCurrency, CoinlibData> getDataFromMarket(String currencySymbol) {
         return Stream.of(BaseCurrency.values())
+                .filter(value -> !BaseCurrency.ETH.equals(value))
                 .map(value -> Pair.of(value, getDataFromMarketByBaseCurrency(currencySymbol, value)))
                 .filter(pair -> nonNull(pair.getValue()))
                 .collect(toMap(Pair::getKey, Pair::getValue));

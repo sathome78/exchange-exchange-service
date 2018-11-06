@@ -85,6 +85,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
 
     private Map<BaseCurrency, List<Market>> getDataFromMarket(String currencySymbol) {
         return Stream.of(BaseCurrency.values())
+                .filter(value -> !BaseCurrency.ETH.equals(value))
                 .map(value -> Pair.of(value, getDataFromMarketByBaseCurrency(currencySymbol, value)))
                 .filter(pair -> isNotEmpty(pair.getValue()))
                 .collect(toMap(Pair::getKey, Pair::getValue));
