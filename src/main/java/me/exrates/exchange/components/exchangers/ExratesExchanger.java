@@ -15,8 +15,6 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.DependsOn;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
@@ -40,8 +38,6 @@ import static java.util.stream.Collectors.toMap;
 import static me.exrates.exchange.utils.CollectionUtil.isNotEmpty;
 
 @Slf4j
-@Lazy
-@DependsOn("coinMarketCupExchanger")
 @Component("exratesExchanger")
 public class ExratesExchanger implements Exchanger {
 

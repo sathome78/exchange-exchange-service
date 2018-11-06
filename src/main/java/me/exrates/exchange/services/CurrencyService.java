@@ -11,6 +11,7 @@ import me.exrates.exchange.repositories.CurrencyRepository;
 import me.exrates.exchange.utils.ExecutorUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -94,20 +95,20 @@ public class CurrencyService {
 
     @Transactional
     public void refreshCurrencyRate() {
-        List<Currency> all = currencyRepository.findAll().stream().filter(currency -> !ExchangerType.COIN_MARKET_CUP.equals(currency.getExchangerType())).collect(Collectors.toList());
+        List<Currency> all = currencyRepository.findAll();
         if (isEmpty(all)) {
             log.info("No currencies present in database");
             return;
         }
         Map<ExchangerType, List<Currency>> groupedByType = all.stream().collect(Collectors.groupingBy(Currency::getExchangerType));
 
-//        ExecutorService executor = Executors.newFixedThreadPool(groupedByType.size());
+        ExecutorService executor = Executors.newFixedThreadPool(groupedByType.size());
 
-//        groupedByType.forEach((key, value) -> CompletableFuture.runAsync(() -> refreshRatesByType(key, value), executor));
+        groupedByType.forEach((key, value) -> CompletableFuture.runAsync(() -> refreshRatesByType(key, value), executor));
 
-//        ExecutorUtil.shutdownExecutor(executor);
+        ExecutorUtil.shutdownExecutor(executor);
 
-        groupedByType.forEach(this::refreshRatesByType);
+//        groupedByType.forEach(this::refreshRatesByType);
     }
 
     private void refreshRatesByType(ExchangerType exchangerType, List<Currency> currencies) {
@@ -121,7 +122,7 @@ public class CurrencyService {
         });
     }
 
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void refreshRateByCurrency(ExchangerType exchangerType, Currency currency) {
         Exchanger exchanger = factory.getExchanger(exchangerType);
 

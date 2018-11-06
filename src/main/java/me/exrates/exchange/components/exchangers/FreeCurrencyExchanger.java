@@ -32,7 +32,6 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 @Slf4j
-@Lazy
 @Component("currencyLayerExchanger")
 public class FreeCurrencyExchanger implements Exchanger {
 

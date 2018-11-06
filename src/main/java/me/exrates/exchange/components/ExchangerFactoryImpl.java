@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.exceptions.NoSuchExchangerException;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public class ExchangerFactoryImpl implements ExchangerFactory {
     private final Map<ExchangerType, Exchanger> exchangers;
 
     @Autowired
-    public ExchangerFactoryImpl(@Lazy List<Exchanger> exchangers) {
+    public ExchangerFactoryImpl(List<Exchanger> exchangers) {
         this.exchangers = exchangers.stream().collect(Collectors.toMap(Exchanger::getExchangerType, identity()));
     }
 

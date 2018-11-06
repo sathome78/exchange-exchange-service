@@ -26,7 +26,6 @@ import static java.util.stream.Collectors.toList;
 import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 
 @Slf4j
-@Lazy
 @Component("coinMarketCupExchanger")
 public class CoinMarketCupExchanger implements Exchanger {
 
