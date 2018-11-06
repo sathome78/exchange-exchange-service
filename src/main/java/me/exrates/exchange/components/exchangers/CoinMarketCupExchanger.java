@@ -72,6 +72,7 @@ public class CoinMarketCupExchanger implements Exchanger {
                 throw new ExchangerException("CoinMarketCup server is not available");
             }
         } catch (Exception ex) {
+            log.warn("Error:", ex);
             return Collections.emptyList();
         }
         CoinMarketCupData[] body = responseEntity.getBody();

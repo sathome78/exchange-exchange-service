@@ -96,6 +96,7 @@ public class FreeCurrencyExchanger implements Exchanger {
                 throw new ExchangerException("FreeCurrency server is not available");
             }
         } catch (Exception ex) {
+            log.warn("Error:", ex);
             return Collections.emptyMap();
         }
         FreeCurrencyData body = responseEntity.getBody();
