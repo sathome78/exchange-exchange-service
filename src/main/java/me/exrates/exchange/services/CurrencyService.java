@@ -94,18 +94,20 @@ public class CurrencyService {
 
     @Transactional
     public void refreshCurrencyRate() {
-        List<Currency> all = currencyRepository.findAll();
+        List<Currency> all = currencyRepository.findAll().stream().filter(currency -> !ExchangerType.COIN_MARKET_CUP.equals(currency.getExchangerType())).collect(Collectors.toList());
         if (isEmpty(all)) {
             log.info("No currencies present in database");
             return;
         }
         Map<ExchangerType, List<Currency>> groupedByType = all.stream().collect(Collectors.groupingBy(Currency::getExchangerType));
 
-        ExecutorService executor = Executors.newFixedThreadPool(groupedByType.size());
+//        ExecutorService executor = Executors.newFixedThreadPool(groupedByType.size());
 
-        groupedByType.forEach((key, value) -> CompletableFuture.runAsync(() -> refreshRatesByType(key, value), executor));
+//        groupedByType.forEach((key, value) -> CompletableFuture.runAsync(() -> refreshRatesByType(key, value), executor));
 
-        ExecutorUtil.shutdownExecutor(executor);
+//        ExecutorUtil.shutdownExecutor(executor);
+
+        groupedByType.forEach(this::refreshRatesByType);
     }
 
     private void refreshRatesByType(ExchangerType exchangerType, List<Currency> currencies) {
