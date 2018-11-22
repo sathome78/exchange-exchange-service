@@ -36,12 +36,13 @@ public class ResourcesServerConfiguration extends ResourceServerConfigurerAdapte
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/currency/**").permitAll()/*hasAuthority("ADMIN")*/
+                .antMatchers("/currency/**").permitAll()
+                .antMatchers("/actuator/**").permitAll()
                 .and()
                 .exceptionHandling()
                 .authenticationEntryPoint((request, response, authException) -> response.setStatus(HttpServletResponse.SC_UNAUTHORIZED))
                 .accessDeniedHandler((request, response, ex) -> response.setStatus(HttpServletResponse.SC_FORBIDDEN))
                 .and()
-                .csrf().disable();
+                .csrf().ignoringAntMatchers("/actuator/**").disable();
     }
 }

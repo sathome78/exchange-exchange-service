@@ -76,7 +76,7 @@ INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('FGC', 'COIN_MARKET_CUP', 'fantasygold');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('FLOT', 'COIN_MARKET_CUP', 'fire-lotto');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('FPWR', 'EXRATES', 'FPWR');
-INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('FSBT', 'COIN_MARKET_CUP', 'forty-seven-bank');
+INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('FSBT', 'COIN_MARKET_CUP', 'fsbt-api-token');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('FTO', 'COIN_MARKET_CUP', 'futurocoin');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('GAS', 'COIN_MARKET_CUP', 'gas');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('GET', 'COIN_MARKET_CUP', 'get-protocol');
@@ -184,7 +184,7 @@ INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('WAVES', 'COIN_MARKET_CUP', 'waves');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('WDSC', 'COINLIB', 'WDSC');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('WTL', 'COIN_MARKET_CUP', 'welltrado');
-INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XBD', 'COINLIB', 'XBD');
+INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XBD', 'EXRATES', 'XBD');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XEM', 'COIN_MARKET_CUP', 'nem');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XFC', 'COINLIB', 'XFC3');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XLM', 'COIN_MARKET_CUP', 'stellar');
@@ -198,3 +198,9 @@ INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('XAU', 'EXRATES', 'XAU');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('APL', 'COIN_MARKET_CUP', 'apollo-currency');
 INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('AUNIT', 'EXRATES', 'AUNIT');
+INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('ABBC', 'COIN_MARKET_CUP', 'alibabacoin');
+INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('CBC', 'COIN_MARKET_CUP', 'cashbery-coin');
+INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('Q', 'EXRATES', 'Q');
+INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('VAI', 'EXRATES', 'VAI');
+INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('BAB', 'EXRATES', 'BAB');
+INSERT IGNORE INTO currency (symbol, exchanger_type, exchanger_symbol) VALUES ('BSV', 'EXRATES', 'BSV');

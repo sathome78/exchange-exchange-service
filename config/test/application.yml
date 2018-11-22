@@ -6,6 +6,8 @@ server:
 spring:
   application:
     name: CurrencyExchangeService
+    admin:
+      enabled: true
   profiles:
     active: dev
   datasource:
@@ -69,6 +71,18 @@ spring:
         port: 8080
   flyway:
     enabled: false
+  boot:
+    admin:
+      client:
+        url: http://172.50.50.177:8091
+        instance:
+          name: ExchangerService
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
 logging:
   level:

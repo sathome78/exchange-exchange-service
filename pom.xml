@@ -241,6 +241,12 @@
             <artifactId>modelmapper-spring-boot-starter</artifactId>
             <version>1.1.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>2.0.2</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
