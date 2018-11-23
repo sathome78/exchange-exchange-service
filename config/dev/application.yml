@@ -77,6 +77,11 @@ spring:
         url: http://172.50.50.177:8090
         instance:
           name: ExchangerService
+          metadata:
+            tags:
+              environment: dev
+              user.name: varvatos
+              user.password: qGbxQ466NWpB3W5G
 
 management:
   endpoints:
