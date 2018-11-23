@@ -84,6 +84,11 @@ spring:
         url: http://localhost:8080
         instance:
           name: ExchangerService
+          metadata:
+            tags:
+              environment: dev
+              user.name: varvatos
+              user.password: qGbxQ466NWpB3W5G
 
 management:
   endpoints:
