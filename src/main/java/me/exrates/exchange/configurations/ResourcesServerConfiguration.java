@@ -43,6 +43,6 @@ public class ResourcesServerConfiguration extends ResourceServerConfigurerAdapte
                 .authenticationEntryPoint((request, response, authException) -> response.setStatus(HttpServletResponse.SC_UNAUTHORIZED))
                 .accessDeniedHandler((request, response, ex) -> response.setStatus(HttpServletResponse.SC_FORBIDDEN))
                 .and()
-                .csrf().ignoringAntMatchers("/actuator/**").disable();
+                .csrf().disable();
     }
 }

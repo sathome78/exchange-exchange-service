@@ -13,7 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-//@Ignore
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest
