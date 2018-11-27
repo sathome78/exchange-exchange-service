@@ -89,7 +89,7 @@ swagger:
 
 scheduled:
   update:
-    currency: 0 */5 * ? * *
+    currency: 0 */30 * ? * *
 
 exchangers:
   coinlib:

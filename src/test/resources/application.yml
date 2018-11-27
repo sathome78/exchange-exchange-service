@@ -50,23 +50,6 @@ spring:
     mapper:
       default_view_inclusion: true
     default-property-inclusion: 'non_null'
-  cloud:
-    consul:
-      port: 8500
-      host: 172.50.10.5
-      enabled: true
-      discovery:
-        enabled: true
-        lifecycle:
-          enabled: true
-        heartbeat:
-          enabled: true
-          interval-ratio: 0.1
-        health-check-timeout: 3s
-        health-check-interval: 3ss
-        tags: exchange-service
-        service-name: exchange-service
-        port: 8083
   flyway:
     enabled: false
 

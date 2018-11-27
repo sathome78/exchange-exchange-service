@@ -75,7 +75,7 @@ eureka:
         context-path: ${server.servlet.context-path}
     status-page-url-path: ${server.servlet.context-path}/actuator/info
     health-check-url-path: ${server.servlet.context-path}/actuator/health
-    home-page-url-path: ${server.servlet.context-path}
+    home-page-url-path: ${server.servlet.context-path}/actuator
 
 management:
   endpoints:
