@@ -65,17 +65,16 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8081/eureka}
+      defaultZone: ${EUREKA_URI:http://localhost:8080/eureka}
     should-unregister-on-shutdown: true
   instance:
     preferIpAddress: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
     metadata-map:
       management:
-        context-path: ${server.servlet.context-path}
+        context-path: ${server.servlet.context-path}/actuator
     status-page-url-path: ${server.servlet.context-path}/actuator/info
     health-check-url-path: ${server.servlet.context-path}/actuator/health
-    home-page-url-path: ${server.servlet.context-path}/actuator
 
 management:
   endpoints:

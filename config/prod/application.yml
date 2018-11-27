@@ -65,10 +65,9 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
     metadata-map:
       management:
-        context-path: ${server.servlet.context-path}
+        context-path: ${server.servlet.context-path}/actuator
     status-page-url-path: ${server.servlet.context-path}/actuator/info
     health-check-url-path: ${server.servlet.context-path}/actuator/health
-    home-page-url-path: ${server.servlet.context-path}
 
 management:
   endpoints:
