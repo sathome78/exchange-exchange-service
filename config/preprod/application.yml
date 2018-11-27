@@ -57,7 +57,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8081/eureka}
+      defaultZone: ${EUREKA_URI:http://172.50.50.245:8092/eureka}
     should-unregister-on-shutdown: true
   instance:
     preferIpAddress: true
