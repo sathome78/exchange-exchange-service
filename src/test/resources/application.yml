@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8080
   servlet:
     context-path: /exchange/v1
 
@@ -103,5 +103,5 @@ exchangers:
     api-key: 'O0nWXOhVzIRgHs7QS4TpzxVxgrdi4n'
 
 exchange-api:
-  url: http://localhost:8083
+  url: http://localhost:8080
   path: /exchange/v1/currency
