@@ -5,12 +5,14 @@ import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.slf4j.Slf4jLogger;
 import me.exrates.exchange.entities.Currency;
+import me.exrates.exchange.entities.CurrencyHistory;
 import me.exrates.exchange.models.dto.CurrencyDto;
+import me.exrates.exchange.models.dto.CurrencyHistoryDto;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.models.form.CurrencyForm;
+import me.exrates.exchange.repositories.CurrencyHistoryRepository;
 import me.exrates.exchange.repositories.CurrencyRepository;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +22,14 @@ import org.springframework.cloud.openfeign.support.SpringMvcContract;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
-@Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ExchangeApiTest {
@@ -47,6 +50,8 @@ public class ExchangeApiTest {
 
     @Autowired
     private CurrencyRepository currencyRepository;
+    @Autowired
+    private CurrencyHistoryRepository currencyHistoryRepository;
 
     private ExchangeApi exchangeApi;
 
@@ -94,6 +99,29 @@ public class ExchangeApiTest {
         assertNotNull(one.getExchangerType());
         assertEquals(ExchangerType.COIN_MARKET_CUP, one.getExchangerType());
         assertEquals(TEST_COIN + ExchangerType.COIN_MARKET_CUP.name(), one.getExchangerSymbol());
+
+        CurrencyHistory historyOne = CurrencyHistory.builder()
+                .usdRate(one.getUsdRate())
+                .btcRate(one.getBtcRate())
+                .createdAt(LocalDate.now())
+                .currency(one)
+                .build();
+        currencyHistoryRepository.save(historyOne);
+
+        CurrencyHistory historyTwo = CurrencyHistory.builder()
+                .usdRate(one.getUsdRate())
+                .btcRate(one.getBtcRate())
+                .createdAt(LocalDate.now())
+                .currency(one)
+                .build();
+        currencyHistoryRepository.save(historyTwo);
+
+        //get all history records
+        List<CurrencyHistoryDto> ratesHistoryByCurrencySymbol = exchangeApi.getRatesHistoryByCurrencySymbol(TEST_COIN);
+
+        assertNotNull(ratesHistoryByCurrencySymbol);
+        assertFalse(ratesHistoryByCurrencySymbol.isEmpty());
+        assertEquals(2, ratesHistoryByCurrencySymbol.size());
 
         //delete new currency
         exchangeApi.deleteCurrency(TEST_COIN);

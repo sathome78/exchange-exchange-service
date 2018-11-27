@@ -74,6 +74,7 @@ public class CurrencyService {
                 .usdRateUpdatedAt(now)
                 .btcRate(form.getBtcRate())
                 .btcRateUpdatedAt(now)
+                .history(Collections.emptyList())
                 .build();
         currencyRepository.save(newCurrency);
         log.info("Currency {} has been created", form.getSymbol());

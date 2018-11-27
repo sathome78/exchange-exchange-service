@@ -74,7 +74,7 @@ spring:
         service-name: exchange-service
         port: 8083
   flyway:
-    check-location: false
+#    check-location: false
     baseline-on-migrate: true
   #    clean-on-validation-error: true
     enabled: false
@@ -107,7 +107,8 @@ swagger:
 
 scheduled:
   update:
-    currency: 0 */5 * ? * *
+    currency: 0 */30 * ? * *
+    history: 0 0 12 * * ?
 
 exchangers:
   coinlib:
@@ -128,6 +129,3 @@ exchangers:
     api-url:
       ticker: https://www.worldcoinindex.com/apiservice/ticker
     api-key: 'O0nWXOhVzIRgHs7QS4TpzxVxgrdi4n'
-
-
-

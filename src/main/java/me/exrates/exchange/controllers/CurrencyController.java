@@ -1,10 +1,13 @@
 package me.exrates.exchange.controllers;
 
 import me.exrates.exchange.entities.Currency;
+import me.exrates.exchange.entities.CurrencyHistory;
 import me.exrates.exchange.exceptions.ValidationException;
 import me.exrates.exchange.models.dto.CurrencyDto;
+import me.exrates.exchange.models.dto.CurrencyHistoryDto;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.models.form.CurrencyForm;
+import me.exrates.exchange.services.CurrencyHistoryService;
 import me.exrates.exchange.services.CurrencyService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -36,12 +39,15 @@ import static java.util.stream.Collectors.toMap;
 public class CurrencyController {
 
     private final CurrencyService currencyService;
+    private final CurrencyHistoryService currencyHistoryService;
     private final ModelMapper modelMapper;
 
     @Autowired
     public CurrencyController(CurrencyService currencyService,
+                              CurrencyHistoryService currencyHistoryService,
                               ModelMapper modelMapper) {
         this.currencyService = currencyService;
+        this.currencyHistoryService = currencyHistoryService;
         this.modelMapper = modelMapper;
     }
 
@@ -81,5 +87,12 @@ public class CurrencyController {
                                          @RequestParam(value = "exchanger_symbol", defaultValue = "bitcoin") String exchangerSymbol) {
         currencyService.updateCurrency(symbol, exchangerType, exchangerSymbol);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/history/{currency_symbol}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<CurrencyHistoryDto>> getRatesHistoryByCurrencySymbol(@PathVariable(value = "currency_symbol") String symbol) {
+        List<CurrencyHistory> allByCurrencySymbol = currencyHistoryService.getAllByCurrencySymbol(symbol);
+        return ResponseEntity.ok(modelMapper.map(allByCurrencySymbol, new TypeToken<List<CurrencyHistoryDto>>() {
+        }.getType()));
     }
 }

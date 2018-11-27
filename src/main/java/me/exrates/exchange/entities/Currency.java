@@ -5,23 +5,28 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.springframework.stereotype.Indexed;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder(builderClassName = "Builder")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"symbol", "exchangerType", "exchangerSymbol"})
+@ToString(exclude = {"history"})
 @Indexed
 @Entity
 @Table(name = "currency")
@@ -49,4 +54,7 @@ public class Currency {
 
     @Column(name = "btc_rate_updated_at")
     private LocalDateTime btcRateUpdatedAt;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "currency")
+    private List<CurrencyHistory> history;
 }
