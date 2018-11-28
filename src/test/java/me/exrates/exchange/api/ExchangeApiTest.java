@@ -42,9 +42,6 @@ public class ExchangeApiTest {
     @Value("${exchange-api.url}")
     private String url;
 
-    @Value("${exchange-api.path}")
-    private String path;
-
     @Autowired
     private CurrencyRepository currencyRepository;
 
@@ -57,7 +54,7 @@ public class ExchangeApiTest {
                 .encoder(new JacksonEncoder())
                 .decoder(new JacksonDecoder())
                 .logger(new Slf4jLogger(ExchangeApi.class))
-                .target(ExchangeApi.class, url + path);
+                .target(ExchangeApi.class, url);
     }
 
     @Test

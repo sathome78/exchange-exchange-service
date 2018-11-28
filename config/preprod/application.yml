@@ -1,7 +1,3 @@
-server:
-  servlet:
-    context-path: /exchange/v1
-
 spring:
   application:
     admin:
@@ -62,11 +58,6 @@ eureka:
   instance:
     preferIpAddress: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-    metadata-map:
-      management:
-        context-path: ${server.servlet.context-path}/actuator
-    status-page-url-path: ${server.servlet.context-path}/actuator/info
-    health-check-url-path: ${server.servlet.context-path}/actuator/health
 
 management:
   endpoints:

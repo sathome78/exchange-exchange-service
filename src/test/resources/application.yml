@@ -1,7 +1,5 @@
 server:
   port: 8080
-  servlet:
-    context-path: /exchange/v1
 
 spring:
   application:
@@ -9,10 +7,14 @@ spring:
   profiles:
     active: dev
   datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://exdbdev.cedlveyttji9.us-east-2.rds.amazonaws.com:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+#    username: exdevdb
+#    password: KQmK82dd
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://exdbdev.cedlveyttji9.us-east-2.rds.amazonaws.com:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
-    username: exdevdb
-    password: KQmK82dd
+    url: jdbc:mysql://localhost:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: root
+    password: root
     hikari:
       connection-timeout: 10000
       idle-timeout: 180000
@@ -87,4 +89,3 @@ exchangers:
 
 exchange-api:
   url: http://localhost:8080
-  path: /exchange/v1/currency
