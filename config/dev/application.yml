@@ -55,9 +55,13 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://172.50.50.245:8090/eureka}
     should-unregister-on-shutdown: true
+    registry-fetch-interval-seconds: 5
   instance:
     preferIpAddress: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    lease-renewal-interval-in-seconds: 10
+    metadata-map:
+      startup: ${random.int}
 
 management:
   endpoints:
