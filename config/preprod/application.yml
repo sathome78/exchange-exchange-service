@@ -1,15 +1,10 @@
-server:
-  port: 8080
-  servlet:
-    context-path: /exchange/v1
-
 spring:
   application:
-    name: CurrencyExchangeService
     admin:
       enabled: true
+    name: exchange-service
   profiles:
-    active: dev
+    active: preprod
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
@@ -52,37 +47,30 @@ spring:
     mapper:
       default_view_inclusion: true
     default-property-inclusion: 'non_null'
-  cloud:
-    consul:
-      port: 8500
-      host: 172.50.10.5
-      enabled: true
-      discovery:
-        enabled: true
-        lifecycle:
-          enabled: true
-        heartbeat:
-          enabled: true
-          interval-ratio: 0.1
-        health-check-timeout: 3s
-        health-check-interval: 3ss
-        tags: exchange-service
-        service-name: exchange-service
-        port: 8080
   flyway:
     enabled: false
-  boot:
-    admin:
-      client:
-        url: http://172.50.50.177:8092
-        instance:
-          name: ExchangerService
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://172.50.50.245:8092/eureka}
+    should-unregister-on-shutdown: true
+    registry-fetch-interval-seconds: 5
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    lease-renewal-interval-in-seconds: 10
+    metadata-map:
+      startup: ${random.int}
 
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
 
 logging:
   level:
@@ -116,6 +104,3 @@ exchangers:
     api-url:
       ticker: https://www.worldcoinindex.com/apiservice/ticker
     api-key: 'O0nWXOhVzIRgHs7QS4TpzxVxgrdi4n'
-
-
-

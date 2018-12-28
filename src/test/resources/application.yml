@@ -1,7 +1,5 @@
 server:
-  port: 8083
-  servlet:
-    context-path: /exchange/v1
+  port: 8080
 
 spring:
   application:
@@ -13,6 +11,10 @@ spring:
     url: jdbc:mysql://exdbdev.cedlveyttji9.us-east-2.rds.amazonaws.com:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
     username: exdevdb
     password: KQmK82dd
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+#    username: root
+#    password: root
     hikari:
       connection-timeout: 10000
       idle-timeout: 180000
@@ -50,23 +52,6 @@ spring:
     mapper:
       default_view_inclusion: true
     default-property-inclusion: 'non_null'
-  cloud:
-    consul:
-      port: 8500
-      host: 172.50.10.5
-      enabled: true
-      discovery:
-        enabled: true
-        lifecycle:
-          enabled: true
-        heartbeat:
-          enabled: true
-          interval-ratio: 0.1
-        health-check-timeout: 3s
-        health-check-interval: 3ss
-        tags: exchange-service
-        service-name: exchange-service
-        port: 8083
   flyway:
     enabled: false
 
@@ -104,5 +89,4 @@ exchangers:
     api-key: 'O0nWXOhVzIRgHs7QS4TpzxVxgrdi4n'
 
 exchange-api:
-  url: http://localhost:8083
-  path: /exchange/v1/currency
+  url: http://localhost:8080

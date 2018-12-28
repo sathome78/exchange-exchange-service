@@ -1,13 +1,11 @@
 server:
-  port: 8083
-  servlet:
-    context-path: /exchange/v1
+  port: 8080
 
 spring:
   application:
-    name: CurrencyExchangeService
     admin:
       enabled: true
+    name: exchange-service
   profiles:
     active: dev
   datasource:
@@ -56,45 +54,33 @@ spring:
     mapper:
       default_view_inclusion: true
     default-property-inclusion: 'non_null'
-  cloud:
-    consul:
-      port: 8500
-      host: 172.50.10.5
-      enabled: true
-      discovery:
-        enabled: true
-        lifecycle:
-          enabled: true
-        heartbeat:
-          enabled: true
-          interval-ratio: 0.1
-        health-check-timeout: 3s
-        health-check-interval: 3ss
-        tags: exchange-service
-        service-name: exchange-service
-        port: 8083
   flyway:
 #    check-location: false
     baseline-on-migrate: true
   #    clean-on-validation-error: true
     enabled: false
-  boot:
-    admin:
-      client:
-        url: http://localhost:8080
-        instance:
-          name: ExchangerService
-          metadata:
-            tags:
-              environment: dev
-              user.name: varvatos
-              user.password: qGbxQ466NWpB3W5G
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8080/eureka}
+    should-unregister-on-shutdown: true
+    registry-fetch-interval-seconds: 5
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    lease-renewal-interval-in-seconds: 10
+    metadata-map:
+      startup: ${random.int}
 
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
 
 logging:
   level:

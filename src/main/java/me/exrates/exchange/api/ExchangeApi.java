@@ -23,19 +23,19 @@ import java.util.Map;
         configuration = {FeignConfiguration.class})
 public interface ExchangeApi {
 
-    @GetMapping("/rates/{currency_symbol}")
+    @GetMapping("/currency/rates/{currency_symbol}")
     CurrencyDto getRatesByCurrencySymbol(@PathVariable(value = "currency_symbol") String symbol);
 
-    @GetMapping("/rates/all")
+    @GetMapping("/currency/rates/all")
     Map<String, CurrencyDto> getAllRates();
 
-    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/currency/create", consumes = MediaType.APPLICATION_JSON_VALUE)
     CurrencyDto createCurrency(@Validated @RequestBody CurrencyForm form);
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/currency/delete")
     void deleteCurrency(@RequestParam(value = "currency_symbol", defaultValue = "BTC") String symbol);
 
-    @PutMapping("/update")
+    @PutMapping("/currency/update")
     void updateCurrency(@RequestParam(value = "currency_symbol", defaultValue = "BTC") String symbol,
                         @RequestParam(value = "exchanger_type", defaultValue = "COIN_MARKET_CUP") ExchangerType exchangerType,
                         @RequestParam(value = "exchanger_symbol", defaultValue = "bitcoin") String exchangerSymbol);
