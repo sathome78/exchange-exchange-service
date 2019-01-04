@@ -35,6 +35,7 @@ import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 import static me.exrates.exchange.utils.CollectionUtil.isNotEmpty;
@@ -46,14 +47,17 @@ public class WorldCoinIndexExchanger implements Exchanger {
 
     private String apiUrlTicker;
     private String apiKey;
+    private List<String> ignoreList;
 
     private final RestTemplate restTemplate;
 
     @Autowired
     public WorldCoinIndexExchanger(@Value("${exchangers.worldcoinindex.api-url.ticker}") String apiUrlTicker,
-                                   @Value("${exchangers.worldcoinindex.api-key}") String apiKey) {
+                                   @Value("${exchangers.worldcoinindex.api-key}") String apiKey,
+                                   @Value("#{'${exchangers.worldcoinindex.ignore-list}'.split(',')}") List<String> ignoreList) {
         this.apiUrlTicker = apiUrlTicker;
         this.apiKey = apiKey;
+        this.ignoreList = ignoreList;
 
         CloseableHttpClient httpClient = HttpClients.custom()
                 .setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE)
@@ -76,8 +80,13 @@ public class WorldCoinIndexExchanger implements Exchanger {
             log.info("Data from WorldCoinIndex server is not available");
             return null;
         }
-        List<Market> btcData = data.get(BaseCurrency.BTC);
-        List<Market> usdData = data.get(BaseCurrency.USD);
+        List<Market> btcData = data.get(BaseCurrency.BTC).stream()
+                .filter(market -> !ignoreList.contains(market.name))
+                .collect(toList());
+        List<Market> usdData = data.get(BaseCurrency.USD).stream()
+                .filter(market -> !ignoreList.contains(market.name))
+                .collect(toList());
+
         if (isEmpty(btcData) || isEmpty(usdData)) {
             return null;
         }
@@ -146,5 +155,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
 
         @JsonProperty("Price")
         double price;
+        @JsonProperty("Name")
+        String name;
     }
 }
