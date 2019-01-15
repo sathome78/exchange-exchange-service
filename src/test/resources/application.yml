@@ -87,6 +87,7 @@ exchangers:
     api-url:
       ticker: https://www.worldcoinindex.com/apiservice/ticker
     api-key: 'O0nWXOhVzIRgHs7QS4TpzxVxgrdi4n'
+    ignore-list: Cartaxitoken
 
 exchange-api:
   url: http://localhost:8080
