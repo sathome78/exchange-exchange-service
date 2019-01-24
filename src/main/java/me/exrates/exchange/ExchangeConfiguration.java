@@ -3,6 +3,7 @@ package me.exrates.exchange;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
+import me.exrates.exchange.configurations.MongoConfiguration;
 import me.exrates.exchange.configurations.ResourcesServerConfiguration;
 import me.exrates.exchange.configurations.SwaggerConfiguration;
 import me.exrates.exchange.configurations.WebSecurityConfiguration;
@@ -15,18 +16,21 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Slf4j
 @Configuration
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableJpaRepositories(basePackages = {"me.exrates.exchange.repositories"})
+@EnableMongoRepositories(basePackages = {"me.exrates.exchange.repositories.mongodb"})
 @EnableFeignClients
 @EnableDiscoveryClient
 @ComponentScan
 @Import({
         WebSecurityConfiguration.class,
         ResourcesServerConfiguration.class,
-        SwaggerConfiguration.class
+        SwaggerConfiguration.class,
+        MongoConfiguration.class
 })
 public class ExchangeConfiguration {
 
