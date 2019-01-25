@@ -59,6 +59,14 @@ public class CurrencyController {
         return ResponseEntity.ok(result.stream().collect(toMap(CurrencyDto::getSymbol, Function.identity())));
     }
 
+    @GetMapping(value = "/rates/type/{currency_type}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, CurrencyDto>> getRatesByType(@PathVariable(value = "currency_type") String type) {
+        List<Currency> allByType = currencyService.getRatesByCurrencyType(type);
+        List<CurrencyDto> result = modelMapper.map(allByType, new TypeToken<List<CurrencyDto>>() {
+        }.getType());
+        return ResponseEntity.ok(result.stream().collect(toMap(CurrencyDto::getSymbol, Function.identity())));
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CurrencyDto> createCurrency(@Validated @RequestBody CurrencyForm form,

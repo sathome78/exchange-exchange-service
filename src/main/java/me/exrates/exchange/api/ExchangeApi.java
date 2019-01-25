@@ -27,6 +27,9 @@ public interface ExchangeApi {
     @GetMapping("/currency/rates/all")
     Map<String, CurrencyDto> getAllRates();
 
+    @GetMapping(value = "/currency/rates/type/{currency_type}")
+    Map<String, CurrencyDto> getRatesByType(@PathVariable(value = "currency_type") String type);
+
     @PostMapping(value = "/currency/create", consumes = MediaType.APPLICATION_JSON_VALUE)
     CurrencyDto createCurrency(@Validated @RequestBody CurrencyForm form);
 

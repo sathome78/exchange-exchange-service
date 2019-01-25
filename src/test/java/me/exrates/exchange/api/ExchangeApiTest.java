@@ -25,6 +25,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @Ignore
 @RunWith(SpringRunner.class)
@@ -140,5 +141,23 @@ public class ExchangeApiTest {
 
         assertNotNull(all);
         assertFalse(all.isEmpty());
+    }
+
+    @Test
+    public void getRatesByTypeTest() {
+        Map<String, CurrencyDto> allByType = exchangeApi.getRatesByType("fiat");
+
+        assertNotNull(allByType);
+        assertFalse(allByType.isEmpty());
+
+        allByType = exchangeApi.getRatesByType("crypto");
+
+        assertNotNull(allByType);
+        assertFalse(allByType.isEmpty());
+
+        allByType = exchangeApi.getRatesByType("test");
+
+        assertNotNull(allByType);
+        assertTrue(allByType.isEmpty());
     }
 }

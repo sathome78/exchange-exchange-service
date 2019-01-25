@@ -5,6 +5,7 @@ import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.components.ExchangerFactory;
 import me.exrates.exchange.entities.Currency;
 import me.exrates.exchange.models.dto.CurrencyDto;
+import me.exrates.exchange.models.enums.CurrencyType;
 import me.exrates.exchange.models.enums.ExchangerType;
 import me.exrates.exchange.models.form.CurrencyForm;
 import me.exrates.exchange.repositories.CurrencyRepository;
@@ -18,13 +19,16 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
+import static java.util.stream.Collectors.toList;
 import static me.exrates.exchange.utils.CollectionUtil.isEmpty;
 
 @Slf4j
@@ -60,6 +64,26 @@ public class CurrencyService {
             return Collections.emptyList();
         }
         return all;
+    }
+
+    @Transactional(readOnly = true)
+    public List<Currency> getRatesByCurrencyType(String type) {
+        Stream<Currency> currencyStream = currencyRepository.findAll().stream();
+
+        final CurrencyType currencyType = CurrencyType.of(type);
+
+        switch (currencyType) {
+            case CRYPTO:
+                return currencyStream
+                        .filter(currency -> !Objects.equals(ExchangerType.FREE_CURRENCY, currency.getExchangerType()))
+                        .collect(toList());
+            case FIAT:
+                return currencyStream
+                        .filter(currency -> Objects.equals(ExchangerType.FREE_CURRENCY, currency.getExchangerType()))
+                        .collect(toList());
+            default:
+                return Collections.emptyList();
+        }
     }
 
     @Transactional
