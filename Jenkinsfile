@@ -27,7 +27,7 @@ pipeline {
     } 
     stage('Deploy container') {
       steps {
-        sh 'docker -H tcp://172.50.50.7:2375 service update --image 172.50.50.7:5000/exchangeservice:$ENVIRONMENT exchange-service'
+        sh 'docker -H tcp://172.50.50.7:2375 service update --image 172.50.50.7:5000/exchangeservice:$ENVIRONMENT prod-exchange-service'
       }
     }
   }  
