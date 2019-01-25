@@ -21,13 +21,13 @@ pipeline {
     stage('Docker pull') {
       agent any
       steps {
-        sh 'docker tag roadtomoon/exrates-exchange-service:$ENVIRONMENT localhost:5000/exchangeservice:$ENVIRONMENT'
-        sh 'docker push localhost:5000/exchangeservice:$ENVIRONMENT'
+        sh 'docker tag roadtomoon/exrates-exchange-service:$ENVIRONMENT 172.50.50.7:5000/exchangeservice:$ENVIRONMENT'
+        sh 'docker push 172.50.50.7:5000/exchangeservice:$ENVIRONMENT'
       }
     } 
     stage('Deploy container') {
       steps {
-        sh 'docker -H tcp://localhost:2375 service update --image localhost:5000/exchangeservice:$ENVIRONMENT exchange-service'
+        sh 'docker -H tcp://172.50.50.7:2375 service update --image 172.50.50.7:5000/exchangeservice:$ENVIRONMENT exchange-service'
       }
     }
   }  
