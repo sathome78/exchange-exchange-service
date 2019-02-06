@@ -109,7 +109,7 @@ public class CoinlibExchanger implements Exchanger {
                 throw new ExchangerException("Coinlib server is not available");
             }
         } catch (Exception ex) {
-            log.warn("Error {}-{}:", getExchangerType(), currencySymbol, ex);
+            log.warn("Error {}-{}: {}", getExchangerType(), currencySymbol, ex.getMessage());
             return null;
         }
         return responseEntity.getBody();

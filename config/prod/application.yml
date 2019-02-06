@@ -98,7 +98,8 @@ exchangers:
       ticker: https://api.coinmarketcap.com/v1/ticker/
   exrates:
     api-url:
-      ticker: http://172.31.14.167:8080/openapi/v1/public/ticker
+      trade-history: http://172.31.14.167:8080/openapi/v1/public/history/%s_%s
+    period: 6 #month
   freecurrency:
     api-url:
       convert: https://free.currencyconverterapi.com/api/v6/convert

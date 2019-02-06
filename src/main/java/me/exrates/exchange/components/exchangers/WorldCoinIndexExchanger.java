@@ -129,7 +129,7 @@ public class WorldCoinIndexExchanger implements Exchanger {
                 throw new ExchangerException("WorldCoinIndex server is not available");
             }
         } catch (Exception ex) {
-            log.warn("Error {}-{}:", getExchangerType(), currencySymbol, ex);
+            log.warn("Error {}-{}: {}", getExchangerType(), currencySymbol, ex.getMessage());
             return Collections.emptyList();
         }
         WorldCoinIndexData body = responseEntity.getBody();

@@ -3,13 +3,16 @@ package me.exrates.exchange.components.exchangers;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
+import me.exrates.exchange.converters.LocalDateTimeToMillisecondsConverter;
 import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
+import me.exrates.exchange.models.enums.Direction;
 import me.exrates.exchange.models.enums.ExchangerType;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +27,11 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -33,31 +40,34 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
-import static me.exrates.exchange.utils.CollectionUtil.isNotEmpty;
 
 @Slf4j
 @Lazy
 @Component("exratesExchanger")
 public class ExratesExchanger implements Exchanger {
 
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
     private static final String BTC = "bitcoin";
     private static final String ETH = "ethereum";
 
     private static final double DEFAULT_USD_RATE = 0.000001;
 
-    private String apiUrlTicker;
+    private String apiUrlHistory;
+    private long period;
 
     private final RestTemplate restTemplate;
     private final Exchanger coinmarketcupExchanger;
     private final Cache<String, Double> usdRates;
 
     @Autowired
-    public ExratesExchanger(@Value("${exchangers.exrates.api-url.ticker}") String apiUrlTicker,
+    public ExratesExchanger(@Value("${exchangers.exrates.api-url.trade-history}") String apiUrlHistory,
+                            @Value("${exchangers.exrates.period}") long period,
                             @Qualifier("coinMarketCupExchanger") Exchanger coinmarketcupExchanger) {
-        this.apiUrlTicker = apiUrlTicker;
+        this.apiUrlHistory = apiUrlHistory;
+        this.period = period;
+
         this.coinmarketcupExchanger = coinmarketcupExchanger;
         this.restTemplate = new RestTemplate();
         this.usdRates = CacheBuilder.newBuilder()
@@ -86,7 +96,7 @@ public class ExratesExchanger implements Exchanger {
             ethUsd = 0d;
         }
 
-        Map<BaseCurrency, List<ExratesData>> data = getDataFromMarket(currencySymbol);
+        Map<Long, Pair<BaseCurrency, Double>> data = getHistoryDataByBaseCurrencies(currencySymbol);
         if (isNull(data) || data.isEmpty()) {
             log.info("Data from Exrates server is not available");
             return CurrencyDto.builder()
@@ -96,43 +106,33 @@ public class ExratesExchanger implements Exchanger {
                     .btcRate(BigDecimal.valueOf(DEFAULT_USD_RATE / btcUsd))
                     .build();
         }
+        Map.Entry<Long, Pair<BaseCurrency, Double>> entry = Collections.max(data.entrySet(), Map.Entry.comparingByKey());
+        Pair<BaseCurrency, Double> value = entry.getValue();
 
-        List<ExratesData> usdData = data.get(BaseCurrency.USD);
-        List<ExratesData> btcData = data.get(BaseCurrency.BTC);
-        List<ExratesData> ethData = data.get(BaseCurrency.ETH);
+        final BaseCurrency baseCurrency = value.getLeft();
 
-        int number = 0;
-        double usdRate1;
-        if (isNotEmpty(usdData) && nonNull(usdData.get(0))) {
-            usdRate1 = usdData.get(0).last;
-            number++;
-        } else {
-            usdRate1 = 0;
-        }
-        double usdRate2;
-        if (isNotEmpty(btcData) && nonNull(btcData.get(0))) {
-            usdRate2 = btcData.get(0).last * btcUsd;
-            number++;
-        } else {
-            usdRate2 = 0;
-        }
-        double usdRate3;
-        if (isNotEmpty(ethData) && nonNull(ethData.get(0))) {
-            usdRate3 = ethData.get(0).last * ethUsd;
-            number++;
-        } else {
-            usdRate3 = 0;
+        double usdRate;
+        switch (baseCurrency) {
+            case USD:
+                usdRate = value.getRight();
+                break;
+            case BTC:
+                usdRate = value.getRight() * btcUsd;
+                break;
+            case ETH:
+                usdRate = value.getRight() * ethUsd;
+                break;
+            default:
+                usdRate = 0;
         }
 
-
-        final double midUsdRate = (usdRate1 + usdRate2 + usdRate3) / number;
-        final double midBtcRate = midUsdRate / btcUsd;
+        double btcRate = usdRate / btcUsd;
 
         return CurrencyDto.builder()
                 .symbol(currencySymbol)
                 .exchangerType(getExchangerType())
-                .usdRate(midUsdRate != 0 ? BigDecimal.valueOf(midUsdRate) : BigDecimal.valueOf(DEFAULT_USD_RATE))
-                .btcRate(midBtcRate != 0 ? BigDecimal.valueOf(midBtcRate) : BigDecimal.valueOf(DEFAULT_USD_RATE / btcUsd))
+                .usdRate(usdRate != 0 ? BigDecimal.valueOf(usdRate) : BigDecimal.valueOf(DEFAULT_USD_RATE))
+                .btcRate(btcRate != 0 ? BigDecimal.valueOf(btcRate) : BigDecimal.valueOf(DEFAULT_USD_RATE / btcUsd))
                 .build();
     }
 
@@ -144,42 +144,63 @@ public class ExratesExchanger implements Exchanger {
         return currencyDto.getUsdRate().doubleValue();
     }
 
-    private Map<BaseCurrency, List<ExratesData>> getDataFromMarket(String currencySymbol) {
+    private Map<Long, Pair<BaseCurrency, Double>> getHistoryDataByBaseCurrencies(String currencySymbol) {
         return Stream.of(BaseCurrency.values())
-                .map(value -> Pair.of(value, getDataFromMarketByBaseCurrency(currencySymbol, value)))
-                .filter(pair -> isNotEmpty(pair.getValue()))
+                .map(value -> getHistoryDataByBaseCurrency(currencySymbol, value))
                 .collect(toMap(Pair::getKey, Pair::getValue));
     }
 
-    private List<ExratesData> getDataFromMarketByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {
+    private Pair<Long, Pair<BaseCurrency, Double>> getHistoryDataByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {
+        LocalDate now = LocalDate.now();
+
         MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
-        requestParameters.add("currency_pair", String.format("%s_%s", currencySymbol.toLowerCase(), baseCurrency.name().toLowerCase()));
+        requestParameters.add("from_date", now.minusMonths(period).format(FORMATTER));
+        requestParameters.add("to_date", now.format(FORMATTER));
+        requestParameters.add("limit", "1");
+        requestParameters.add("direction", Direction.DESC.name());
 
         UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl(apiUrlTicker)
+                .fromHttpUrl(String.format(apiUrlHistory, currencySymbol.toLowerCase(), baseCurrency.name().toLowerCase()))
                 .queryParams(requestParameters)
                 .build();
 
-        ResponseEntity<ExratesData[]> responseEntity;
+        LocalDateTime dateBefore = LocalDateTime.now().minusMonths(period);
+
+        ResponseEntity<TradeHistoryData> responseEntity;
         try {
-            responseEntity = restTemplate.getForEntity(builder.toUriString(), ExratesData[].class);
+            responseEntity = restTemplate.getForEntity(builder.toUriString(), TradeHistoryData.class);
             if (responseEntity.getStatusCodeValue() != 200) {
                 throw new ExchangerException("Exrates server is not available");
             }
         } catch (Exception ex) {
-            log.warn("Error {}-{}:", getExchangerType(), currencySymbol, ex);
-            return Collections.emptyList();
+            log.warn("Error {}-{}-{}: {}", getExchangerType(), baseCurrency.name(), currencySymbol, ex.getMessage());
+            return Pair.of(LocalDateTimeToMillisecondsConverter.convert(dateBefore), Pair.of(baseCurrency, 0d));
         }
-        ExratesData[] body = responseEntity.getBody();
+        TradeHistoryData historyData = responseEntity.getBody();
+        if (isNull(historyData) || isNull(historyData.body) || historyData.body.isEmpty()) {
+            return Pair.of(LocalDateTimeToMillisecondsConverter.convert(dateBefore), Pair.of(baseCurrency, 0d));
+        }
+        Body body = historyData.body.get(0);
 
-        return nonNull(body) ? Stream.of(body).collect(toList()) : Collections.emptyList();
+        return Pair.of(body.dateAcceptance, Pair.of(baseCurrency, body.price));
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    private static class ExratesData {
+    private static class TradeHistoryData {
 
-        double last;
+        @Valid
+        List<Body> body;
+    }
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+    private static class Body {
+
+        double price;
+        @JsonProperty("date_acceptance")
+        long dateAcceptance;
     }
 }
