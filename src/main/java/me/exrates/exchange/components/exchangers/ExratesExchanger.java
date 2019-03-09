@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
 import me.exrates.exchange.converters.LocalDateTimeToMillisecondsConverter;
 import me.exrates.exchange.exceptions.ExchangerException;
+import me.exrates.exchange.models.dto.CacheOrderStatisticDto;
 import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
 import me.exrates.exchange.models.enums.Direction;
@@ -40,6 +41,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
 @Slf4j
@@ -55,6 +58,7 @@ public class ExratesExchanger implements Exchanger {
     private static final double DEFAULT_USD_RATE = 0.000001;
 
     private String apiUrlHistory;
+    private String apiUrlTicker;
     private long period;
 
     private final RestTemplate restTemplate;
@@ -63,9 +67,11 @@ public class ExratesExchanger implements Exchanger {
 
     @Autowired
     public ExratesExchanger(@Value("${exchangers.exrates.api-url.trade-history}") String apiUrlHistory,
+                            @Value("${exchangers.exrates.api-url.ticker}") String apiUrlTicker,
                             @Value("${exchangers.exrates.period}") long period,
                             @Qualifier("coinMarketCupExchanger") Exchanger coinmarketcupExchanger) {
         this.apiUrlHistory = apiUrlHistory;
+        this.apiUrlTicker = apiUrlTicker;
         this.period = period;
 
         this.coinmarketcupExchanger = coinmarketcupExchanger;
@@ -160,7 +166,7 @@ public class ExratesExchanger implements Exchanger {
         requestParameters.add("direction", Direction.DESC.name());
 
         UriComponents builder = UriComponentsBuilder
-                .fromHttpUrl(String.format(apiUrlHistory, currencySymbol.toLowerCase(), baseCurrency.name().toLowerCase()))
+                .fromHttpUrl(apiUrlHistory + String.format("/%s_%s", currencySymbol.toLowerCase(), baseCurrency.name().toLowerCase()))
                 .queryParams(requestParameters)
                 .build();
 
@@ -202,5 +208,54 @@ public class ExratesExchanger implements Exchanger {
         double price;
         @JsonProperty("date_acceptance")
         long dateAcceptance;
+    }
+
+    /**
+     * Required data to build global redis cache
+     *
+     * @return list with rate data by currency pair name
+     */
+    public List<CacheOrderStatisticDto> getAllStatisticFromMarket() {
+        ResponseEntity<CacheOrderStatisticDto[]> responseEntity;
+        try {
+            responseEntity = restTemplate.getForEntity(apiUrlTicker, CacheOrderStatisticDto[].class);
+            if (responseEntity.getStatusCodeValue() != 200) {
+                throw new ExchangerException("Exrates server is not available");
+            }
+        } catch (Exception ex) {
+            log.warn("Error {}-ALL:", getExchangerType(), ex);
+            return Collections.emptyList();
+        }
+        CacheOrderStatisticDto[] body = responseEntity.getBody();
+
+        return nonNull(body)
+                ? Stream.of(body).collect(toList())
+                : Collections.emptyList();
+    }
+
+    public CacheOrderStatisticDto getStatisticFromMarketByCurrencyPair(String currencyPairName) {
+        MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
+        requestParameters.add("currency_pair", currencyPairName.toLowerCase());
+
+        UriComponents builder = UriComponentsBuilder
+                .fromHttpUrl(apiUrlTicker)
+                .queryParams(requestParameters)
+                .build();
+
+        ResponseEntity<CacheOrderStatisticDto[]> responseEntity;
+        try {
+            responseEntity = restTemplate.getForEntity(builder.toUriString(), CacheOrderStatisticDto[].class);
+            if (responseEntity.getStatusCodeValue() != 200) {
+                throw new ExchangerException("Exrates server is not available");
+            }
+        } catch (Exception ex) {
+            log.warn("Error {}-{}:", getExchangerType(), currencyPairName, ex);
+            return null;
+        }
+        CacheOrderStatisticDto[] body = responseEntity.getBody();
+
+        return nonNull(body)
+                ? Stream.of(body).findFirst().orElse(null)
+                : null;
     }
 }

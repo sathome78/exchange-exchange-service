@@ -38,9 +38,6 @@ spring:
       show_sql: true
       format_sql: true
     open-in-view: false
-  redis:
-    host: 172.10.10.236
-    port: 6379
   jackson:
     serialization:
       write_dates_as_timestamps: false
@@ -49,6 +46,15 @@ spring:
     default-property-inclusion: 'non_null'
   flyway:
     enabled: false
+
+redis:
+  token-store:
+    host: 172.10.10.236
+    port: 6379
+  cache:
+    host: 172.10.10.236
+    port: 6379
+    db: 10
 
 eureka:
   client:
@@ -84,6 +90,7 @@ swagger:
 scheduled:
   update:
     currency: 0 */30 * ? * *
+    currency-pair: 0 0 12 1/1 * ?
 
 exchangers:
   coinlib:
@@ -95,11 +102,13 @@ exchangers:
       ticker: https://api.coinmarketcap.com/v1/ticker/
   exrates:
     api-url:
-      trade-history: http://172.31.14.167:8080/openapi/v1/public/history/%s_%s
+      ticker: http://172.31.14.167:8080/openapi/v1/public/ticker-no-cache
+      trade-history: http://172.31.14.167:8080/openapi/v1/public/history
     period: 6 #month
   freecurrency:
     api-url:
       convert: https://free.currencyconverterapi.com/api/v6/convert
+    api-key: '1901caa3834ee12ef3a3'
   worldcoinindex:
     api-url:
       ticker: https://www.worldcoinindex.com/apiservice/ticker

@@ -70,9 +70,7 @@ public class CurrencyService {
     public List<Currency> getRatesByCurrencyType(String type) {
         Stream<Currency> currencyStream = currencyRepository.findAll().stream();
 
-        final CurrencyType currencyType = CurrencyType.of(type);
-
-        switch (currencyType) {
+        switch (CurrencyType.of(type)) {
             case CRYPTO:
                 return currencyStream
                         .filter(currency -> !Objects.equals(ExchangerType.FREE_CURRENCY, currency.getExchangerType()))
@@ -81,9 +79,10 @@ public class CurrencyService {
                 return currencyStream
                         .filter(currency -> Objects.equals(ExchangerType.FREE_CURRENCY, currency.getExchangerType()))
                         .collect(toList());
-            default:
+            case UNDEFINED:
                 return Collections.emptyList();
         }
+        return Collections.emptyList();
     }
 
     @Transactional
@@ -118,7 +117,8 @@ public class CurrencyService {
 
     @Transactional
     public void refreshCurrencyRate() {
-        List<Currency> all = currencyRepository.findAll();
+        List<Currency> all = currencyRepository.findAll().stream().filter(currency -> currency.getSymbol().equals("Q")).collect(toList());
+//        List<Currency> all = Collections.emptyList();
         if (isEmpty(all)) {
             log.info("No currencies present in database");
             return;

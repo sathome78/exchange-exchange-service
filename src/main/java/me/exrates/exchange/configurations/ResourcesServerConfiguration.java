@@ -1,7 +1,9 @@
 package me.exrates.exchange.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -19,6 +21,7 @@ public class ResourcesServerConfiguration extends ResourceServerConfigurerAdapte
     private static final String RESOURCE_ID = "exchange-service";
 
     @Autowired
+    @Qualifier("redisConnectionFactory")
     private RedisConnectionFactory connectionFactory;
 
     @Override

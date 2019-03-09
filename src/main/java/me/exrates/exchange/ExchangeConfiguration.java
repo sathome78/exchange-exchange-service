@@ -7,7 +7,6 @@ import me.exrates.exchange.configurations.ResourcesServerConfiguration;
 import me.exrates.exchange.configurations.SwaggerConfiguration;
 import me.exrates.exchange.configurations.WebSecurityConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +19,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableJpaRepositories(basePackages = {"me.exrates.exchange.repositories"})
-@EnableFeignClients
 @EnableDiscoveryClient
 @ComponentScan
 @Import({
@@ -36,8 +34,6 @@ public class ExchangeConfiguration {
     public ObjectMapper mapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
-//        mapper.configure(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT, true);
-//        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return mapper;
     }
 

@@ -19,7 +19,6 @@ public class ScheduledUpdateCurrencyRate {
         this.currencyService = currencyService;
     }
 
-    //todo: check logs
     @Scheduled(cron = "${scheduled.update.currency}")
     public void updateCurrencyRate() {
         currencyService.refreshCurrencyRate();
