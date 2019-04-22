@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
@@ -110,6 +110,7 @@ exchangers:
   freecurrency:
     api-url:
       convert: https://free.currencyconverterapi.com/api/v6/convert
+    api-key: '1901caa3834ee12ef3a3'
   worldcoinindex:
     api-url:
       ticker: https://www.worldcoinindex.com/apiservice/ticker

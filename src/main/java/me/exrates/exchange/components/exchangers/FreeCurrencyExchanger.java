@@ -37,12 +37,15 @@ import static java.util.Objects.nonNull;
 public class FreeCurrencyExchanger implements Exchanger {
 
     private String apiUrlConvert;
+    private String apiKey;
 
     private final RestTemplate restTemplate;
 
     @Autowired
-    public FreeCurrencyExchanger(@Value("${exchangers.freecurrency.api-url.convert}") String apiUrlConvert) {
+    public FreeCurrencyExchanger(@Value("${exchangers.freecurrency.api-url.convert}") String apiUrlConvert,
+                                 @Value("${exchangers.freecurrency.api-key}") String apiKey) {
         this.apiUrlConvert = apiUrlConvert;
+        this.apiKey = apiKey;
         this.restTemplate = new RestTemplate();
     }
 
@@ -83,6 +86,7 @@ public class FreeCurrencyExchanger implements Exchanger {
         MultiValueMap<String, String> requestParameters = new LinkedMultiValueMap<>();
         requestParameters.add("compact", "y");
         requestParameters.add("q", String.format("%s_BTC,%s_USD", currencySymbol, currencySymbol));
+        requestParameters.add("apiKey", apiKey);
 
         UriComponents builder = UriComponentsBuilder
                 .fromHttpUrl(apiUrlConvert)
