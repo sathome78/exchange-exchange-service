@@ -8,7 +8,6 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.components.Exchanger;
-import me.exrates.exchange.converters.LocalDateTimeToMillisecondsConverter;
 import me.exrates.exchange.exceptions.ExchangerException;
 import me.exrates.exchange.models.dto.CurrencyDto;
 import me.exrates.exchange.models.enums.BaseCurrency;
@@ -30,11 +29,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
@@ -147,7 +146,17 @@ public class ExratesExchanger implements Exchanger {
     private Map<Long, Pair<BaseCurrency, Double>> getHistoryDataByBaseCurrencies(String currencySymbol) {
         return Stream.of(BaseCurrency.values())
                 .map(value -> getHistoryDataByBaseCurrency(currencySymbol, value))
-                .collect(toMap(Pair::getKey, Pair::getValue));
+                .filter(Objects::nonNull)
+                .collect(toMap(
+                        Pair::getKey,
+                        Pair::getValue,
+                        (oldValue, newValue) -> {
+                            if (oldValue.getValue() != 0) {
+                                return oldValue;
+                            } else {
+                                return newValue;
+                            }
+                        }));
     }
 
     private Pair<Long, Pair<BaseCurrency, Double>> getHistoryDataByBaseCurrency(String currencySymbol, BaseCurrency baseCurrency) {
@@ -164,8 +173,6 @@ public class ExratesExchanger implements Exchanger {
                 .queryParams(requestParameters)
                 .build();
 
-        LocalDateTime dateBefore = LocalDateTime.now().minusMonths(period);
-
         ResponseEntity<TradeHistoryData> responseEntity;
         try {
             responseEntity = restTemplate.getForEntity(builder.toUriString(), TradeHistoryData.class);
@@ -174,11 +181,11 @@ public class ExratesExchanger implements Exchanger {
             }
         } catch (Exception ex) {
             log.warn("Error {}-{}-{}: {}", getExchangerType(), baseCurrency.name(), currencySymbol, ex.getMessage());
-            return Pair.of(LocalDateTimeToMillisecondsConverter.convert(dateBefore), Pair.of(baseCurrency, 0d));
+            return null;
         }
         TradeHistoryData historyData = responseEntity.getBody();
         if (isNull(historyData) || isNull(historyData.body) || historyData.body.isEmpty()) {
-            return Pair.of(LocalDateTimeToMillisecondsConverter.convert(dateBefore), Pair.of(baseCurrency, 0d));
+            return null;
         }
         Body body = historyData.body.get(0);
 

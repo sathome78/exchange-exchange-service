@@ -125,11 +125,9 @@ public class CurrencyService {
         }
         Map<ExchangerType, List<Currency>> groupedByType = all.stream().collect(Collectors.groupingBy(Currency::getExchangerType));
 
-        ExecutorService executor = Executors.newFixedThreadPool(groupedByType.size());
-
-        groupedByType.forEach((key, value) -> CompletableFuture.runAsync(() -> refreshRatesByType(key, value), executor));
-
-        ExecutorUtil.shutdownExecutor(executor);
+        groupedByType.entrySet().parallelStream().forEach(entry -> {
+            refreshRatesByType(entry.getKey(), entry.getValue());
+        });
     }
 
     private void refreshRatesByType(ExchangerType exchangerType, List<Currency> currencies) {
