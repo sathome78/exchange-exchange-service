@@ -94,10 +94,11 @@ public class CurrencyService {
                 .symbol(form.getSymbol())
                 .exchangerType(form.getExchangerType())
                 .exchangerSymbol(form.getExchangerSymbol())
-                .usdRate(form.getUsdRate())
+                .usdRate(BigDecimal.ZERO)
                 .usdRateUpdatedAt(now)
-                .btcRate(form.getBtcRate())
+                .btcRate(BigDecimal.ZERO)
                 .btcRateUpdatedAt(now)
+                .image(form.getImage())
                 .build();
         currencyRepository.save(newCurrency);
         log.info("Currency {} has been created", form.getSymbol());
@@ -111,8 +112,8 @@ public class CurrencyService {
     }
 
     @Transactional
-    public void updateCurrency(String currencySymbol, ExchangerType exchangerType, String exchangerSymbol) {
-        currencyRepository.updateCurrency(currencySymbol, exchangerType, exchangerSymbol);
+    public void updateCurrency(String currencySymbol, ExchangerType exchangerType, String exchangerSymbol, String image) {
+        currencyRepository.updateCurrency(currencySymbol, exchangerType, exchangerSymbol, image);
         log.info("Currency {} exchanger type has been updated: {}", currencySymbol, exchangerType);
     }
 

@@ -49,4 +49,7 @@ public class Currency {
 
     @Column(name = "btc_rate_updated_at")
     private LocalDateTime btcRateUpdatedAt;
+
+    @Column(name = "image")
+    private String image;
 }

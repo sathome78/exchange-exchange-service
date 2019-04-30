@@ -65,8 +65,6 @@ public class ExchangeApiTest {
                 .symbol(TEST_COIN)
                 .exchangerType(ExchangerType.EXRATES)
                 .exchangerSymbol(TEST_COIN + ExchangerType.EXRATES.name())
-                .btcRate(BigDecimal.ONE)
-                .usdRate(BigDecimal.TEN)
                 .build();
         CurrencyDto newCurrency = exchangeApi.createCurrency(currency);
 

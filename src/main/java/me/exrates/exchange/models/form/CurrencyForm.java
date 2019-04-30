@@ -20,6 +20,5 @@ public class CurrencyForm {
     private String symbol;
     private ExchangerType exchangerType;
     private String exchangerSymbol;
-    private BigDecimal usdRate;
-    private BigDecimal btcRate;
+    private String image;
 }
