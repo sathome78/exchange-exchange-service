@@ -36,7 +36,6 @@ import static java.util.stream.Collectors.toMap;
 import static org.springframework.http.MediaType.APPLICATION_OCTET_STREAM_VALUE;
 
 @Controller
-@CrossOrigin(value = {"http://localhost:8081", "http://172.50.10.10:8080/"})
 @RequestMapping("/currency")
 public class CurrencyController {
 

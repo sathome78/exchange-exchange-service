@@ -61,13 +61,12 @@ spring:
     enabled: false
   thymeleaf:
     enabled: true
-    suffix: '.html'
     view-names: 'index'
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8080/eureka}
+      defaultZone: ${EUREKA_URI:http://localhost:8082/eureka}
     should-unregister-on-shutdown: true
     registry-fetch-interval-seconds: 5
   instance:
