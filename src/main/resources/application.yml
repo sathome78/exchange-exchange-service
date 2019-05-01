@@ -59,6 +59,10 @@ spring:
     baseline-on-migrate: true
   #    clean-on-validation-error: true
     enabled: false
+  thymeleaf:
+    enabled: true
+    suffix: '.html'
+    view-names: 'index'
 
 eureka:
   client:

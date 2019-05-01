@@ -54,6 +54,10 @@ spring:
     default-property-inclusion: 'non_null'
   flyway:
     enabled: false
+  thymeleaf:
+    enabled: true
+    suffix: '.html'
+    view-names: 'index'
 
 logging:
   level:
