@@ -10,12 +10,15 @@ import lombok.NoArgsConstructor;
 import me.exrates.exchange.converters.LocalDateTimeDeserializer;
 import me.exrates.exchange.converters.LocalDateTimeSerializer;
 import me.exrates.exchange.models.enums.ExchangerType;
+import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.Objects.nonNull;
 
 @Data
 @Builder(builderClassName = "Builder")
@@ -54,10 +57,10 @@ public class CurrencyDto {
                 String.valueOf(this.symbol),
                 String.valueOf(this.exchangerType),
                 String.valueOf(this.exchangerSymbol),
-                String.valueOf(this.usdRate.toPlainString()),
-                String.valueOf(this.usdRateUpdatedAt.format(FORMATTER)),
-                String.valueOf(this.btcRate.toPlainString()),
-                String.valueOf(this.btcRateUpdatedAt.format(FORMATTER))
+                String.valueOf(nonNull(this.usdRate) ? this.usdRate.toPlainString() : BigDecimal.ZERO.toPlainString()),
+                String.valueOf(nonNull(this.usdRateUpdatedAt) ? this.usdRateUpdatedAt.format(FORMATTER) : StringUtils.EMPTY),
+                String.valueOf(nonNull(this.btcRate) ? this.btcRate.toPlainString() : BigDecimal.ZERO.toPlainString()),
+                String.valueOf(nonNull(this.btcRateUpdatedAt) ? this.btcRateUpdatedAt.format(FORMATTER) : StringUtils.EMPTY)
         ).collect(Collectors.joining(";", "", "\r\n"));
     }
 }
