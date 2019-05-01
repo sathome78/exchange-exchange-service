@@ -60,7 +60,7 @@ spring:
   #    clean-on-validation-error: true
     enabled: false
   thymeleaf:
-    view-names: index, error
+    view-names: 'index'
 
 eureka:
   client:

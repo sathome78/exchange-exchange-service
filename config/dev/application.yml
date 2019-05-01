@@ -50,7 +50,7 @@ spring:
   flyway:
     enabled: false
   thymeleaf:
-    view-names: index, error
+    view-names: 'index'
 
 eureka:
   client:
