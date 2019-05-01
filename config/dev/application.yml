@@ -51,6 +51,8 @@ spring:
     enabled: false
   thymeleaf:
     view-names: 'index'
+    enabled: true
+    suffix: '.html'
 
 eureka:
   client:
