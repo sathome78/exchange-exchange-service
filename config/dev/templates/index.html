@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wallet-checker</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div id="my_view">
+    <div id="main-buttons">
+        <button id="rates" type="button" class="btn btn-info btn-lg" @click.stop="getRates">Загрузить курсы</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Полная информация
+            по монетам
+        </button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Добавить новую
+            монету
+        </button>
+    </div>
+    <div id="wrapper-div">
+        <div class="card" v-for="(item, key, index) in ratesMap">
+            <div class="card__header">
+                <div class="card__icon">
+                    <img width="30" height="30" :src="item.image" alt="">
+                </div>
+                <span class="card__title">{{item.symbol}}</span>
+            </div>
+            <div class="card__row card__row--mb12">
+                <div class="card__row-title txt-red">Ресурс:</div>
+                <span class="card__row-value">{{item.exchanger_type}}</span>
+            </div>
+            <div class="card__row card__row--mb12">
+                <div class="card__row-title txt-green">Текущий курс (USD):</div>
+                <span class="card__row-value">{{item.usd_rate}}</span>
+            </div>
+            <div class="card__row card__row--mb12">
+                <div class="card__row-title txt-green">Текущий курс (BTC):</div>
+                <span class="card__row-value">{{item.btc_rate}}</span>
+            </div>
+            <div class="card__button-wrap">
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1"
+                        v-on:click="getRate(item.symbol)">Обновить {{item.symbol}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Полная информация по монетам</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Таблица</p>
+                    <table>
+                        <tr>
+                            <th>Тикер монеты</th>
+                            <th>Ресурс</th>
+                            <th>Тикер монеты (ресурс)</th>
+                            <th>Текущий курс (USD)</th>
+                            <th>Последнее обновление (USD)</th>
+                            <th>Текущий курс (BTC)</th>
+                            <th>Последнее обновление (BTC)</th>
+                        </tr>
+                        <tr v-for="(item, key, index) in ratesMap">
+                            <th>{{item.symbol}}</th>
+                            <th>{{item.exchanger_type}}</th>
+                            <th>{{item.exchanger_symbol}}</th>
+                            <th>{{item.usd_rate}}</th>
+                            <th>{{item.usd_rate_updated_at}}</th>
+                            <th>{{item.btc_rate}}</th>
+                            <th>{{item.btc_rate_updated_at}}</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" @click.stop="loadCSV">Выгрузить отчет по курсам в
+                        формате CSV
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Изменение информации по монете {{currencyRate.symbol}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="card__button-wrap">
+                        <div class="card__row card__row--mb12">
+                            <div class="card__row-title txt-green">Тикер монеты:</div>
+                            <input class="card__row-value input" type="text" name="" readonly="readonly"
+                                   v-model="currencyRate.symbol">
+                        </div>
+                        <div class="card__row card__row--mb12">
+                            <div class="card__row-title txt-green">Ресурс:</div>
+                            <select class="card__row-value input" type="text" v-model="currencyRate.exchanger_type">
+                                <option>COIN_MARKET_CUP</option>
+                                <option>WORLD_COIN_INDEX</option>
+                                <option>FREE_CURRENCY</option>
+                                <option>COINLIB</option>
+                                <option>EXRATES</option>
+                            </select>
+                        </div>
+                        <div class="card__row card__row--mb12">
+                            <div class="card__row-title txt-green">Тикер монеты (ресурс):</div>
+                            <input class="card__row-value input" type="text" name=""
+                                   v-model="currencyRate.exchanger_symbol">
+                        </div>
+                        <div class="card__row card__row--mb12">
+                            <div class="card__row-title txt-green">Путь к изображению монеты:</div>
+                            <input class="card__row-value input" type="text" name="" v-model="currencyRate.image">
+                        </div>
+                        <button v-on:click="updateCurrency"
+                                class="btn" data-dismiss="modal">Изменить
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Добавление новой монеты</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="card__button-wrap">
+                        <div class="card__row card__row--mb12">
+                            <div class="card__row-title txt-green">Тикер монеты:</div>
+                            <input id="add_symbol" class="card__row-value input" type="text" name="">
+                        </div>
+                        <div class="card__row card__row--mb12">
+                            <div class="card__row-title txt-green">Ресурс:</div>
+                            <select id="add_exchanger_type" class="card__row-value input" type="text">
+                                <option selected>COIN_MARKET_CUP</option>
+                                <option>WORLD_COIN_INDEX</option>
+                                <option>FREE_CURRENCY</option>
+                                <option>COINLIB</option>
+                                <option>EXRATES</option>
+                            </select>
+                        </div>
+                        <div class="card__row card__row--mb12">
+                            <div class="card__row-title txt-green">Тикер монеты (ресурс):</div>
+                            <input id="add_exchanger_symbol" class="card__row-value input" type="text" name="">
+                        </div>
+                        <div class="card__row card__row--mb12">
+                            <div class="card__row-title txt-green">Путь к изображению монеты:</div>
+                            <input id="add_image" class="card__row-value input" type="text" name="">
+                        </div>
+                        <button v-on:click="addCurrency"
+                                class="btn" data-dismiss="modal">Добавить
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.2.1/vue-resource.min.js"></script>
+
+<script>
+    new Vue({
+        el: '#my_view',
+        data: {
+            host: document.location.host,
+            currencyRate: '',
+            ratesMap: ''
+        },
+        methods: {
+            getRates: function () {
+                this.$http.get('http://' + this.host + '/currency/rates/all').then(function ({data}) {
+                    this.ratesMap = data;
+                    this.$forceUpdate();
+                })
+            },
+            getRate: function (currencyName) {
+                this.$http.get('http://' + this.host + '/currency/rates/' + currencyName).then(function ({data}) {
+                    this.currencyRate = data;
+                    this.$forceUpdate();
+                });
+            },
+            updateCurrency: function () {
+                var currencyName = this.currencyRate.symbol;
+                var exchangerType = this.currencyRate.exchanger_type;
+                var exchangerCurrencyName = this.currencyRate.exchanger_symbol;
+                var imagePath = this.currencyRate.image;
+
+                this.$http.put('http://' + this.host + '/currency/update?currency_symbol=' + currencyName +
+                    '&exchanger_type=' + exchangerType +
+                    '&exchanger_symbol=' + exchangerCurrencyName +
+                    '&image=' + imagePath);
+
+                var ratesButton = document.getElementById("rates");
+                ratesButton.click();
+                ratesButton.click();
+            },
+            addCurrency: function () {
+                var currencyName = document.getElementById('add_symbol').value;
+                var exchangerType = document.getElementById('add_exchanger_type').value;
+                var exchangerCurrencyName = document.getElementById('add_exchanger_symbol').value;
+                var imagePath = document.getElementById('add_image').value;
+
+                this.$http.post('http://' + this.host + '/currency/create',
+                    {
+                        symbol: currencyName,
+                        exchangerType: exchangerType,
+                        exchangerSymbol: exchangerCurrencyName,
+                        image: imagePath
+                    });
+
+                var ratesButton = document.getElementById("rates");
+                ratesButton.click();
+                ratesButton.click();
+            },
+            loadCSV: function () {
+                this.$http.get('http://' + this.host + '/currency/load').then(function ({data}) {
+                    saveToDisk(data, "rates_report.csv")
+                })
+            }
+        }
+    });
+
+    function saveToDisk(data, filename) {
+        var link = document.createElement('a');
+        link.href = "data:text/plain;charset=utf-8,%EF%BB%BF" + encodeURIComponent(data);
+        link.download = filename;
+        var e = document.createEvent('MouseEvents');
+        e.initEvent('click', true, true);
+        link.dispatchEvent(e);
+    }
+</script>
+
+<style media="screen">
+    * {
+        box-sizing: border-box;
+    }
+
+    .card {
+        font-family: Roboto;
+        background-color: #fff;
+        width: 22%;
+        max-width: 224px;
+        padding: 12px;
+        border-radius: 4px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .card__header {
+        margin-bottom: 16px;
+    }
+
+    .card__icon {
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        border-radius: 50%;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+
+    .card__title {
+        text-transform: uppercase;
+        font-size: 18px;
+        line-height: 21px;
+        color: #191A39;
+        vertical-align: middle;
+        font-weight: 600;
+    }
+
+    .card__row {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .card__row--mb12 {
+        margin-bottom: 12px;
+    }
+
+    .card__row--mb16 {
+        margin-bottom: 16px;
+    }
+
+    .card__title {
+        margin-bottom: 4px;
+    }
+
+    .card__row-value {
+        font-weight: 600;
+    }
+
+    .card__button-wrap {
+        margin-bottom: 8px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 4px 12px;
+        border: 1px solid #237BEF;
+        border-radius: 4px;
+        /*background-color: #fff;*/
+        outline: none;
+        cursor: pointer;
+    }
+
+    .input {
+        width: 100%;
+        display: block;
+        padding: 4px 12px;
+        border: 1px solid #A0A0A0;
+        border-right: 4px;
+        outline: none;
+    }
+
+    .input:focus {
+        border-color: #237BEF
+
+    }
+
+    .txt-blue {
+        color: #237BEF;
+    }
+
+    .txt-green {
+        color: #00B43D;
+    }
+
+    .txt-red {
+        color: #EB5757;
+    }
+
+    #wrapper-div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    @media screen and (max-width: 600px) {
+        .card {
+            width: 60%;
+        }
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    .modal-dialog {
+        width: 1200px;
+    }
+
+    #main-buttons {
+        display: flex;
+        margin: 10px auto 20px;
+        width: 1000px;
+    }
+</style>
+</html>
