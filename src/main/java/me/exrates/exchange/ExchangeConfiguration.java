@@ -30,7 +30,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 })
 public class ExchangeConfiguration {
 
-    public static final String JSON_MAPPER = "jsonMapper";
+    private static final String JSON_MAPPER = "jsonMapper";
 
     @Bean(JSON_MAPPER)
     public ObjectMapper mapper() {

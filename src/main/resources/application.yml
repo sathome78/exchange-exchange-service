@@ -60,13 +60,12 @@ spring:
   #    clean-on-validation-error: true
     enabled: false
   thymeleaf:
-    enabled: true
-    view-names: 'index'
+    view-names: index, error
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8082/eureka}
+      defaultZone: ${EUREKA_URI:http://localhost:8080/eureka}
     should-unregister-on-shutdown: true
     registry-fetch-interval-seconds: 5
   instance:
