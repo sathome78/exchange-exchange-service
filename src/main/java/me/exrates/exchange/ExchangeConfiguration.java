@@ -19,12 +19,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Slf4j
 @Configuration
-@EnableAutoConfiguration
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableJpaRepositories(basePackages = {"me.exrates.exchange.repositories"})
 @EnableFeignClients
 @EnableDiscoveryClient
-@ComponentScan
 @Import({
         CacheConfiguration.class,
         ResourcesServerConfiguration.class,

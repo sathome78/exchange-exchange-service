@@ -53,8 +53,6 @@ spring:
   flyway:
     enabled: false
   thymeleaf:
-    enabled: true
-    suffix: '.html'
     view-names: 'index'
 
 eureka:

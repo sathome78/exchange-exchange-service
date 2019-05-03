@@ -1,7 +1,6 @@
 package me.exrates.exchange.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -13,7 +12,6 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 import javax.servlet.http.HttpServletResponse;
 
 @EnableResourceServer
-@Configuration
 public class ResourcesServerConfiguration extends ResourceServerConfigurerAdapter {
 
     private static final String RESOURCE_ID = "exchange-service";
