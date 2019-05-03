@@ -104,7 +104,7 @@ exchangers:
     api-key: '53f7ed6d06dc59ed'
   coinmarketcup:
     api-url:
-      ticker: https://api.coinmarketcap.com/v1/ticker/
+      all: https://coinmarketcap.com/all/views/all/
   exrates:
     api-url:
       trade-history: http://172.31.14.167:8080/openapi/v1/public/history/%s_%s

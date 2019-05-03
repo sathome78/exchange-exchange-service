@@ -126,17 +126,21 @@ public class CurrencyService {
         }
         Map<ExchangerType, List<Currency>> groupedByType = all.stream().collect(Collectors.groupingBy(Currency::getExchangerType));
 
-        groupedByType.entrySet().parallelStream().forEach(entry -> {
-            refreshRatesByType(entry.getKey(), entry.getValue());
-        });
+        ExecutorService executor = Executors.newFixedThreadPool(groupedByType.size());
+
+        groupedByType.forEach((key, value) -> CompletableFuture.runAsync(() -> refreshRatesByType(key, value), executor));
+
+        ExecutorUtil.shutdownExecutor(executor);
     }
 
     private void refreshRatesByType(ExchangerType exchangerType, List<Currency> currencies) {
         currencies.forEach(currency -> {
-            try {
-                TimeUnit.MILLISECONDS.sleep(3000);
-            } catch (InterruptedException ex) {
-                log.debug("Delay interrupted!", ex);
+            if (currency.getExchangerType() != ExchangerType.COIN_MARKET_CUP) {
+                try {
+                    TimeUnit.MILLISECONDS.sleep(2000);
+                } catch (InterruptedException ex) {
+                    log.debug("Delay interrupted!", ex);
+                }
             }
             refreshRateByCurrency(exchangerType, currency);
         });
