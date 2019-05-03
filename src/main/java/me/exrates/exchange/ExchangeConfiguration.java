@@ -6,11 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.configurations.CacheConfiguration;
 import me.exrates.exchange.configurations.ResourcesServerConfiguration;
 import me.exrates.exchange.configurations.SwaggerConfiguration;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import me.exrates.exchange.configurations.WebSecurityConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
@@ -26,7 +25,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Import({
         CacheConfiguration.class,
         ResourcesServerConfiguration.class,
-        SwaggerConfiguration.class
+        SwaggerConfiguration.class,
+        WebSecurityConfiguration.class
 })
 public class ExchangeConfiguration {
 
