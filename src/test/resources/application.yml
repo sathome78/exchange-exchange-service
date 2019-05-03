@@ -54,8 +54,6 @@ spring:
     default-property-inclusion: 'non_null'
   flyway:
     enabled: false
-  thymeleaf:
-    view-names: 'home'
 
 logging:
   level:
