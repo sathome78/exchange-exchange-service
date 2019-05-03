@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import me.exrates.exchange.configurations.CacheConfiguration;
 import me.exrates.exchange.configurations.ResourcesServerConfiguration;
 import me.exrates.exchange.configurations.SwaggerConfiguration;
-import me.exrates.exchange.configurations.WebConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
@@ -25,7 +24,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableDiscoveryClient
 @ComponentScan
 @Import({
-        WebConfiguration.class,
         CacheConfiguration.class,
         ResourcesServerConfiguration.class,
         SwaggerConfiguration.class
