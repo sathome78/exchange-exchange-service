@@ -5,11 +5,11 @@ ARG ENVIRONMENT
 
 RUN mkdir -p exchange-service
 COPY ./target/exchange.jar ${APP_PATH}/exchange.jar
-COPY ./target/config/${ENVIRONMENT}/application.yml ${APP_PATH}/application.yml
+COPY ./target/config/dev/application.yml /exchange/application.yml
 
 ARG CONFIG_FILE_PATH="-Dspring.config.location=dev/application.yml"
 
-WORKDIR ${APP_PATH}
+WORKDIR /exchange
 
 EXPOSE 8080
 CMD java -jar exchange.jar $CONFIG_FILE_PATH
