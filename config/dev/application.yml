@@ -95,7 +95,7 @@ exchangers:
       all: https://coinmarketcap.com/all/views/all/
   exrates:
     api-url:
-      trade-history: http://172.31.14.167:8080/openapi/v1/public/history/%s_%s
+      trade-history: http://172.50.50.7:8080/openapi/v1/public/history/%s_%s
     period: 6 #month
   freecurrency:
     api-url:
