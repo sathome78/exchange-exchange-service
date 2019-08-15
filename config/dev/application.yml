@@ -7,7 +7,7 @@ spring:
     active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://exdbdev.cedlveyttji9.us-east-2.rds.amazonaws.com:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://172.50.50.7:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
     username: exdevdb
     password: KQmK82dd
     hikari:
