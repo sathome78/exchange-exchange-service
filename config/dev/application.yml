@@ -39,7 +39,7 @@ spring:
       format_sql: true
     open-in-view: false
   redis:
-    host: 172.10.10.236
+    host: 172.50.50.7
     port: 6379
   jackson:
     serialization:
@@ -50,18 +50,18 @@ spring:
   flyway:
     enabled: false
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URI:http://172.50.50.245:8090/eureka}
-    should-unregister-on-shutdown: true
-    registry-fetch-interval-seconds: 5
-  instance:
-    preferIpAddress: true
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-    lease-renewal-interval-in-seconds: 10
-    metadata-map:
-      startup: ${random.int}
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: ${EUREKA_URI:http://172.50.50.245:8090/eureka}
+#    should-unregister-on-shutdown: true
+#    registry-fetch-interval-seconds: 5
+#  instance:
+#    preferIpAddress: true
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+#    lease-renewal-interval-in-seconds: 10
+#    metadata-map:
+#      startup: ${random.int}
 
 management:
   endpoints:
