@@ -11,7 +11,7 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 
 import javax.servlet.http.HttpServletResponse;
 
-@EnableResourceServer
+//@EnableResourceServer
 public class ResourcesServerConfiguration extends ResourceServerConfigurerAdapter {
 
     private static final String RESOURCE_ID = "exchange-service";

@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static java.util.Objects.nonNull;
 import static me.exrates.exchange.configurations.CacheConfiguration.CACHE_COINMARKETCUP_ALL;
@@ -64,27 +65,31 @@ public class CoinMarketCupExchanger implements Exchanger {
             log.info("Data from Coinmarketcup server is not available");
             return null;
         }
-        int i = data.indexOf(String.format("<a href=\"/currencies/%s/#markets\" class=\"price\" ", currencySymbol));
+        int i = data.indexOf("<a href=\"/currencies/bitcoin/markets/\" class=\"cmc-link\">$");
         if (i == -1) {
             log.info(String.format("Rates for %s is not available", currencySymbol));
             return null;
         }
-        String firstSubstring = data.substring(i + String.format("<a href=\"/currencies/%s/#markets\" class=\"price\" ", currencySymbol).length());
-        String secondSubstring = firstSubstring.substring(0, firstSubstring.indexOf(">"));
+        String firstSubstring = data.substring(i + "<a href=\"/currencies/bitcoin/markets/\" class=\"cmc-link\">$".length());
+        String btcUsdRateSubstring = firstSubstring.substring(0, firstSubstring.indexOf("<")).replaceAll(",", "");
 
-        i = secondSubstring.indexOf("data-usd=\"");
-        String usdBalanceSubstring = secondSubstring.substring(i + "data-usd=\"".length());
-        BigDecimal usdRate = new BigDecimal(usdBalanceSubstring.substring(0, usdBalanceSubstring.indexOf("\"")));
+        final Double btcUsdRate = Double.valueOf(btcUsdRateSubstring);
 
-        i = secondSubstring.indexOf("data-btc=\"");
-        String btcBalanceSubstring = secondSubstring.substring(i + "data-btc=\"".length());
-        BigDecimal btcRate = new BigDecimal(btcBalanceSubstring.substring(0, btcBalanceSubstring.indexOf("\"")));
+        i = data.indexOf(String.format("<a href=\"/currencies/%s/markets/\" class=\"cmc-link\">$", currencySymbol));
+        if (i == -1) {
+            log.info(String.format("Rates for %s is not available", currencySymbol));
+            return null;
+        }
+        firstSubstring = data.substring(i + String.format("<a href=\"/currencies/%s/markets/\" class=\"cmc-link\">$", currencySymbol).length());
+        String usdRateSubstring = firstSubstring.substring(0, firstSubstring.indexOf("<")).replaceAll(",", "");
+
+        final Double usdRate = Double.valueOf(usdRateSubstring);
 
         return CurrencyDto.builder()
                 .symbol(currencySymbol)
                 .exchangerType(getExchangerType())
-                .btcRate(btcRate)
-                .usdRate(usdRate)
+                .btcRate(new BigDecimal(usdRate / btcUsdRate).setScale(8, RoundingMode.HALF_UP))
+                .usdRate(new BigDecimal(usdRate).setScale(2, RoundingMode.HALF_UP))
                 .build();
     }
 
