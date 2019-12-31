@@ -9,14 +9,14 @@ spring:
   profiles:
     active: dev
   datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+#    username: root
+#    password: root
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
-    username: root
-    password: root
-    #    driver-class-name: com.mysql.jdbc.Driver
-    #    url: jdbc:mysql://exdbdev.cedlveyttji9.us-east-2.rds.amazonaws.com:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
-    #    username: exdevdb
-    #    password: KQmK82dd
+    url: jdbc:mysql://exdbdev.cedlveyttji9.us-east-2.rds.amazonaws.com:3306/exchange?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: exdevdb
+    password: KQmK82dd
     hikari:
       connection-timeout: 10000
       idle-timeout: 180000
@@ -82,6 +82,13 @@ spring:
 #    health:
 #      show-details: ALWAYS
 
+phantom-js:
+  driver:
+    version: 2.1.1
+chrome:
+  driver:
+    version: 76.0.3809.126
+
 logging:
   level:
     org:
@@ -101,8 +108,7 @@ exchangers:
       coin: https://coinlib.io/api/v1/coin
     api-key: '53f7ed6d06dc59ed'
   coinmarketcup:
-    api-url:
-      all: https://coinmarketcap.com/all/views/all/
+    api-url: https://coinmarketcap.com/
   exrates:
     api-url:
       trade-history: http://172.31.14.167:8080/openapi/v1/public/history/%s_%s

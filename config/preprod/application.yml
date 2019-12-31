@@ -75,6 +75,13 @@ spring:
 #    health:
 #      show-details: ALWAYS
 
+phantom-js:
+  driver:
+    version: 2.1.1
+chrome:
+  driver:
+    version: 76.0.3809.126
+
 logging:
   level:
     org:
@@ -94,8 +101,7 @@ exchangers:
       coin: https://coinlib.io/api/v1/coin
     api-key: '53f7ed6d06dc59ed'
   coinmarketcup:
-    api-url:
-      all: https://coinmarketcap.com/all/views/all/
+    api-url: https://coinmarketcap.com/
   exrates:
     api-url:
       trade-history: http://172.31.14.167:8080/openapi/v1/public/history/%s_%s
